@@ -1,0 +1,3323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bott Monument — Crafted in Stone. Built for Eternity.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@200;300;400&display=swap"
+    rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --void: #0A0A0A;
+      --deep: #111008;
+      --mahogany: #1E1208;
+      --gold: #C9A050;
+      --gold-dim: #8A6B2E;
+      --gold-glow: rgba(201, 160, 80, 0.12);
+      --bone: #F0EDE8;
+      --stone: #A89880;
+      --page2-bg: #ffffff;
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-utility: 'Montserrat', sans-serif;
+    }
+
+
+    /* ---------- LUXURY LIGHT MODE ---------- */
+    body.light-theme {
+      --void: #ffffff;
+      --deep: #ffffff;
+      --mahogany: #f7f4ef;
+      --gold: #B8872C;
+      --gold-dim: #7A5A1E;
+      --gold-glow: rgba(184, 135, 44, 0.14);
+      --bone: #111111;
+      --stone: #2C2C2C;
+      --page2-bg: #ffffff;
+
+      background: #ffffff;
+      color: #111111;
+    }
+
+    body,
+    nav,
+    #hero,
+    #about,
+    #philosophy,
+    #work,
+    #process,
+    #contact,
+    footer,
+    .hero-bg,
+    .about-frame,
+    .about-accent-box,
+    .work-item,
+    .work-item-inner,
+    .marquee-strip {
+      transition:
+        background 0.85s ease,
+        color 0.85s ease,
+        border-color 0.85s ease,
+        box-shadow 0.85s ease,
+        filter 0.85s ease;
+    }
+
+    body.light-theme .hero-title,
+    body.light-theme .section-title,
+    body.light-theme .work-item-title,
+    body.light-theme .process-title,
+    body.light-theme .philosophy-quote,
+    body.light-theme .footer-logo,
+    body.light-theme .nav-logo {
+      color: #111111;
+      font-weight: 700;
+    }
+
+    body.light-theme .hero-title em,
+    body.light-theme .section-title em,
+    body.light-theme .philosophy-quote span,
+    body.light-theme .nav-logo span,
+    body.light-theme .footer-logo span {
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    body.light-theme .about-body,
+    body.light-theme .hero-sub,
+    body.light-theme .contact-tagline,
+    body.light-theme .process-desc,
+    body.light-theme .ci-value,
+    body.light-theme .footer-copy,
+    body.light-theme .footer-tagline,
+    body.light-theme .philosophy-attr,
+    body.light-theme .view-all {
+      color: #2c2c2c;
+      font-weight: 500;
+    }
+
+    body.light-theme .section-eyebrow,
+    body.light-theme .hero-eyebrow,
+    body.light-theme .ci-label,
+    body.light-theme .work-item-tag,
+    body.light-theme .hero-cta {
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    body.light-theme nav {
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+    }
+
+    body.light-theme nav.scrolled {
+      background: rgba(255, 255, 255, 0.96);
+    }
+
+    body.light-theme .nav-links a {
+      color: #111111;
+      font-weight: 700;
+    }
+
+    body.light-theme .hero-bg {
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.58), rgba(255, 255, 255, 0.9)),
+        radial-gradient(ellipse at 70% 40%, rgba(184, 135, 44, 0.16) 0%, transparent 60%);
+    }
+
+    body.light-theme .hero-bg::before {
+      opacity: 0.18;
+    }
+
+    body.light-theme .marquee-strip,
+    body.light-theme footer {
+      background: #f7f4ef;
+    }
+
+    body.light-theme #process {
+      background: #fbfaf8;
+    }
+
+    body.light-theme .about-frame,
+    body.light-theme .work-item-inner {
+      background: linear-gradient(135deg, #ffffff 0%, #f7f4ef 100%);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      box-shadow: 0 22px 70px rgba(0, 0, 0, 0.08);
+    }
+
+    body.light-theme .about-accent-box,
+    body.light-theme .work-item {
+      background: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      box-shadow: 0 18px 55px rgba(0, 0, 0, 0.08);
+    }
+
+    body.light-theme .work-overlay {
+      background: linear-gradient(to top, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.22) 65%);
+    }
+
+    body.light-theme .work-stone-icon {
+      color: rgba(184, 135, 44, 0.28);
+    }
+
+    body.light-theme input,
+    body.light-theme textarea {
+      color: #111111;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.35);
+      font-weight: 600;
+    }
+
+    body.light-theme label {
+      color: #555555;
+      font-weight: 700;
+    }
+
+    body.light-theme .btn-gold {
+      color: #111111;
+      border-color: rgba(17, 17, 17, 0.35);
+      font-weight: 700;
+    }
+
+    body.light-theme .btn-gold:hover {
+      background: #111111;
+      color: #ffffff;
+      border-color: #111111;
+    }
+
+    body.light-theme .btn-gold:hover::after {
+      background: #ffffff;
+    }
+
+    /* ---------- THEME TOGGLE BUTTON ---------- */
+    .theme-toggle {
+      position: fixed;
+      top: 1.45rem;
+      right: 1.8rem;
+      z-index: 200;
+      border: 1px solid rgba(201, 160, 80, 0.35);
+      background: rgba(10, 10, 10, 0.62);
+      color: var(--bone);
+      backdrop-filter: blur(16px);
+      border-radius: 999px;
+      padding: 0.72rem 1rem;
+      font-family: var(--font-utility);
+      font-size: 0.58rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.35s ease;
+    }
+
+    .theme-toggle:hover {
+      transform: translateY(-2px);
+      border-color: var(--gold);
+      box-shadow: 0 0 35px rgba(201, 160, 80, 0.18);
+    }
+
+    body.light-theme .theme-toggle {
+      background: #111111;
+      color: #ffffff;
+      border-color: #111111;
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.14);
+    }
+
+    /* Luxury white flash when switching theme */
+    .theme-flash {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9997;
+      background:
+        radial-gradient(circle at 50% 40%, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.48) 35%, transparent 70%);
+      opacity: 0;
+      transform: scale(0.86);
+    }
+
+    .theme-flash.active {
+      animation: luxuryFlash 0.75s ease forwards;
+    }
+
+    @keyframes luxuryFlash {
+      0% {
+        opacity: 0;
+        transform: scale(0.82);
+      }
+
+      18% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      100% {
+        opacity: 0;
+        transform: scale(1.18);
+      }
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--void);
+      color: var(--bone);
+      font-family: var(--font-display);
+      overflow-x: hidden;
+      cursor: default;
+      transition: background 0.85s ease, color 0.85s ease;
+    }
+
+    /* ── CUSTOM CURSOR ── */
+    .cursor {
+      width: 6px;
+      height: 6px;
+      background: var(--gold);
+      border-radius: 50%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: transform 0.1s ease;
+    }
+
+    .cursor-ring {
+      width: 32px;
+      height: 32px;
+      border: 1px solid rgba(201, 160, 80, 0.4);
+      border-radius: 50%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 9998;
+      transform: translate(-50%, -50%);
+      transition: all 0.18s ease;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 2rem 4rem;
+      background: linear-gradient(to bottom, rgba(10, 10, 10, 0.95) 0%, transparent 100%);
+      transition: padding 0.4s ease;
+    }
+    .nav-links{
+      display:flex;
+       gap:3rem;
+      list-style:none;
+       margin-left:auto;
+       margin-right:110px;   /* Reserve space for toggle */
+    }
+
+    nav.scrolled {
+      padding: 1.2rem 4rem;
+      background: rgba(10, 10, 10, 0.97);
+    }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: 1.1rem;
+      letter-spacing: 0.35em;
+      color: var(--bone);
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .nav-logo span {
+      color: var(--gold);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 3rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--font-utility);
+      font-weight: 500;
+      font-size: 0.75rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--stone);
+      text-decoration: none;
+      transition: color 0.3s;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    .nav-links a:hover::after {
+      transform: scaleX(1);
+    }
+
+    /* ── HERO ── */
+    #hero {
+      position: relative;
+      height: 100vh;
+      min-height: 700px;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        linear-gradient(
+          160deg,
+          rgba(10,10,10,0.25) 0%,
+          rgba(10,10,10,0.20) 40%,
+          rgba(10,10,10,0.75) 100%
+        );
+    }
+
+    /* .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(160deg, rgba(30, 18, 8, 0.6) 0%, rgba(10, 10, 10, 0.85) 60%, rgba(10, 10, 10, 0.98) 100%),
+        radial-gradient(ellipse at 70% 40%, rgba(201, 160, 80, 0.06) 0%, transparent 60%);
+    } */
+
+    /* Stone texture overlay */
+    .hero-bg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+      opacity: 0.05;
+    }
+
+    /* Chisel line — the signature element */
+    .chisel-line {
+      position: absolute;
+      top: 42%;
+      left: 0;
+      height: 1px;
+      width: 0;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+      animation: chisel 2.2s cubic-bezier(0.25, 0, 0.1, 1) 0.6s forwards;
+    }
+
+    @keyframes chisel {
+      0% {
+        width: 0;
+        opacity: 0;
+      }
+
+      10% {
+        opacity: 1;
+      }
+
+      100% {
+        width: 100%;
+        opacity: 0.35;
+      }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 4rem 7rem;
+      max-width: 900px;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--font-utility);
+      font-weight: 200;
+      font-size: 0.6rem;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.8rem;
+      opacity: 0;
+      animation: fadeUp 1s ease 1.2s forwards;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: clamp(3.5rem, 8vw, 7.5rem);
+      line-height: 1;
+      letter-spacing: -0.01em;
+      color: var(--bone);
+      margin-bottom: 2rem;
+      opacity: 0;
+      animation: fadeUp 1.2s ease 1.4s forwards;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--gold);
+      font-weight: 300;
+    }
+
+    .hero-sub {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: 1rem;
+      font-style: italic;
+      color: var(--stone);
+      letter-spacing: 0.05em;
+      max-width: 420px;
+      line-height: 1.8;
+      margin-bottom: 3rem;
+      opacity: 0;
+      animation: fadeUp 1s ease 1.7s forwards;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+      font-family: var(--font-utility);
+      font-weight: 300;
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-decoration: none;
+      opacity: 0;
+      animation: fadeUp 1s ease 2s forwards;
+      transition: gap 0.3s ease;
+    }
+
+    .hero-cta:hover {
+      gap: 1.6rem;
+    }
+
+    .hero-cta::after {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+      transition: width 0.3s ease;
+    }
+
+    .hero-cta:hover::after {
+      width: 60px;
+    }
+
+    .hero-scroll-hint {
+      position: absolute;
+      right: 4rem;
+      bottom: 3rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.6rem;
+      opacity: 0;
+      animation: fadeIn 1s ease 2.5s forwards;
+    }
+
+    .hero-scroll-hint span {
+      font-family: var(--font-utility);
+      font-size: 0.5rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--stone);
+      writing-mode: vertical-rl;
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 50px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      animation: scrollPulse 2s ease-in-out 3s infinite;
+    }
+
+    @keyframes scrollPulse {
+
+      0%,
+      100% {
+        transform: scaleY(1);
+        opacity: 0.5;
+      }
+
+      50% {
+        transform: scaleY(1.3);
+        opacity: 1;
+      }
+    }
+
+    /* ── MARQUEE ── */
+    .marquee-strip {
+      background: var(--mahogany);
+      border-top: 1px solid rgba(201, 160, 80, 0.15);
+      border-bottom: 1px solid rgba(201, 160, 80, 0.15);
+      padding: 1rem 0;
+      overflow: hidden;
+    }
+
+    .marquee-track {
+      display: flex;
+      gap: 4rem;
+      animation: marquee 20s linear infinite;
+      white-space: nowrap;
+    }
+
+    .marquee-track span {
+      font-family: var(--font-utility);
+      font-size: 0.55rem;
+      font-weight: 200;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+      flex-shrink: 0;
+    }
+
+    .marquee-track .dot {
+      color: var(--gold);
+      font-size: 0.7rem;
+    }
+
+    @keyframes marquee {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+    }
+/* ── PAGE 2: CREAM NEWSPAPER LEGACY EDITORIAL ── */
+.newspaper-bg-portrait {
+  position: absolute;
+  top: 6rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 72%;
+  max-width: 1100px;
+  opacity: .10;
+  filter: grayscale(1) contrast(1.05);
+  z-index: 1;
+}
+
+.newspaper-bg-portrait img {
+  width: 100%;
+  display: block;
+}
+
+/* .paper-card {
+  position: absolute;
+  z-index: 4;
+  width: 180px;
+  background: #ffffff;
+  border: 1px solid rgba(154,110,34,.45);
+  padding: .9rem;
+  box-shadow: 0 22px 60px rgba(67,42,15,.14);
+  overflow: hidden;
+}
+
+
+.paper-card img {
+  width: 100%;
+  height: 160px; 
+  object-fit: cover; 
+  object-position: top; 
+  display: block;
+}
+
+.paper-card-left-top {
+  top: 2%;
+  left: 4%;
+}
+
+.paper-card-right-top {
+  top: 22%;
+  right: 4%;
+} */
+
+
+.newspaper-legacy-page {
+  position: relative;
+  min-height: 125vh;
+  padding: 7rem 4rem 6rem;
+  background: #ffffff;
+  color: #111;
+  overflow: hidden;
+}
+
+.newspaper-legacy-page::before {
+  display: none;
+}
+
+.newspaper-bg-portrait {
+  position: absolute;
+  top: 3rem;
+  right: 8%;
+  width: 34%;
+  max-width: 520px;
+  opacity: .13;
+  filter: grayscale(1);
+  z-index: 1;
+}
+
+.newspaper-bg-portrait img {
+  width: 100%;
+  display: block;
+}
+
+.newspaper-center {
+  position: relative;
+  z-index: 5;
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.newspaper-seal {
+  font-family: var(--font-utility);
+  font-size: .62rem;
+  letter-spacing: .35em;
+  color: #9A6E22;
+  margin-bottom: 3.2rem;
+  text-transform: uppercase;
+}
+
+.newspaper-kicker {
+  font-family: var(--font-utility);
+  font-size: .62rem;
+  letter-spacing: .42em;
+  text-transform: uppercase;
+  color: #111;
+  margin-bottom: 1.5rem;
+}
+
+.newspaper-name {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 7vw, 7rem);
+  font-weight: 300;
+  line-height: .82;
+  color: #111;
+  margin-bottom: 2rem;
+}
+
+.newspaper-name span {
+  display: block;
+  color: #B8872C;
+}
+
+.newspaper-role {
+  font-family: var(--font-utility);
+  font-size: .72rem;
+  letter-spacing: .35em;
+  line-height: 2;
+  text-transform: uppercase;
+  color: #111;
+  margin-bottom: 3rem;
+}
+
+.newspaper-divider {
+  width: 120px;
+  height: 1px;
+  background: #B8872C;
+  margin: 0 auto 2.5rem;
+}
+
+.newspaper-story {
+  font-family: var(--font-display);
+  font-size: 1.12rem;
+  line-height: 2.05;
+  color: #2b2118;
+  max-width: 650px;
+  margin: 0 auto 2.5rem;
+}
+
+.newspaper-quote {
+  margin: 3.5rem auto 2.2rem;
+  max-width: 720px;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.4vw, 3.3rem);
+  font-style: italic;
+  line-height: 1.35;
+  color: #B8872C;
+}
+
+.newspaper-signature {
+  font-family: var(--font-display);
+  font-size: 2.3rem;
+  font-style: italic;
+  color: #111;
+  margin-bottom: 2.8rem;
+}
+
+.newspaper-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 2rem 0;
+  border-top: 1px solid rgba(184,135,44,.45);
+  border-bottom: 1px solid rgba(184,135,44,.45);
+}
+
+.newspaper-stat {
+  padding: 0 1.4rem;
+  border-right: 1px solid rgba(184,135,44,.35);
+}
+
+.newspaper-stat:last-child {
+  border-right: none;
+}
+
+.newspaper-stat strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: #B8872C;
+  margin-bottom: .5rem;
+}
+
+.newspaper-stat span {
+  display: block;
+  font-family: var(--font-utility);
+  font-size: .52rem;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  color: #111;
+  margin-bottom: .7rem;
+}
+
+.newspaper-stat p {
+  font-family: var(--font-display);
+  font-size: .9rem;
+  line-height: 1.55;
+  color: #3b3025;
+}
+
+.newspaper-bottom-logo {
+  margin-top: 4rem;
+}
+
+.newspaper-bottom-logo h3 {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: 1.9rem;
+  letter-spacing: .35em;
+  color: #111;
+}
+
+.newspaper-bottom-logo p {
+  margin-top: .7rem;
+  font-family: var(--font-utility);
+  font-size: .55rem;
+  letter-spacing: .35em;
+  text-transform: uppercase;
+  color: #6b5637;
+}
+
+/* Newspaper image cards */
+.paper-card {
+  position: absolute;
+  z-index: 4;
+  width: 210px;
+  background: #ffffff;
+  border: 1.5px solid rgba(154, 110, 34, 0.55);
+  padding: 0;
+  box-shadow: 0 28px 70px rgba(67,42,15,.16);
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+
+
+
+.paper-card-left-top {
+  top: 2.5%;
+  left: 4.5%;
+  width: 210px;
+  height: 450px; 
+}
+
+.paper-card-right-top {
+  top: 16%;
+  right: 4%;
+}
+
+.paper-card-left-bottom {
+  bottom: 18%;
+  left: 3.5%;
+}
+
+.paper-card-right-bottom {
+  bottom: 4%;
+  right: 3.5%;
+}
+
+.paper-card img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+  transform: scale(1.04);
+  transition: transform 1.2s ease, filter 1.2s ease;
+  filter: grayscale(.85) contrast(1.08) sepia(.10);
+  border-radius: 8px;
+}
+.paper-card:hover img {
+  transform: scale(1.12);
+  filter: grayscale(.65) contrast(1.12) sepia(.08);
+}
+
+.corner {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-color: #B8872C;
+  border-style: solid;
+  z-index: 10;
+}
+
+.corner-tl {
+  top: 6px;
+  left: 6px;
+  border-width: 2px 0 0 2px;
+}
+
+.corner-tr {
+  top: 6px;
+  right: 6px;
+  border-width: 2px 2px 0 0;
+}
+
+.corner-bl {
+  bottom: 6px;
+  left: 6px;
+  border-width: 0 0 2px 2px;
+}
+
+.corner-br {
+  bottom: 6px;
+  right: 6px;
+  border-width: 0 2px 2px 0;
+}
+
+/* Mobile */
+@media(max-width: 900px) {
+  .newspaper-legacy-page {
+    padding: 5rem 1.5rem;
+  }
+
+  .newspaper-bg-portrait {
+    display: none;
+  }
+
+  .paper-card {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    margin: 1.4rem 0;
+  }
+
+  .newspaper-center {
+    text-align: center;
+  }
+
+  .newspaper-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .newspaper-stat {
+    border-right: none;
+    border-bottom: 1px solid rgba(184,135,44,.35);
+    padding: 1.5rem 1rem;
+  }
+
+  .newspaper-stat:last-child {
+    border-bottom: none;
+  }
+}
+
+/* Achievements */
+.achievements-eyebrow {
+  font-family: var(--font-utility);
+  font-size: 0.52rem;
+  font-weight: 300;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.achievements-eyebrow::before {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.achievements-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.achievement-card {
+  background: var(--mahogany);
+  border: 1px solid rgba(201,160,80,0.14);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.45s ease, border-color 0.45s ease, box-shadow 0.45s ease;
+  cursor: default;
+}
+
+.achievement-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(201,160,80,0.45);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.35);
+}
+
+.achievement-img-wrap {
+  width: 100%;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  background: #0d0a06;
+}
+
+.achievement-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.85) contrast(1.06) saturate(0.9);
+  transform: scale(1.04);
+  transition: transform 1.2s ease, filter 1.2s ease;
+}
+
+.achievement-card:hover .achievement-img-wrap img {
+  transform: scale(1.1);
+  filter: brightness(1) contrast(1.08);
+}
+
+.achievement-info {
+  padding: 1.2rem 1.4rem 1.4rem;
+  border-top: 1px solid rgba(201,160,80,0.1);
+}
+
+.ach-label {
+  display: block;
+  font-family: var(--font-utility);
+  font-size: 0.48rem;
+  font-weight: 400;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.45rem;
+}
+
+.ach-title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 300;
+  color: var(--bone);
+  line-height: 1.35;
+}
+
+/* Light theme overrides */
+body.light-theme .achievement-card {
+  background: #ffffff;
+  border-color: rgba(0,0,0,0.08);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+}
+
+body.light-theme .achievement-card:hover {
+  border-color: rgba(184,135,44,0.45);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.10);
+}
+
+body.light-theme .achievement-info {
+  border-top: 1px solid rgba(0,0,0,0.07);
+}
+
+body.light-theme .ach-title {
+  color: #111;
+}
+
+body.light-theme .legacy-bio-text {
+  color: #444;
+  font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .legacy-section {
+    grid-template-columns: 1fr;
+    padding: 6rem 0 6rem;
+  }
+
+  .legacy-portrait {
+    position: relative;
+    height: 70vh;
+  }
+
+  .legacy-right {
+    padding: 4rem 2rem;
+    gap: 3.5rem;
+  }
+
+  .achievements-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Keep gold-divider (used elsewhere) */
+.gold-divider {
+  width: 60px;
+  height: 1px;
+  background: var(--gold);
+  margin-bottom: 2.5rem;
+}
+
+/* Luxury rounded image stack */
+.luxury-image-stack{
+  position:relative;
+  min-height:720px;
+  aspect-ratio:auto;
+}
+
+.legacy-image{
+  position:absolute;
+  overflow:hidden;
+  background:#140d06;
+  border:1px solid rgba(201,160,80,0.22);
+  border-radius:34px;
+  box-shadow:0 38px 110px rgba(0,0,0,0.55);
+}
+
+.legacy-image::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top, rgba(0,0,0,.28), transparent 55%);
+  pointer-events:none;
+}
+
+.legacy-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  filter:brightness(0.82) contrast(1.08) saturate(0.92);
+  transform:scale(1.04);
+  transition:transform 1.4s ease, filter 1.4s ease;
+}
+
+.legacy-image:hover img{
+  transform:scale(1.1);
+  filter:brightness(0.98) contrast(1.12);
+}
+
+.legacy-image-main{
+  top:-2.5%;
+  left:0;
+  width:88%;
+  height:66%;
+  z-index:1;
+  border-radius:38px;
+}
+
+.legacy-image-two{
+  right:0;
+  bottom:10%;
+  width:48%;
+  height:39%;
+  z-index:4;
+  border-radius:30px;
+}
+
+.legacy-image-two img{
+  object-position:center 24%;
+}
+
+.legacy-image-three{
+  left:10%;
+  bottom:2%;
+  width:38%;
+  height:26%;
+  z-index:3;
+  border-radius:28px;
+}
+
+.luxury-image-stack::after{
+  content:'';
+  position:absolute;
+  left:7%;
+  bottom:33%;
+  width:90px;
+  height:1px;
+  background:var(--gold);
+  opacity:.75;
+  z-index:5;
+}
+
+body.light-theme .legacy-image{
+  border:1px solid rgba(0,0,0,0.1);
+  box-shadow:0 24px 70px rgba(0,0,0,0.12);
+}
+
+body.light-theme .legacy-image img{
+  filter:brightness(1) contrast(1.04) saturate(.95);
+}
+
+.about-brand-statement{
+  margin:3.2rem 0 2rem;
+  padding:2rem 0 2rem 2rem;
+  border-left:1px solid rgba(201,160,80,0.45);
+}
+
+.about-brand-statement p{
+  font-family:var(--font-display);
+  font-size:clamp(1.25rem, 2vw, 1.8rem);
+  line-height:1.45;
+  color:var(--bone);
+  font-weight:300;
+  margin-bottom:.35rem;
+}
+
+.about-brand-statement strong{
+  color:var(--gold);
+  font-weight:400;
+  font-style:italic;
+}
+
+.about-healing-line{
+  font-family:var(--font-display);
+  font-size:1.05rem;
+  line-height:1.9;
+  color:var(--stone);
+  max-width:620px;
+  margin-bottom:2.5rem;
+  font-style:italic;
+}
+
+body.light-theme .about-brand-statement p{
+  color:#111;
+  font-weight:500;
+}
+
+body.light-theme .about-healing-line{
+  color:#333;
+  font-weight:500;
+}
+
+    .gold-divider {
+      width: 60px;
+      height: 1px;
+      background: var(--gold);
+      margin-bottom: 2.5rem;
+    }
+
+    /* ── ART PROCESS FEATURE ── */
+#art-process{
+  background:var(--mahogany);
+  padding:10rem 4rem;
+  display:grid;
+  grid-template-columns:1.15fr .85fr;
+  gap:6rem;
+  align-items:center;
+  position:relative;
+  overflow:hidden;
+}
+
+#art-process::before{
+  content:'';
+  position:absolute;
+  top:0;
+  left:4rem;
+  right:4rem;
+  height:1px;
+  background:linear-gradient(to right, transparent, rgba(201,160,80,.3), transparent);
+}
+
+.art-process-image{
+  position:relative;
+  height:720px;
+  border-radius:42px;
+  overflow:hidden;
+  border:1px solid rgba(201,160,80,.22);
+  box-shadow:0 40px 120px rgba(0,0,0,.45);
+}
+
+.art-process-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  display:block;
+  filter:brightness(.78) contrast(1.1) saturate(.9);
+  transform:scale(1.04);
+  transition:transform 1.4s ease, filter 1.4s ease;
+}
+
+.art-process-image:hover img{
+  transform:scale(1.09);
+  filter:brightness(.95) contrast(1.12);
+}
+
+.art-process-image::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top, rgba(0,0,0,.45), transparent 55%);
+}
+
+.art-process-content{
+  max-width:620px;
+}
+
+.art-process-body{
+  font-family:var(--font-display);
+  font-size:1.05rem;
+  line-height:2;
+  color:var(--stone);
+  margin-bottom:2rem;
+}
+
+body.light-theme #art-process{
+  background:#f7f4ef;
+}
+
+body.light-theme .art-process-image{
+  border:1px solid rgba(0,0,0,.1);
+  box-shadow:0 30px 90px rgba(0,0,0,.12);
+}
+
+body.light-theme .art-process-image img{
+  filter:brightness(1) contrast(1.04) saturate(.95);
+}
+
+body.light-theme .art-process-body{
+  color:#333;
+  font-weight:500;
+}
+
+/* ── CREATIONS / FINISHED MONUMENTS ── */
+
+/* .creations-section::before{
+  content:'';
+  position:absolute;
+  top:-120px;
+  left:0;
+  right:0;
+  height:120px;
+  background:linear-gradient(
+    to bottom,
+    var(--mahogany),
+    #f7f4ef
+  );
+} */
+/* too bright */
+/* .creations-section{
+  --work-light-progress:0;
+
+  background:
+    linear-gradient(
+      rgba(247,244,239,var(--work-light-progress)),
+      rgba(247,244,239,var(--work-light-progress))
+    ),
+    #0A0A0A;
+
+  padding:9rem 4rem 10rem;
+  color:#111;
+  position:relative;
+  transition:color .2s linear;
+} */
+
+
+/* body:not(.light-theme) .creations-section{
+  background:#0A0A0A;
+  color:var(--bone);
+} */
+
+.creations-header{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:3rem;
+  margin-bottom:4rem;
+}
+
+.commission-link{
+  position:relative;
+  display:inline-flex;
+  align-items:center;
+  gap:1rem;
+
+  padding:1rem 1.6rem;
+
+  border:1px solid rgba(201,160,80,.45);
+  border-radius:999px;
+
+  color:#111;
+  text-decoration:none;
+
+  font-family:var(--font-utility);
+
+  font-size:.72rem;          /* Bigger */
+  font-weight:600;           /* Bolder */
+  letter-spacing:.18em;      /* Slightly tighter */
+  text-transform:uppercase;
+
+  overflow:hidden;
+
+  transition:
+      transform .35s ease,
+      box-shadow .35s ease,
+      background .35s ease;
+}
+
+/* .commission-link{
+  position:relative;
+  display:inline-flex;
+  align-items:center;
+  gap:.9rem;
+  padding:.9rem 1.2rem;
+  border:1px solid rgba(201,160,80,.45);
+  border-radius:999px;
+  color:#111;
+  font-family:var(--font-utility);
+  font-size:.58rem;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  text-decoration:none;
+  overflow:hidden;
+} */
+
+.commission-link::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(120deg, transparent, rgba(201,160,80,.22), transparent);
+  transform:translateX(-120%);
+  animation:shineMove 5.0s ease-in-out infinite;
+}
+
+.commission-link::after{
+  content:'';
+  width:42px;
+  height:1px;
+  background:var(--gold);
+}
+
+@keyframes shineMove{
+  0%,55%{ transform:translateX(-120%); }
+  100%{ transform:translateX(120%); }
+}
+
+.commission-link:hover{
+  background:#111;
+  color: #FFFFFF;
+  border-color:#111;
+}
+
+.creations-section {
+  /* background:
+    radial-gradient(circle at 72% 45%, rgba(201,160,80,.10), transparent 38%),
+    linear-gradient(135deg, #050505 0%, #0A0A0A 45%, #140d06 100%); */
+  background:
+    radial-gradient(
+      circle at 72% 42%,
+      rgba(201,160,80,.12),
+      transparent 42%
+    ),
+    linear-gradient(
+      135deg,
+      #26170F 0%,
+      #1C120B 35%,
+      #120C08 70%,
+      #090807 100%
+    );
+
+  padding: 9rem 4rem 10rem;
+  color: var(--bone);
+  position: relative;
+  overflow: hidden;
+}
+
+.creations-section .section-title {
+  color: var(--bone);
+}
+
+.creations-section .section-eyebrow,
+.creations-section .section-title em {
+  color: var(--gold);
+}
+
+.creations-section .commission-link {
+  color: var(--bone);
+}
+
+.luxury-creations-layout {
+  display: grid;
+  grid-template-columns: .85fr 1.15fr;
+  gap: 5rem;
+  align-items: center;
+  min-height: 620px;
+}
+
+.creations-left {
+  position: relative;
+  max-width: 480px;
+  transform: translateY(-100px);
+}
+
+.creation-number {
+  position: absolute;
+  top: -7rem;
+  left: -1rem;
+  font-family: var(--font-display);
+  font-size: 11rem;
+  line-height: 1;
+  color: rgba(201,160,80,.08);
+  z-index: 0;
+}
+
+.creation-category {
+  position: relative;
+  z-index: 1;
+  display: block;
+  font-family: var(--font-utility);
+  font-size: .58rem;
+  letter-spacing: .32em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.2rem;
+}
+
+.creations-left h3 {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 5vw, 5.4rem);
+  font-weight: 300;
+  line-height: .95;
+  color: var(--bone);
+  margin-bottom: 2rem;
+}
+
+.creations-left p {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-display);
+  font-size: 1.08rem;
+  line-height: 1.9;
+  color: var(--stone);
+  margin-bottom: 2.5rem;
+}
+
+.creation-story-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  font-family: var(--font-utility);
+  font-size: .6rem;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-decoration: none;
+}
+
+.stack-carousel {
+  position: relative;
+  height: 620px;
+}
+
+.stack-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 390px;
+  height: 520px;
+  border-radius: 34px;
+  overflow: hidden;
+  background: #111;
+  border: 1px solid rgba(201,160,80,.25);
+  box-shadow: 0 38px 100px rgba(0,0,0,.55);
+  transition:
+    transform .75s cubic-bezier(.22,.8,.22,1),
+    opacity .75s ease,
+    filter .75s ease,
+    z-index .75s ease;
+}
+
+.stack-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.04);
+  transition: transform 1.4s ease, filter 1.4s ease;
+  filter: brightness(.82) contrast(1.08) saturate(.9);
+}
+
+.stack-card:hover img {
+  transform: scale(1.12);
+  filter: brightness(.98) contrast(1.12);
+}
+
+.stack-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,.42), transparent 60%);
+}
+
+.card-main {
+  z-index: 5;
+  transform: translate(-50%, -50%) scale(1) rotate(0deg);
+  opacity: 1;
+}
+
+.card-left {
+  z-index: 3;
+  transform: translate(-105%, -48%) scale(.82) rotate(-7deg);
+  opacity: .72;
+  filter: blur(.2px);
+}
+
+.card-right {
+  z-index: 3;
+  transform: translate(5%, -48%) scale(.82) rotate(7deg);
+  opacity: .72;
+  filter: blur(.2px);
+}
+
+.carousel-controls {
+  position: absolute;
+  left: 50%;
+  bottom: -1.5rem;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 1.8rem;
+  z-index: 10;
+}
+
+.carousel-controls button {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 1px solid rgba(201,160,80,.45);
+  background: rgba(255,255,255,.03);
+  color: var(--gold);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all .35s ease;
+}
+
+.carousel-controls button:hover {
+  background: var(--gold);
+  color: #0A0A0A;
+  transform: translateY(-3px);
+}
+
+.carousel-controls span {
+  font-family: var(--font-utility);
+  font-size: .58rem;
+  letter-spacing: .28em;
+  color: var(--stone);
+}
+
+/* 
+.creations-section .section-title{
+  color:inherit;
+} */
+/* //css page 4  */
+/* .creations-row{
+  display:grid;
+  grid-template-columns:repeat(4, minmax(260px, 1fr));
+  gap:2rem;
+}
+
+.creation-card{
+  position:relative;
+  height:520px;
+  overflow:hidden;
+  border-radius:34px;
+  background:#111;
+  box-shadow:0 28px 70px rgba(0,0,0,.16);
+  cursor:pointer;
+}
+
+.creation-card img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transform:scale(1.04);
+  transition:transform 1.2s ease, filter 1.2s ease;
+}
+
+.creation-card:hover img{
+  transform:scale(1.1);
+  filter:brightness(.9);
+}
+
+.creation-card::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    to top,
+    rgba(0,0,0,.78) 0%,
+    rgba(0,0,0,.32) 42%,
+    transparent 70%
+  );
+}
+
+.creation-overlay{
+  position:absolute;
+  left:2rem;
+  right:2rem;
+  bottom:2rem;
+  z-index:2;
+  color:#fff;
+}
+
+.creation-overlay span{
+  font-family:var(--font-utility);
+  font-size:.55rem;
+  letter-spacing:.28em;
+  text-transform:uppercase;
+  color:var(--gold);
+}
+
+.creation-overlay h3{
+  font-family:var(--font-display);
+  font-size:1.8rem;
+  font-weight:300;
+  margin:.6rem 0 1rem;
+}
+
+.creation-overlay a{
+  font-family:var(--font-utility);
+  font-size:.58rem;
+  letter-spacing:.25em;
+  text-transform:uppercase;
+  color:#fff;
+  text-decoration:none;
+} */
+
+.creation-card:hover .creation-overlay a{
+  color:var(--gold);
+}
+
+.creations-section .section-title,
+.creations-section .view-all{
+  color: #fff;
+}
+
+.creations-section .section-eyebrow,
+.creations-section .section-title em{
+  color:var(--gold);
+}
+
+body.light-theme .creation-card{
+  box-shadow:0 24px 60px rgba(0,0,0,.12);
+}
+/* ───────── CRAFT SECTION ───────── */
+
+.craft-section{
+  background:#E6DCCB;
+  padding:10rem 4rem;
+  position:relative;
+  color:#111;
+}
+
+.craft-section .section-title{
+  color:#111;
+}
+
+.craft-section .section-title em,
+.craft-section .section-eyebrow{
+  color:var(--gold);
+}
+
+.craft-header{
+  margin-bottom:5rem;
+}
+
+.craft-layout{
+  display:grid;
+  grid-template-columns:.95fr 1.05fr;
+  gap:6rem;
+  align-items:center;
+}
+
+.craft-image{
+  position:relative;
+  height:720px;
+  overflow:hidden;
+  border-radius:36px;
+  background:#111;
+  box-shadow:0 35px 90px rgba(0,0,0,.18);
+}
+
+.craft-img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  opacity:0;
+  transform:scale(1.06);
+  transition:opacity .9s ease, transform 1.6s ease;
+}
+
+.craft-img.active{
+  opacity:1;
+  transform:scale(1);
+}
+
+.craft-image::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top, rgba(0,0,0,.35), transparent 60%);
+}
+
+.craft-steps{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:2rem;
+}
+
+.craft-step{
+  padding:2.4rem;
+  min-height:300px;
+  border:1px solid rgba(120,90,45,.18);
+  border-radius:28px;
+  background:rgba(255,255,255,.22);
+  transition:transform .35s ease, border-color .35s ease, background .35s ease, box-shadow .35s ease;
+  cursor:pointer;
+}
+
+.craft-step:hover,
+.craft-step.active{
+  transform:translateY(-6px);
+  border-color:rgba(184,135,44,.55);
+  background:rgba(255,255,255,.38);
+  box-shadow:0 20px 55px rgba(0,0,0,.10);
+}
+
+.craft-step span{
+  display:block;
+  font-family:var(--font-display);
+  font-size:4rem;
+  color:rgba(184,135,44,.32);
+}
+
+.craft-step h3{
+  margin:1rem 0;
+  font-family:var(--font-display);
+  font-size:1.6rem;
+  color:#111;
+  font-weight:300;
+}
+
+.craft-step p{
+  color:#4b433a;
+  line-height:1.9;
+  font-size:.95rem;
+}
+
+@media(max-width:900px){
+  .craft-section{
+    padding:6rem 2rem;
+  }
+
+  .craft-layout{
+    grid-template-columns:1fr;
+  }
+
+  .craft-image{
+    height:520px;
+  }
+
+  .craft-steps{
+    grid-template-columns:1fr;
+  }
+}
+
+@media(max-width:900px){
+
+.craft-layout{
+grid-template-columns:1fr;
+}
+
+.craft-image{
+height:520px;
+}
+
+.craft-steps{
+grid-template-columns:1fr;
+}
+
+}
+
+
+
+    .process-desc {
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      font-weight: 300;
+      line-height: 1.9;
+      color: var(--stone);
+    }
+
+    /* PAGE 3 */
+    .gallery-left {
+  position: relative;
+  max-width: 560px;
+  padding-left: .2rem;
+}
+
+.gallery-number {
+  position: absolute;
+  left: -3rem;
+  top: -6rem;
+  font-family: var(--font-display);
+  font-size: 12rem;
+  line-height: 1;
+  color: rgba(255,255,255,.045);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.gallery-seal {
+  width: 58px;
+  height: 58px;
+  border: 1px solid rgba(201,160,80,.65);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: var(--gold);
+  font-size: .9rem;
+  margin-bottom: 2.1rem;
+  box-shadow:
+    0 0 30px rgba(201,160,80,.12),
+    inset 0 0 20px rgba(201,160,80,.08);
+}
+
+.gallery-label-row {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  margin-bottom: 1.3rem;
+}
+
+.gallery-label-row span {
+  width: 42px;
+  height: 1px;
+  background: rgba(201,160,80,.75);
+}
+
+.gallery-label-row p {
+  font-family: var(--font-utility);
+  font-size: .62rem;
+  letter-spacing: .42em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.gallery-title {
+  position: relative;
+  z-index: 2;
+  font-family: var(--font-display);
+  font-size: clamp(3.2rem, 5.4vw, 6.6rem);
+  font-weight: 300;
+  line-height: .9;
+  color: #f7f2ea;
+  margin-bottom: 1.9rem;
+  letter-spacing: -.035em;
+  text-shadow: 0 18px 45px rgba(0,0,0,.35);
+}
+
+.gallery-title em {
+  font-style: italic;
+  color: var(--gold);
+  font-weight: 300;
+}
+
+.gallery-title span {
+  color: var(--gold);
+}
+
+.gallery-ornament {
+  width: 145px;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(201,160,80,.85),
+    transparent
+  );
+  margin: 1.5rem 0 2rem;
+  position: relative;
+}
+
+.gallery-ornament::after {
+  content: '◆';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -52%);
+  font-size: .45rem;
+  color: var(--gold);
+  background: #1C120B;
+  padding: 0 .5rem;
+}
+
+.gallery-lines {
+  border-left: 1px solid rgba(201,160,80,.75);
+  padding-left: 1.6rem;
+  margin-bottom: 2.2rem;
+}
+
+.gallery-lines p {
+  font-family: var(--font-utility);
+  font-size: .95rem;
+  letter-spacing: .18em;
+  color: #d8c4a3;
+  margin-bottom: .75rem;
+}
+
+.gallery-desc {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: rgba(240,237,232,.78);
+  margin-bottom: 2.4rem;
+}
+
+.gallery-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.4rem;
+  color: var(--gold);
+  text-decoration: none;
+  font-family: var(--font-utility);
+  font-size: .62rem;
+  letter-spacing: .38em;
+  text-transform: uppercase;
+  padding-bottom: .75rem;
+  border-bottom: 1px solid rgba(201,160,80,.75);
+  transition: all .35s ease;
+}
+
+.gallery-link span {
+  font-size: 1.2rem;
+  letter-spacing: 0;
+  transition: transform .35s ease;
+}
+
+.gallery-link:hover {
+  color: #fff;
+  border-bottom-color: #fff;
+}
+
+.gallery-link:hover span {
+  transform: translateX(8px);
+}
+
+/* ── PAGE 4: CRAFTED LEGACY SECTION ── */
+
+.legacy-craft-section{
+  position:relative;
+  min-height:100vh;
+  overflow:hidden;
+  padding:9rem 4rem 8rem;
+  background:
+    radial-gradient(circle at 72% 42%, rgba(201,160,80,.12), transparent 42%),
+    radial-gradient(circle at 18% 82%, rgba(201,160,80,.07), transparent 45%),
+    linear-gradient(135deg, #090807 0%, #140d08 40%, #1C120B 100%);
+  color:var(--bone);
+}
+
+.legacy-craft-layout{
+  display:grid;
+  grid-template-columns: .95fr 1.05fr;
+  gap:5rem;
+  align-items:center;
+}
+
+.legacy-craft-eyebrow{
+  display:flex;
+  align-items:center;
+  gap:1rem;
+  margin-bottom:1.7rem;
+}
+
+.legacy-craft-eyebrow span{
+  font-family:var(--font-utility);
+  font-size:.65rem;
+  letter-spacing:.45em;
+  text-transform:uppercase;
+  color:var(--gold);
+}
+
+.legacy-craft-eyebrow::after{
+  content:'';
+  width:70px;
+  height:1px;
+  background:rgba(201,160,80,.65);
+}
+
+.legacy-craft-title{
+  font-family:var(--font-display);
+  font-size:clamp(3.4rem, 6vw, 7rem);
+  font-weight:300;
+  line-height:.95;
+  color:var(--bone);
+  margin-bottom:2.2rem;
+}
+
+.legacy-craft-title em{
+  color:var(--gold);
+  font-style:italic;
+}
+
+.legacy-craft-title span{
+  color:var(--gold);
+}
+
+.legacy-gold-rule{
+  width:330px;
+  height:1px;
+  background:linear-gradient(to right, transparent, var(--gold), transparent);
+  margin:2rem 0;
+  opacity:.7;
+}
+
+.legacy-craft-body{
+  font-family:var(--font-display);
+  font-size:1.25rem;
+  line-height:1.8;
+  color:rgba(240,237,232,.82);
+  max-width:590px;
+  margin-bottom:1.6rem;
+}
+
+.legacy-craft-small{
+  font-family:var(--font-utility);
+  font-size:.72rem;
+  letter-spacing:.18em;
+  line-height:2;
+  color:var(--stone);
+  text-transform:uppercase;
+  max-width:620px;
+}
+
+.legacy-craft-cta{
+  display:inline-flex;
+  align-items:center;
+  gap:1.2rem;
+  margin-top:2.8rem;
+  padding:1rem 1.6rem;
+  border:1px solid rgba(201,160,80,.6);
+  border-radius:999px;
+  color:var(--bone);
+  text-decoration:none;
+  font-family:var(--font-utility);
+  font-size:.62rem;
+  letter-spacing:.28em;
+  text-transform:uppercase;
+  transition:.35s ease;
+}
+
+.legacy-craft-cta:hover{
+  background:var(--gold);
+  color:#0A0A0A;
+}
+
+.legacy-stats{
+  display:flex;
+  align-items:center;
+  gap:2.2rem;
+  margin-top:3.5rem;
+  font-family:var(--font-utility);
+  font-size:.62rem;
+  letter-spacing:.26em;
+  color:var(--stone);
+  text-transform:uppercase;
+}
+
+.legacy-stats strong{
+  display:block;
+  font-family:var(--font-display);
+  font-size:2.6rem;
+  color:var(--gold);
+  font-weight:300;
+  letter-spacing:0;
+  margin-bottom:.3rem;
+}
+
+.legacy-stat-line{
+  width:1px;
+  height:48px;
+  background:rgba(201,160,80,.25);
+}
+
+/* rotating image stack */
+.legacy-rotating-wrap{
+  position:relative;
+  height:680px;
+  width:100%;
+  max-width:640px;
+  margin:0 auto;
+}
+
+.legacy-rotating-wrap::before{
+  content:'';
+  position:absolute;
+  inset:4%;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(201,160,80,.14), transparent 68%);
+  filter:blur(30px);
+}
+
+.legacy-auto-card{
+  position:absolute;
+  inset:0;
+  margin:auto;
+  width:62%;
+  aspect-ratio:4/5;
+  border-radius:32px;
+  overflow:hidden;
+  border:1px solid rgba(201,160,80,.35);
+  box-shadow:0 38px 100px rgba(0,0,0,.58);
+  animation:legacyCarousel 15s infinite ease-in-out;
+}
+
+.legacy-auto-card:nth-child(1){ animation-delay:0s; }
+.legacy-auto-card:nth-child(2){ animation-delay:-5s; }
+.legacy-auto-card:nth-child(3){ animation-delay:-10s; }
+
+.legacy-auto-card img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  filter:brightness(.82) contrast(1.08);
+}
+
+.legacy-auto-card::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top, rgba(0,0,0,.45), transparent 60%);
+}
+
+@keyframes legacyCarousel{
+  0%, 28%{
+    opacity:1;
+    transform:translateX(0) scale(1);
+    filter:blur(0);
+    z-index:30;
+  }
+
+  33%, 61%{
+    opacity:.55;
+    transform:translateX(38%) scale(.82);
+    filter:blur(5px);
+    z-index:20;
+  }
+
+  66%, 94%{
+    opacity:.55;
+    transform:translateX(-38%) scale(.82);
+    filter:blur(5px);
+    z-index:20;
+  }
+
+  100%{
+    opacity:1;
+    transform:translateX(0) scale(1);
+    filter:blur(0);
+    z-index:30;
+  }
+}
+
+.legacy-craft-marquee{
+  margin-top:5rem;
+  padding:1.2rem 0;
+  border-top:1px solid rgba(201,160,80,.18);
+  border-bottom:1px solid rgba(201,160,80,.18);
+  text-align:center;
+  font-family:var(--font-display);
+  font-style:italic;
+  color:var(--stone);
+  letter-spacing:.3em;
+}
+
+.legacy-craft-marquee span{
+  color:var(--gold);
+  margin:0 1rem;
+}
+
+@media(max-width:900px){
+  .legacy-craft-section{
+    padding:6rem 2rem;
+  }
+
+  .legacy-craft-layout{
+    grid-template-columns:1fr;
+  }
+
+  .legacy-rotating-wrap{
+    height:560px;
+  }
+
+  .legacy-stats{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .legacy-stat-line{
+    display:none;
+  }
+}
+
+    /* ── CONTACT ── */
+    #contact {
+      background: var(--void);
+      padding: 10rem 4rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8rem;
+      align-items: center;
+      position: relative;
+    }
+
+    #contact::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 4rem;
+      right: 4rem;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(201, 160, 80, 0.3), transparent);
+    }
+
+    .contact-left .section-title {
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-tagline {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--stone);
+      line-height: 1.9;
+      margin-bottom: 3rem;
+    }
+
+    .contact-info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.5rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .contact-info-item .ci-label {
+      font-family: var(--font-utility);
+      font-size: 0.5rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      min-width: 70px;
+      padding-top: 0.2rem;
+    }
+
+    .contact-info-item .ci-value {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      color: var(--stone);
+      line-height: 1.6;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .form-group {
+      position: relative;
+      margin-bottom: 2.5rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid rgba(201, 160, 80, 0.2);
+      padding: 1rem 0;
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--bone);
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    .form-group textarea {
+      resize: none;
+      height: 100px;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-bottom-color: var(--gold);
+    }
+
+    .form-group label {
+      position: absolute;
+      top: 1rem;
+      left: 0;
+      font-family: var(--font-utility);
+      font-size: 0.55rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--stone);
+      transition: all 0.3s;
+      pointer-events: none;
+    }
+
+    .form-group input:focus~label,
+    .form-group input:not(:placeholder-shown)~label,
+    .form-group textarea:focus~label,
+    .form-group textarea:not(:placeholder-shown)~label {
+      top: -0.8rem;
+      font-size: 0.45rem;
+      color: var(--gold);
+    }
+
+    .btn-gold {
+      display: inline-flex;
+      align-items: center;
+      gap: 1.2rem;
+      background: transparent;
+      border: 1px solid rgba(201, 160, 80, 0.4);
+      color: var(--gold);
+      font-family: var(--font-utility);
+      font-weight: 200;
+      font-size: 0.6rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      padding: 1.2rem 2.5rem;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      align-self: flex-start;
+    }
+
+    .btn-gold::after {
+      content: '';
+      display: block;
+      width: 20px;
+      height: 1px;
+      background: var(--gold);
+      transition: width 0.3s;
+    }
+
+    .btn-gold:hover {
+      background: rgba(201, 160, 80, 0.06);
+      border-color: var(--gold);
+      gap: 1.8rem;
+    }
+
+    .btn-gold:hover::after {
+      width: 36px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--mahogany);
+      border-top: 1px solid rgba(201, 160, 80, 0.1);
+      padding: 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-logo {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: 1rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--bone);
+    }
+
+    .footer-logo span {
+      color: var(--gold);
+    }
+
+    .footer-copy {
+      font-family: var(--font-utility);
+      font-size: 0.5rem;
+      font-weight: 200;
+      letter-spacing: 0.25em;
+      color: var(--stone);
+      text-align: center;
+    }
+
+    .footer-tagline {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 0.85rem;
+      color: var(--stone);
+      text-align: right;
+    }
+
+    /* ── SCROLL REVEALS ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.9s ease, transform 0.9s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 {
+      transition-delay: 0.15s;
+    }
+
+    .reveal-delay-2 {
+      transition-delay: 0.3s;
+    }
+
+    .reveal-delay-3 {
+      transition-delay: 0.45s;
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav {
+        padding: 1.5rem 2rem;
+      }
+
+      .nav-links {
+        gap: 1.5rem;
+      }
+
+      #about,
+      #contact {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        padding: 6rem 2rem;
+      }
+
+      #work {
+        padding: 6rem 2rem;
+      }
+
+      .work-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .work-item:first-child {
+        grid-row: span 1;
+      }
+
+      .work-item:first-child .work-item-inner {
+        aspect-ratio: 4/3;
+      }
+
+      .process-grid {
+        grid-template-columns: 1fr;
+      }
+
+      #philosophy,
+      #process {
+        padding: 6rem 2rem;
+      }
+
+      footer {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+      }
+
+      .footer-tagline {
+        text-align: center;
+      }
+
+      .hero-content {
+        padding: 0 2rem 5rem;
+      }
+
+      .hero-scroll-hint {
+        right: 2rem;
+      }
+      .luxury-image-stack{
+  min-height:620px;
+}
+
+.legacy-image-main{
+  width:92%;
+  height:58%;
+}
+
+.legacy-image-two{
+  width:54%;
+  height:35%;
+  right:0;
+  bottom:10%;
+}
+
+.legacy-image-three{
+  width:44%;
+  height:24%;
+  left:4%;
+  bottom:2%;
+}
+
+.about-brand-statement{
+  padding-left:1.2rem;
+}
+#art-process{
+  grid-template-columns:1fr;
+  gap:3rem;
+  padding:6rem 2rem;
+}
+
+.art-process-image{
+  height:520px;
+  border-radius:30px;
+}
+
+.creations-section{
+  padding:6rem 2rem;
+}
+
+.creations-header{
+  flex-direction:column;
+  align-items:flex-start;
+}
+
+.creations-row{
+  grid-template-columns:1fr;
+}
+
+.creation-card{
+  height:460px;
+}
+    }
+  </style>
+</head>
+
+<script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+<script>
+  const locoScroll = new LocomotiveScroll({
+    el: document.querySelector('body'),
+    smooth: true,
+    multiplier: 0.9
+  });
+</script>
+
+
+<body>
+
+  <!-- Cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+  <div class="theme-flash" id="themeFlash"></div>
+
+  <!-- Theme Toggle -->
+  <button class="theme-toggle" id="themeToggle" type="button">⚪ Light</button>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <!-- <a href="#" class="nav-logo">Bott<span>®</span></a> -->
+    <a href="#" class="nav-logo">
+      <img src="images/bott-logo.png" alt="Bott Monument" style="height: 55px; width:auto; 
+                  filter:brightness(1.25) contrast(1.08);">
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">Legacy</a></li>
+      <li><a href="#work">Creations</a></li>
+      <!-- <li><a href="#process">Craft</a></li> -->
+      <li><a href="#contact">Commission</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <!-- <div class="chisel-line"></div> -->
+    <div class="chisel-line"></div>
+    
+    <!-- ══ HERO VIDEO BACKGROUND ══
+         Change src to switch between videos:
+         videos/video1.mp4  OR  videos/video2.mp4
+         Try both and see which looks better!
+    -->
+    <video id="heroVideo" autoplay muted loop playsinline style="
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.65;
+        z-index: 0;
+        pointer-events: none;
+      ">
+      <source src="videos/hero.mp4" type="video/mp4">
+    </video>
+
+    <div class="hero-content">
+      <p class="hero-eyebrow">Est. in stone &nbsp;·&nbsp; Crafted for eternity</p>
+      <h1 class="hero-title">Where stone<br>becomes <em>legacy.</em></h1>
+      <p class="hero-sub">Not every monument can be seen. Some are felt across generations.</p>
+      <a href="#work" class="hero-cta">Discover our work</a>
+    </div>
+
+    <div class="hero-scroll-hint">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-strip">
+    <div class="marquee-track">
+      <span>Bespoke Monuments</span><span class="dot">✦</span>
+      <span>Memorial Craftsmanship</span><span class="dot">✦</span>
+      <span>Eternal Design</span><span class="dot">✦</span>
+      <span>Stone Mastery</span><span class="dot">✦</span>
+      <span>Legacy in Granite</span><span class="dot">✦</span>
+      <span>Timeless Tributes</span><span class="dot">✦</span>
+      <span>Bespoke Monuments</span><span class="dot">✦</span>
+      <span>Memorial Craftsmanship</span><span class="dot">✦</span>
+      <span>Eternal Design</span><span class="dot">✦</span>
+      <span>Stone Mastery</span><span class="dot">✦</span>
+      <span>Legacy in Granite</span><span class="dot">✦</span>
+      <span>Timeless Tributes</span><span class="dot">✦</span>
+    </div>
+  </div>
+
+
+  <!-- PAGE 2 / NEWSPAPER LEGACY EDITORIAL -->
+  <section id="about" class="newspaper-legacy-page">
+  
+  
+    <!-- Left side image -->
+    <article class="paper-card paper-card-left-top reveal">
+      <img src="images/achievement_1.png" alt="Achievement 1">
+    </article>
+  
+    <!-- Right side image -->
+    <article class="paper-card paper-card-right-top reveal reveal-delay-1">
+      <img src="images/achievement_2.png" alt="Achievement 2">
+    </article>
+
+    <!-- ADD after paper-card-right-top article -->
+    <article class="paper-card paper-card-left-bottom reveal reveal-delay-2">
+      <img src="images/achievement_3.png" alt="Achievement 3">
+    </article>
+    
+    <article class="paper-card paper-card-right-bottom reveal reveal-delay-2">
+      <img src="images/achievement_4.png" alt="Achievement 4">
+    </article>
+  
+    <div class="newspaper-center">
+      <p class="newspaper-seal reveal">EST. &nbsp; ✦ B ✦ &nbsp; 1946</p>
+  
+      <p class="newspaper-kicker reveal reveal-delay-1">
+        The Man Behind the Legacy
+      </p>
+  
+      <h2 class="newspaper-name reveal reveal-delay-1">
+        DREW
+        <span>BOTT</span>
+      </h2>
+  
+      <p class="newspaper-role reveal reveal-delay-2">
+        North American Designer of the Year<br>
+        Master Craftsman · Founder
+      </p>
+  
+      <div class="newspaper-divider reveal reveal-delay-2"></div>
+  
+      <p class="newspaper-story reveal reveal-delay-2">
+        Drew Bott’s work has earned recognition across North America for exceptional design,
+        craftsmanship, and artistry in stone. His monuments are not only built with precision —
+        they are created with meaning, memory, and dignity.
+      </p>
+  
+      <div class="newspaper-divider reveal reveal-delay-2"></div>
+  
+      <div class="newspaper-quote reveal reveal-delay-3">
+        “Every monument should feel<br>
+        as personal as the life it honors.”
+      </div>
+  
+      <div class="newspaper-signature reveal reveal-delay-3">
+        your signature
+      </div>
+      <div class="newspaper-stats reveal reveal-delay-3">
+        <div class="newspaper-stat">
+          <strong>100%</strong>
+          <span>Custom Crafted</span>
+          <p>Every monument designed, carved and finished by hand.</p>
+        </div>
+      
+        <div class="newspaper-stat">
+          <strong>∞</strong>
+          <span>Built for Generations</span>
+          <p>Designed to stand for today, tomorrow and always.</p>
+        </div>
+      </div>
+    </div>
+  
+  </section>
+
+  <!-- ART PROCESS FEATURE -->
+  <!-- <section id="art-process">
+    <div class="art-process-image reveal">
+      <img src="images/page3.jpg" alt="Clay sculpture in progress">
+    </div>
+  
+    <div class="art-process-content reveal reveal-delay-1">
+      <p class="section-eyebrow">The Art Begins in Clay</p>
+  
+      <h2 class="section-title">
+        Before it becomes stone,<br>
+        it begins as <em>art.</em>
+      </h2>
+  
+      <div class="gold-divider"></div>
+  
+      <p class="art-process-body">
+        Every Bott Monument begins long before the first cut is made. Forms are studied, proportions are refined, and each
+        detail is shaped with intention.
+      </p>
+  
+      <p class="art-process-body">
+        This is where memory becomes sculpture — where a family’s story is first translated into form, movement, and
+        meaning.
+      </p>
+  
+      <a href="#process" class="hero-cta">Explore our craft</a>
+    </div>
+  </section> -->
+
+  <!-- WORK / CREATIONS -->
+  <section id="work" class="creations-section">
+    <div class="creations-header">
+      <div>
+      </div>
+  
+      <!-- <a href="#contact" class="view-all reveal">Commission a piece</a> -->
+      <a href="#contact" class="commission-link reveal">
+        <span>Create a Lasting Legacy</span>
+      </a>
+    </div>
+  
+    <div class="luxury-creations-layout reveal">
+    
+      <div class="creations-left gallery-left">
+            
+        <!-- <div class="gallery-seal">
+          ✦
+        </div> -->
+        <div class="gallery-label-row">
+          <span></span>
+          <p>Our Work</p>
+          <span></span>
+        </div>
+      
+        <h3 class="gallery-title">
+          Where<br>
+          <em>Memory</em><br>
+          Becomes <span><em>Art.</em></span>
+        </h3>
+      
+        <div class="gallery-ornament"></div>
+      
+        <div class="gallery-lines">
+          <p>Every curve.</p>
+          <p>Every inscription.</p>
+          <p>Every detail.</p>
+        </div>
+      
+        <p class="gallery-desc">
+          Thoughtfully crafted to become<br>
+          a lasting legacy for generations.
+        </p>
+      
+        <a href="#contact" class="gallery-link">
+          View Gallery <span>→</span>
+        </a>
+      
+      </div>
+    
+      <div class="stack-carousel">
+        <div class="stack-card card-left">
+          <img src="images/page4_image3.jpg" alt="">
+        </div>
+    
+        <div class="stack-card card-main">
+          <img src="images/extra.jpg" alt="">
+        </div>
+    
+        <div class="stack-card card-right">
+          <img src="images/page4_image1.jpg" alt="">
+        </div>
+    
+        <div class="carousel-controls">
+          <button id="prevCreation" type="button">←</button>
+          <span id="creationCount">01 / 04</span>
+          <button id="nextCreation" type="button">→</button>
+        </div>
+      </div>
+    
+    </div>
+  </section>
+
+
+
+  <!-- PROCESS -->
+  <!-- <section id="process" class="craft-section">
+    <div class="craft-header">
+      <p class="section-eyebrow reveal">The Craft</p>
+      <h2 class="section-title reveal reveal-delay-1">
+        How a story<br>becomes <em>stone.</em>
+      </h2>
+    </div>
+  
+    <div class="craft-layout">
+      <div class="craft-image reveal">
+        <img src="images/craft_01.jpeg" class="craft-img active" data-img="01" alt="Conversation and planning">
+        <img src="images/craft_02.jpg" class="craft-img" data-img="02" alt="Design and sculpture">
+        <img src="images/craft_03.jpg" class="craft-img" data-img="03" alt="Carving and engraving">
+        <img src="images/craft_04.jpg" class="craft-img" data-img="04" alt="Final monument installation">
+      </div>
+  
+      <div class="craft-steps">
+        <div class="craft-step reveal active" data-target="01">
+          <span>01</span>
+          <h3>The Conversation</h3>
+          <p>We begin by listening — learning the life, the family, the stories, and the details that deserve to be
+            remembered.</p>
+        </div>
+  
+        <div class="craft-step reveal reveal-delay-1" data-target="02">
+          <span>02</span>
+          <h3>The Design</h3>
+          <p>Memory becomes form through sketches, sculpture, layout, stone selection, lettering, and meaningful personal
+            details.</p>
+        </div>
+  
+        <div class="craft-step reveal reveal-delay-2" data-target="03">
+          <span>03</span>
+          <h3>The Creation</h3>
+          <p>Stone is shaped with patience and precision until every surface, curve, and engraving carries meaning.</p>
+        </div>
+  
+        <div class="craft-step reveal reveal-delay-3" data-target="04">
+          <span>04</span>
+          <h3>The Installation</h3>
+          <p>The finished memorial is placed with care, becoming a permanent space for remembrance, healing, and honor.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section> -->
+  <!-- <section id="process" class="craft-section">
+    <div class="craft-header">
+      <p class="section-eyebrow reveal">The Craft</p>
+      <h2 class="section-title reveal reveal-delay-1">
+        How a story<br>becomes <em>stone.</em>
+      </h2>
+    </div>
+  
+    <div class="craft-layout">
+      <div class="craft-image reveal">
+        <img src="images/craft-process.jpg" alt="Craftsman working on monument">
+      </div>
+  
+      <div class="craft-steps">
+        <div class="craft-step reveal">
+          <span>01</span>
+          <h3>The Conversation</h3>
+          <p>We begin by listening — learning the life, the family, the stories, and the details that deserve to be
+            remembered.</p>
+        </div>
+  
+        <div class="craft-step reveal reveal-delay-1">
+          <span>02</span>
+          <h3>The Design</h3>
+          <p>Memory becomes form through sketches, sculpture, layout, stone selection, lettering, and meaningful personal
+            details.</p>
+        </div>
+  
+        <div class="craft-step reveal reveal-delay-2">
+          <span>03</span>
+          <h3>The Creation</h3>
+          <p>Stone is shaped with patience and precision until every surface, curve, and engraving carries the weight of
+            meaning.</p>
+        </div>
+  
+        <div class="craft-step reveal reveal-delay-3">
+          <span>04</span>
+          <h3>The Installation</h3>
+          <p>The finished memorial is placed with care, becoming a permanent space for remembrance, healing, and honor.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+  <!-- PAGE 4 / CRAFTED LEGACY -->
+  <section id="crafted-legacy" class="legacy-craft-section">
+  
+    <div class="legacy-craft-layout">
+  
+      <div class="legacy-craft-left reveal">
+        <div class="legacy-craft-eyebrow">
+          <span>Our Creations</span>
+        </div>
+  
+        <h2 class="legacy-craft-title">
+          Each Stone,<br>
+          <em>a Story</em><span> —</span><br>
+          Carved to<br>
+          Outlast Time.
+        </h2>
+  
+        <div class="legacy-gold-rule"></div>
+  
+        <p class="legacy-craft-body">
+          Every monument we craft is a quiet conversation between memory and stone.
+          Shaped by hand, finished with reverence, and built to stand as long as the
+          names they honor.
+        </p>
+  
+        <p class="legacy-craft-small">
+          Heart stones · Military tributes · Family monuments · Bespoke design.
+          No two pieces alike — because no two lives ever were.
+        </p>
+  
+        <a href="#contact" class="legacy-craft-cta">
+          Create a Lasting Legacy <span>→</span>
+        </a>
+  
+        <div class="legacy-stats">
+          <div>
+            <strong>15+</strong>
+            Years of Craft
+          </div>
+  
+          <div class="legacy-stat-line"></div>
+  
+          <div>
+            <strong>1200+</strong>
+            Memorials Shaped
+          </div>
+        </div>
+      </div>
+  
+      <div class="legacy-rotating-wrap reveal reveal-delay-1">
+        <div class="legacy-auto-card">
+          <img src="images/extra.jpg" alt="Heart-shaped polished granite memorial">
+        </div>
+  
+        <div class="legacy-auto-card">
+          <img src="images/page4_image1.jpg" alt="Personalized stone monument">
+        </div>
+  
+        <div class="legacy-auto-card">
+          <img src="images/page4_image3.jpg" alt="Upright family monument">
+        </div>
+      </div>
+  
+    </div>
+  
+    <div class="legacy-craft-marquee">
+      HAND-CARVED <span>✦</span>
+      HEIRLOOM ETCHING <span>✦</span>
+      GRANITE & BRONZE <span>✦</span>
+      BUILT FOR ETERNITY
+    </div>
+  
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact-left">
+      <p class="section-eyebrow reveal">Commission a Piece</p>
+      <h2 class="section-title reveal reveal-delay-1">Every legacy<br>begins with a<br><em>conversation.</em></h2>
+      <p class="contact-tagline reveal reveal-delay-1">We accept a limited number of commissions each year to ensure
+        every piece receives the care it deserves.</p>
+      <div class="contact-info-item reveal reveal-delay-2">
+        <span class="ci-label">Visit</span>
+        <span class="ci-value">By appointment only</span>
+      </div>
+      <div class="contact-info-item reveal reveal-delay-2">
+        <span class="ci-label">Email</span>
+        <span class="ci-value">info@bottmonument.com</span>
+      </div>
+      <div class="contact-info-item reveal reveal-delay-2">
+        <span class="ci-label">Response</span>
+        <span class="ci-value">Within 48 hours</span>
+      </div>
+    </div>
+
+    <div class="contact-form reveal reveal-delay-1">
+      <div class="form-group">
+        <input type="text" id="name" placeholder=" ">
+        <label for="name">Your Name</label>
+      </div>
+      <div class="form-group">
+        <input type="email" id="email" placeholder=" ">
+        <label for="email">Email Address</label>
+      </div>
+      <div class="form-group">
+        <textarea id="message" placeholder=" "></textarea>
+        <label for="message">Tell us about your vision</label>
+      </div>
+      <button class="btn-gold">Send Inquiry</button>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">Bott<span>®</span> Monument</div>
+    <p class="footer-copy">© 2025 Bott Monument. All rights reserved.<br>Crafted with intention. Built for eternity.</p>
+    <p class="footer-tagline">In stone we remember.<br><em>In memory we live.</em></p>
+  </footer>
+
+  <script>
+
+    // Luxury Light / Dark Theme Toggle
+    const themeToggle = document.getElementById('themeToggle');
+    const themeFlash = document.getElementById('themeFlash');
+
+    themeToggle.addEventListener('click', () => {
+      themeFlash.classList.remove('active');
+      void themeFlash.offsetWidth;
+      themeFlash.classList.add('active');
+
+      document.body.classList.toggle('light-theme');
+
+      if (document.body.classList.contains('light-theme')) {
+        themeToggle.innerHTML = '⚫ Dark';
+      } else {
+        themeToggle.innerHTML = '⚪ Light';
+      }
+    });
+
+    // Custom cursor
+    const cursor = document.getElementById('cursor');
+    const ring = document.getElementById('cursorRing');
+    let mx = 0, my = 0, rx = 0, ry = 0;
+    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+    function animateCursor() {
+      cursor.style.left = mx + 'px'; cursor.style.top = my + 'px';
+      rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
+      ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+      requestAnimationFrame(animateCursor);
+    }
+    animateCursor();
+    document.querySelectorAll('a, button, .work-item').forEach(el => {
+      el.addEventListener('mouseenter', () => ring.style.transform = 'translate(-50%,-50%) scale(1.8)');
+      el.addEventListener('mouseleave', () => ring.style.transform = 'translate(-50%,-50%) scale(1)');
+    });
+
+    // Navbar scroll
+    const nav = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 80);
+    });
+
+    // Scroll reveals
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+    }, { threshold: 0.12 });
+    reveals.forEach(el => observer.observe(el));
+
+    // Smooth black-to-cream transition ONLY inside Page 4
+      const workSection = document.getElementById('work');
+
+      window.addEventListener('scroll', () => {
+        const rect = workSection.getBoundingClientRect();
+
+        const start = window.innerHeight * 1.25;
+        const end = window.innerHeight * 0.05;
+
+        let progress = (start - rect.top) / (start - end);
+        progress = Math.max(0, Math.min(1, progress));
+
+        workSection.style.setProperty('--work-light-progress', progress);
+      });
+
+    // Craft image changes on hover
+      const craftSteps = document.querySelectorAll('.craft-step');
+      const craftImages = document.querySelectorAll('.craft-img');
+
+      craftSteps.forEach(step => {
+        step.addEventListener('mouseenter', () => {
+          const target = step.getAttribute('data-target');
+
+          craftSteps.forEach(s => s.classList.remove('active'));
+          step.classList.add('active');
+
+          craftImages.forEach(img => {
+            img.classList.toggle('active', img.getAttribute('data-img') === target);
+          });
+        });
+      });
+
+      const creations = [
+          {
+            img: "images/extra.jpg",
+            category: "Custom Memorial",
+            title: "Black Granite Legacy",
+            desc: "A custom memorial shaped with polished granite, floral detail, and timeless personal engraving."
+          },
+          {
+            img: "images/page4_image3.jpg",
+            category: "Upright Monument",
+            title: "Designed for Remembrance",
+            desc: "A sculptural upright monument designed with balance, dignity, and lasting visual presence."
+          },
+          {
+            img: "images/page4_image1.jpg",
+            category: "Personalized Stone",
+            title: "A Story in Granite",
+            desc: "Personal details, handprints, lettering, and stonework come together to preserve one family story."
+          },
+          {
+            img: "images/page4_image2.jpg",
+            category: "Signature Piece",
+            title: "Crafted with Meaning",
+            desc: "A bold signature monument created with refined shape, polished contrast, and lasting meaning."
+          }
+        ];
+
+        let currentCreation = 0;
+
+        const mainImg = document.querySelector(".card-main img");
+        const leftImg = document.querySelector(".card-left img");
+        const rightImg = document.querySelector(".card-right img");
+
+        // const creationNumber = document.getElementById("creationNumber");
+        // const creationCategory = document.getElementById("creationCategory");
+        // const creationTitle = document.getElementById("creationTitle");
+        // const creationDesc = document.getElementById("creationDesc");
+        const creationCount = document.getElementById("creationCount");
+
+        function updateCreations() {
+          const total = creations.length;
+
+          const leftIndex = (currentCreation - 1 + total) % total;
+          const rightIndex = (currentCreation + 1) % total;
+
+          mainImg.src = creations[currentCreation].img;
+          leftImg.src = creations[leftIndex].img;
+          rightImg.src = creations[rightIndex].img;
+
+          // creationNumber.textContent = String(currentCreation + 1).padStart(2, "0");
+          // creationCategory.textContent = creations[currentCreation].category;
+          // creationTitle.textContent = creations[currentCreation].title;
+          // creationDesc.textContent = creations[currentCreation].desc;
+          creationCount.textContent = `${String(currentCreation + 1).padStart(2, "0")} / ${String(total).padStart(2, "0")}`;
+        }
+
+        document.getElementById("nextCreation").addEventListener("click", () => {
+          currentCreation = (currentCreation + 1) % creations.length;
+          updateCreations();
+        });
+
+        // Auto rotate carousel every 4 seconds
+          let autoRotate = setInterval(() => {
+            currentCreation = (currentCreation + 1) % creations.length;
+            updateCreations();
+          }, 4000);
+
+        document.getElementById("prevCreation").addEventListener("click", () => {
+          currentCreation = (currentCreation - 1 + creations.length) % creations.length;
+          updateCreations();
+        });
+
+        updateCreations();
+
+  </script>
+</body>
+
+</html>
