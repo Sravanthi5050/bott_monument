@@ -1460,21 +1460,9 @@ body.light-theme .art-process-body{
   /* background:
     radial-gradient(circle at 72% 45%, rgba(201,160,80,.10), transparent 38%),
     linear-gradient(135deg, #050505 0%, #0A0A0A 45%, #140d06 100%); */
-  background:
-    radial-gradient(
-      circle at 72% 42%,
-      rgba(201,160,80,.12),
-      transparent 42%
-    ),
-    linear-gradient(
-      135deg,
-      #26170F 0%,
-      #1C120B 35%,
-      #120C08 70%,
-      #090807 100%
-    );
+  background: #181A1B;
 
-  padding: 9rem 4rem 10rem;
+  padding: 5rem 4rem;
   color: var(--bone);
   position: relative;
   overflow: hidden;
@@ -1498,7 +1486,7 @@ body.light-theme .art-process-body{
   grid-template-columns: .85fr 1.15fr;
   gap: 5rem;
   align-items: center;
-  min-height: 620px;
+  min-height: 540px;
 }
 
 .creations-left {
@@ -2206,7 +2194,7 @@ grid-template-columns:1fr;
 /* rotating image stack */
 .legacy-rotating-wrap{
   position:relative;
-  height:680px;
+  height:540px;
   width:100%;
   max-width:640px;
   margin:0 auto;
@@ -2660,7 +2648,7 @@ grid-template-columns:1fr;
 }
 
 .creations-section{
-  padding:6rem 2rem;
+  padding:4.5rem 2rem;
 }
 
 .creations-header{
@@ -2925,23 +2913,17 @@ grid-template-columns:1fr;
       
       </div>
     
-      <div class="stack-carousel">
-        <div class="stack-card card-left">
-          <img src="images/page4_image3.jpg" alt="">
+      <div class="legacy-rotating-wrap reveal reveal-delay-1">
+        <div class="legacy-auto-card">
+          <img src="images/extra.jpg" alt="Heart-shaped polished granite memorial">
         </div>
     
-        <div class="stack-card card-main">
-          <img src="images/extra.jpg" alt="">
+        <div class="legacy-auto-card">
+          <img src="images/page4_image5.jpg" alt="Personalized stone monument">
         </div>
     
-        <div class="stack-card card-right">
-          <img src="images/page4_image1.jpg" alt="">
-        </div>
-    
-        <div class="carousel-controls">
-          <button id="prevCreation" type="button">←</button>
-          <span id="creationCount">01 / 04</span>
-          <button id="nextCreation" type="button">→</button>
+        <div class="legacy-auto-card">
+          <img src="images/page4_image4.webp" alt="Upright family monument">
         </div>
       </div>
     
@@ -3043,7 +3025,7 @@ grid-template-columns:1fr;
   </section> -->
 
   <!-- PAGE 4 / CRAFTED LEGACY -->
-  <section id="crafted-legacy" class="legacy-craft-section">
+  <!-- <section id="crafted-legacy" class="legacy-craft-section">
   
     <div class="legacy-craft-layout">
   
@@ -3114,7 +3096,7 @@ grid-template-columns:1fr;
       BUILT FOR ETERNITY
     </div>
   
-  </section>
+  </section> -->
 
   <!-- CONTACT -->
   <section id="contact">
@@ -3242,80 +3224,6 @@ grid-template-columns:1fr;
           });
         });
       });
-
-      const creations = [
-          {
-            img: "images/extra.jpg",
-            category: "Custom Memorial",
-            title: "Black Granite Legacy",
-            desc: "A custom memorial shaped with polished granite, floral detail, and timeless personal engraving."
-          },
-          {
-            img: "images/page4_image3.jpg",
-            category: "Upright Monument",
-            title: "Designed for Remembrance",
-            desc: "A sculptural upright monument designed with balance, dignity, and lasting visual presence."
-          },
-          {
-            img: "images/page4_image1.jpg",
-            category: "Personalized Stone",
-            title: "A Story in Granite",
-            desc: "Personal details, handprints, lettering, and stonework come together to preserve one family story."
-          },
-          {
-            img: "images/page4_image2.jpg",
-            category: "Signature Piece",
-            title: "Crafted with Meaning",
-            desc: "A bold signature monument created with refined shape, polished contrast, and lasting meaning."
-          }
-        ];
-
-        let currentCreation = 0;
-
-        const mainImg = document.querySelector(".card-main img");
-        const leftImg = document.querySelector(".card-left img");
-        const rightImg = document.querySelector(".card-right img");
-
-        // const creationNumber = document.getElementById("creationNumber");
-        // const creationCategory = document.getElementById("creationCategory");
-        // const creationTitle = document.getElementById("creationTitle");
-        // const creationDesc = document.getElementById("creationDesc");
-        const creationCount = document.getElementById("creationCount");
-
-        function updateCreations() {
-          const total = creations.length;
-
-          const leftIndex = (currentCreation - 1 + total) % total;
-          const rightIndex = (currentCreation + 1) % total;
-
-          mainImg.src = creations[currentCreation].img;
-          leftImg.src = creations[leftIndex].img;
-          rightImg.src = creations[rightIndex].img;
-
-          // creationNumber.textContent = String(currentCreation + 1).padStart(2, "0");
-          // creationCategory.textContent = creations[currentCreation].category;
-          // creationTitle.textContent = creations[currentCreation].title;
-          // creationDesc.textContent = creations[currentCreation].desc;
-          creationCount.textContent = `${String(currentCreation + 1).padStart(2, "0")} / ${String(total).padStart(2, "0")}`;
-        }
-
-        document.getElementById("nextCreation").addEventListener("click", () => {
-          currentCreation = (currentCreation + 1) % creations.length;
-          updateCreations();
-        });
-
-        // Auto rotate carousel every 4 seconds
-          let autoRotate = setInterval(() => {
-            currentCreation = (currentCreation + 1) % creations.length;
-            updateCreations();
-          }, 4000);
-
-        document.getElementById("prevCreation").addEventListener("click", () => {
-          currentCreation = (currentCreation - 1 + creations.length) % creations.length;
-          updateCreations();
-        });
-
-        updateCreations();
 
   </script>
 </body>
