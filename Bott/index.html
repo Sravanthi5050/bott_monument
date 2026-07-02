@@ -587,7 +587,7 @@
     .press-page {
       position: relative;
       padding: 7rem 4rem 3rem;
-      background: linear-gradient(180deg, #FFFFFF 0%, #FFFFFF 65%, #181A1B 100%);
+      background: #FFFFFF;
       color: #1C1812;
       overflow: hidden;
     }
@@ -605,8 +605,8 @@
 
     .press-founder {
       position: absolute;
-      top: 6.4rem;
-      left: 3rem;
+      top: 12rem;
+      left: 6rem;
       width: 275px;
       z-index: 3;
       text-align: center;
@@ -704,7 +704,7 @@
 
     .press-page-head {
       max-width: 760px;
-      margin: 0 auto 5rem;
+      margin: 0 auto 5rem 30%;
       text-align: center;
     }
 
@@ -781,14 +781,25 @@
       position: relative;
     }
 
+    .press-cards-viewport {
+      width: 100%;
+      max-width: 1320px;
+      margin: 0 auto;
+      overflow: visible;
+      padding-top: 40px;
+      /* overflow: hidden; */
+    }
+
     .press-cards {
-      position: relative;
       display: grid;
       grid-template-columns: repeat(6, minmax(0, 200px));
       justify-content: center;
       gap: 1.6rem;
-      max-width: 1320px;
-      margin: 0 auto;
+      animation: pressFadeIn .45s ease;
+    }
+    @keyframes pressFadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
 
     .press-card {
@@ -801,9 +812,75 @@
       transform: translateY(-.6rem);
     }
 
-    .press-card:nth-child(even) {
-      margin-top: -2.2rem;
+    /* Nav arrows */
+    .press-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.2rem;
+      margin-top: 2.5rem;
     }
+
+    .press-nav-btn {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(28,24,18,.25);
+      background: #fff;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      color: #1C1812;
+      transition: background .25s ease, border-color .25s ease, color .25s ease, transform .25s ease;
+      box-shadow: 0 4px 18px rgba(0,0,0,.08);
+    }
+
+    .press-nav-btn:hover {
+      background: #1C1812;
+      border-color: #1C1812;
+      color: #fff;
+      transform: scale(1.08);
+    }
+
+    .press-nav-btn:disabled {
+      opacity: .3;
+      cursor: default;
+      transform: none;
+    }
+
+    .press-nav-dots {
+      display: flex;
+      gap: .5rem;
+      align-items: center;
+    }
+
+    .press-nav-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(28,24,18,.2);
+      transition: background .25s ease, transform .25s ease;
+      cursor: pointer;
+    }
+
+    .press-nav-dot.active {
+      background: #B8872C;
+      transform: scale(1.3);
+    }
+
+    /* .press-card:nth-child(even) {
+      margin-top: -2.2rem;
+    } */
+
+    .press-card:nth-child(even) {
+    transform: translateY(-35px);
+}
+
+.press-card:hover {
+    transform: translateY(-45px);
+}
 
     .press-card-news {
       font-family: var(--font-utility);
@@ -1100,6 +1177,7 @@
 
     .creations-section {
       background: #181A1B;
+      /* background: linear-gradient(180deg, #181A1B 0%, #181A1B 95%, #ffffff 100%); */
       padding: 5rem 4rem;
       color: var(--bone);
       position: relative;
@@ -1121,16 +1199,16 @@
 
     .luxury-creations-layout {
       display: grid;
-      grid-template-columns: .85fr 1.15fr;
-      gap: 5rem;
-      align-items: center;
+      grid-template-columns: .75fr 1.25fr;
+      gap: 4rem;
+      align-items: start;
       min-height: 540px;
     }
 
     .creations-left {
       position: relative;
       max-width: 480px;
-      transform: translateY(-100px);
+      transform: translateY(-40px);
     }
 
     .legacy-rotating-wrap {
@@ -1213,6 +1291,214 @@
         filter: blur(0);
         z-index: 30;
       }
+    }
+
+    /* ── WORK SECTION NEWS ARTICLE PAIR ── */
+    /* ── WORK SECTION — PRESS PANEL (right side) ── */
+    .work-press-panel {
+      background: rgba(14, 12, 8, 0.78);
+      border: 1px solid rgba(201,160,80,.18);
+      border-radius: 20px;
+      padding: 2.6rem 2.8rem 2.2rem;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 36px 90px -22px rgba(0,0,0,.7), inset 0 1px 0 rgba(255,255,255,.055);
+      display: flex;
+      flex-direction: column;
+      align-self: center;
+      min-width: 0;
+    }
+
+    .wpp-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 1.6rem;
+    }
+
+    .wpp-eyebrow {
+      font-family: var(--font-utility);
+      font-size: .4rem;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: .55rem;
+      opacity: .85;
+    }
+
+    .wpp-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.7rem, 2.6vw, 2.4rem);
+      font-weight: 300;
+      color: #F0EAD6;
+      line-height: 1.1;
+    }
+
+    .wpp-title em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .wpp-counter {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      font-weight: 300;
+      color: rgba(201,160,80,.18);
+      line-height: 1;
+      letter-spacing: -.02em;
+      flex-shrink: 0;
+    }
+
+    .wpp-rule {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(to right, rgba(201,160,80,.35), rgba(201,160,80,.08), transparent);
+      margin: 1.1rem 0;
+    }
+
+    .wpp-article {
+      display: flex;
+      gap: 1.3rem;
+      align-items: center;
+      text-decoration: none;
+      padding: 1.3rem 0;
+      transition: opacity .25s ease, transform .25s ease;
+    }
+
+    .wpp-article:hover {
+      opacity: .82;
+      transform: translateX(4px);
+    }
+
+    .wpp-thumb {
+      flex-shrink: 0;
+      width: 86px;
+      height: 86px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(201,160,80,.22);
+      box-shadow: 0 8px 24px rgba(0,0,0,.45);
+    }
+
+    .wpp-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .wpp-text {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .wpp-pub {
+      font-family: var(--font-utility);
+      font-size: .36rem;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: .32rem;
+    }
+
+    .wpp-headline {
+      font-family: var(--font-display);
+      font-size: clamp(.95rem, 1.5vw, 1.25rem);
+      font-weight: 300;
+      color: #F0EAD6;
+      line-height: 1.28;
+      margin-bottom: .38rem;
+    }
+
+    .wpp-meta {
+      font-family: var(--font-utility);
+      font-size: .36rem;
+      color: rgba(240,234,214,.38);
+      letter-spacing: .07em;
+    }
+
+    .wpp-divider {
+      width: 100%;
+      height: 1px;
+      background: rgba(255,255,255,.07);
+    }
+
+    .wpp-all-link {
+      font-family: var(--font-utility);
+      font-size: .4rem;
+      letter-spacing: .26em;
+      text-transform: uppercase;
+      color: rgba(240,234,214,.55);
+      text-decoration: none;
+      margin-top: 1.3rem;
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      transition: color .25s ease, gap .25s ease;
+    }
+
+    .wpp-all-link:hover {
+      color: var(--gold);
+      gap: .75rem;
+    }
+
+    .wpp-all-link span {
+      color: var(--gold);
+    }
+
+    /* ── PRESS CLIPPINGS SECTION ── */
+    #press-clippings {
+      background: #ffffff;
+      padding: 6rem 4rem 7rem;
+    }
+
+    .press-clippings-inner {
+      max-width: 1320px;
+      margin: 0 auto;
+    }
+
+    .press-clippings-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .press-clippings-eyebrow {
+      font-family: var(--font-utility);
+      font-size: .52rem;
+      letter-spacing: .3em;
+      text-transform: uppercase;
+      color: #B8872C;
+      margin-bottom: .8rem;
+    }
+
+    .press-clippings-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.6rem, 4vw, 4rem);
+      font-weight: 300;
+      color: #1C1812;
+      line-height: 1.1;
+      margin-bottom: 1.2rem;
+    }
+
+    .press-clippings-title em {
+      font-style: italic;
+      color: #B8872C;
+    }
+
+    .press-clippings-rule {
+      width: 60px;
+      height: 1px;
+      background: linear-gradient(to right, transparent, #B8872C, transparent);
+      margin: 0 auto;
+    }
+
+    /* Override press-card caption for white bg context */
+    #press-clippings .press-card-caption {
+      background: #1C1812;
+    }
+
+    #press-clippings .press-card-frame {
+      border-color: #1C1812;
     }
 
     /* ── FOUNDER DOCUMENTARY ── */
@@ -1937,109 +2223,144 @@
       position: absolute;
       inset: 0;
       z-index: 50;
-      background: rgba(10, 8, 6, 0);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 7rem;
-      gap: 4rem;
+      opacity: 0;
       pointer-events: none;
-      transition: background .75s ease;
+      transition: opacity .75s ease;
+      background: #000;
     }
 
     .mag-overlay.visible {
-      background: rgba(10, 8, 6, 0.88);
+      opacity: 1;
       pointer-events: auto;
     }
 
-    .mag-ov-left {
-      flex: 1;
-      max-width: 420px;
+    .mag-overlay video {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    /* Centre play button */
+    .mag-play-btn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      background: rgba(201,160,80,.92);
+      border: 2px solid rgba(255,255,255,.3);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform .3s ease, opacity .3s ease;
+      z-index: 6;
+    }
+
+    .mag-play-btn:hover { transform: translate(-50%, -50%) scale(1.1); }
+
+    .mag-play-btn.hidden { opacity: 0; pointer-events: none; }
+
+    .mag-play-icon {
+      font-size: 1.4rem;
+      color: #fff;
+      margin-left: 4px;
+      line-height: 1;
+    }
+
+    /* Bottom controls bar */
+    .mag-vid-controls {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      z-index: 7;
+      background: linear-gradient(to top, rgba(0,0,0,.85) 0%, transparent 100%);
+      padding: 2.5rem 1.6rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: .7rem;
       opacity: 0;
-      transform: translateY(30px);
-      transition: opacity .65s ease .1s, transform .65s ease .1s;
+      transition: opacity .3s ease;
     }
 
-    .mag-overlay.visible .mag-ov-left {
-      opacity: 1;
-      transform: translateY(0);
+    .mag-overlay:hover .mag-vid-controls,
+    .mag-overlay.visible .mag-vid-controls { opacity: 1; }
+
+    /* Seek bar */
+    .mag-seek-wrap {
+      position: relative;
+      height: 6px;
+      background: rgba(255,255,255,.28);
+      border-radius: 6px;
+      cursor: pointer;
     }
 
-    .mag-ov-eyebrow {
-      font-family: var(--font-utility);
-      font-size: .52rem;
-      letter-spacing: .28em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: .9rem;
+    .mag-seek-fill {
+      height: 100%;
+      width: 0%;
+      background: var(--gold);
+      border-radius: 6px;
+      pointer-events: none;
     }
 
-    .mag-ov-title {
-      font-family: var(--font-display);
-      font-size: clamp(2rem, 3.8vw, 3.6rem);
-      font-weight: 300;
-      color: #F0EDE8;
-      line-height: 1.1;
-      margin-bottom: 1.8rem;
+    .mag-seek-thumb {
+      position: absolute;
+      top: 50%;
+      left: 0%;
+      width: 16px; height: 16px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 6px rgba(201,160,80,.6);
+      transform: translate(-50%, -50%);
+      pointer-events: none;
     }
 
-    .mag-ov-title em {
-      font-style: italic;
+    /* Bottom row: play + time + fullscreen */
+    .mag-vid-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
     }
 
-    .mag-ov-lines p {
-      font-family: var(--font-display);
-      font-size: clamp(.85rem, 1.4vw, 1.1rem);
-      font-style: italic;
-      color: rgba(240, 234, 232, .58);
-      margin-bottom: .28rem;
+    .mag-vid-play-sm {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #fff;
+      font-size: 1.3rem;
+      display: flex;
+      align-items: center;
+      padding: 0;
+      flex-shrink: 0;
+      transition: color .2s ease;
     }
 
-    .mag-ov-desc {
+    .mag-vid-play-sm:hover { color: var(--gold); }
+
+    .mag-vid-time {
       font-family: var(--font-utility);
       font-size: .55rem;
-      line-height: 1.75;
-      color: rgba(240, 234, 232, .48);
-      margin-top: 1.2rem;
-      letter-spacing: .04em;
+      color: rgba(255,255,255,.8);
+      letter-spacing: .08em;
+      flex: 1;
     }
 
-    .mag-ov-link {
-      display: inline-block;
-      margin-top: 1.8rem;
-      font-family: var(--font-utility);
-      font-size: .52rem;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      color: var(--gold);
-      text-decoration: none;
-      border-bottom: 1px solid rgba(201, 160, 80, .4);
-      padding-bottom: .25rem;
-      transition: border-color .2s;
+    .mag-vid-fullscreen {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: rgba(255,255,255,.85);
+      font-size: 1.3rem;
+      display: flex;
+      align-items: center;
+      padding: 0;
+      flex-shrink: 0;
+      transition: color .2s ease;
     }
 
-    .mag-ov-link:hover {
-      border-color: var(--gold);
-    }
-
-    .mag-ov-right {
-      flex: 0 0 280px;
-      height: 360px;
-      position: relative;
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity .65s ease .25s, transform .65s ease .25s;
-    }
-
-    .mag-overlay.visible .mag-ov-right {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .mag-ov-right .legacy-auto-card {
-      width: 66%;
-      border-radius: 14px;
-    }
+    .mag-vid-fullscreen:hover { color: var(--gold); }
   </style>
 </head>
 
@@ -2134,56 +2455,6 @@
       <p class="press-page-signature reveal reveal-delay-3">Your signature</p>
     </div>
     <div class="press-page-row reveal reveal-delay-3">
-      <div class="press-cards">
-        <article class="press-card">
-          <div class="press-card-frame"><img src="images/newspaper.jpg"
-              alt="MB News magazine cover featuring Bott Monument"></div>
-          <div class="press-card-caption">
-            <h3 class="press-card-title">MB News — Cover Feature</h3>
-            <p class="press-card-meta">Monument Builders of North America<span>September 2024</span></p>
-          </div>
-        </article>
-        <article class="press-card">
-          <div class="press-card-frame"><img src="images/newspaper2.jpg"
-              alt="From the Cover article written by Drew Bott"></div>
-          <div class="press-card-caption">
-            <h3 class="press-card-title">From the Cover: Brinda</h3>
-            <p class="press-card-meta">By Drew Bott, AICA, CM<span>4 min read</span></p>
-          </div>
-        </article>
-        <article class="press-card">
-          <div class="press-card-frame"><img src="images/achievement_3.png"
-              alt="Local Craftsman Honored For Excellence In Granite article"></div>
-          <div class="press-card-caption">
-            <h3 class="press-card-title">Local Craftsman Honored For Excellence In Granite</h3>
-            <p class="press-card-meta">Trade Press<span>3 min read</span></p>
-          </div>
-        </article>
-        <article class="press-card">
-          <div class="press-card-frame"><img src="images/achievement_4.png"
-              alt="Bott Monument Co. Serves Families Across Generations article"></div>
-          <div class="press-card-caption">
-            <h3 class="press-card-title">Serving Families Across Generations</h3>
-            <p class="press-card-meta">Community Spotlight<span>2 min read</span></p>
-          </div>
-        </article>
-        <article class="press-card">
-          <div class="press-card-frame"><img src="images/clipping-daily-craftsman.svg"
-              alt="The Daily Craftsman feature on a studio earning honors"></div>
-          <div class="press-card-caption">
-            <h3 class="press-card-title">Renowned Studio Earns Top Honors In Memorial Design</h3>
-            <p class="press-card-meta">The Daily Craftsman<span>5 min read</span></p>
-          </div>
-        </article>
-        <article class="press-card">
-          <div class="press-card-frame"><img src="images/clipping-northstar-press.svg"
-              alt="North Star Press feature on granite artistry"></div>
-          <div class="press-card-caption">
-            <h3 class="press-card-title">Why This Workshop Is Setting The Standard In Granite Artistry</h3>
-            <p class="press-card-meta">North Star Press<span>5 min read</span></p>
-          </div>
-        </article>
-      </div>
     </div>
     <p class="press-page-seam reveal">✦</p>
   </section>
@@ -2198,7 +2469,7 @@
   <section id="work" class="creations-section">
     <div class="creations-header">
       <div></div>
-      <a href="#contact" class="commission-link reveal"><span>Create a Lasting Legacy</span></a>
+      <!-- <a href="#contact" class="commission-link reveal"><span>Create a Lasting Legacy</span></a> -->
     </div>
     <div class="luxury-creations-layout reveal">
       <div class="creations-left gallery-left">
@@ -2206,7 +2477,7 @@
           <span></span>
           <p>Our Work</p><span></span>
         </div>
-        <h3 class="gallery-title">Where<br><em>Memory</em><br>Becomes <span><em>Art.</em></span></h3>
+        <h3 class="gallery-title">Where<br><em>Art</em><br>Becomes <span><em>News.</em></span></h3>
         <div class="gallery-ornament"></div>
         <div class="gallery-lines">
           <p>Every curve.</p>
@@ -2216,11 +2487,215 @@
         <p class="gallery-desc">Thoughtfully crafted to become<br>a lasting legacy for generations.</p>
         <a href="#contact" class="gallery-link">View Gallery <span>→</span></a>
       </div>
-      <div class="legacy-rotating-wrap reveal reveal-delay-1">
-        <div class="legacy-auto-card"><img src="images/extra.jpg" alt="Heart-shaped polished granite memorial"></div>
-        <div class="legacy-auto-card"><img src="images/page4_image5.jpg" alt="Personalized stone monument"></div>
-        <div class="legacy-auto-card"><img src="images/page4_image4.webp" alt="Upright family monument"></div>
+      <!-- Press panel — right side of #work -->
+      <div class="work-press-panel reveal reveal-delay-1">
+
+        <!-- Header -->
+        <div class="wpp-header">
+          <div>
+            <p class="wpp-eyebrow">— In The Press —</p>
+            <h3 class="wpp-title">Featured <em>Stories</em></h3>
+          </div>
+          <span class="wpp-counter">02</span>
+        </div>
+
+        <div class="wpp-rule"></div>
+
+        <!-- Article 1 -->
+        <a class="wpp-article" href="PASTE_COWBOY_STATE_DAILY_URL_HERE" target="_blank" rel="noopener">
+          <div class="wpp-thumb">
+            <img src="images/article_4.jpeg" alt="Cowboy State Daily article">
+          </div>
+          <div class="wpp-text">
+            <p class="wpp-pub">Cowboy State Daily</p>
+            <h4 class="wpp-headline">Holds Up Mammoth 11.50&#8209;Ton Quarter Pounder</h4>
+            <p class="wpp-meta">Oct 23, 2024 &middot; Feature</p>
+          </div>
+        </a>
+
+        <div class="wpp-divider"></div>
+
+        <!-- Article 2 -->
+        <a class="wpp-article" href="PASTE_SHOUTOUT_COLORADO_URL_HERE" target="_blank" rel="noopener">
+          <div class="wpp-thumb">
+            <img src="images/article_2.jpeg" alt="Shoutout Colorado article">
+          </div>
+          <div class="wpp-text">
+            <p class="wpp-pub">Shoutout Colorado</p>
+            <h4 class="wpp-headline">Meet Drew Bott | Memorial Artist</h4>
+            <p class="wpp-meta">Jun 28, 2022 &middot; Local Stories</p>
+          </div>
+        </a>
+
+        <div class="wpp-rule"></div>
+        <a class="wpp-all-link" href="#press-clippings">All Press Coverage <span>→</span></a>
+
       </div>
+
+      <!-- <div class="press-cards">
+              <article class="press-card">
+                <div class="press-card-frame"><img src="images/newspaper.jpg"
+                    alt="MB News magazine cover featuring Bott Monument"></div>
+                <div class="press-card-caption">
+                  <h3 class="press-card-title">MB News — Cover Feature</h3>
+                  <p class="press-card-meta">Monument Builders of North America<span>September 2024</span></p>
+                </div>
+              </article>
+              <article class="press-card">
+                <div class="press-card-frame"><img src="images/newspaper2.jpg"
+                    alt="From the Cover article written by Drew Bott"></div>
+                <div class="press-card-caption">
+                  <h3 class="press-card-title">From the Cover: Brinda</h3>
+                  <p class="press-card-meta">By Drew Bott, AICA, CM<span>4 min read</span></p>
+                </div>
+              </article>
+              <article class="press-card">
+                <div class="press-card-frame"><img src="images/achievement_3.png"
+                    alt="Local Craftsman Honored For Excellence In Granite article"></div>
+                <div class="press-card-caption">
+                  <h3 class="press-card-title">Local Craftsman Honored For Excellence In Granite</h3>
+                  <p class="press-card-meta">Trade Press<span>3 min read</span></p>
+                </div>
+              </article>
+              <article class="press-card">
+                <div class="press-card-frame"><img src="images/achievement_4.png"
+                    alt="Bott Monument Co. Serves Families Across Generations article"></div>
+                <div class="press-card-caption">
+                  <h3 class="press-card-title">Serving Families Across Generations</h3>
+                  <p class="press-card-meta">Community Spotlight<span>2 min read</span></p>
+                </div>
+              </article>
+              <article class="press-card">
+                <div class="press-card-frame"><img src="images/clipping-daily-craftsman.svg"
+                    alt="The Daily Craftsman feature on a studio earning honors"></div>
+                <div class="press-card-caption">
+                  <h3 class="press-card-title">Renowned Studio Earns Top Honors In Memorial Design</h3>
+                  <p class="press-card-meta">The Daily Craftsman<span>5 min read</span></p>
+                </div>
+              </article>
+              <article class="press-card">
+                <div class="press-card-frame"><img src="images/clipping-northstar-press.svg"
+                    alt="North Star Press feature on granite artistry"></div>
+                <div class="press-card-caption">
+                  <h3 class="press-card-title">Why This Workshop Is Setting The Standard In Granite Artistry</h3>
+                  <p class="press-card-meta">North Star Press<span>5 min read</span></p>
+                </div>
+              </article>
+            </div> -->
+    </div>
+  </section>
+
+  <!-- ═══════════ PRESS CLIPPINGS ═══════════ -->
+  <section id="press-clippings">
+    <div class="press-clippings-inner">
+      <div class="press-clippings-header reveal">
+        <p class="press-clippings-eyebrow">In The Press</p>
+        <h2 class="press-clippings-title">As <em>Featured</em> In</h2>
+        <div class="press-clippings-rule"></div>
+      </div>
+      <div class="press-cards-viewport">
+
+        <!-- Page 1 of 2 -->
+        <div class="press-cards reveal" id="pressPage1">
+          <article class="press-card">
+            <div class="press-card-frame"><img src="images/newspaper.jpg" alt="MB News magazine cover featuring Bott Monument"></div>
+            <div class="press-card-caption">
+              <h3 class="press-card-title">MB News — Cover Feature</h3>
+              <p class="press-card-meta">Monument Builders of North America<span>September 2024</span></p>
+            </div>
+          </article>
+          <article class="press-card">
+            <div class="press-card-frame"><img src="images/newspaper.jpg" alt="From the Cover article written by Drew Bott"></div>
+            <div class="press-card-caption">
+              <h3 class="press-card-title">From the Cover: Brinda</h3>
+              <p class="press-card-meta">By Drew Bott, AICA, CM<span>4 min read</span></p>
+            </div>
+          </article>
+          <article class="press-card">
+            <div class="press-card-frame"><img src="images/newspaper.jpg" alt="Local Craftsman Honored For Excellence In Granite article"></div>
+            <div class="press-card-caption">
+              <h3 class="press-card-title">Local Craftsman Honored For Excellence In Granite</h3>
+              <p class="press-card-meta">Trade Press<span>3 min read</span></p>
+            </div>
+          </article>
+          <article class="press-card">
+            <div class="press-card-frame"><img src="images/newspaper.jpg" alt="Bott Monument Co. Serves Families Across Generations article"></div>
+            <div class="press-card-caption">
+              <h3 class="press-card-title">Serving Families Across Generations</h3>
+              <p class="press-card-meta">Community Spotlight<span>2 min read</span></p>
+            </div>
+          </article>
+          <article class="press-card">
+            <div class="press-card-frame"><img src="images/newspaper.jpg" alt="The Daily Craftsman feature on a studio earning honors"></div>
+            <div class="press-card-caption">
+              <h3 class="press-card-title">Renowned Studio Earns Top Honors In Memorial Design</h3>
+              <p class="press-card-meta">The Daily Craftsman<span>5 min read</span></p>
+            </div>
+          </article>
+          <article class="press-card">
+            <div class="press-card-frame"><img src="images/newspaper.jpg" alt="North Star Press feature on granite artistry"></div>
+            <div class="press-card-caption">
+              <h3 class="press-card-title">Why This Workshop Is Setting The Standard In Granite Artistry</h3>
+              <p class="press-card-meta">North Star Press<span>5 min read</span></p>
+            </div>
+          </article>
+        </div><!-- end pressPage1 -->
+
+        <!-- Page 2 of 2 -->
+        <div class="press-cards" id="pressPage2" style="display:none">
+          <article class="press-card">
+            <div class="press-card-frame"><img src="images/newspaper.jpg" alt="Rocky Mountain Life feature on Drew Bott"></div>
+            <div class="press-card-caption">
+              <h3 class="press-card-title">Award-Winning Sculptor Brings Tradition to Modern Grief</h3>
+              <p class="press-card-meta">Rocky Mountain Life<span>6 min read</span></p>
+            </div>
+          </article>
+          <article class="press-card">
+            <div class="press-card-frame"><img src="images/newspaper.jpg" alt="Wyoming Business Journal feature on Bott Monument family legacy"></div>
+            <div class="press-card-caption">
+              <h3 class="press-card-title">Behind the Stone: A Family's Legacy in Memorial Art</h3>
+              <p class="press-card-meta">Wyoming Business Journal<span>5 min read</span></p>
+            </div>
+          </article>
+          <article class="press-card">
+            <div class="press-card-frame"><img src="images/newspaper.jpg" alt="Denver Post feature on granite craftsmanship"></div>
+            <div class="press-card-caption">
+              <h3 class="press-card-title">Crafting Memories in Granite: One Family's Mission</h3>
+              <p class="press-card-meta">Denver Post Feature<span>4 min read</span></p>
+            </div>
+          </article>
+          <article class="press-card">
+            <div class="press-card-frame"><img src="images/newspaper.jpg" alt="Mountain States Journal on Bott Monument story"></div>
+            <div class="press-card-caption">
+              <h3 class="press-card-title">The Art of Remembrance: Bott Monument's Story</h3>
+              <p class="press-card-meta">Mountain States Journal<span>3 min read</span></p>
+            </div>
+          </article>
+          <article class="press-card">
+            <div class="press-card-frame"><img src="images/newspaper.jpg" alt="Industry Leaders Monthly on AICA Master Craftsman Drew Bott"></div>
+            <div class="press-card-caption">
+              <h3 class="press-card-title">Excellence in Stone: AICA Master Craftsman Drew Bott</h3>
+              <p class="press-card-meta">Industry Leaders Monthly<span>6 min read</span></p>
+            </div>
+          </article>
+          <article class="press-card">
+            <div class="press-card-frame"><img src="images/newspaper.jpg" alt="Colorado Lifestyle Magazine on Bott Monument"></div>
+            <div class="press-card-caption">
+              <h3 class="press-card-title">Where Every Stone Tells a Story</h3>
+              <p class="press-card-meta">Colorado Lifestyle Magazine<span>4 min read</span></p>
+            </div>
+          </article>
+        </div><!-- end pressPage2 -->
+
+      </div><!-- end viewport -->
+
+      <!-- Navigation arrows + dots -->
+      <div class="press-nav">
+        <button class="press-nav-btn" id="pressNavPrev" aria-label="Previous">&#8592;</button>
+        <div class="press-nav-dots" id="pressNavDots"></div>
+        <button class="press-nav-btn" id="pressNavNext" aria-label="Next">&#8594;</button>
+      </div>
+
     </div>
   </section>
 
@@ -2256,32 +2731,39 @@
             <div class="mag-right" data-img="images/page4_image5.jpg" data-cap="Personalized stone monument">
               <img src="images/page4_image5.jpg" alt="Personalized monument"></div>
           </div>
+          
         </div>
+        
+        <!-- Video panel: inside the frame, fades in after all spreads open -->
+        <div class="mag-overlay" id="magOverlay">
+          <video id="magVideo" src="videos/Bott Monument the .mp4" playsinline preload="metadata"></video>
+
+          <!-- Big centre play button -->
+          <button class="mag-play-btn" id="magPlayBtn" aria-label="Play video">
+            <span class="mag-play-icon">&#9654;</span>
+          </button>
+
+          <!-- Bottom controls -->
+          <div class="mag-vid-controls">
+            <!-- Seek bar -->
+            <div class="mag-seek-wrap" id="magSeekWrap">
+              <div class="mag-seek-fill" id="magSeekFill"></div>
+              <div class="mag-seek-thumb" id="magSeekThumb"></div>
+            </div>
+            <!-- Row: play/pause · time · fullscreen -->
+            <div class="mag-vid-row">
+              <button class="mag-vid-play-sm" id="magVidPlaySm" aria-label="Play/Pause">&#9654;</button>
+              <span class="mag-vid-time" id="magVidTime">0:00 / 0:00</span>
+              <button class="mag-vid-fullscreen" id="magVidFs" aria-label="Fullscreen">&#x26F6;</button>
+            </div>
+          </div>
+        </div>
+
         <p class="mag-counter" id="mag-counter">01 / 03</p>
       </div>
 
       <!-- Caption below frame -->
       <p class="mag-caption" id="mag-caption">Crafted to endure. Carved to remember.</p>
-
-      <!-- Page-4 overlay: fades in after all spreads are open -->
-      <div class="mag-overlay" id="magOverlay">
-        <div class="mag-ov-left">
-          <p class="mag-ov-eyebrow">Our Work</p>
-          <h3 class="mag-ov-title">Where<br><em>Memory</em><br>Becomes <em>Art.</em></h3>
-          <div class="mag-ov-lines">
-            <p>Every curve.</p>
-            <p>Every inscription.</p>
-            <p>Every detail.</p>
-          </div>
-          <p class="mag-ov-desc">Thoughtfully crafted to become<br>a lasting legacy for generations.</p>
-          <a href="#contact" class="mag-ov-link">Commission a Piece &rarr;</a>
-        </div>
-        <div class="mag-ov-right legacy-rotating-wrap">
-          <div class="legacy-auto-card"><img src="images/extra.jpg" alt="Heart-shaped memorial"></div>
-          <div class="legacy-auto-card"><img src="images/page4_image5.jpg" alt="Personalized monument"></div>
-          <div class="legacy-auto-card"><img src="images/page4_image4.webp" alt="Upright family monument"></div>
-        </div>
-      </div>
 
     </div>
   </section>
@@ -2302,12 +2784,12 @@
       <img src="images/about-main-1.jpg" alt="Drew Bott, Master Craftsman">
     </div>
     <div class="founder-content reveal reveal-delay-1">
-      <p class="founder-eyebrow">The Man Behind the Art</p>
-      <h2 class="founder-name">Drew<br>Bott</h2>
-      <p class="founder-role">Master Craftsman &amp; Founder</p>
+      <p class="founder-eyebrow">Our Story</p>
+      <h2 class="founder-name">Bott<br>Monument</h2>
+      <p class="founder-role">Built on Stone. Rooted in Service.</p>
       <div class="founder-rule"></div>
-      <blockquote class="founder-quote">"Every monument should feel as personal as the life it honors."</blockquote>
-      <p class="founder-bio">With over three decades of work in granite, marble, and bronze, Drew Bott has dedicated his life to transforming stone into stories. Recognized nationally for his precision and artistry, every piece carries the weight — and the dignity — of a life well-lived.</p>
+      <blockquote class="founder-quote">"Every family deserves a monument as unique as the person it remembers."</blockquote>
+      <p class="founder-bio">Bott Monument has served families across the Rocky Mountain region for over three decades, crafting custom memorials in granite, marble, and bronze that stand for generations. Founded in Wyoming and proudly family-owned, we are not a factory — we are a studio guided by craftsmanship, driven by care, and committed to the kind of personal service that only a family business can offer.</p>
       <div class="founder-stats">
         <div class="founder-stat">
           <p class="founder-stat-num">35<sup>+</sup></p>
@@ -2521,9 +3003,116 @@
       lbClose.addEventListener('click', closeLightbox);
       lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
       document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+      // ── Video player ──
+      const magVideo    = document.getElementById('magVideo');
+      const magPlayBtn  = document.getElementById('magPlayBtn');
+      const magVidPlaySm= document.getElementById('magVidPlaySm');
+      const magSeekWrap = document.getElementById('magSeekWrap');
+      const magSeekFill = document.getElementById('magSeekFill');
+      const magSeekThumb= document.getElementById('magSeekThumb');
+      const magVidTime  = document.getElementById('magVidTime');
+      const magVidFs    = document.getElementById('magVidFs');
+
+      if (magVideo) {
+        function fmt(s) {
+          const m = Math.floor(s/60), sec = Math.floor(s%60);
+          return m + ':' + (sec<10?'0':'')+sec;
+        }
+        function setPlaying(playing) {
+          magPlayBtn.classList.toggle('hidden', playing);
+          magVidPlaySm.innerHTML = playing ? '&#9646;&#9646;' : '&#9654;';
+        }
+        magPlayBtn.addEventListener('click', () => { magVideo.play(); });
+        magVidPlaySm.addEventListener('click', () => { magVideo.paused ? magVideo.play() : magVideo.pause(); });
+        magVideo.addEventListener('play',  () => setPlaying(true));
+        magVideo.addEventListener('pause', () => setPlaying(false));
+        magVideo.addEventListener('click', () => { magVideo.paused ? magVideo.play() : magVideo.pause(); });
+
+        // Progress update
+        magVideo.addEventListener('timeupdate', () => {
+          if (!magVideo.duration) return;
+          const pct = (magVideo.currentTime / magVideo.duration) * 100;
+          magSeekFill.style.width = pct + '%';
+          magSeekThumb.style.left = pct + '%';
+          magVidTime.textContent = fmt(magVideo.currentTime) + ' / ' + fmt(magVideo.duration);
+        });
+
+        // Seek on click
+        magSeekWrap.addEventListener('click', (e) => {
+          const r = magSeekWrap.getBoundingClientRect();
+          const pct = Math.max(0, Math.min(1, (e.clientX - r.left) / r.width));
+          magVideo.currentTime = pct * magVideo.duration;
+        });
+
+        // Drag seek
+        let seeking = false;
+        magSeekWrap.addEventListener('mousedown', () => seeking = true);
+        document.addEventListener('mousemove', (e) => {
+          if (!seeking) return;
+          const r = magSeekWrap.getBoundingClientRect();
+          const pct = Math.max(0, Math.min(1, (e.clientX - r.left) / r.width));
+          magVideo.currentTime = pct * magVideo.duration;
+        });
+        document.addEventListener('mouseup', () => seeking = false);
+
+        // Fullscreen toggle
+        magVidFs.addEventListener('click', () => {
+          const wrap = document.getElementById('magOverlay');
+          if (!document.fullscreenElement) {
+            wrap.requestFullscreen && wrap.requestFullscreen();
+            magVidFs.innerHTML = '&#x2922;';
+          } else {
+            document.exitFullscreen && document.exitFullscreen();
+            magVidFs.innerHTML = '&#x26F6;';
+          }
+        });
+        document.addEventListener('fullscreenchange', () => {
+          if (!document.fullscreenElement) magVidFs.innerHTML = '&#x26F6;';
+          else magVidFs.innerHTML = '&#x2922;';
+        });
+      }
     })();
   </script>
   <!-- ═══════════ END MAGAZINE SPREAD SCRIPT ═══════════ -->
+
+  <script>
+  (function () {
+    const pages   = [document.getElementById('pressPage1'), document.getElementById('pressPage2')];
+    const prevBtn = document.getElementById('pressNavPrev');
+    const nextBtn = document.getElementById('pressNavNext');
+    const dotsWrap= document.getElementById('pressNavDots');
+    if (!pages[0]) return;
+
+    let current = 0;
+    const total = pages.length; // 2
+
+    // Two dots — one per page
+    for (let i = 0; i < total; i++) {
+      const d = document.createElement('button');
+      d.className = 'press-nav-dot' + (i === 0 ? ' active' : '');
+      d.addEventListener('click', () => goTo(i));
+      dotsWrap.appendChild(d);
+    }
+
+    function goTo(idx) {
+      pages[current].style.display = 'none';
+      current = Math.max(0, Math.min(total - 1, idx));
+      pages[current].style.display = 'grid';
+      // Re-trigger fade-in animation
+      pages[current].style.animation = 'none';
+      pages[current].offsetHeight; // reflow
+      pages[current].style.animation = '';
+      dotsWrap.querySelectorAll('.press-nav-dot').forEach((d, i) => d.classList.toggle('active', i === current));
+      prevBtn.disabled = current === 0;
+      nextBtn.disabled = current === total - 1;
+    }
+
+    prevBtn.addEventListener('click', () => goTo(current - 1));
+    nextBtn.addEventListener('click', () => goTo(current + 1));
+    goTo(0);
+  })();
+  </script>
 
 </body>
 
