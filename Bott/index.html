@@ -32,20 +32,6 @@
       --font-utility: 'Montserrat', sans-serif;
     }
 
-    body.light-theme {
-      --void: #ffffff;
-      --deep: #ffffff;
-      --mahogany: #f7f4ef;
-      --gold: #B8872C;
-      --gold-dim: #7A5A1E;
-      --gold-glow: rgba(184, 135, 44, 0.14);
-      --bone: #111111;
-      --stone: #2C2C2C;
-      --page2-bg: #ffffff;
-      background: #ffffff;
-      color: #111111;
-    }
-
     body,
     nav,
     #hero,
@@ -62,194 +48,6 @@
     .work-item-inner,
     .marquee-strip {
       transition: background 0.85s ease, color 0.85s ease, border-color 0.85s ease, box-shadow 0.85s ease, filter 0.85s ease;
-    }
-
-    body.light-theme .hero-title,
-    body.light-theme .section-title,
-    body.light-theme .work-item-title,
-    body.light-theme .process-title,
-    body.light-theme .philosophy-quote,
-    body.light-theme .footer-logo,
-    body.light-theme .nav-logo {
-      color: #111111;
-      font-weight: 700;
-    }
-
-    body.light-theme .hero-title em,
-    body.light-theme .section-title em,
-    body.light-theme .philosophy-quote span,
-    body.light-theme .nav-logo span,
-    body.light-theme .footer-logo span {
-      color: var(--gold);
-      font-weight: 700;
-    }
-
-    body.light-theme .about-body,
-    body.light-theme .hero-sub,
-    body.light-theme .contact-tagline,
-    body.light-theme .process-desc,
-    body.light-theme .ci-value,
-    body.light-theme .footer-copy,
-    body.light-theme .footer-tagline,
-    body.light-theme .philosophy-attr,
-    body.light-theme .view-all {
-      color: #2c2c2c;
-      font-weight: 500;
-    }
-
-    body.light-theme .section-eyebrow,
-    body.light-theme .hero-eyebrow,
-    body.light-theme .ci-label,
-    body.light-theme .work-item-tag,
-    body.light-theme .hero-cta {
-      color: var(--gold);
-      font-weight: 700;
-    }
-
-    body.light-theme nav {
-      background: rgba(255, 255, 255, 0.88);
-      backdrop-filter: blur(18px);
-      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
-    }
-
-    body.light-theme nav.scrolled {
-      background: rgba(255, 255, 255, 0.96);
-    }
-
-    body.light-theme .nav-links a {
-      color: #111111;
-      font-weight: 700;
-    }
-
-    body.light-theme .hero-bg {
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.58), rgba(255, 255, 255, 0.9)), radial-gradient(ellipse at 70% 40%, rgba(184, 135, 44, 0.16) 0%, transparent 60%);
-    }
-
-    body.light-theme .hero-bg::before {
-      opacity: 0.18;
-    }
-
-    body.light-theme .marquee-strip,
-    body.light-theme footer {
-      background: #f7f4ef;
-    }
-
-    body.light-theme #process {
-      background: #fbfaf8;
-    }
-
-    body.light-theme .about-frame,
-    body.light-theme .work-item-inner {
-      background: linear-gradient(135deg, #ffffff 0%, #f7f4ef 100%);
-      border: 1px solid rgba(0, 0, 0, 0.08);
-      box-shadow: 0 22px 70px rgba(0, 0, 0, 0.08);
-    }
-
-    body.light-theme .about-accent-box,
-    body.light-theme .work-item {
-      background: #ffffff;
-      border: 1px solid rgba(0, 0, 0, 0.08);
-      box-shadow: 0 18px 55px rgba(0, 0, 0, 0.08);
-    }
-
-    body.light-theme .work-overlay {
-      background: linear-gradient(to top, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.22) 65%);
-    }
-
-    body.light-theme .work-stone-icon {
-      color: rgba(184, 135, 44, 0.28);
-    }
-
-    body.light-theme input,
-    body.light-theme textarea {
-      color: #111111;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.35);
-      font-weight: 600;
-    }
-
-    body.light-theme label {
-      color: #555555;
-      font-weight: 700;
-    }
-
-    body.light-theme .btn-gold {
-      color: #111111;
-      border-color: rgba(17, 17, 17, 0.35);
-      font-weight: 700;
-    }
-
-    body.light-theme .btn-gold:hover {
-      background: #111111;
-      color: #ffffff;
-      border-color: #111111;
-    }
-
-    body.light-theme .btn-gold:hover::after {
-      background: #ffffff;
-    }
-
-    .theme-toggle {
-      position: fixed;
-      top: 1.45rem;
-      right: 1.8rem;
-      z-index: 200;
-      border: 1px solid rgba(201, 160, 80, 0.35);
-      background: rgba(10, 10, 10, 0.62);
-      color: var(--bone);
-      backdrop-filter: blur(16px);
-      border-radius: 999px;
-      padding: 0.72rem 1rem;
-      font-family: var(--font-utility);
-      font-size: 0.58rem;
-      font-weight: 500;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: all 0.35s ease;
-    }
-
-    .theme-toggle:hover {
-      transform: translateY(-2px);
-      border-color: var(--gold);
-      box-shadow: 0 0 35px rgba(201, 160, 80, 0.18);
-    }
-
-    body.light-theme .theme-toggle {
-      background: #111111;
-      color: #ffffff;
-      border-color: #111111;
-      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.14);
-    }
-
-    .theme-flash {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 9997;
-      background: radial-gradient(circle at 50% 40%, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.48) 35%, transparent 70%);
-      opacity: 0;
-      transform: scale(0.86);
-    }
-
-    .theme-flash.active {
-      animation: luxuryFlash 0.75s ease forwards;
-    }
-
-    @keyframes luxuryFlash {
-      0% {
-        opacity: 0;
-        transform: scale(0.82);
-      }
-
-      18% {
-        opacity: 1;
-        transform: scale(1);
-      }
-
-      100% {
-        opacity: 0;
-        transform: scale(1.18);
-      }
     }
 
     html {
@@ -312,7 +110,7 @@
       gap: 3rem;
       list-style: none;
       margin-left: auto;
-      margin-right: 110px;
+      margin-right: 0;
     }
 
     nav.scrolled {
@@ -1208,7 +1006,7 @@
     .creations-left {
       position: relative;
       max-width: 480px;
-      transform: translateY(-40px);
+      transform: translate(35px, -40px); 
     }
 
     .legacy-rotating-wrap {
@@ -1306,7 +1104,9 @@
       display: flex;
       flex-direction: column;
       align-self: center;
-      min-width: 0;
+      min-width: 0;    /* ← the width cap */  /* ← which edge stays put */
+      max-width: 760px;
+      margin-left: 40px;
     }
 
     .wpp-header {
@@ -1629,6 +1429,23 @@
       color: rgba(44, 36, 28, .55);
       margin-top: .45rem;
     }
+
+    .founder-stat-rule {
+  width: 0;
+  height: 1px;
+  background: #8A6B2E;
+  opacity: .6;
+  margin-top: .7rem;
+  transition: width .9s ease .3s;
+}
+
+.founder-stats.counted .founder-stat-rule {
+  width: 3rem;
+}
+
+.founder-stats.counted .founder-stat:nth-child(2) .founder-stat-rule { transition-delay: .45s; }
+.founder-stats.counted .founder-stat:nth-child(3) .founder-stat-rule { transition-delay: .6s; }
+.founder-stats.counted .founder-stat:nth-child(4) .founder-stat-rule { transition-delay: .75s; }
 
     /* ── CONTACT ── */
     #contact {
@@ -2042,7 +1859,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
-      padding-top: 4.5rem;
+      padding-top: 4.2rem;
       overflow: hidden;
       background: #F7F3ED;
     }
@@ -2142,7 +1959,7 @@
     }
 
     .mag-caption {
-      margin-top: 1.2rem;
+      margin-top: 0.6rem;
       font-family: var(--font-display);
       font-size: clamp(.85rem, 1.5vw, 1.25rem);
       font-weight: 300;
@@ -2373,13 +2190,10 @@
   });
 </script>
 
-<body>
+  <body>
 
   <div class="cursor" id="cursor"></div>
   <div class="cursor-ring" id="cursorRing"></div>
-  <div class="theme-flash" id="themeFlash"></div>
-
-  <button class="theme-toggle" id="themeToggle" type="button">⚪ Light</button>
 
   <!-- NAV -->
   <nav id="navbar">
@@ -2390,6 +2204,7 @@
     <ul class="nav-links">
       <li><a href="#about">Heritage</a></li>
       <li><a href="#work">Craft</a></li>
+      <li><a href="#magazine">Gallery</a></li>
       <li><a href="#contact">Inquire</a></li>
     </ul>
   </nav>
@@ -2502,7 +2317,7 @@
         <div class="wpp-rule"></div>
 
         <!-- Article 1 -->
-        <a class="wpp-article" href="PASTE_COWBOY_STATE_DAILY_URL_HERE" target="_blank" rel="noopener">
+        <a class="wpp-article" href="https://share.google/EgAmiu799NKeaP3H7" target="_blank" rel="noopener">
           <div class="wpp-thumb">
             <img src="images/article_4.jpeg" alt="Cowboy State Daily article">
           </div>
@@ -2516,7 +2331,7 @@
         <div class="wpp-divider"></div>
 
         <!-- Article 2 -->
-        <a class="wpp-article" href="PASTE_SHOUTOUT_COLORADO_URL_HERE" target="_blank" rel="noopener">
+        <a class="wpp-article" href="https://share.google/IhxfBsJTo2burMZ5R" target="_blank" rel="noopener">
           <div class="wpp-thumb">
             <img src="images/article_2.jpeg" alt="Shoutout Colorado article">
           </div>
@@ -2792,6 +2607,28 @@
       <p class="founder-bio">Bott Monument has served families across the Rocky Mountain region for over three decades, crafting custom memorials in granite, marble, and bronze that stand for generations. Founded in Wyoming and proudly family-owned, we are not a factory — we are a studio guided by craftsmanship, driven by care, and committed to the kind of personal service that only a family business can offer.</p>
       <div class="founder-stats">
         <div class="founder-stat">
+          <p class="founder-stat-num"><span data-target="35">0</span><sup>+</sup></p>
+          <div class="founder-stat-rule"></div>
+          <p class="founder-stat-label">Years of craft</p>
+        </div>
+        <div class="founder-stat">
+          <p class="founder-stat-num"><span data-target="1000">0</span><sup>+</sup></p>
+          <div class="founder-stat-rule"></div>
+          <p class="founder-stat-label">Memorials created</p>
+        </div>
+        <div class="founder-stat">
+          <p class="founder-stat-num"><span data-target="6">0</span></p>
+          <div class="founder-stat-rule"></div>
+          <p class="founder-stat-label">States served</p>
+        </div>
+        <div class="founder-stat">
+          <p class="founder-stat-num">&#8734;</p>
+          <div class="founder-stat-rule"></div>
+          <p class="founder-stat-label">Legacies honored</p>
+        </div>
+      </div>
+      <!-- <div class="founder-stats">
+        <div class="founder-stat">
           <p class="founder-stat-num">35<sup>+</sup></p>
           <p class="founder-stat-label">Years of craft</p>
         </div>
@@ -2807,7 +2644,7 @@
           <p class="founder-stat-num">&#8734;</p>
           <p class="founder-stat-label">Legacies honored</p>
         </div>
-      </div>
+      </div> -->
     </div>
   </section>
 
@@ -2846,16 +2683,6 @@
   </footer>
 
   <script>
-    const themeToggle = document.getElementById('themeToggle');
-    const themeFlash = document.getElementById('themeFlash');
-    themeToggle.addEventListener('click', () => {
-      themeFlash.classList.remove('active');
-      void themeFlash.offsetWidth;
-      themeFlash.classList.add('active');
-      document.body.classList.toggle('light-theme');
-      themeToggle.innerHTML = document.body.classList.contains('light-theme') ? '⚫ Dark' : '⚪ Light';
-    });
-
     const cursor = document.getElementById('cursor');
     const ring = document.getElementById('cursorRing');
     let mx = 0, my = 0, rx = 0, ry = 0;
@@ -3112,6 +2939,37 @@
     nextBtn.addEventListener('click', () => goTo(current + 1));
     goTo(0);
   })();
+  </script>
+  <script>
+    (function () {
+      const statsWrap = document.querySelector('.founder-stats');
+      if (!statsWrap) return;
+
+      function countUp(el) {
+        const target = parseInt(el.dataset.target, 10);
+        const duration = 1800;
+        let start = null;
+        function step(ts) {
+          if (!start) start = ts;
+          const p = Math.min(1, (ts - start) / duration);
+          const eased = 1 - Math.pow(1 - p, 3);
+          el.textContent = Math.round(target * eased).toLocaleString();
+          if (p < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      }
+
+      const statsObserver = new IntersectionObserver(function (entries, obs) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          statsWrap.classList.add('counted');
+          statsWrap.querySelectorAll('[data-target]').forEach(countUp);
+          obs.unobserve(entry.target);
+        });
+      }, { threshold: 0.35 });
+
+      statsObserver.observe(statsWrap);
+    })();
   </script>
 
 </body>
