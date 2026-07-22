@@ -1455,11 +1455,7 @@
     /* ── CONTACT ── */
     #contact {
       background: #DAD4C7;
-      padding: max(5rem, 5.29vw) max(4rem, 4.23vw);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: max(6rem, 5vw);
-      align-items: center;
+      padding: max(6rem, 6vw) max(4rem, 4.23vw);
       position: relative;
     }
 
@@ -1470,251 +1466,203 @@
       left: 4rem;
       right: 4rem;
       height: 1px;
-      background: linear-gradient(to right, transparent, rgba(138, 107, 46, 0.35), transparent);
+      background: linear-gradient(to right, transparent, rgba(27, 28, 24, 0.25), transparent);
     }
 
     #contact .section-eyebrow {
-      color: #8A6B2E;
+      color: #1B1C18;
       font-size: max(0.68rem, 0.65vw);
+      opacity: .7;
     }
 
-    #contact .section-title {
-      color: #1B1C18;
-      font-size: max(2rem, 3.07vw);
+    .commission-wrap {
+      max-width: max(720px, 42vw);
+      margin: 0 auto;
+      text-align: center;
     }
 
-    #contact .section-title em {
-      color: #8A6B2E;
-    }
-
-    #contact .contact-tagline {
-      color: #1B1C18;
-      font-size: max(1.12rem, 1.05vw);
-    }
-
-    #contact .ci-label {
-      color: #8A6B2E;
-      font-size: max(0.62rem, 0.58vw);
-    }
-
-    #contact .ci-value {
-      color: #1B1C18;
-      font-size: max(1.05rem, 1vw);
-    }
-
-    #contact .contact-form {
-      background: rgba(255, 255, 255, 0.45);
-      border-color: rgba(138, 107, 46, 0.3);
-      box-shadow: 0 30px 70px -20px rgba(0, 0, 0, 0.18);
-    }
-
-    #contact .contact-form-note {
-      color: #1B1C18;
-      font-size: max(0.78rem, 0.72vw);
-    }
-
-    #contact .form-group:focus-within {
-      background: rgba(255, 255, 255, 0.6);
-      box-shadow: 0 0 0 1px rgba(138, 107, 46, 0.35);
-    }
-
-    #contact .form-group input,
-    #contact .form-group textarea {
-      color: #1B1C18;
-      font-size: max(1.12rem, 1.05vw);
-      border-bottom-color: rgba(27, 28, 24, 0.25);
-    }
-
-    #contact .form-group input:focus,
-    #contact .form-group textarea:focus {
-      border-bottom-color: #8A6B2E;
-    }
-
-    #contact .form-group label {
-      color: #1B1C18;
-      font-size: max(0.65rem, 0.6vw);
-    }
-
-    #contact .form-group label .req {
-      color: #8A6B2E;
-    }
-
-    #contact .form-group input:focus~label,
-    #contact .form-group input:not(:placeholder-shown)~label,
-    #contact .form-group textarea:focus~label,
-    #contact .form-group textarea:not(:placeholder-shown)~label {
-      color: #8A6B2E;
-    }
-
-    #contact .btn-gold {
-      color: #1B1C18;
-      font-size: max(0.7rem, 0.65vw);
-      border-color: rgba(138, 107, 46, 0.5);
-    }
-
-    #contact .btn-gold::after {
-      background: #8A6B2E;
-    }
-
-    #contact .btn-gold:hover {
-      background: rgba(138, 107, 46, 0.1);
-      border-color: #8A6B2E;
-    }
-
-    .contact-tagline {
+    .commission-title {
       font-family: var(--font-display);
+      font-weight: 600;
+      font-size: max(2.2rem, 3.2vw);
+      line-height: 1.15;
+      color: #1B1C18;
+      margin: .8rem 0 1.2rem;
+    }
+
+    .commission-title em {
       font-style: italic;
-      font-size: 1rem;
-      color: var(--stone);
+      font-weight: 600;
+      color: #1B1C18;
+    }
+
+    .commission-sub {
+      font-family: var(--font-utility);
+      font-size: max(.95rem, .9vw);
       line-height: 1.7;
-      margin-bottom: 1.8rem;
+      color: rgba(27, 28, 24, .65);
+      max-width: 480px;
+      margin: 0 auto 2.2rem;
     }
 
-    .contact-info-item {
+    .commission-counter {
       display: flex;
-      align-items: flex-start;
-      gap: 1.5rem;
-      margin-bottom: 1.1rem;
-    }
-
-    .contact-info-item .ci-label {
-      font-family: var(--font-utility);
-      font-size: 0.5rem;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--gold);
-      min-width: 70px;
-      padding-top: 0.2rem;
-    }
-
-    .contact-info-item .ci-value {
-      font-family: var(--font-display);
-      font-size: 0.95rem;
-      color: var(--stone);
-      line-height: 1.6;
-    }
-
-    .contact-form {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-      padding: 2.2rem;
-      background: rgba(201, 160, 80, 0.03);
-      border: 1px solid rgba(201, 160, 80, 0.18);
-      border-radius: 6px;
-      box-shadow: 0 30px 70px -20px rgba(0, 0, 0, .5);
-    }
-
-    .contact-form-note {
-      font-family: var(--font-utility);
-      font-size: 0.65rem;
-      letter-spacing: 0.08em;
-      color: var(--stone);
-      margin-bottom: 1.4rem;
-    }
-
-    .form-group {
-      position: relative;
-      margin-bottom: 1.6rem;
-      padding: 0 .1rem;
-      border-radius: 3px;
-      transition: background 0.3s ease;
-    }
-
-    .form-group:focus-within {
-      background: rgba(201, 160, 80, 0.05);
-      box-shadow: 0 0 0 1px rgba(201, 160, 80, 0.25);
-    }
-
-    .form-group input,
-    .form-group textarea {
-      width: 100%;
-      background: transparent;
-      border: none;
-      border-bottom: 1px solid rgba(201, 160, 80, 0.2);
-      padding: 1rem .4rem;
-      font-family: var(--font-display);
-      font-size: 1rem;
-      font-weight: 300;
-      color: var(--bone);
-      outline: none;
-      transition: border-color 0.3s;
-    }
-
-    .form-group textarea {
-      resize: none;
-      height: 76px;
-    }
-
-    .form-group input:focus,
-    .form-group textarea:focus {
-      border-bottom-color: var(--gold);
-    }
-
-    .form-group label {
-      position: absolute;
-      top: 1rem;
-      left: .4rem;
-      font-family: var(--font-utility);
-      font-size: 0.55rem;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--stone);
-      transition: all 0.3s;
-      pointer-events: none;
-    }
-
-    .form-group label .req {
-      color: var(--gold);
-      margin-left: .25em;
-    }
-
-    .form-group input:focus~label,
-    .form-group input:not(:placeholder-shown)~label,
-    .form-group textarea:focus~label,
-    .form-group textarea:not(:placeholder-shown)~label {
-      top: -0.8rem;
-      font-size: 0.45rem;
-      color: var(--gold);
-    }
-
-    .btn-gold {
-      display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 1.2rem;
-      background: transparent;
-      border: 1px solid rgba(201, 160, 80, 0.4);
-      color: var(--gold);
+      gap: .8rem;
+      margin-bottom: 2.8rem;
       font-family: var(--font-utility);
-      font-weight: 200;
-      font-size: 0.6rem;
-      letter-spacing: 0.35em;
-      text-transform: uppercase;
-      padding: 1.2rem 2.5rem;
-      min-height: 48px;
+      font-size: max(.8rem, .75vw);
+      color: rgba(27, 28, 24, .75);
+    }
+
+    .counter-dots {
+      display: flex;
+      gap: .4rem;
+    }
+
+    .counter-dots .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(27, 28, 24, .15);
+    }
+
+    .counter-dots .dot.filled {
+      background: #1B1C18;
+    }
+
+    .commission-form {
+      text-align: left;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .cm-label {
+      font-family: var(--font-utility);
+      font-size: max(.75rem, .7vw);
+      color: rgba(27, 28, 24, .7);
+      margin-bottom: .8rem;
+    }
+
+    .cm-pills {
+      display: flex;
+      gap: .8rem;
+      margin-bottom: 1.8rem;
+      flex-wrap: wrap;
+    }
+
+    .cm-pill {
+      flex: 1;
+      min-width: 140px;
+      padding: .9rem 1rem;
+      border-radius: 10px;
+      border: 1px solid rgba(27, 28, 24, .18);
+      background: rgba(255, 255, 255, .5);
+      color: #1B1C18;
+      font-family: var(--font-utility);
+      font-size: max(.85rem, .8vw);
+      text-align: center;
       cursor: pointer;
-      transition: all 0.4s ease;
-      align-self: flex-start;
+      transition: background .25s ease, border-color .25s ease;
     }
 
-    .btn-gold::after {
-      content: '';
+    .cm-pill:hover {
+      border-color: rgba(27, 28, 24, .35);
+    }
+
+    .cm-pill.active {
+      background: #1B1C18;
+      border-color: #1B1C18;
+      color: #fff;
+      font-weight: 600;
+    }
+
+    .cm-input {
       display: block;
-      width: 20px;
+      width: 100%;
+      padding: 1rem 1.1rem;
+      margin-bottom: 1.2rem;
+      border-radius: 10px;
+      border: 1px solid rgba(27, 28, 24, .18);
+      background: rgba(255, 255, 255, .5);
+      color: #1B1C18;
+      font-family: var(--font-utility);
+      font-size: max(.95rem, .9vw);
+      outline: none;
+      transition: border-color .25s ease, background .25s ease;
+    }
+
+    .cm-input::placeholder {
+      color: rgba(27, 28, 24, .4);
+    }
+
+    .cm-input:focus {
+      border-color: rgba(27, 28, 24, .4);
+      background: rgba(255, 255, 255, .8);
+    }
+
+    textarea.cm-input {
+      resize: vertical;
+      min-height: 110px;
+    }
+
+    .cm-submit {
+      width: 100%;
+      padding: 1.1rem;
+      border-radius: 10px;
+      border: 1px solid rgba(27, 28, 24, .3);
+      background: transparent;
+      color: #1B1C18;
+      font-family: var(--font-utility);
+      font-weight: 600;
+      font-size: max(.85rem, .8vw);
+      cursor: pointer;
+      transition: background .25s ease;
+    }
+
+    .cm-submit:hover {
+      background: rgba(27, 28, 24, .06);
+    }
+
+    .cm-note {
+      text-align: center;
+      color: rgba(27, 28, 24, .55);
+      font-family: var(--font-utility);
+      font-size: max(.75rem, .7vw);
+      margin-top: 1.2rem;
+    }
+
+    .cm-divider {
+      width: 100%;
+      max-width: 900px;
       height: 1px;
-      background: var(--gold);
-      transition: width 0.3s;
+      background: rgba(27, 28, 24, .15);
+      margin: 3rem auto;
     }
 
-    .btn-gold:hover {
-      background: rgba(201, 160, 80, 0.06);
-      border-color: var(--gold);
-      gap: 1.8rem;
+    .cm-footer-info {
+      display: flex;
+      justify-content: center;
+      gap: max(3rem, 4vw);
+      flex-wrap: wrap;
+      text-align: center;
     }
 
-    .btn-gold:hover::after {
-      width: 36px;
+    .cm-fi-label {
+      display: block;
+      font-family: var(--font-utility);
+      font-size: max(.55rem, .5vw);
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      color: rgba(27, 28, 24, .5);
+      margin-bottom: .5rem;
+    }
+
+    .cm-fi-value {
+      font-family: var(--font-display);
+      font-size: max(1rem, .95vw);
+      color: #1B1C18;
     }
 
     footer {
@@ -1886,7 +1834,7 @@
 
     .mag-display-title {
       font-family: var(--font-display);
-      font-size: max(2.4rem, 4.5vw);
+      font-size: min(max(2.4rem, 4.5vw), 7.56vh);
       font-weight: 300;
       color: #1a1a1a;
       line-height: 1;
@@ -1920,7 +1868,7 @@
        instead of staying capped at 1360px. */
     @media (min-width: 1512px) {
       .mag-frame {
-        width: max(1360px, 90vw);
+        width: min(max(1360px, 90vw), 151.11vh);
       }
     }
 
@@ -2055,7 +2003,6 @@
       z-index: 50;
       opacity: 0;
       pointer-events: none;
-      transition: opacity .75s ease;
       background: #000;
     }
 
@@ -2656,28 +2603,48 @@
 
   <!-- CONTACT -->
   <section id="contact">
-    <div class="contact-left">
+    <div class="commission-wrap">
       <p class="section-eyebrow reveal">Commission a Piece</p>
-      <h2 class="section-title reveal reveal-delay-1">Tell us what<br>you <em>need.</em></h2>
-      <p class="contact-tagline reveal reveal-delay-1">We accept a limited number of commissions each year to ensure
-        every piece receives the care it deserves.</p>
-      <div class="contact-info-item reveal reveal-delay-2"><span class="ci-label">Visit</span><span class="ci-value">By
-          appointment only</span></div>
-      <div class="contact-info-item reveal reveal-delay-2"><span class="ci-label">Email</span><span
-          class="ci-value">info@bottmonument.com</span></div>
-      <div class="contact-info-item reveal reveal-delay-2"><span class="ci-label">Response</span><span
-          class="ci-value">Within 48 hours</span></div>
-    </div>
-    <div class="contact-form reveal reveal-delay-1">
-      <p class="contact-form-note">Every inquiry is read personally — no forms, no follow-up calls you didn't ask for.
-      </p>
-      <div class="form-group"><input type="text" id="name" required placeholder=" "><label for="name">Your Name <span
-            class="req">*</span></label></div>
-      <div class="form-group"><input type="email" id="email" required placeholder=" "><label for="email">Email Address
-          <span class="req">*</span></label></div>
-      <div class="form-group"><textarea id="message" placeholder=" "></textarea><label for="message">Tell us about your
-          vision</label></div>
-      <button class="btn-gold">Send Inquiry</button>
+      <h2 class="commission-title reveal reveal-delay-1">Tell us who we're <em>remembering.</em></h2>
+      <p class="commission-sub reveal reveal-delay-1">Not a quote request. A conversation about a life, and how it
+        should be held in stone.</p>
+
+      <div class="commission-counter reveal reveal-delay-1">
+        <span class="counter-dots">
+          <span class="dot filled"></span>
+          <span class="dot filled"></span>
+          <span class="dot filled"></span>
+          <span class="dot filled"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </span>
+        <span>4 of 6 commissions remaining for 2026</span>
+      </div>
+
+      <div class="commission-form reveal reveal-delay-2">
+        <p class="cm-label">What brings you here</p>
+        <div class="cm-pills" id="cmPills" role="radiogroup">
+          <button type="button" class="cm-pill" data-value="A new memorial">A new memorial</button>
+          <button type="button" class="cm-pill" data-value="Restoration work">Restoration work</button>
+          <button type="button" class="cm-pill active" data-value="Not sure yet">Not sure yet</button>
+        </div>
+
+        <input type="text" class="cm-input" id="cmName" placeholder="Your name">
+        <input type="email" class="cm-input" id="cmEmail" placeholder="name@example.com">
+        <textarea class="cm-input" id="cmMessage"
+          placeholder="Anything you'd like us to know — a name, a date, a feeling."></textarea>
+
+        <button class="cm-submit">Begin the conversation</button>
+        <p class="cm-note">Read personally by Drew. No mailing list, no follow-up calls you didn't ask for.</p>
+      </div>
+
+      <div class="cm-divider"></div>
+
+      <div class="cm-footer-info">
+        <div><span class="cm-fi-label">Call</span><span class="cm-fi-value">(307) 000-0000</span></div>
+        <div><span class="cm-fi-label">Studio</span><span class="cm-fi-value">Wyoming · By Appointment</span></div>
+        <div><span class="cm-fi-label">Email</span><span class="cm-fi-value">info@bottmonument.com</span></div>
+      </div>
     </div>
   </section>
 
@@ -2755,7 +2722,7 @@
 
       function ease(t) { return t < .5 ? 2 * t * t : -1 + (4 - 2 * t) * t; }
 
-      function render(progress, releasing) {
+      function render(progress, raw) {
         const stage = progress * N;
         const activeIdx = Math.min(N - 1, Math.floor(stage));
 
@@ -2786,24 +2753,28 @@
           }
         });
 
-        // Overlay: fade in after last spread is mostly open, but only while the
-        // gallery is still pinned — hide it as soon as the sticky pin starts
-        // releasing so it never shows on top of the Founder section below.
-        if (stage > 2.55 && !releasing) {
+        // Overlay: fade in (scroll-scrubbed, not time-based) once the last
+        // spread has mostly opened, then fade back out as the sticky pin
+        // releases — so it never lingers empty or bleeds into Founder below.
+        const fadeIn = Math.max(0, Math.min(1, (stage - 2.55) / 0.45));
+        const fadeOut = raw <= 1 ? 1 : Math.max(0, 1 - (raw - 1) / 0.3);
+        const overlayOpacity = Math.min(fadeIn, fadeOut);
+        overlayEl.style.opacity = overlayOpacity;
+        if (overlayOpacity > 0.02) {
           overlayEl.classList.add('visible');
         } else {
           overlayEl.classList.remove('visible');
         }
       }
 
-      render(0, false);
+      render(0, 0);
 
       function update() {
         const rect = section.getBoundingClientRect();
         const scrollable = rect.height - window.innerHeight;
         const raw = scrollable > 0 ? -rect.top / scrollable : 0;
         const p = Math.max(0, Math.min(0.999, raw));
-        render(p, raw > 1.001);
+        render(p, raw);
       }
 
       window.addEventListener('scroll', update, { passive: true });
@@ -2910,6 +2881,19 @@
     })();
   </script>
   <!-- ═══════════ END MAGAZINE SPREAD SCRIPT ═══════════ -->
+
+  <!-- ═══════════ COMMISSION FORM PILLS ═══════════ -->
+  <script>
+    (function () {
+      const pills = document.querySelectorAll('#cmPills .cm-pill');
+      pills.forEach(pill => {
+        pill.addEventListener('click', () => {
+          pills.forEach(p => p.classList.remove('active'));
+          pill.classList.add('active');
+        });
+      });
+    })();
+  </script>
 
   <script>
   (function () {
