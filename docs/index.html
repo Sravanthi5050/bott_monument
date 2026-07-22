@@ -1111,7 +1111,8 @@
       align-self: center;
       min-width: 0;    /* ← the width cap */  /* ← which edge stays put */
       max-width: max(600px, 44vw);
-      margin-left: 40px;
+      margin-left: auto;
+      margin-right: 35px;
     }
 
     .wpp-header {
@@ -1856,7 +1857,7 @@
 
     .mag-frame {
       position: relative;
-      width: min(94vw, 1360px);
+      width: min(94vw, 1320px);
       height: 72vh;
       border-radius: 20px;
       overflow: hidden;
@@ -1868,7 +1869,7 @@
        instead of staying capped at 1360px. */
     @media (min-width: 1512px) {
       .mag-frame {
-        width: min(max(1360px, 90vw), 151.11vh);
+        width: max(1320px, 82vw);
       }
     }
 
@@ -2484,20 +2485,20 @@
           <div class="mag-spread" style="z-index:3;">
             <div class="mag-left" data-img="images/headstone.jpg" data-cap="Carved granite headstone">
               <img src="images/headstone.jpg" alt="Carved granite headstone"></div>
-            <div class="mag-right" data-img="images/extra.jpg" data-cap="Heart-shaped polished memorial">
-              <img src="images/extra.jpg" alt="Heart-shaped memorial"></div>
+            <div class="mag-right" data-img="images/MercyPhotography-BottM-87.JPG" data-cap="Heart-shaped polished memorial">
+              <img src="images/MercyPhotography-BottM-87.JPG" alt="Heart-shaped memorial" style="object-position: center 92%;"></div>
           </div>
           <div class="mag-spread" style="z-index:2;">
             <div class="mag-left" data-img="images/page3.jpg" data-cap="Granite cherub sculpture">
               <img src="images/page3.jpg" alt="Granite cherub sculpture"></div>
-            <div class="mag-right" data-img="images/page4_image1.jpg" data-cap="Hand-crafted granite statuary">
-              <img src="images/page4_image1.jpg" alt="Granite statuary"></div>
+            <div class="mag-right" data-img="images/page4_image5.jpg"" data-cap="Hand-crafted granite statuary">
+              <img src="images/page4_image5.jpg" alt="Granite statuary"></div>
           </div>
           <div class="mag-spread" style="z-index:1;">
             <div class="mag-left" data-img="images/page4_image2.jpg" data-cap="Hand-finished granite detail">
               <img src="images/page4_image2.jpg" alt="Hand-finished granite"></div>
-            <div class="mag-right" data-img="images/page4_image5.jpg" data-cap="Personalized stone monument">
-              <img src="images/page4_image5.jpg" alt="Personalized monument"></div>
+            <div class="mag-right" data-img="images/page4_image1.jpg" data-cap="Personalized stone monument">
+              <img src="images/page4_image1.jpg" alt="Personalized monument"></div>
           </div>
           
         </div>
