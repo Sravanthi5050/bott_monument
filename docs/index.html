@@ -401,9 +401,16 @@
       letter-spacing: .3em;
     }
 
+    .press-page-inner {
+      position: relative;
+      /* max-width: 1320px; */
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
     .press-founder {
       position: absolute;
-      top: 12rem;
+      top: 5rem;
       left: 6rem;
       width: 275px;
       z-index: 3;
@@ -821,7 +828,7 @@
       position: relative;
       z-index: 2;
       font-family: var(--font-display);
-      font-size: clamp(3.2rem, 5.4vw, 6.6rem);
+      font-size: max(3.2rem, 5.4vw);
       font-weight: 300;
       line-height: .9;
       color: #f7f2ea;
@@ -868,7 +875,7 @@
 
     .gallery-lines p {
       font-family: var(--font-utility);
-      font-size: .95rem;
+      font-size: max(.95rem, .9vw);
       letter-spacing: .18em;
       color: #d8c4a3;
       margin-bottom: .75rem;
@@ -876,7 +883,7 @@
 
     .gallery-desc {
       font-family: var(--font-display);
-      font-size: 1.15rem;
+      font-size: max(1.15rem, 1.1vw);
       line-height: 1.8;
       color: rgba(240, 237, 232, .78);
       margin-bottom: 2.4rem;
@@ -976,7 +983,7 @@
     .creations-section {
       background: #181A1B;
       /* background: linear-gradient(180deg, #181A1B 0%, #181A1B 95%, #ffffff 100%); */
-      padding: 5rem 4rem;
+      padding: max(5rem, 6vw) max(4rem, 5vw);
       color: var(--bone);
       position: relative;
       overflow: hidden;
@@ -998,15 +1005,15 @@
     .luxury-creations-layout {
       display: grid;
       grid-template-columns: .75fr 1.25fr;
-      gap: 4rem;
+      gap: max(3rem, 4vw);
       align-items: start;
       min-height: 540px;
     }
 
     .creations-left {
       position: relative;
-      max-width: 480px;
-      transform: translate(35px, -40px); 
+      max-width: max(480px, 34vw);
+      transform: translate(35px, -40px);
     }
 
     .legacy-rotating-wrap {
@@ -1097,7 +1104,7 @@
       background: rgba(14, 12, 8, 0.78);
       border: 1px solid rgba(201,160,80,.18);
       border-radius: 20px;
-      padding: 2.6rem 2.8rem 2.2rem;
+      padding: max(2.6rem, 2.4vw) max(2.8rem, 2.6vw) max(2.2rem, 2vw);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
       box-shadow: 0 36px 90px -22px rgba(0,0,0,.7), inset 0 1px 0 rgba(255,255,255,.055);
@@ -1105,7 +1112,7 @@
       flex-direction: column;
       align-self: center;
       min-width: 0;    /* ← the width cap */  /* ← which edge stays put */
-      max-width: 760px;
+      max-width: max(600px, 44vw);
       margin-left: 40px;
     }
 
@@ -1128,7 +1135,7 @@
 
     .wpp-title {
       font-family: var(--font-display);
-      font-size: clamp(1.7rem, 2.6vw, 2.4rem);
+      font-size: max(1.7rem, 2.6vw);
       font-weight: 300;
       color: #F0EAD6;
       line-height: 1.1;
@@ -1172,8 +1179,8 @@
 
     .wpp-thumb {
       flex-shrink: 0;
-      width: 86px;
-      height: 86px;
+      width: max(86px, 6vw);
+      height: max(86px, 6vw);
       border-radius: 12px;
       overflow: hidden;
       border: 1px solid rgba(201,160,80,.22);
@@ -1203,7 +1210,7 @@
 
     .wpp-headline {
       font-family: var(--font-display);
-      font-size: clamp(.95rem, 1.5vw, 1.25rem);
+      font-size: max(.95rem, 1.5vw);
       font-weight: 300;
       color: #F0EAD6;
       line-height: 1.28;
@@ -2249,25 +2256,27 @@
 
   <!-- PAGE 2 / PRESS & RECOGNITION -->
   <section id="about" class="press-page">
-    <div class="press-founder reveal">
-      <div class="press-founder-frame">
-        <span class="press-founder-spotlight"></span>
-        <span class="press-founder-star-top">✦</span>
-        <img src="images/profile_1.png" alt="Drew Bott, Founder & Master Craftsman">
-        <span class="press-founder-star-bottom">✦</span>
+    <div class="press-page-inner">
+      <div class="press-founder reveal">
+        <div class="press-founder-frame">
+          <span class="press-founder-spotlight"></span>
+          <span class="press-founder-star-top">✦</span>
+          <img src="images/profile_1.png" alt="Drew Bott, Founder & Master Craftsman">
+          <span class="press-founder-star-bottom">✦</span>
+        </div>
+        <p class="press-founder-name"><strong>Drew Bott</strong>Founder &amp; Master Craftsman</p>
       </div>
-      <p class="press-founder-name"><strong>Drew Bott</strong>Founder &amp; Master Craftsman</p>
-    </div>
-    <div class="press-page-head">
-      <p class="press-page-kicker reveal">Monument Builders of North America</p>
-      <h2 class="press-page-title reveal reveal-delay-1">The Most Trusted Name<br>in <em>Memorial Artistry</em></h2>
-      <div class="press-page-divider reveal reveal-delay-1"></div>
-      <p class="press-page-story reveal reveal-delay-2">Drew Bott's work has earned recognition across North America for
-        exceptional design, craftsmanship, and artistry in stone. His monuments are not only built with precision — they
-        are created with meaning, memory, and dignity.</p>
-      <p class="press-page-quote reveal reveal-delay-2">"Every monument should feel as personal as the life it honors."
-      </p>
-      <p class="press-page-signature reveal reveal-delay-3">Your signature</p>
+      <div class="press-page-head">
+        <p class="press-page-kicker reveal">Monument Builders of North America</p>
+        <h2 class="press-page-title reveal reveal-delay-1">The Most Trusted Name<br>in <em>Memorial Artistry</em></h2>
+        <div class="press-page-divider reveal reveal-delay-1"></div>
+        <p class="press-page-story reveal reveal-delay-2">Drew Bott's work has earned recognition across North America for
+          exceptional design, craftsmanship, and artistry in stone. His monuments are not only built with precision — they
+          are created with meaning, memory, and dignity.</p>
+        <p class="press-page-quote reveal reveal-delay-2">"Every monument should feel as personal as the life it honors."
+        </p>
+        <p class="press-page-signature reveal reveal-delay-3">Your signature</p>
+      </div>
     </div>
     <div class="press-page-row reveal reveal-delay-3">
     </div>
