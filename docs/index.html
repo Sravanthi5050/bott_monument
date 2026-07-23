@@ -595,9 +595,9 @@
 
     .press-cards {
       display: grid;
-      grid-template-columns: repeat(6, minmax(0, max(200px, 11.5vw)));
+      grid-template-columns: repeat(3, minmax(0, max(200px, 11.5vw)));
       justify-content: center;
-      gap: 1.6rem;
+      gap: 3rem 2rem;
       animation: pressFadeIn .45s ease;
     }
     @keyframes pressFadeIn {
@@ -615,75 +615,56 @@
       transform: translateY(-.6rem);
     }
 
-    /* Nav arrows */
-    .press-nav {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 1.2rem;
-      margin-top: 2.5rem;
+    .press-card:nth-child(3n+2) {
+      transform: translateY(-2.2rem);
     }
 
-    .press-nav-btn {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
+    .press-card:nth-child(3n+2):hover {
+      transform: translateY(-2.8rem);
+    }
+
+    /* Load more */
+    .press-loadmore-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .9rem;
+      margin-top: 2.8rem;
+    }
+
+    #pressPage2 {
+      margin-top: 4rem;
+    }
+
+    .press-loadmore-btn {
+      padding: 1.05rem 2.6rem;
+      border-radius: 999px;
       border: 1.5px solid rgba(28,24,18,.25);
       background: #fff;
       cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.1rem;
+      font-family: var(--font-utility);
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .2em;
+      text-transform: uppercase;
       color: #1C1812;
       transition: background .25s ease, border-color .25s ease, color .25s ease, transform .25s ease;
       box-shadow: 0 4px 18px rgba(0,0,0,.08);
     }
 
-    .press-nav-btn:hover {
+    .press-loadmore-btn:hover {
       background: #1C1812;
       border-color: #1C1812;
       color: #fff;
-      transform: scale(1.08);
+      transform: scale(1.03);
     }
 
-    .press-nav-btn:disabled {
-      opacity: .3;
-      cursor: default;
-      transform: none;
+    .press-loadmore-count {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: .85rem;
+      color: #8A7D68;
     }
-
-    .press-nav-dots {
-      display: flex;
-      gap: .5rem;
-      align-items: center;
-    }
-
-    .press-nav-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: rgba(28,24,18,.2);
-      transition: background .25s ease, transform .25s ease;
-      cursor: pointer;
-    }
-
-    .press-nav-dot.active {
-      background: #B8872C;
-      transform: scale(1.3);
-    }
-
-    /* .press-card:nth-child(even) {
-      margin-top: -2.2rem;
-    } */
-
-    .press-card:nth-child(even) {
-    transform: translateY(-35px);
-}
-
-.press-card:hover {
-    transform: translateY(-45px);
-}
 
     .press-card-news {
       font-family: var(--font-utility);
@@ -721,6 +702,10 @@
       padding: max(1.4rem, 1.3vw) max(1.2rem, 1.1vw) max(1.6rem, 1.5vw);
       border-radius: 0 0 10px 10px;
       box-shadow: 0 24px 44px -16px rgba(0, 0, 0, .4);
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .press-card-title {
@@ -753,14 +738,6 @@
         gap: 1.6rem 1.4rem;
         row-gap: 2.8rem;
       }
-
-      .press-card:nth-child(even) {
-        margin-top: 0;
-      }
-
-      .press-card:nth-child(3n+2) {
-        margin-top: -2.2rem;
-      }
     }
 
     @media(max-width:900px) {
@@ -775,11 +752,7 @@
       }
 
       .press-card:nth-child(3n+2) {
-        margin-top: 0;
-      }
-
-      .press-card:nth-child(even) {
-        margin-top: 0;
+        transform: none;
       }
 
       .press-card-frame img {
@@ -2458,11 +2431,10 @@
 
       </div><!-- end viewport -->
 
-      <!-- Navigation arrows + dots -->
-      <div class="press-nav">
-        <button class="press-nav-btn" id="pressNavPrev" aria-label="Previous">&#8592;</button>
-        <div class="press-nav-dots" id="pressNavDots"></div>
-        <button class="press-nav-btn" id="pressNavNext" aria-label="Next">&#8594;</button>
+      <!-- Load more -->
+      <div class="press-loadmore-wrap">
+        <button class="press-loadmore-btn" id="pressLoadMore">Load More</button>
+        <p class="press-loadmore-count" id="pressLoadMoreCount">Showing 6 of 12</p>
       </div>
 
     </div>
@@ -2898,39 +2870,20 @@
 
   <script>
   (function () {
-    const pages   = [document.getElementById('pressPage1'), document.getElementById('pressPage2')];
-    const prevBtn = document.getElementById('pressNavPrev');
-    const nextBtn = document.getElementById('pressNavNext');
-    const dotsWrap= document.getElementById('pressNavDots');
-    if (!pages[0]) return;
+    const page2      = document.getElementById('pressPage2');
+    const loadMoreBtn= document.getElementById('pressLoadMore');
+    const countText  = document.getElementById('pressLoadMoreCount');
+    if (!page2 || !loadMoreBtn) return;
 
-    let current = 0;
-    const total = pages.length; // 2
-
-    // Two dots — one per page
-    for (let i = 0; i < total; i++) {
-      const d = document.createElement('button');
-      d.className = 'press-nav-dot' + (i === 0 ? ' active' : '');
-      d.addEventListener('click', () => goTo(i));
-      dotsWrap.appendChild(d);
-    }
-
-    function goTo(idx) {
-      pages[current].style.display = 'none';
-      current = Math.max(0, Math.min(total - 1, idx));
-      pages[current].style.display = 'grid';
-      // Re-trigger fade-in animation
-      pages[current].style.animation = 'none';
-      pages[current].offsetHeight; // reflow
-      pages[current].style.animation = '';
-      dotsWrap.querySelectorAll('.press-nav-dot').forEach((d, i) => d.classList.toggle('active', i === current));
-      prevBtn.disabled = current === 0;
-      nextBtn.disabled = current === total - 1;
-    }
-
-    prevBtn.addEventListener('click', () => goTo(current - 1));
-    nextBtn.addEventListener('click', () => goTo(current + 1));
-    goTo(0);
+    loadMoreBtn.addEventListener('click', () => {
+      page2.style.display = 'grid';
+      // Fade-in animation
+      page2.style.animation = 'none';
+      page2.offsetHeight; // reflow
+      page2.style.animation = '';
+      loadMoreBtn.style.display = 'none';
+      if (countText) countText.textContent = 'Showing 12 of 12';
+    });
   })();
   </script>
   <script>
