@@ -595,9 +595,9 @@
 
     .press-cards {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, max(200px, 11.5vw)));
-      justify-content: center;
-      gap: 3rem 2rem;
+      grid-template-columns: repeat(4, minmax(0, max(240px, 13.5vw)));
+      justify-content: space-between;
+      gap: 5rem 2rem;
       animation: pressFadeIn .45s ease;
     }
     @keyframes pressFadeIn {
@@ -1236,8 +1236,9 @@
     }
 
     .press-clippings-inner {
-      max-width: max(1320px, 82vw);
-      margin: 0 auto;
+      width: 100%;
+      padding: 0 35px 0 38px;
+      box-sizing: border-box;
     }
 
     .press-clippings-header {
