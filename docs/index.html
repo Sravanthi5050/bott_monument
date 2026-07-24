@@ -595,7 +595,7 @@
 
     .press-cards {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, max(200px, 11.5vw)));
+      grid-template-columns: repeat(4, minmax(0, max(200px, 11.5vw)));
       justify-content: center;
       gap: 3rem 2rem;
       animation: pressFadeIn .45s ease;
@@ -615,11 +615,11 @@
       transform: translateY(-.6rem);
     }
 
-    .press-card:nth-child(3n+2) {
+    .press-card:nth-child(even) {
       transform: translateY(-2.2rem);
     }
 
-    .press-card:nth-child(3n+2):hover {
+    .press-card:nth-child(even):hover {
       transform: translateY(-2.8rem);
     }
 
@@ -738,6 +738,10 @@
         gap: 1.6rem 1.4rem;
         row-gap: 2.8rem;
       }
+
+      .press-card:nth-child(even) {
+        transform: none;
+      }
     }
 
     @media(max-width:900px) {
@@ -751,7 +755,7 @@
         row-gap: 2.6rem;
       }
 
-      .press-card:nth-child(3n+2) {
+      .press-card:nth-child(even) {
         transform: none;
       }
 
@@ -2381,10 +2385,6 @@
               <p class="press-card-meta">North Star Press<span>5 min read</span></p>
             </div>
           </article>
-        </div><!-- end pressPage1 -->
-
-        <!-- Page 2 of 2 -->
-        <div class="press-cards" id="pressPage2" style="display:none">
           <article class="press-card">
             <div class="press-card-frame"><img src="images/newspaper.jpg" alt="Rocky Mountain Life feature on Drew Bott"></div>
             <div class="press-card-caption">
@@ -2399,6 +2399,10 @@
               <p class="press-card-meta">Wyoming Business Journal<span>5 min read</span></p>
             </div>
           </article>
+        </div><!-- end pressPage1 -->
+
+        <!-- Page 2 of 2 -->
+        <div class="press-cards" id="pressPage2" style="display:none">
           <article class="press-card">
             <div class="press-card-frame"><img src="images/newspaper.jpg" alt="Denver Post feature on granite craftsmanship"></div>
             <div class="press-card-caption">
@@ -2434,7 +2438,7 @@
       <!-- Load more -->
       <div class="press-loadmore-wrap">
         <button class="press-loadmore-btn" id="pressLoadMore">Load More</button>
-        <p class="press-loadmore-count" id="pressLoadMoreCount">Showing 6 of 12</p>
+        <p class="press-loadmore-count" id="pressLoadMoreCount">Showing 8 of 12</p>
       </div>
 
     </div>
