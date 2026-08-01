@@ -362,11 +362,12 @@
 
     .marquee-track span {
       font-family: var(--font-utility);
-      font-size: 0.55rem;
+      font-size: 0.65rem;
       font-weight: 200;
       letter-spacing: 0.4em;
       text-transform: uppercase;
-      color: var(--gold-dim);
+      color: #FFFFFF;
+      /* color: var(--gold-dim); */
       flex-shrink: 0;
     }
 
@@ -1378,9 +1379,13 @@
 
     .founder-bio {
       font-family: var(--font-utility);
-      font-size: max(.57rem, .55vw);
+      font-size: max(.72rem, .68vw);
+      font-weight: 500;
+      /* font-size: max(.57rem, .55vw); */
       line-height: 1.85;
-      color: rgba(44, 36, 28, .68);
+      color: #5A4C3D;
+      /* color: rgba(44, 36, 28, .68); */
+      /* color: #3F352C; */
       letter-spacing: .03em;
       max-width: max(400px, 26vw);
       margin-bottom: 2.8rem;
@@ -1908,13 +1913,15 @@
 
     .mag-access-trigger {
       position: absolute;
-      top: 59%;
+      top: 65%;
       right: 0;
       transform: translateY(-50%);
       z-index: 20;
       border: 1px solid rgba(28, 24, 18, .12);
       border-radius: 14px;
-      background: rgba(221, 214, 204, .94);
+      background: #D8D1C7;
+      border: 1px solid rgba(23, 20, 17, 0.14);
+      /* background: rgba(221, 214, 204, .94); */
       color: #1C1812;
       padding: .95rem 1.15rem;
       min-width: 170px;
@@ -1928,8 +1935,13 @@
 
     .mag-access-trigger:hover {
       transform: translateY(-50%) translateX(-4px);
-      background: rgba(232, 226, 217, .98);
-      border-color: rgba(138, 107, 46, .28);
+      background: #111111;
+      border-color: #111111;
+    }
+
+    .mag-access-trigger:hover .mag-access-trigger-label,
+    .mag-access-trigger:hover .mag-access-trigger-text {
+      color: #FFFFFF;
     }
 
     .mag-access-trigger-label {
@@ -1938,7 +1950,8 @@
       font-size: .6rem;
       letter-spacing: .22em;
       text-transform: uppercase;
-      color: #8A6B2E;
+      color: #6B5530;
+      font-weight: 600;
       margin-bottom: .45rem;
     }
 
@@ -1948,7 +1961,9 @@
       font-size: 1rem;
       font-style: italic;
       line-height: 1.2;
-      color: #1C1812;
+      color: #111111;
+      font-weight: 600;
+      /* color: #1C1812; */
     }
 
     .mag-caption {
