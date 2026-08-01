@@ -30,6 +30,10 @@
       --page2-bg: #ffffff;
       --font-display: 'Cormorant Garamond', Georgia, serif;
       --font-utility: 'Montserrat', sans-serif;
+      --press-card-width: minmax(0, max(210px, 11.5vw));
+      --press-card-image-height: max(290px, 16.6vw);
+      --press-card-column-gap: 1.6rem;
+      --press-card-row-gap: 5rem;
     }
 
     body,
@@ -595,11 +599,13 @@
 
     .press-cards {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, max(240px, 13.5vw)));
+      grid-template-columns: repeat(5, var(--press-card-width));
       justify-content: space-between;
-      gap: 5rem 2rem;
+      column-gap: var(--press-card-column-gap);
+      row-gap: var(--press-card-row-gap);
       animation: pressFadeIn .45s ease;
     }
+
     @keyframes pressFadeIn {
       from { opacity: 0; transform: translateY(12px); }
       to   { opacity: 1; transform: translateY(0); }
@@ -630,10 +636,6 @@
       align-items: center;
       gap: .9rem;
       margin-top: 2.8rem;
-    }
-
-    #pressPage2 {
-      margin-top: 4rem;
     }
 
     .press-loadmore-btn {
@@ -688,7 +690,7 @@
 
     .press-card-frame img {
       width: 100%;
-      height: max(290px, 16.6vw);
+      height: var(--press-card-image-height);
       object-fit: cover;
       object-position: top;
       display: block;
@@ -1781,6 +1783,7 @@
       position: relative;
       height: 420vh;
       background: #F7F3ED;
+      scroll-margin-top: 5rem;
     }
 
     .mag-pin {
@@ -1791,14 +1794,19 @@
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
-      padding-top: 4.2rem;
+      padding-top: 4.8rem;
       overflow: hidden;
       background: #F7F3ED;
     }
 
+    .mag-header-shell {
+      position: relative;
+      width: min(94vw, 1320px);
+      margin-bottom: 1.4rem;
+    }
+
     .mag-header {
       text-align: center;
-      margin-bottom: 1.4rem;
       pointer-events: none;
     }
 
@@ -1898,6 +1906,51 @@
       pointer-events: none;
     }
 
+    .mag-access-trigger {
+      position: absolute;
+      top: 59%;
+      right: 0;
+      transform: translateY(-50%);
+      z-index: 20;
+      border: 1px solid rgba(28, 24, 18, .12);
+      border-radius: 14px;
+      background: rgba(221, 214, 204, .94);
+      color: #1C1812;
+      padding: .95rem 1.15rem;
+      min-width: 170px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 14px 30px rgba(53, 41, 28, .12);
+      cursor: pointer;
+      text-align: left;
+      transition: transform .3s ease, background .3s ease, border-color .3s ease;
+    }
+
+    .mag-access-trigger:hover {
+      transform: translateY(-50%) translateX(-4px);
+      background: rgba(232, 226, 217, .98);
+      border-color: rgba(138, 107, 46, .28);
+    }
+
+    .mag-access-trigger-label {
+      display: block;
+      font-family: var(--font-utility);
+      font-size: .6rem;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: #8A6B2E;
+      margin-bottom: .45rem;
+    }
+
+    .mag-access-trigger-text {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-style: italic;
+      line-height: 1.2;
+      color: #1C1812;
+    }
+
     .mag-caption {
       margin-top: 0.6rem;
       font-family: var(--font-display);
@@ -1973,6 +2026,155 @@
 
     .mag-lightbox-close:hover {
       color: #fff;
+    }
+
+    .mag-access-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 9100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      background: rgba(10, 8, 6, .74);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .3s ease;
+    }
+
+    .mag-access-modal.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .mag-access-card {
+      position: relative;
+      width: min(92vw, 520px);
+      background: linear-gradient(180deg, #F7F3ED 0%, #EFE7DB 100%);
+      border-radius: 22px;
+      border: 1px solid rgba(28, 24, 18, .12);
+      box-shadow: 0 34px 90px rgba(0, 0, 0, .28);
+      padding: 2.3rem 2.2rem 2rem;
+      color: #1C1812;
+    }
+
+    .mag-access-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      border: none;
+      background: transparent;
+      color: rgba(28, 24, 18, .55);
+      font-size: 1.35rem;
+      cursor: pointer;
+      line-height: 1;
+      transition: color .2s ease;
+    }
+
+    .mag-access-close:hover {
+      color: #1C1812;
+    }
+
+    .mag-access-kicker {
+      font-family: var(--font-utility);
+      font-size: .62rem;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: #B8872C;
+      margin-bottom: .8rem;
+    }
+
+    .mag-access-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 3.8vw, 3rem);
+      font-weight: 300;
+      line-height: .95;
+      margin-bottom: 1rem;
+      color: #1C1812;
+    }
+
+    .mag-access-title em {
+      font-style: italic;
+      color: #8A6B2E;
+    }
+
+    .mag-access-copy {
+      font-family: var(--font-display);
+      font-size: 1.08rem;
+      line-height: 1.75;
+      color: #3E3428;
+      margin-bottom: 1.7rem;
+    }
+
+    .mag-access-actions {
+      display: flex;
+      align-items: center;
+      gap: .9rem;
+      flex-wrap: wrap;
+    }
+
+    .mag-access-primary,
+    .mag-access-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: .95rem 1.4rem;
+      border-radius: 999px;
+      text-decoration: none;
+      font-family: var(--font-utility);
+      font-size: .7rem;
+      font-weight: 600;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      transition: transform .25s ease, background .25s ease, color .25s ease, border-color .25s ease;
+    }
+
+    .mag-access-primary {
+      background: #1C1812;
+      color: #F7F3ED;
+      border: 1px solid #1C1812;
+    }
+
+    .mag-access-primary:hover {
+      transform: translateY(-2px);
+      background: #000;
+    }
+
+    .mag-access-secondary {
+      background: transparent;
+      color: #1C1812;
+      border: 1px solid rgba(28, 24, 18, .2);
+      cursor: pointer;
+    }
+
+    .mag-access-secondary:hover {
+      transform: translateY(-2px);
+      border-color: rgba(28, 24, 18, .5);
+    }
+
+    @media (max-width: 900px) {
+      .mag-header-shell {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .mag-access-trigger {
+        position: static;
+        transform: none;
+        min-width: auto;
+        padding: .85rem 1rem;
+      }
+
+      .mag-access-trigger:hover {
+        transform: translateY(-2px);
+      }
+
+      .mag-access-trigger-text {
+        font-size: .92rem;
+      }
     }
 
     /* Page-4 overlay that fades in after all spreads open */
@@ -2400,10 +2602,6 @@
               <p class="press-card-meta">Wyoming Business Journal<span>5 min read</span></p>
             </div>
           </article>
-        </div><!-- end pressPage1 -->
-
-        <!-- Page 2 of 2 -->
-        <div class="press-cards" id="pressPage2" style="display:none">
           <article class="press-card">
             <div class="press-card-frame"><img src="images/newspaper.jpg" alt="Denver Post feature on granite craftsmanship"></div>
             <div class="press-card-caption">
@@ -2418,28 +2616,12 @@
               <p class="press-card-meta">Mountain States Journal<span>3 min read</span></p>
             </div>
           </article>
-          <article class="press-card">
-            <div class="press-card-frame"><img src="images/newspaper.jpg" alt="Industry Leaders Monthly on AICA Master Craftsman Drew Bott"></div>
-            <div class="press-card-caption">
-              <h3 class="press-card-title">Excellence in Stone: AICA Master Craftsman Drew Bott</h3>
-              <p class="press-card-meta">Industry Leaders Monthly<span>6 min read</span></p>
-            </div>
-          </article>
-          <article class="press-card">
-            <div class="press-card-frame"><img src="images/newspaper.jpg" alt="Colorado Lifestyle Magazine on Bott Monument"></div>
-            <div class="press-card-caption">
-              <h3 class="press-card-title">Where Every Stone Tells a Story</h3>
-              <p class="press-card-meta">Colorado Lifestyle Magazine<span>4 min read</span></p>
-            </div>
-          </article>
-        </div><!-- end pressPage2 -->
+        </div><!-- end pressPage1 -->
 
       </div><!-- end viewport -->
 
-      <!-- Load more -->
       <div class="press-loadmore-wrap">
-        <button class="press-loadmore-btn" id="pressLoadMore">Load More</button>
-        <p class="press-loadmore-count" id="pressLoadMoreCount">Showing 8 of 12</p>
+        <p class="press-loadmore-count" id="pressLoadMoreCount">Showing 10 of 10</p>
       </div>
 
     </div>
@@ -2450,10 +2632,16 @@
     <div class="mag-pin">
 
       <!-- Heading -->
-      <div class="mag-header">
-        <p class="mag-eyebrow">Our Craft</p>
-        <h2 class="mag-display-title">Our <em>Gallery</em></h2>
-        <div class="mag-rule"></div>
+      <div class="mag-header-shell">
+        <div class="mag-header">
+          <p class="mag-eyebrow">Our Craft</p>
+          <h2 class="mag-display-title">Our <em>Gallery</em></h2>
+          <div class="mag-rule"></div>
+        </div>
+        <button class="mag-access-trigger" id="magAccessTrigger" type="button" aria-haspopup="dialog" aria-controls="magAccessModal">
+          <span class="mag-access-trigger-label">More Memorials</span>
+          <span class="mag-access-trigger-text">View Full Gallery</span>
+        </button>
       </div>
 
       <!-- Contained image frame -->
@@ -2520,6 +2708,19 @@
       <button class="mag-lightbox-close" id="magLbClose" aria-label="Close">&#10005;</button>
       <img class="mag-lightbox-img" id="magLbImg" src="" alt="">
       <p class="mag-lightbox-caption" id="magLbCap"></p>
+    </div>
+  </div>
+
+  <div class="mag-access-modal" id="magAccessModal" role="dialog" aria-modal="true" aria-labelledby="magAccessTitle">
+    <div class="mag-access-card">
+      <button class="mag-access-close" id="magAccessClose" type="button" aria-label="Close">&#10005;</button>
+      <p class="mag-access-kicker">Access Required</p>
+      <h3 class="mag-access-title" id="magAccessTitle">Want to see the <em>full gallery?</em></h3>
+      <p class="mag-access-copy">Our extended memorial collection is available by request so we can share it thoughtfully. Reach out and we will guide you to more gallery images.</p>
+      <div class="mag-access-actions">
+        <a class="mag-access-primary" href="#contact" id="magAccessRequest">Request Access</a>
+        <button class="mag-access-secondary" id="magAccessLater" type="button">Maybe Later</button>
+      </div>
     </div>
   </div>
   <!-- ═══════════ END MAGAZINE SPREAD GALLERY ═══════════ -->
@@ -2764,6 +2965,11 @@
       const lbImg    = document.getElementById('magLbImg');
       const lbCap    = document.getElementById('magLbCap');
       const lbClose  = document.getElementById('magLbClose');
+      const accessModal   = document.getElementById('magAccessModal');
+      const accessTrigger = document.getElementById('magAccessTrigger');
+      const accessClose   = document.getElementById('magAccessClose');
+      const accessLater   = document.getElementById('magAccessLater');
+      const accessRequest = document.getElementById('magAccessRequest');
 
       function openLightbox(src, cap) {
         lbImg.src = src;
@@ -2786,7 +2992,34 @@
 
       lbClose.addEventListener('click', closeLightbox);
       lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
-      document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+      if (accessModal && accessTrigger && accessClose && accessLater) {
+        function openAccessModal() {
+          accessModal.classList.add('open');
+          document.body.style.overflow = 'hidden';
+        }
+
+        function closeAccessModal() {
+          accessModal.classList.remove('open');
+          document.body.style.overflow = '';
+        }
+
+        accessTrigger.addEventListener('click', openAccessModal);
+        accessClose.addEventListener('click', closeAccessModal);
+        accessLater.addEventListener('click', closeAccessModal);
+        accessModal.addEventListener('click', e => {
+          if (e.target === accessModal) closeAccessModal();
+        });
+        if (accessRequest) {
+          accessRequest.addEventListener('click', closeAccessModal);
+        }
+      }
+      document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') {
+          closeLightbox();
+          if (accessModal) accessModal.classList.remove('open');
+          document.body.style.overflow = '';
+        }
+      });
 
       // ── Video player ──
       const magVideo    = document.getElementById('magVideo');
@@ -2873,24 +3106,6 @@
     })();
   </script>
 
-  <script>
-  (function () {
-    const page2      = document.getElementById('pressPage2');
-    const loadMoreBtn= document.getElementById('pressLoadMore');
-    const countText  = document.getElementById('pressLoadMoreCount');
-    if (!page2 || !loadMoreBtn) return;
-
-    loadMoreBtn.addEventListener('click', () => {
-      page2.style.display = 'grid';
-      // Fade-in animation
-      page2.style.animation = 'none';
-      page2.offsetHeight; // reflow
-      page2.style.animation = '';
-      loadMoreBtn.style.display = 'none';
-      if (countText) countText.textContent = 'Showing 12 of 12';
-    });
-  })();
-  </script>
   <script>
     (function () {
       const statsWrap = document.querySelector('.founder-stats');
