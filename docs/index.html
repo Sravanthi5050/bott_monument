@@ -362,7 +362,7 @@
 
     .marquee-track span {
       font-family: var(--font-utility);
-      font-size: 0.65rem;
+      font-size: max(0.65rem, .6vw);
       font-weight: 200;
       letter-spacing: 0.4em;
       text-transform: uppercase;
@@ -373,7 +373,7 @@
 
     .marquee-track .dot {
       color: var(--gold);
-      font-size: 0.7rem;
+      font-size: max(0.7rem, .65vw);
     }
 
     @keyframes marquee {
@@ -413,10 +413,11 @@
     }
 
     .press-founder {
+      --founder-size: max(260px, 19vw);
       position: absolute;
       top: 5rem;
       left: 6rem;
-      width: 275px;
+      width: calc(var(--founder-size) * 1.1);
       z-index: 3;
       text-align: center;
     }
@@ -425,8 +426,8 @@
       position: absolute;
       top: 50%;
       left: 50%;
-      width: 340px;
-      height: 340px;
+      width: calc(var(--founder-size) * 1.36);
+      height: calc(var(--founder-size) * 1.36);
       transform: translate(-50%, -50%);
       background: radial-gradient(circle, rgba(28, 24, 18, .55) 0%, rgba(28, 24, 18, .28) 38%, transparent 72%);
       filter: blur(6px);
@@ -436,8 +437,8 @@
 
     .press-founder-frame {
       position: relative;
-      width: 250px;
-      height: 250px;
+      width: var(--founder-size);
+      height: var(--founder-size);
       margin: 0 auto;
       border-radius: 50%;
       background: #fff;
@@ -492,7 +493,7 @@
       margin-top: 1.8rem;
       font-family: var(--font-display);
       font-style: italic;
-      font-size: .88rem;
+      font-size: max(.88rem, .84vw);
       color: #6b5d49;
       line-height: 1.3;
     }
@@ -502,7 +503,7 @@
       font-style: normal;
       font-weight: 600;
       color: #1C1812;
-      font-size: .78rem;
+      font-size: max(.78rem, .74vw);
     }
 
     @media(max-width:1300px) {
@@ -1380,12 +1381,9 @@
     .founder-bio {
       font-family: var(--font-utility);
       font-size: max(.72rem, .68vw);
-      font-weight: 500;
-      /* font-size: max(.57rem, .55vw); */
+      font-weight: 1000;
       line-height: 1.85;
-      color: #5A4C3D;
-      /* color: rgba(44, 36, 28, .68); */
-      /* color: #3F352C; */
+      color: #1C1812;
       letter-spacing: .03em;
       max-width: max(400px, 26vw);
       margin-bottom: 2.8rem;
@@ -1799,7 +1797,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
-      padding-top: 4.8rem;
+      padding-top: max(4.8rem, 4vw);
       overflow: hidden;
       background: #F7F3ED;
     }
@@ -1808,6 +1806,13 @@
       position: relative;
       width: min(94vw, 1320px);
       margin-bottom: 1.4rem;
+      /* The title's font-size is capped by vh, so on a short viewport this
+         box can shrink a lot. The "More Memorials" button is positioned at
+         top:65% of *this* box's height, so if the box gets too short the
+         button — which doesn't shrink nearly as much — ends up positioned
+         high enough to go up under the fixed nav bar. Floor the height so
+         there's always enough room for the button to clear the nav. */
+      min-height: max(7rem, 6vw);
     }
 
     .mag-header {
@@ -1849,17 +1854,16 @@
     .mag-frame {
       position: relative;
       width: min(94vw, 1320px);
-      height: 72vh;
+      flex: 1 1 auto;
+      min-height: 0;
       border-radius: 20px;
       overflow: hidden;
       box-shadow: 0 28px 70px -12px rgba(0, 0, 0, .22);
-      flex-shrink: 0;
     }
 
-    /* Beyond the laptop baseline, let the frame keep growing with the screen
-       instead of staying capped at 1360px. */
     @media (min-width: 1512px) {
-      .mag-frame {
+      .mag-frame,
+      .mag-header-shell {
         width: max(1320px, 82vw);
       }
     }
@@ -1904,7 +1908,7 @@
       bottom: .9rem;
       right: 1.2rem;
       font-family: var(--font-utility);
-      font-size: .46rem;
+      font-size: max(.46rem, .44vw);
       letter-spacing: .18em;
       color: rgba(255, 255, 255, .75);
       z-index: 10;
@@ -1923,8 +1927,8 @@
       border: 1px solid rgba(23, 20, 17, 0.14);
       /* background: rgba(221, 214, 204, .94); */
       color: #1C1812;
-      padding: .95rem 1.15rem;
-      min-width: 170px;
+      padding: max(.95rem, .9vw) max(1.15rem, 1.1vw);
+      min-width: max(170px, 8.85vw);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
       box-shadow: 0 14px 30px rgba(53, 41, 28, .12);
@@ -1947,7 +1951,7 @@
     .mag-access-trigger-label {
       display: block;
       font-family: var(--font-utility);
-      font-size: .6rem;
+      font-size: max(.6rem, .57vw);
       letter-spacing: .22em;
       text-transform: uppercase;
       color: #6B5530;
@@ -1958,7 +1962,7 @@
     .mag-access-trigger-text {
       display: block;
       font-family: var(--font-display);
-      font-size: 1rem;
+      font-size: max(1rem, .95vw);
       font-style: italic;
       line-height: 1.2;
       color: #111111;
@@ -2401,6 +2405,7 @@
         <div class="press-founder-frame">
           <span class="press-founder-spotlight"></span>
           <span class="press-founder-star-top">✦</span>
+          <!-- <img src="images/headshot.png" alt="Drew Bott, Founder & Master Craftsman"> -->
           <img src="images/profile_1.png" alt="Drew Bott, Founder & Master Craftsman">
           <span class="press-founder-star-bottom">✦</span>
         </div>
@@ -2963,16 +2968,32 @@
 
       render(0, 0);
 
+      let lastProgress = 0;
+
       function update() {
         const rect = section.getBoundingClientRect();
         const scrollable = rect.height - window.innerHeight;
         const raw = scrollable > 0 ? -rect.top / scrollable : 0;
         const p = Math.max(0, Math.min(0.999, raw));
+        lastProgress = p;
         render(p, raw);
       }
 
+      function handleResize() {
+        if (lastProgress > 0 && lastProgress < 0.999) {
+          const rect = section.getBoundingClientRect();
+          const scrollable = rect.height - window.innerHeight;
+          if (scrollable > 0) {
+            const desiredTop = -lastProgress * scrollable;
+            const deltaScroll = rect.top - desiredTop;
+            if (Math.abs(deltaScroll) > 0.5) window.scrollBy(0, deltaScroll);
+          }
+        }
+        update();
+      }
+
       window.addEventListener('scroll', update, { passive: true });
-      window.addEventListener('resize', update);
+      window.addEventListener('resize', handleResize);
       update();
 
       /* ── Lightbox ── */
