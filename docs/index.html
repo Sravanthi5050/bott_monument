@@ -193,32 +193,6 @@
       opacity: 0.05;
     }
 
-    .chisel-line {
-      position: absolute;
-      top: 42%;
-      left: 0;
-      height: 1px;
-      width: 0;
-      background: linear-gradient(to right, transparent, var(--gold), transparent);
-      animation: chisel 2.2s cubic-bezier(0.25, 0, 0.1, 1) 0.6s forwards;
-    }
-
-    @keyframes chisel {
-      0% {
-        width: 0;
-        opacity: 0;
-      }
-
-      10% {
-        opacity: 1;
-      }
-
-      100% {
-        width: 100%;
-        opacity: 0.35;
-      }
-    }
-
     .hero-content {
       position: relative;
       z-index: 2;
@@ -2728,7 +2702,6 @@
   <!-- HERO -->
   <section id="hero">
     <div class="hero-bg"></div>
-    <div class="chisel-line"></div>
     <video id="heroVideo" autoplay muted loop playsinline
       style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.65;z-index:0;pointer-events:none;">
       <source src="videos/hero2.mp4" type="video/mp4">
@@ -2752,10 +2725,6 @@
       <!-- Crafted to stand forever. -->
       <!-- <p class="hero-sub">Not every monument can be seen. Some are felt across generations.</p>
       <a href="#work" class="hero-cta">Discover our work</a> -->
-    </div>
-    <div class="hero-scroll-hint">
-      <div class="scroll-line"></div>
-      <span>Scroll</span>
     </div>
   </section>
 
