@@ -193,32 +193,6 @@
       opacity: 0.05;
     }
 
-    .chisel-line {
-      position: absolute;
-      top: 42%;
-      left: 0;
-      height: 1px;
-      width: 0;
-      background: linear-gradient(to right, transparent, var(--gold), transparent);
-      animation: chisel 2.2s cubic-bezier(0.25, 0, 0.1, 1) 0.6s forwards;
-    }
-
-    @keyframes chisel {
-      0% {
-        width: 0;
-        opacity: 0;
-      }
-
-      10% {
-        opacity: 1;
-      }
-
-      100% {
-        width: 100%;
-        opacity: 0.35;
-      }
-    }
-
     .hero-content {
       position: relative;
       z-index: 2;
@@ -470,14 +444,15 @@
       border-radius: 50%;
       overflow: hidden;
     }
+
     .press-founder-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center center;
-  transform: translateX(-10px) scale(1.06);
-  display: block;
-}
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      transform: translateX(-10px) scale(1.06);
+      display: block;
+    }
 
     /* .press-founder-img img {
       width: 100%;
@@ -636,8 +611,15 @@
     }
 
     @keyframes pressFadeIn {
-      from { opacity: 0; transform: translateY(12px); }
-      to   { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .press-card {
@@ -670,7 +652,7 @@
     .press-loadmore-btn {
       padding: 1.05rem 2.6rem;
       border-radius: 999px;
-      border: 1.5px solid rgba(28,24,18,.25);
+      border: 1.5px solid rgba(28, 24, 18, .25);
       background: #fff;
       cursor: pointer;
       font-family: var(--font-utility);
@@ -680,7 +662,7 @@
       text-transform: uppercase;
       color: #1C1812;
       transition: background .25s ease, border-color .25s ease, color .25s ease, transform .25s ease;
-      box-shadow: 0 4px 18px rgba(0,0,0,.08);
+      box-shadow: 0 4px 18px rgba(0, 0, 0, .08);
     }
 
     .press-loadmore-btn:hover {
@@ -1108,16 +1090,18 @@
     /* ── WORK SECTION — PRESS PANEL (right side) ── */
     .work-press-panel {
       background: rgba(14, 12, 8, 0.78);
-      border: 1px solid rgba(201,160,80,.18);
+      border: 1px solid rgba(201, 160, 80, .18);
       border-radius: 20px;
       padding: max(2.6rem, 2.4vw) max(2.8rem, 2.6vw) max(2.2rem, 2vw);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
-      box-shadow: 0 36px 90px -22px rgba(0,0,0,.7), inset 0 1px 0 rgba(255,255,255,.055);
+      box-shadow: 0 36px 90px -22px rgba(0, 0, 0, .7), inset 0 1px 0 rgba(255, 255, 255, .055);
       display: flex;
       flex-direction: column;
       align-self: center;
-      min-width: 0;    /* ← the width cap */  /* ← which edge stays put */
+      min-width: 0;
+      /* ← the width cap */
+      /* ← which edge stays put */
       max-width: max(600px, 44vw);
       margin-left: auto;
       margin-right: 35px;
@@ -1157,7 +1141,7 @@
       font-family: var(--font-display);
       font-size: 3rem;
       font-weight: 300;
-      color: rgba(201,160,80,.18);
+      color: rgba(201, 160, 80, .18);
       line-height: 1;
       letter-spacing: -.02em;
       flex-shrink: 0;
@@ -1166,7 +1150,7 @@
     .wpp-rule {
       width: 100%;
       height: 1px;
-      background: linear-gradient(to right, rgba(201,160,80,.35), rgba(201,160,80,.08), transparent);
+      background: linear-gradient(to right, rgba(201, 160, 80, .35), rgba(201, 160, 80, .08), transparent);
       margin: 1.1rem 0;
     }
 
@@ -1190,8 +1174,8 @@
       height: max(86px, 6vw);
       border-radius: 12px;
       overflow: hidden;
-      border: 1px solid rgba(201,160,80,.22);
-      box-shadow: 0 8px 24px rgba(0,0,0,.45);
+      border: 1px solid rgba(201, 160, 80, .22);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .45);
     }
 
     .wpp-thumb img {
@@ -1227,14 +1211,14 @@
     .wpp-meta {
       font-family: var(--font-utility);
       font-size: .36rem;
-      color: rgba(240,234,214,.38);
+      color: rgba(240, 234, 214, .38);
       letter-spacing: .07em;
     }
 
     .wpp-divider {
       width: 100%;
       height: 1px;
-      background: rgba(255,255,255,.07);
+      background: rgba(255, 255, 255, .07);
     }
 
     .wpp-all-link {
@@ -1242,7 +1226,7 @@
       font-size: .4rem;
       letter-spacing: .26em;
       text-transform: uppercase;
-      color: rgba(240,234,214,.55);
+      color: rgba(240, 234, 214, .55);
       text-decoration: none;
       margin-top: 1.3rem;
       display: inline-flex;
@@ -1447,21 +1431,29 @@
     }
 
     .founder-stat-rule {
-  width: 0;
-  height: 1px;
-  background: #8A6B2E;
-  opacity: .6;
-  margin-top: .7rem;
-  transition: width .9s ease .3s;
-}
+      width: 0;
+      height: 1px;
+      background: #8A6B2E;
+      opacity: .6;
+      margin-top: .7rem;
+      transition: width .9s ease .3s;
+    }
 
-.founder-stats.counted .founder-stat-rule {
-  width: 3rem;
-}
+    .founder-stats.counted .founder-stat-rule {
+      width: 3rem;
+    }
 
-.founder-stats.counted .founder-stat:nth-child(2) .founder-stat-rule { transition-delay: .45s; }
-.founder-stats.counted .founder-stat:nth-child(3) .founder-stat-rule { transition-delay: .6s; }
-.founder-stats.counted .founder-stat:nth-child(4) .founder-stat-rule { transition-delay: .75s; }
+    .founder-stats.counted .founder-stat:nth-child(2) .founder-stat-rule {
+      transition-delay: .45s;
+    }
+
+    .founder-stats.counted .founder-stat:nth-child(3) .founder-stat-rule {
+      transition-delay: .6s;
+    }
+
+    .founder-stats.counted .founder-stat:nth-child(4) .founder-stat-rule {
+      transition-delay: .75s;
+    }
 
     /* ── CONTACT ── */
     #contact {
@@ -1889,6 +1881,7 @@
     }
 
     @media (min-width: 1512px) {
+
       .mag-frame,
       .mag-header-shell {
         width: max(1320px, 82vw);
@@ -2254,8 +2247,8 @@
       width: 68px;
       height: 68px;
       border-radius: 50%;
-      background: rgba(201,160,80,.92);
-      border: 2px solid rgba(255,255,255,.3);
+      background: rgba(201, 160, 80, .92);
+      border: 2px solid rgba(255, 255, 255, .3);
       cursor: pointer;
       display: flex;
       align-items: center;
@@ -2264,9 +2257,14 @@
       z-index: 6;
     }
 
-    .mag-play-btn:hover { transform: translate(-50%, -50%) scale(1.1); }
+    .mag-play-btn:hover {
+      transform: translate(-50%, -50%) scale(1.1);
+    }
 
-    .mag-play-btn.hidden { opacity: 0; pointer-events: none; }
+    .mag-play-btn.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
 
     .mag-play-icon {
       font-size: 1.4rem;
@@ -2278,9 +2276,11 @@
     /* Bottom controls bar */
     .mag-vid-controls {
       position: absolute;
-      bottom: 0; left: 0; right: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
       z-index: 7;
-      background: linear-gradient(to top, rgba(0,0,0,.85) 0%, transparent 100%);
+      background: linear-gradient(to top, rgba(0, 0, 0, .85) 0%, transparent 100%);
       padding: 2.5rem 1.6rem 1rem;
       display: flex;
       flex-direction: column;
@@ -2290,13 +2290,15 @@
     }
 
     .mag-overlay:hover .mag-vid-controls,
-    .mag-overlay.visible .mag-vid-controls { opacity: 1; }
+    .mag-overlay.visible .mag-vid-controls {
+      opacity: 1;
+    }
 
     /* Seek bar */
     .mag-seek-wrap {
       position: relative;
       height: 6px;
-      background: rgba(255,255,255,.28);
+      background: rgba(255, 255, 255, .28);
       border-radius: 6px;
       cursor: pointer;
     }
@@ -2313,10 +2315,11 @@
       position: absolute;
       top: 50%;
       left: 0%;
-      width: 16px; height: 16px;
+      width: 16px;
+      height: 16px;
       border-radius: 50%;
       background: var(--gold);
-      box-shadow: 0 0 6px rgba(201,160,80,.6);
+      box-shadow: 0 0 6px rgba(201, 160, 80, .6);
       transform: translate(-50%, -50%);
       pointer-events: none;
     }
@@ -2341,12 +2344,14 @@
       transition: color .2s ease;
     }
 
-    .mag-vid-play-sm:hover { color: var(--gold); }
+    .mag-vid-play-sm:hover {
+      color: var(--gold);
+    }
 
     .mag-vid-time {
       font-family: var(--font-utility);
       font-size: .55rem;
-      color: rgba(255,255,255,.8);
+      color: rgba(255, 255, 255, .8);
       letter-spacing: .08em;
       flex: 1;
     }
@@ -2355,7 +2360,7 @@
       background: none;
       border: none;
       cursor: pointer;
-      color: rgba(255,255,255,.85);
+      color: rgba(255, 255, 255, .85);
       font-size: 1.3rem;
       display: flex;
       align-items: center;
@@ -2364,11 +2369,220 @@
       transition: color .2s ease;
     }
 
-    .mag-vid-fullscreen:hover { color: var(--gold); }
+    .mag-vid-fullscreen:hover {
+      color: var(--gold);
+    }
   </style>
+
+  <style id="bott-office-background-override">
+    /* ==========================================================
+     BOTT MONUMENT — OFFICE PHOTO BACKGROUND THEME
+     Background-only override.
+     No layout, image, text, spacing, card, or animation changes.
+     Palette sampled from the supplied showroom photo:
+     chair/glass blue, slate, charcoal, warm wall/taupe,
+     pearl floor, cream, and restrained gold.
+     ========================================================== */
+
+    :root {
+      --office-charcoal: #191C18;
+      --office-graphite: #463F3C;
+      --office-walnut: #6A5C53;
+      --office-wall: #877466;
+      --office-chair: #42596D;
+      --office-bluegray: #778186;
+      --office-pearl: #D1D2CD;
+      --office-silver: #B8B5AE;
+      --office-cream: #E9EAE9;
+      --office-gold: #B99A5B;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Keep the original template; only make background changes feel softer. */
+    #hero .hero-bg,
+    .marquee-strip,
+    #about,
+    #work,
+    #press-clippings,
+    #magazine,
+    #magazine .mag-pin,
+    #founder,
+    #contact,
+    footer {
+      transition:
+        background 1.15s cubic-bezier(.22, .61, .36, 1),
+        background-position 1.15s cubic-bezier(.22, .61, .36, 1),
+        color .7s ease !important;
+    }
+
+    /* HERO — dark glass + chair blue + warm showroom wall.
+     The original hero video stays exactly where it is. */
+    #hero .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+    }
+
+    /* Moving strip — bridge the hero blue into the warm wall tones. */
+    .marquee-strip {
+      background:
+        linear-gradient(100deg,
+          #191C18 0%,
+          #2F3E49 26%,
+          #42596D 43%,
+          #6A5C53 70%,
+          #463F3C 100%) !important;
+    }
+
+    /* PAGE 2 / HERITAGE — SAME founder image, circle, text, and layout.
+     Only the white background becomes polished pearl / glass / stone. */
+    #about.press-page {
+      background:
+        linear-gradient(145deg,
+          #E9EAE9 0%,
+          #D8D9D5 23%,
+          #C8CED0 44%,
+          #D1D2CD 63%,
+          #BDB8B0 82%,
+          #EEEDE8 100%) !important;
+    }
+
+    /* OUR WORK — deep chair blue + smoked glass + walnut. */
+    #work.creations-section {
+      background:
+        linear-gradient(140deg,
+          #191C18 0%,
+          #29343D 22%,
+          #42596D 47%,
+          #35424B 64%,
+          #6A5C53 84%,
+          #2B2926 100%) !important;
+    }
+
+    /* PRESS — polished showroom floor / pearl stone, still light for dark text. */
+    #press-clippings {
+      background:
+        linear-gradient(150deg,
+          #ECEDEB 0%,
+          #D1D2CD 24%,
+          #C4C8C8 42%,
+          #E4E3DE 62%,
+          #C8BDB1 82%,
+          #F0EFEB 100%) !important;
+    }
+
+    /* GALLERY — light blue glass into cream, preserving all gallery behavior. */
+    #magazine,
+    #magazine .mag-pin {
+      background:
+        linear-gradient(145deg,
+          #E8E9E7 0%,
+          #C9D0D3 28%,
+          #B8C2C7 46%,
+          #D3D2CC 69%,
+          #EDEAE4 100%) !important;
+    }
+
+    /* STORY / FOUNDER — showroom wall mauve + warm stone.
+     Text remains dark; image and feathering remain unchanged. */
+    #founder {
+      --founder-feather: #B9AEA4 !important;
+      background:
+        linear-gradient(135deg,
+          #C9C5BE 0%,
+          #B9AEA4 28%,
+          #A88F82 51%,
+          #B9A99D 72%,
+          #D1CCC3 100%) !important;
+    }
+
+    /* Keep the founder photo feather coordinated with the new background. */
+    #founder .founder-img-side::after {
+      background:
+        linear-gradient(to right,
+          rgba(185, 174, 164, .04) 38%,
+          var(--founder-feather) 100%),
+        linear-gradient(to bottom,
+          var(--founder-feather) 0%,
+          transparent 10%,
+          transparent 90%,
+          var(--founder-feather) 100%) !important;
+    }
+
+    /* CONTACT — brighter pearl / blue-gray, same form and all same controls. */
+    #contact {
+      background:
+        linear-gradient(145deg,
+          #E7E7E2 0%,
+          #D1D2CD 26%,
+          #C3C9CB 48%,
+          #D9D5CF 70%,
+          #EDEAE4 100%) !important;
+    }
+
+    /* FOOTER — dark finish that closes with chair blue + walnut. */
+    footer {
+      background:
+        linear-gradient(110deg,
+          #191C18 0%,
+          #2C3B47 34%,
+          #42596D 52%,
+          #6A5C53 76%,
+          #2C2926 100%) !important;
+    }
+
+    /* Tiny edge softening only; no sizing/layout changes. */
+    #about,
+    #work,
+    #press-clippings,
+    #magazine,
+    #founder,
+    #contact {
+      background-size: 115% 115% !important;
+      background-position: center !important;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+
+      #about,
+      #work,
+      #press-clippings,
+      #magazine .mag-pin,
+      #founder,
+      #contact {
+        animation: bottOfficeDrift 24s ease-in-out infinite alternate;
+      }
+    }
+
+    @keyframes bottOfficeDrift {
+      from {
+        background-position: 0% 50%;
+      }
+
+      to {
+        background-position: 100% 50%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      #about,
+      #work,
+      #press-clippings,
+      #magazine .mag-pin,
+      #founder,
+      #contact {
+        animation: none !important;
+      }
+    }
+  </style>
+
 </head>
 
-  <body>
+<body>
 
   <div class="cursor" id="cursor"></div>
   <div class="cursor-ring" id="cursorRing"></div>
@@ -2390,21 +2604,21 @@
   <!-- HERO -->
   <section id="hero">
     <div class="hero-bg"></div>
-    <div class="chisel-line"></div>
     <video id="heroVideo" autoplay muted loop playsinline
       style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.65;z-index:0;pointer-events:none;">
-      <source src="videos/hero.mp4" type="video/mp4">
+      <source src="videos/hero2.mp4" type="video/mp4">
     </video>
     <div class="hero-content">
-      <p class="hero-eyebrow">Est. in stone &nbsp;·&nbsp; Crafted for eternity</p>
-      <h1 class="hero-title">Where stone<br>becomes <em>legacy.</em></h1>
-      <p class="hero-sub">Not every monument can be seen. Some are felt across generations.</p>
-      <a href="#work" class="hero-cta">Discover our work</a>
+      <!-- <p class="hero-eyebrow">Est. in stone &nbsp;·&nbsp; Crafted for eternity</p> -->
+      <!-- <h1 class="hero-title">Where stone<br>becomes <em>legacy.</em></h1> -->
+      <h1 class="hero-title" id="heroHeadline">Crafted to<br>stand <em>forever.</em></h1>
+      <!-- <p class="hero-sub">Not every monument can be seen. Some are felt across generations.</p>
+      <a href="#work" class="hero-cta">Discover our work</a> -->
     </div>
-    <div class="hero-scroll-hint">
+    <!-- <div class="hero-scroll-hint">
       <div class="scroll-line"></div>
       <span>Scroll</span>
-    </div>
+    </div> -->
   </section>
 
   <!-- MARQUEE -->
@@ -2437,10 +2651,10 @@
         </div>
         <!-- <div class="press-founder-frame">
           <span class="press-founder-spotlight"></span> -->
-          <!-- <span class="press-founder-star-top">✦</span> -->
-          <!-- <img src="images/headshot.png" alt="Drew Bott, Founder & Master Craftsman"> -->
-          <!-- <img src="images/profile_2.png" alt="Drew Bott, Founder & Master Craftsman"> -->
-          <!-- <span class="press-founder-star-bottom">✦</span> -->
+        <!-- <span class="press-founder-star-top">✦</span> -->
+        <!-- <img src="images/headshot.png" alt="Drew Bott, Founder & Master Craftsman"> -->
+        <!-- <img src="images/profile_2.png" alt="Drew Bott, Founder & Master Craftsman"> -->
+        <!-- <span class="press-founder-star-bottom">✦</span> -->
         <!-- </div> -->
         <p class="press-founder-name"><strong>Drew Bott</strong>Founder &amp; Master Craftsman</p>
       </div>
@@ -2448,10 +2662,13 @@
         <p class="press-page-kicker reveal">Monument Builders of North America</p>
         <h2 class="press-page-title reveal reveal-delay-1">The Most Trusted Name<br>in <em>Memorial Artistry</em></h2>
         <div class="press-page-divider reveal reveal-delay-1"></div>
-        <p class="press-page-story reveal reveal-delay-2">Drew Bott's work has earned recognition across North America for
-          exceptional design, craftsmanship, and artistry in stone. His monuments are not only built with precision — they
+        <p class="press-page-story reveal reveal-delay-2">Drew Bott's work has earned recognition across North America
+          for
+          exceptional design, craftsmanship, and artistry in stone. His monuments are not only built with precision —
+          they
           are created with meaning, memory, and dignity.</p>
-        <p class="press-page-quote reveal reveal-delay-2">"Every monument should feel as personal as the life it honors."
+        <p class="press-page-quote reveal reveal-delay-2">"Every monument should feel as personal as the life it
+          honors."
         </p>
         <p class="press-page-signature reveal reveal-delay-3">Your signature</p>
       </div>
@@ -2599,70 +2816,80 @@
         <!-- Page 1 of 2 -->
         <div class="press-cards reveal" id="pressPage1">
           <article class="press-card">
-            <div class="press-card-frame"><img src="images/newspaper.jpg" alt="MB News magazine cover featuring Bott Monument"></div>
+            <div class="press-card-frame"><img src="images/newspaper.jpg"
+                alt="MB News magazine cover featuring Bott Monument"></div>
             <div class="press-card-caption">
               <h3 class="press-card-title">MB News — Cover Feature</h3>
               <p class="press-card-meta">Monument Builders of North America<span>September 2024</span></p>
             </div>
           </article>
           <article class="press-card">
-            <div class="press-card-frame"><img src="images/newspaper.jpg" alt="From the Cover article written by Drew Bott"></div>
+            <div class="press-card-frame"><img src="images/newspaper.jpg"
+                alt="From the Cover article written by Drew Bott"></div>
             <div class="press-card-caption">
               <h3 class="press-card-title">From the Cover: Brinda</h3>
               <p class="press-card-meta">By Drew Bott, AICA, CM<span>4 min read</span></p>
             </div>
           </article>
           <article class="press-card">
-            <div class="press-card-frame"><img src="images/newspaper.jpg" alt="Local Craftsman Honored For Excellence In Granite article"></div>
+            <div class="press-card-frame"><img src="images/newspaper.jpg"
+                alt="Local Craftsman Honored For Excellence In Granite article"></div>
             <div class="press-card-caption">
               <h3 class="press-card-title">Local Craftsman Honored For Excellence In Granite</h3>
               <p class="press-card-meta">Trade Press<span>3 min read</span></p>
             </div>
           </article>
           <article class="press-card">
-            <div class="press-card-frame"><img src="images/newspaper.jpg" alt="Bott Monument Co. Serves Families Across Generations article"></div>
+            <div class="press-card-frame"><img src="images/newspaper.jpg"
+                alt="Bott Monument Co. Serves Families Across Generations article"></div>
             <div class="press-card-caption">
               <h3 class="press-card-title">Serving Families Across Generations</h3>
               <p class="press-card-meta">Community Spotlight<span>2 min read</span></p>
             </div>
           </article>
           <article class="press-card">
-            <div class="press-card-frame"><img src="images/newspaper.jpg" alt="The Daily Craftsman feature on a studio earning honors"></div>
+            <div class="press-card-frame"><img src="images/newspaper.jpg"
+                alt="The Daily Craftsman feature on a studio earning honors"></div>
             <div class="press-card-caption">
               <h3 class="press-card-title">Renowned Studio Earns Top Honors In Memorial Design</h3>
               <p class="press-card-meta">The Daily Craftsman<span>5 min read</span></p>
             </div>
           </article>
           <article class="press-card">
-            <div class="press-card-frame"><img src="images/newspaper.jpg" alt="North Star Press feature on granite artistry"></div>
+            <div class="press-card-frame"><img src="images/newspaper.jpg"
+                alt="North Star Press feature on granite artistry"></div>
             <div class="press-card-caption">
               <h3 class="press-card-title">Why This Workshop Is Setting The Standard In Granite Artistry</h3>
               <p class="press-card-meta">North Star Press<span>5 min read</span></p>
             </div>
           </article>
           <article class="press-card">
-            <div class="press-card-frame"><img src="images/newspaper.jpg" alt="Rocky Mountain Life feature on Drew Bott"></div>
+            <div class="press-card-frame"><img src="images/newspaper.jpg"
+                alt="Rocky Mountain Life feature on Drew Bott"></div>
             <div class="press-card-caption">
               <h3 class="press-card-title">Award-Winning Sculptor Brings Tradition to Modern Grief</h3>
               <p class="press-card-meta">Rocky Mountain Life<span>6 min read</span></p>
             </div>
           </article>
           <article class="press-card">
-            <div class="press-card-frame"><img src="images/newspaper.jpg" alt="Wyoming Business Journal feature on Bott Monument family legacy"></div>
+            <div class="press-card-frame"><img src="images/newspaper.jpg"
+                alt="Wyoming Business Journal feature on Bott Monument family legacy"></div>
             <div class="press-card-caption">
               <h3 class="press-card-title">Behind the Stone: A Family's Legacy in Memorial Art</h3>
               <p class="press-card-meta">Wyoming Business Journal<span>5 min read</span></p>
             </div>
           </article>
           <article class="press-card">
-            <div class="press-card-frame"><img src="images/newspaper.jpg" alt="Denver Post feature on granite craftsmanship"></div>
+            <div class="press-card-frame"><img src="images/newspaper.jpg"
+                alt="Denver Post feature on granite craftsmanship"></div>
             <div class="press-card-caption">
               <h3 class="press-card-title">Crafting Memories in Granite: One Family's Mission</h3>
               <p class="press-card-meta">Denver Post Feature<span>4 min read</span></p>
             </div>
           </article>
           <article class="press-card">
-            <div class="press-card-frame"><img src="images/newspaper.jpg" alt="Mountain States Journal on Bott Monument story"></div>
+            <div class="press-card-frame"><img src="images/newspaper.jpg"
+                alt="Mountain States Journal on Bott Monument story"></div>
             <div class="press-card-caption">
               <h3 class="press-card-title">The Art of Remembrance: Bott Monument's Story</h3>
               <p class="press-card-meta">Mountain States Journal<span>3 min read</span></p>
@@ -2690,7 +2917,8 @@
           <h2 class="mag-display-title">Our <em>Gallery</em></h2>
           <div class="mag-rule"></div>
         </div>
-        <button class="mag-access-trigger" id="magAccessTrigger" type="button" aria-haspopup="dialog" aria-controls="magAccessModal">
+        <button class="mag-access-trigger" id="magAccessTrigger" type="button" aria-haspopup="dialog"
+          aria-controls="magAccessModal">
           <span class="mag-access-trigger-label">More Memorials</span>
           <span class="mag-access-trigger-text">View Full Gallery</span>
         </button>
@@ -2701,25 +2929,33 @@
         <div class="mag-stack" id="magStack">
           <div class="mag-spread" style="z-index:3;">
             <div class="mag-left" data-img="images/headstone.jpg" data-cap="Carved granite headstone">
-              <img src="images/headstone.jpg" alt="Carved granite headstone"></div>
-            <div class="mag-right" data-img="images/MercyPhotography-BottM-87.JPG" data-cap="Heart-shaped polished memorial">
-              <img src="images/MercyPhotography-BottM-87.JPG" alt="Heart-shaped memorial" style="object-position: center 92%;"></div>
+              <img src="images/headstone.jpg" alt="Carved granite headstone">
+            </div>
+            <div class="mag-right" data-img="images/MercyPhotography-BottM-87.JPG"
+              data-cap="Heart-shaped polished memorial">
+              <img src="images/MercyPhotography-BottM-87.JPG" alt="Heart-shaped memorial"
+                style="object-position: center 92%;">
+            </div>
           </div>
           <div class="mag-spread" style="z-index:2;">
             <div class="mag-left" data-img="images/page3.jpg" data-cap="Granite cherub sculpture">
-              <img src="images/page3.jpg" alt="Granite cherub sculpture"></div>
-            <div class="mag-right" data-img="images/page4_image5.jpg"" data-cap="Hand-crafted granite statuary">
-              <img src="images/page4_image5.jpg" alt="Granite statuary"></div>
+              <img src="images/page3.jpg" alt="Granite cherub sculpture">
+            </div>
+            <div class="mag-right" data-img="images/page4_image5.jpg"" data-cap=" Hand-crafted granite statuary">
+              <img src="images/page4_image5.jpg" alt="Granite statuary">
+            </div>
           </div>
           <div class="mag-spread" style="z-index:1;">
             <div class="mag-left" data-img="images/page4_image2.jpg" data-cap="Hand-finished granite detail">
-              <img src="images/page4_image2.jpg" alt="Hand-finished granite"></div>
+              <img src="images/page4_image2.jpg" alt="Hand-finished granite">
+            </div>
             <div class="mag-right" data-img="images/page4_image1.jpg" data-cap="Personalized stone monument">
-              <img src="images/page4_image1.jpg" alt="Personalized monument"></div>
+              <img src="images/page4_image1.jpg" alt="Personalized monument">
+            </div>
           </div>
-          
+
         </div>
-        
+
         <!-- Video panel: inside the frame, fades in after all spreads open -->
         <div class="mag-overlay" id="magOverlay">
           <video id="magVideo" src="videos/Bott Monument the .mp4" playsinline preload="metadata"></video>
@@ -2768,7 +3004,8 @@
       <button class="mag-access-close" id="magAccessClose" type="button" aria-label="Close">&#10005;</button>
       <p class="mag-access-kicker">Access Required</p>
       <h3 class="mag-access-title" id="magAccessTitle">Want to see the <em>full gallery?</em></h3>
-      <p class="mag-access-copy">Our extended memorial collection is available by request so we can share it thoughtfully. Reach out and we will guide you to more gallery images.</p>
+      <p class="mag-access-copy">Our extended memorial collection is available by request so we can share it
+        thoughtfully. Reach out and we will guide you to more gallery images.</p>
       <div class="mag-access-actions">
         <a class="mag-access-primary" href="#contact" id="magAccessRequest">Request Access</a>
         <button class="mag-access-secondary" id="magAccessLater" type="button">Maybe Later</button>
@@ -2787,8 +3024,12 @@
       <h2 class="founder-name">Bott<br>Monument</h2>
       <p class="founder-role">Built on Stone. Rooted in Service.</p>
       <div class="founder-rule"></div>
-      <blockquote class="founder-quote">"Every family deserves a monument as unique as the person it remembers."</blockquote>
-      <p class="founder-bio">Bott Monument has served families across the Rocky Mountain region for over three decades, crafting custom memorials in granite, marble, and bronze that stand for generations. Founded in Wyoming and proudly family-owned, we are not a factory — we are a studio guided by craftsmanship, driven by care, and committed to the kind of personal service that only a family business can offer.</p>
+      <blockquote class="founder-quote">"Every family deserves a monument as unique as the person it remembers."
+      </blockquote>
+      <p class="founder-bio">Bott Monument has served families across the Rocky Mountain region for over three decades,
+        crafting custom memorials in granite, marble, and bronze that stand for generations. Founded in Wyoming and
+        proudly family-owned, we are not a factory — we are a studio guided by craftsmanship, driven by care, and
+        committed to the kind of personal service that only a family business can offer.</p>
       <div class="founder-stats">
         <div class="founder-stat">
           <p class="founder-stat-num"><span data-target="35">0</span><sup>+</sup></p>
@@ -2936,8 +3177,8 @@
   <!-- ═══════════ MAGAZINE SPREAD SCRIPT ═══════════ -->
   <script>
     (function () {
-      const section   = document.getElementById('magazine');
-      const spreads   = Array.from(document.querySelectorAll('.mag-spread'));
+      const section = document.getElementById('magazine');
+      const spreads = Array.from(document.querySelectorAll('.mag-spread'));
       const captionEl = document.getElementById('mag-caption');
       const counterEl = document.getElementById('mag-counter');
       const overlayEl = document.getElementById('magOverlay');
@@ -2971,7 +3212,7 @@
           const isLast = i === N - 1;
           const localT = Math.max(0, Math.min(1, stage - i));
           const e = ease(localT);
-          const left  = spread.querySelector('.mag-left');
+          const left = spread.querySelector('.mag-left');
           const right = spread.querySelector('.mag-right');
           if (!isLast && localT >= 1) {
             spread.style.opacity = '0';
@@ -2979,8 +3220,8 @@
           } else {
             spread.style.opacity = '1';
             spread.style.pointerEvents = 'auto';
-            left.style.transform  = 'translateX(' + (-e * 100) + '%)';
-            right.style.transform = 'translateX(' + ( e * 100) + '%)';
+            left.style.transform = 'translateX(' + (-e * 100) + '%)';
+            right.style.transform = 'translateX(' + (e * 100) + '%)';
           }
         });
 
@@ -3030,13 +3271,13 @@
 
       /* ── Lightbox ── */
       const lightbox = document.getElementById('magLightbox');
-      const lbImg    = document.getElementById('magLbImg');
-      const lbCap    = document.getElementById('magLbCap');
-      const lbClose  = document.getElementById('magLbClose');
-      const accessModal   = document.getElementById('magAccessModal');
+      const lbImg = document.getElementById('magLbImg');
+      const lbCap = document.getElementById('magLbCap');
+      const lbClose = document.getElementById('magLbClose');
+      const accessModal = document.getElementById('magAccessModal');
       const accessTrigger = document.getElementById('magAccessTrigger');
-      const accessClose   = document.getElementById('magAccessClose');
-      const accessLater   = document.getElementById('magAccessLater');
+      const accessClose = document.getElementById('magAccessClose');
+      const accessLater = document.getElementById('magAccessLater');
       const accessRequest = document.getElementById('magAccessRequest');
 
       function openLightbox(src, cap) {
@@ -3090,19 +3331,19 @@
       });
 
       // ── Video player ──
-      const magVideo    = document.getElementById('magVideo');
-      const magPlayBtn  = document.getElementById('magPlayBtn');
-      const magVidPlaySm= document.getElementById('magVidPlaySm');
+      const magVideo = document.getElementById('magVideo');
+      const magPlayBtn = document.getElementById('magPlayBtn');
+      const magVidPlaySm = document.getElementById('magVidPlaySm');
       const magSeekWrap = document.getElementById('magSeekWrap');
       const magSeekFill = document.getElementById('magSeekFill');
-      const magSeekThumb= document.getElementById('magSeekThumb');
-      const magVidTime  = document.getElementById('magVidTime');
-      const magVidFs    = document.getElementById('magVidFs');
+      const magSeekThumb = document.getElementById('magSeekThumb');
+      const magVidTime = document.getElementById('magVidTime');
+      const magVidFs = document.getElementById('magVidFs');
 
       if (magVideo) {
         function fmt(s) {
-          const m = Math.floor(s/60), sec = Math.floor(s%60);
-          return m + ':' + (sec<10?'0':'')+sec;
+          const m = Math.floor(s / 60), sec = Math.floor(s % 60);
+          return m + ':' + (sec < 10 ? '0' : '') + sec;
         }
         function setPlaying(playing) {
           magPlayBtn.classList.toggle('hidden', playing);
@@ -3110,7 +3351,7 @@
         }
         magPlayBtn.addEventListener('click', () => { magVideo.play(); });
         magVidPlaySm.addEventListener('click', () => { magVideo.paused ? magVideo.play() : magVideo.pause(); });
-        magVideo.addEventListener('play',  () => setPlaying(true));
+        magVideo.addEventListener('play', () => setPlaying(true));
         magVideo.addEventListener('pause', () => setPlaying(false));
         magVideo.addEventListener('click', () => { magVideo.paused ? magVideo.play() : magVideo.pause(); });
 
@@ -3205,6 +3446,429 @@
       statsObserver.observe(statsWrap);
     })();
   </script>
+
+  <!--
+    ════════════════════════════════════════════════════════════════════
+    BOTT MONUMENT — PALETTE SWITCHER (drop-in)
+    Paste this whole block into your real index.html, just before </body>.
+    It needs no changes to your existing markup. It adds:
+      • a small palette dropdown at the bottom-right of each section
+      • a master "Site palette" switcher (bottom-left) with 4 coordinated looks
+      • a "Copy CSS" button that gives you the final backgrounds to hard-code
+    All colors are sampled from your office photo (navy, blue, gold, mauve,
+    cream, pearl). Dark sections only offer dark options and light sections
+    only offer light ones, so text contrast never breaks.
+    ════════════════════════════════════════════════════════════════════
+  -->
+  <style id="bott-theme-styles">
+    @keyframes bottFlow {
+      0% {
+        background-position: 0% 50%
+      }
+
+      50% {
+        background-position: 100% 50%
+      }
+
+      100% {
+        background-position: 0% 50%
+      }
+    }
+
+    /* smooth cross-fade when a background changes */
+    #hero .hero-bg,
+    .marquee-strip,
+    #about,
+    #work,
+    #press-clippings,
+    #magazine,
+    .mag-pin,
+    #founder,
+    #contact,
+    footer {
+      transition: background .9s ease, color .9s ease
+    }
+
+    /* let the founder image feather use a variable so it matches the chosen bg */
+    #founder {
+      --founder-feather: #C4B09A
+    }
+
+    .founder-img-side::after {
+      background:
+        linear-gradient(to right, rgba(196, 176, 154, .05) 40%, var(--founder-feather) 100%),
+        linear-gradient(to bottom, var(--founder-feather) 0%, transparent 10%, transparent 90%, var(--founder-feather) 100%) !important
+    }
+
+    .theme-dock {
+      position: absolute;
+      bottom: 16px;
+      right: 16px;
+      z-index: 60;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      background: rgba(12, 10, 8, .72);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(201, 160, 80, .35);
+      border-radius: 999px;
+      padding: .45rem .55rem .45rem .9rem;
+      box-shadow: 0 10px 26px rgba(0, 0, 0, .35)
+    }
+
+    .theme-dock.light {
+      background: rgba(255, 255, 255, .82);
+      border-color: rgba(184, 135, 44, .4)
+    }
+
+    .theme-dock .dock-ic {
+      font-size: .7rem;
+      color: #C9A050
+    }
+
+    .theme-dock.light .dock-ic {
+      color: #B8872C
+    }
+
+    .theme-dock label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: .5rem;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: #C9A050;
+      white-space: nowrap
+    }
+
+    .theme-dock.light label {
+      color: #8A6B2E
+    }
+
+    .theme-dock select {
+      appearance: none;
+      -webkit-appearance: none;
+      border: none;
+      border-radius: 999px;
+      cursor: pointer;
+      font-family: 'Montserrat', sans-serif;
+      font-size: .68rem;
+      font-weight: 500;
+      padding: .4rem 1.7rem .4rem .8rem;
+      background: rgba(201, 160, 80, .16) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23C9A050' fill='none' stroke-width='1.4'/%3E%3C/svg%3E") no-repeat right .7rem center;
+      color: #F0EDE8;
+      outline: none
+    }
+
+    .theme-dock.light select {
+      background: rgba(184, 135, 44, .14) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23B8872C' fill='none' stroke-width='1.4'/%3E%3C/svg%3E") no-repeat right .7rem center;
+      color: #1C1812
+    }
+
+    .theme-dock select option {
+      color: #1C1812;
+      background: #F5F2EA
+    }
+
+    body.docks-hidden .theme-dock {
+      opacity: 0;
+      pointer-events: none
+    }
+
+    .bott-master {
+      position: fixed;
+      left: 20px;
+      bottom: 20px;
+      z-index: 900;
+      width: 232px;
+      background: rgba(14, 12, 9, .9);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(201, 160, 80, .3);
+      border-radius: 18px;
+      padding: 1rem;
+      color: #F0EDE8;
+      box-shadow: 0 30px 70px -18px rgba(0, 0, 0, .7)
+    }
+
+    .bott-master h4 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: .56rem;
+      font-weight: 600;
+      letter-spacing: .26em;
+      text-transform: uppercase;
+      color: #C9A050;
+      margin: 0 0 .1rem
+    }
+
+    .bott-master p {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: .8rem;
+      color: #A89880;
+      margin: 0 0 .9rem
+    }
+
+    .bott-master .pal-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .55rem
+    }
+
+    .bott-master .pal-btn {
+      border: 1px solid rgba(201, 160, 80, .25);
+      border-radius: 11px;
+      background: rgba(255, 255, 255, .03);
+      cursor: pointer;
+      padding: .55rem .5rem;
+      text-align: left;
+      transition: border-color .25s, transform .25s
+    }
+
+    .bott-master .pal-btn:hover {
+      border-color: rgba(201, 160, 80, .7);
+      transform: translateY(-2px)
+    }
+
+    .bott-master .pal-btn.active {
+      border-color: #C9A050;
+      background: rgba(201, 160, 80, .12)
+    }
+
+    .bott-master .pal-btn .sw {
+      display: flex;
+      gap: 3px;
+      margin-bottom: .4rem
+    }
+
+    .bott-master .pal-btn .sw i {
+      width: 14px;
+      height: 14px;
+      border-radius: 4px;
+      display: block
+    }
+
+    .bott-master .pal-btn .nm {
+      font-family: 'Montserrat', sans-serif;
+      font-size: .58rem;
+      font-weight: 500;
+      color: #F0EDE8
+    }
+
+    .bott-master .foot {
+      display: flex;
+      justify-content: space-between;
+      margin-top: .9rem;
+      padding-top: .8rem;
+      border-top: 1px solid rgba(201, 160, 80, .15)
+    }
+
+    .bott-master .foot button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: 'Montserrat', sans-serif;
+      font-size: .56rem;
+      font-weight: 500;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: #A89880;
+      transition: color .2s
+    }
+
+    .bott-master .foot button:hover {
+      color: #C9A050
+    }
+
+    .bott-master .min-btn {
+      position: absolute;
+      top: .7rem;
+      right: .85rem;
+      color: #A89880;
+      cursor: pointer;
+      font-size: .7rem
+    }
+
+    .bott-master.min {
+      width: auto
+    }
+
+    .bott-master.min .body {
+      display: none
+    }
+
+    .bott-master .reopen {
+      display: none;
+      font-family: 'Montserrat', sans-serif;
+      font-size: .58rem;
+      font-weight: 600;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: #C9A050
+    }
+
+    .bott-master.min .reopen {
+      display: block
+    }
+
+    @media(max-width:820px) {
+      .bott-master {
+        left: 12px;
+        right: 12px;
+        width: auto
+      }
+    }
+  </style>
+
+  <!-- <div class="bott-master" id="bottMaster">
+    <span class="min-btn" id="bottMin">▾</span>
+    <span class="reopen" id="bottReopen">✦ Palettes</span>
+    <div class="body">
+      <h4>Site Palette</h4>
+      <p>Pick a coordinated look</p>
+      <div class="pal-row" id="bottPalRow"></div>
+      <div class="foot"><button id="bottToggleDocks">Hide pickers</button><button id="bottCopy">Copy CSS</button></div>
+    </div>
+  </div> -->
+
+  <script id="bott-theme-js">
+    (function () {
+      const OPTS = {
+        hero: [
+          {
+            name: 'Text 1',
+            css: 'linear-gradient(160deg,rgba(10,10,10,.25) 0%,rgba(10,10,10,.2) 40%,rgba(10,10,10,.75) 100%)',
+            textHtml: 'Crafted to<br>stand <em>forever.</em>'
+          },
+          {
+            name: 'Text 2',
+            css: 'linear-gradient(160deg,rgba(10,10,10,.25) 0%,rgba(10,10,10,.2) 40%,rgba(10,10,10,.75) 100%)',
+            textHtml: 'Where stone<br>becomes <em>legacy.</em>'
+          },
+          // { name: 'Navy veil', css: 'linear-gradient(160deg,rgba(20,32,45,.35) 0%,rgba(12,18,24,.55) 45%,rgba(8,11,15,.82) 100%)' },
+          // { name: 'Warm gold', css: 'linear-gradient(160deg,rgba(40,28,12,.28) 0%,rgba(20,14,6,.55) 45%,rgba(8,6,3,.82) 100%)' },
+          // { name: 'Blue marble ✦', css: 'linear-gradient(135deg,rgba(20,32,45,.55),rgba(52,80,107,.35),rgba(16,22,29,.75))', anim: true },
+        ],
+        dark: [
+          { name: 'Charcoal', css: '#181A1B' },
+          // { name: 'Deep navy', css: '#24303D' },
+          { name: 'Navy → charcoal', css: 'linear-gradient(160deg,#24303D,#111820)', anim: true },
+          // { name: 'Blue marble ✦', css: 'linear-gradient(135deg,#1a2530,#33506b,#1a2530)', anim: true },
+          // { name: 'Mahogany → black', css: 'linear-gradient(160deg,#1E1208,#0A0A0A)' },
+          // { name: 'Navy glow', css: 'radial-gradient(circle at 30% 25%,#35506b,#1a2029)' },
+        ],
+        light: [
+          { name: 'Cream → gold ✦', css: 'linear-gradient(120deg,#F6F1E7,#E7D3A6,#F6F1E7)', anim: true },
+          { name: 'Pearl', css: '#F5F2EA' },
+          // { name: 'Warm cream', css: '#EBE2D1' },
+          { name: 'Cool pearl', css: 'linear-gradient(160deg,#F3F1EB,#DEE7EE)' },
+          { name: 'Mauve mist', css: 'linear-gradient(150deg,#F1EAE3,#E4D5CE)' },
+          { name: 'Gold wash', css: 'radial-gradient(circle at 70% 20%,#F5E9CB,#EFE7DB)' },
+        ],
+        tan: [
+          { name: 'Warm sand', css: '#C4B09A', feather: '#C4B09A' },
+          { name: 'Stone gray', css: '#CDC7BB', feather: '#CDC7BB' },
+          { name: 'Soft gold', css: 'linear-gradient(150deg,#D8C7A2,#C4B09A)', feather: '#CDBB9C' },
+          { name: 'Blue stone', css: 'linear-gradient(150deg,#B9C2C8,#C4B09A)', feather: '#BEBCB2' },
+          { name: 'Mauve stone', css: 'linear-gradient(150deg,#C9B4A8,#BBA48F)', feather: '#C4AC9C' },
+        ],
+      };
+      const MASTER = {
+        'Gold classic': { sw: ['#181A1B', '#F5F2EA', '#C9A050'], hero: 0, dark: 0, light: 0, tan: 0 },
+        'Navy & gold': { sw: ['#24303D', '#DEE7EE', '#C4A35A'], hero: 1, dark: 2, light: 3, tan: 2 },
+        'Warm stone': { sw: ['#1E1208', '#EBE2D1', '#7A5C52'], hero: 2, dark: 4, light: 1, tan: 2 },
+        'Blue marble': { sw: ['#1a2530', '#F5E9CB', '#5B7C97'], hero: 3, dark: 3, light: 5, tan: 4 },
+      };
+
+      // map your REAL sections → kind + where to paint + a friendly dock label
+      const SECTIONS = [
+        { sel: '#hero', kind: 'hero', target: '.hero-bg', textTarget: '#heroHeadline', label: 'Hero' },
+        { sel: '#about', kind: 'light', label: 'Heritage' },
+        { sel: '#work', kind: 'dark', label: 'Craft' },
+        { sel: '#press-clippings', kind: 'light', label: 'Press' },
+        { sel: '#magazine', kind: 'light', paint: ['#magazine', '.mag-pin'], dockHost: '.mag-pin', label: 'Gallery' },
+        { sel: '#founder', kind: 'tan', label: 'Story' },
+        { sel: '#contact', kind: 'light', label: 'Inquire' },
+        { sel: 'footer', kind: 'dark', label: 'Footer' },
+      ];
+
+      function applyBg(el, opt) {
+        if (!el) return;
+        el.style.background = opt.css;
+        if (opt.anim) { el.style.backgroundSize = '220% 220%'; el.style.animation = 'bottFlow 16s ease infinite'; }
+        else { el.style.backgroundSize = ''; el.style.animation = ''; }
+      }
+
+      const built = [];
+      SECTIONS.forEach(cfg => {
+        const host = document.querySelector(cfg.dockHost || cfg.sel);
+        const root = document.querySelector(cfg.sel);
+        if (!host || !root) return;
+        if (getComputedStyle(host).position === 'static') host.style.position = 'relative';
+
+        const paintEls = cfg.paint ? cfg.paint.map(s => document.querySelector(s)).filter(Boolean)
+          : [cfg.target ? root.querySelector(cfg.target) : root];
+
+        const dock = document.createElement('div');
+        dock.className = 'theme-dock' + ((cfg.kind === 'light' || cfg.kind === 'tan') ? ' light' : '');
+        const sel = document.createElement('select');
+        OPTS[cfg.kind].forEach((o, i) => { const op = document.createElement('option'); op.value = i; op.textContent = o.name; sel.appendChild(op); });
+        dock.innerHTML = '<span class="dock-ic">✦</span><label>' + cfg.label + '</label>';
+        dock.appendChild(sel);
+        host.appendChild(dock);
+
+        function set(i) {
+          const opt = OPTS[cfg.kind][i];
+          paintEls.forEach(el => applyBg(el, opt));
+          if (cfg.textTarget && opt.textHtml) {
+            const textEl = root.querySelector(cfg.textTarget);
+            if (textEl) textEl.innerHTML = opt.textHtml;
+          }
+          if (cfg.kind === 'tan' && opt.feather) root.style.setProperty('--founder-feather', opt.feather);
+          sel.value = i;
+        }
+        sel.addEventListener('change', () => set(+sel.value));
+        built.push({ cfg, set, sel });
+      });
+
+      const palRow = document.getElementById('bottPalRow');
+      Object.keys(MASTER).forEach((name, idx) => {
+        const p = MASTER[name];
+        const b = document.createElement('button');
+        b.className = 'pal-btn' + (idx === 0 ? ' active' : '');
+        b.innerHTML = '<span class="sw">' + p.sw.map(c => '<i style="background:' + c + '"></i>').join('') + '</span><span class="nm">' + name + '</span>';
+        b.addEventListener('click', () => {
+          document.querySelectorAll('.bott-master .pal-btn').forEach(x => x.classList.remove('active'));
+          b.classList.add('active');
+          built.forEach(({ cfg, set }) => set(p[cfg.kind] ?? 0));
+        });
+        palRow.appendChild(b);
+      });
+
+      const tg = document.getElementById('bottToggleDocks');
+      tg.addEventListener('click', () => {
+        document.body.classList.toggle('docks-hidden');
+        tg.textContent = document.body.classList.contains('docks-hidden') ? 'Show pickers' : 'Hide pickers';
+      });
+
+      const master = document.getElementById('bottMaster');
+      document.getElementById('bottMin').addEventListener('click', () => master.classList.add('min'));
+      document.getElementById('bottReopen').addEventListener('click', () => master.classList.remove('min'));
+
+      document.getElementById('bottCopy').addEventListener('click', () => {
+        const lines = built.map(({ cfg, sel }) => {
+          const opt = OPTS[cfg.kind][+sel.value];
+          const tgt = cfg.paint ? cfg.paint.join(', ') : (cfg.target ? cfg.sel + ' ' + cfg.target : cfg.sel);
+          let r = tgt + ' { background:' + opt.css + ';';
+          if (opt.anim) r += ' background-size:220% 220%; animation:bottFlow 16s ease infinite;';
+          return r + ' }';
+        });
+        const css = '@keyframes bottFlow{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}\n' + lines.join('\n');
+        if (navigator.clipboard) navigator.clipboard.writeText(css);
+        const b = document.getElementById('bottCopy'); const t = b.textContent; b.textContent = 'Copied ✓'; setTimeout(() => b.textContent = t, 1400);
+      });
+    })();
+  </script>
+
 
 </body>
 
