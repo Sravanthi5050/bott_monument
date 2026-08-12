@@ -7,7 +7,7 @@
   <title>Bott Monument — Crafted in Stone. Built for Eternity.</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@200;300;400&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@200;300;400&family=Alex+Brush&display=swap"
     rel="stylesheet">
   <style>
     *,
@@ -565,6 +565,26 @@
       overflow: hidden;
     }
 
+    .press-page-gold-bg {
+      background: linear-gradient(120deg, #F6F1E7, #E7D3A6, #F6F1E7);
+      background-size: 220% 220%;
+      animation: bottFlow 16s ease infinite;
+    }
+
+    @keyframes bottFlow {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
     .press-page-seam {
       position: relative;
       z-index: 2;
@@ -706,6 +726,513 @@
     @media(max-width:1300px) {
       .press-founder {
         display: none;
+      }
+    }
+
+    /* ── PAGE 2 / ABOUT OUR FOUNDER ── */
+    .founder-intro {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 78% 42%, rgba(120, 140, 160, 0.28) 0%, rgba(120, 140, 160, 0) 45%),
+        linear-gradient(112deg, #F1EADC 0%, #F1EADC 44%, #DCD3C2 52%, #38465A 60%, #1B242E 74%, #10161D 100%);
+      color: #1C1812;
+    }
+
+    .founder-intro::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+      opacity: 0.05;
+    }
+
+    .fi-row {
+      position: relative;
+      z-index: 1;
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1.15fr 0.95fr;
+      align-items: center;
+      gap: 3vw;
+      max-width: 1500px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 9rem 4rem 5rem;
+    }
+
+    .fi-left {
+      align-self: flex-start;
+      margin-top: -3rem;
+    }
+
+    .fi-eyebrow {
+      font-family: var(--font-utility);
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.7rem;
+    }
+
+    .fi-eyebrow-rule {
+      width: 38px;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.7;
+      margin-bottom: 1.6rem;
+    }
+
+    .fi-title {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: max(2.6rem, 3.6vw);
+      line-height: 1.1;
+      color: #1C1812;
+      margin-bottom: 1.6rem;
+    }
+
+    .fi-title em {
+      font-style: italic;
+      color: var(--gold);
+      font-weight: 500;
+    }
+
+    .fi-title-rule {
+      width: 70px;
+      height: 1px;
+      background: var(--gold);
+      margin-bottom: 1.8rem;
+    }
+
+    .fi-bio {
+      font-family: var(--font-utility);
+      font-size: 0.85rem;
+      line-height: 1.9;
+      color: #4A4438;
+      max-width: 420px;
+      margin-bottom: 1.6rem;
+    }
+
+    .fi-signature {
+      font-family: 'Alex Brush', cursive;
+      font-size: 2.3rem;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+
+    .fi-role {
+      font-family: var(--font-utility);
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #4A4438;
+      margin-bottom: 2.6rem;
+    }
+
+    .fi-stats {
+      display: flex;
+      margin-bottom: 2.6rem;
+    }
+
+    .fi-stat {
+      flex: 1;
+      max-width: 140px;
+      padding: 0 1.4rem;
+      border-right: 1px solid rgba(28, 24, 18, 0.18);
+    }
+
+    .fi-stat:first-child {
+      padding-left: 0;
+    }
+
+    .fi-stat:last-child {
+      border-right: none;
+    }
+
+    .fi-stat-icon {
+      display: block;
+      color: var(--gold);
+      margin-bottom: 0.7rem;
+    }
+
+    .fi-stat-icon svg {
+      width: 28px;
+      height: 24px;
+    }
+
+    .fi-stat-num {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 1.05rem;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      color: #1C1812;
+      margin-bottom: 0.4rem;
+    }
+
+    .fi-stat-label {
+      font-family: var(--font-utility);
+      font-size: 0.56rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #6b6252;
+      line-height: 1.55;
+    }
+
+    .fi-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 0.95rem 1.8rem;
+      border: 1px solid rgba(28, 24, 18, 0.35);
+      font-family: var(--font-utility);
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #1C1812;
+      text-decoration: none;
+      transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    }
+
+    .fi-cta span {
+      display: inline-block;
+      transition: transform 0.3s ease;
+    }
+
+    .fi-cta:hover {
+      background: #1C1812;
+      color: #F1EADC;
+      border-color: #1C1812;
+    }
+
+    .fi-cta:hover span {
+      transform: translateX(4px);
+    }
+
+    .fi-right {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .fi-photo-wrap {
+      position: relative;
+      width: min(360px, 26vw);
+    }
+
+    .fi-photo-ring-outer {
+      position: absolute;
+      inset: -26px;
+      border: 1px dashed rgba(201, 160, 80, 0.5);
+      border-radius: 50%;
+    }
+
+    .fi-photo-ring {
+      position: absolute;
+      inset: -12px;
+      border: 1px solid var(--gold);
+      border-radius: 50%;
+    }
+
+    .fi-photo-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.5);
+    }
+
+    .fi-photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 58% 20%;
+      transform: scale(1.12);
+      display: block;
+    }
+
+    .fi-photo-dot {
+      position: absolute;
+      left: 50%;
+      bottom: -38px;
+      transform: translateX(-50%);
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      border: 1px solid rgba(201, 160, 80, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .fi-photo-dot::after {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    .fi-quote-name {
+      margin-top: 3.4rem;
+      font-family: var(--font-utility);
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .fi-quote {
+      margin-top: 0.6rem;
+      max-width: 380px;
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.15rem;
+      line-height: 1.5;
+      color: var(--bone);
+      position: relative;
+    }
+
+    .fi-quote-mark {
+      position: absolute;
+      top: -1.2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: var(--font-display);
+      font-size: 2.6rem;
+      color: var(--gold);
+      line-height: 1;
+      opacity: 0.85;
+    }
+
+    .fi-quote-rule {
+      width: 60px;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.6;
+      margin: 1.4rem auto 0;
+    }
+
+    .fi-bottom-bar {
+      position: relative;
+      z-index: 1;
+      flex-shrink: 0;
+      background: #0e131a;
+      padding: 1.4rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.2rem;
+    }
+
+    .fi-bar-line {
+      width: 70px;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.6;
+    }
+
+    .fi-bottom-bar p {
+      font-family: var(--font-utility);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--bone);
+    }
+
+    @media(max-width:1100px) {
+      .founder-intro {
+        background:
+          radial-gradient(circle at 50% 40%, rgba(120, 140, 160, 0.22) 0%, rgba(120, 140, 160, 0) 50%),
+          linear-gradient(180deg, #F1EADC 0%, #F1EADC 56%, #38465A 66%, #1B242E 78%, #10161D 100%);
+      }
+
+      .fi-row {
+        grid-template-columns: 1fr;
+        padding: 7rem 2rem 3.5rem;
+        gap: 3.5rem;
+      }
+
+      .fi-left {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .fi-eyebrow-rule,
+      .fi-title-rule,
+      .fi-stats {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .fi-stats {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .fi-stat {
+        border-right: none;
+        padding: 0 1rem;
+        text-align: center;
+      }
+    }
+
+    @media(max-width:640px) {
+      .fi-title {
+        font-size: 2.1rem;
+      }
+
+      .fi-photo-wrap {
+        width: 220px;
+      }
+
+      .fi-quote {
+        font-size: 1rem;
+        margin-top: 0.6rem;
+      }
+
+      .fi-bottom-bar p {
+        letter-spacing: 0.18em;
+        font-size: 0.58rem;
+      }
+
+      .fi-bar-line {
+        width: 32px;
+      }
+    }
+
+    /* ── PAGE 2 DESIGN SWITCHER ── */
+    .page2-wrap {
+      position: relative;
+    }
+
+    .page2-switcher {
+      position: absolute;
+      right: 2rem;
+      bottom: 1rem;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.45rem 0.5rem 0.45rem 0.85rem;
+      border-radius: 999px;
+      background: rgba(14, 12, 8, 0.72);
+      border: 1px solid rgba(201, 160, 80, 0.28);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 18px 40px -14px rgba(0, 0, 0, 0.55);
+    }
+
+    .p2s-icon {
+      color: var(--gold);
+      font-size: 0.7rem;
+      line-height: 1;
+    }
+
+    .p2s-label {
+      font-family: var(--font-utility);
+      font-size: 0.55rem;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .p2s-divider {
+      width: 1px;
+      height: 16px;
+      background: rgba(201, 160, 80, 0.28);
+    }
+
+    .p2s-select-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .p2s-select {
+      appearance: none;
+      -webkit-appearance: none;
+      background: transparent;
+      border: none;
+      color: var(--bone);
+      font-family: var(--font-utility);
+      font-size: 0.68rem;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      padding: 0 1.1rem 0 0;
+      cursor: pointer;
+      outline: none;
+      max-width: 160px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    .p2s-select option {
+      background: #14100a;
+      color: var(--bone);
+    }
+
+    .p2s-chevron {
+      position: absolute;
+      right: 0;
+      color: var(--gold);
+      font-size: 0.6rem;
+      pointer-events: none;
+    }
+
+    .p2s-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      border: 1px solid rgba(201, 160, 80, 0.35);
+      background: transparent;
+      color: var(--gold);
+      cursor: pointer;
+      font-size: 0.75rem;
+      line-height: 1;
+      transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+      flex-shrink: 0;
+    }
+
+    .p2s-btn:hover {
+      background: var(--gold);
+      color: #14100a;
+      transform: rotate(180deg);
+    }
+
+    @media (max-width: 700px) {
+      .page2-switcher {
+        right: 1.25rem;
+        bottom: 0.75rem;
+        padding: 0.5rem 0.55rem 0.5rem 0.9rem;
+        gap: 0.5rem;
+      }
+
+      .p2s-select {
+        max-width: 110px;
+        font-size: 0.65rem;
       }
     }
 
@@ -2757,38 +3284,135 @@
     </div>
   </div>
 
-  <!-- PAGE 2 / PRESS & RECOGNITION -->
-  <section id="about" class="press-page">
-    <div class="press-page-inner">
-      <div class="press-founder reveal">
-        <div class="press-founder-frame">
-          <span class="press-founder-spotlight"></span>
-          <div class="press-founder-img">
-            <img src="images/profile_2.png" alt="Drew Bott, Founder & Master Craftsman">
+  <!-- PAGE 2 / ABOUT OUR FOUNDER (two selectable designs) -->
+  <section id="about" class="page2-wrap">
+    <div class="page2-switcher" id="page2Switcher">
+      <span class="p2s-icon">✦</span>
+      <span class="p2s-label">Design</span>
+      <span class="p2s-divider"></span>
+      <span class="p2s-select-wrap">
+        <select class="p2s-select" id="page2Select" aria-label="Choose page 2 design">
+          <option value="classic" selected>Press Feature</option>
+          <option value="classic-gold">Press Feature — Gold</option>
+          <option value="modern">Founder Story</option>
+        </select>
+        <span class="p2s-chevron">⌄</span>
+      </span>
+      <button type="button" class="p2s-btn" id="page2Cycle" aria-label="Cycle design">⇄</button>
+    </div>
+
+    <div class="page2-variant" id="page2Classic">
+      <div class="press-page">
+        <div class="press-page-inner">
+          <div class="press-founder reveal">
+            <div class="press-founder-frame">
+              <span class="press-founder-spotlight"></span>
+              <div class="press-founder-img">
+                <img src="images/profile_2.png" alt="Drew Bott, Founder & Master Craftsman">
+              </div>
+            </div>
+            <p class="press-founder-name"><strong>DREW BOTT</strong>Founder &amp; Master Craftsman</p>
+          </div>
+          <div class="press-page-head">
+            <p class="press-page-kicker reveal">Monument Builders of North America</p>
+            <h2 class="press-page-title reveal reveal-delay-1">The Most Trusted Name<br>in <em>Memorial Artistry</em>
+            </h2>
+            <div class="press-page-divider reveal reveal-delay-1"></div>
+            <p class="press-page-story reveal reveal-delay-2">Drew Bott's work has earned recognition across North
+              America for exceptional design, craftsmanship, and artistry in stone. His monuments are not only built
+              with precision — they are created with meaning, memory, and dignity.</p>
+            <p class="press-page-quote reveal reveal-delay-2">"Every monument should feel as personal as the life it
+              honors."</p>
+            <p class="press-page-signature reveal reveal-delay-3">Your signature</p>
           </div>
         </div>
-        <!-- <div class="press-founder-frame">
-          <span class="press-founder-spotlight"></span> -->
-          <!-- <span class="press-founder-star-top">✦</span> -->
-          <!-- <img src="images/headshot.png" alt="Drew Bott, Founder & Master Craftsman"> -->
-          <!-- <img src="images/profile_2.png" alt="Drew Bott, Founder & Master Craftsman"> -->
-          <!-- <span class="press-founder-star-bottom">✦</span> -->
-        <!-- </div> -->
-        <p class="press-founder-name"><strong>Drew Bott</strong>Founder &amp; Master Craftsman</p>
-      </div>
-      <div class="press-page-head">
-        <p class="press-page-kicker reveal">Monument Builders of North America</p>
-        <h2 class="press-page-title reveal reveal-delay-1">The Most Trusted Name<br>in <em>Memorial Artistry</em></h2>
-        <div class="press-page-divider reveal reveal-delay-1"></div>
-        <p class="press-page-story reveal reveal-delay-2">Drew Bott's work has earned recognition across North America for
-          exceptional design, craftsmanship, and artistry in stone. His monuments are not only built with precision — they
-          are created with meaning, memory, and dignity.</p>
-        <p class="press-page-quote reveal reveal-delay-2">"Every monument should feel as personal as the life it honors."
-        </p>
-        <p class="press-page-signature reveal reveal-delay-3">Your signature</p>
+        <div class="press-page-row reveal reveal-delay-3">
+        </div>
       </div>
     </div>
-    <div class="press-page-row reveal reveal-delay-3">
+
+    <div class="page2-variant" id="page2Modern" style="display:none;">
+      <div class="founder-intro">
+        <div class="fi-row">
+          <div class="fi-left">
+            <!-- <p class="fi-eyebrow reveal">About Our Founder</p> -->
+            <!-- <div class="fi-eyebrow-rule reveal"></div> -->
+            <h2 class="fi-title reveal reveal-delay-1">The Man Behind<br>every <em>Meaningful</em><br>Memorial</h2>
+            <div class="fi-title-rule reveal reveal-delay-1"></div>
+            <p class="fi-bio reveal reveal-delay-2">Drew Bott's journey is one of passion, precision, and purpose. For
+              over four decades, he has dedicated his life to creating monuments that honor lives with dignity,
+              beauty, and timeless craftsmanship.</p>
+            <p class="fi-signature reveal reveal-delay-2">Drew Bott</p>
+            <p class="fi-role reveal reveal-delay-2">Founder &amp; Master Craftsman</p>
+            <div class="fi-stats reveal reveal-delay-3">
+              <div class="fi-stat">
+                <span class="fi-stat-icon">
+                  <svg viewBox="0 0 34 30" fill="none" stroke="currentColor" stroke-width="1.1"
+                    stroke-linecap="round">
+                    <path d="M9 2 C4 10, 5 21, 15 28" />
+                    <path d="M5.5 5 L2.5 3.3 M5.5 5 L3 6.6" />
+                    <path d="M4.5 10.5 L1.2 10 M4.5 10.5 L1.7 12.3" />
+                    <path d="M4.7 16 L1.6 16.6 M4.7 16 L2.4 18.5" />
+                    <path d="M6.3 21.2 L3.6 22.8 M6.3 21.2 L4.7 24" />
+                    <path d="M9.7 25.4 L7.7 27.7 M9.7 25.4 L7 28.6" />
+                    <g transform="translate(34,0) scale(-1,1)">
+                      <path d="M9 2 C4 10, 5 21, 15 28" />
+                      <path d="M5.5 5 L2.5 3.3 M5.5 5 L3 6.6" />
+                      <path d="M4.5 10.5 L1.2 10 M4.5 10.5 L1.7 12.3" />
+                      <path d="M4.7 16 L1.6 16.6 M4.7 16 L2.4 18.5" />
+                      <path d="M6.3 21.2 L3.6 22.8 M6.3 21.2 L4.7 24" />
+                      <path d="M9.7 25.4 L7.7 27.7 M9.7 25.4 L7 28.6" />
+                    </g>
+                  </svg>
+                </span>
+                <p class="fi-stat-num">40+</p>
+                <p class="fi-stat-label">Years of<br>Experience</p>
+              </div>
+              <div class="fi-stat">
+                <span class="fi-stat-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">
+                    <circle cx="12" cy="7" r="4" />
+                    <path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8" />
+                  </svg>
+                </span>
+                <p class="fi-stat-num">Thousands</p>
+                <p class="fi-stat-label">of Memorials<br>Created</p>
+              </div>
+              <div class="fi-stat">
+                <span class="fi-stat-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">
+                    <path
+                      d="M12 20.5s-7.5-4.6-10-9.3C0.3 7.8 2 4.5 5.3 4A5 5 0 0 1 12 6.6 5 5 0 0 1 18.7 4c3.3 0.5 5 3.8 3.3 7.2-2.5 4.7-10 9.3-10 9.3z" />
+                  </svg>
+                </span>
+                <p class="fi-stat-num">1 Mission</p>
+                <p class="fi-stat-label">Honoring Lives<br>with Dignity</p>
+              </div>
+            </div>
+            <!-- <a href="#founder" class="fi-cta reveal reveal-delay-3">Learn More About Drew <span>&rarr;</span></a> -->
+          </div>
+          <div class="fi-right reveal reveal-delay-1">
+            <div class="fi-photo-wrap">
+              <span class="fi-photo-ring-outer"></span>
+              <span class="fi-photo-ring"></span>
+              <div class="fi-photo-frame">
+                <img src="images/headshot.png" alt="Drew Bott, Founder & Master Craftsman">
+              </div>
+              <span class="fi-photo-dot"></span>
+            </div>
+            <p class="fi-quote-name">Drew Bott</p>
+            <blockquote class="fi-quote">
+              Every monument should feel as personal<br>as the life it honors.
+            </blockquote>
+            <!-- <div class="fi-quote-rule"></div> -->
+          </div>
+        </div>
+        <!-- <div class="fi-bottom-bar">
+          <span class="fi-bar-line"></span>
+          <p>Built on Purpose. Guided by Legacy.</p>
+          <span class="fi-bar-line"></span>
+        </div> -->
+      </div>
     </div>
   </section>
 
@@ -3327,6 +3951,38 @@
 
       cycleBtn.addEventListener('click', () => {
         const keys = Object.keys(variants);
+        const next = keys[(keys.indexOf(select.value) + 1) % keys.length];
+        applyVariant(next);
+      });
+    })();
+  </script>
+
+  <!-- ═══════════ PAGE 2 DESIGN SWITCHER ═══════════ -->
+  <script>
+    (function () {
+      const select = document.getElementById('page2Select');
+      const cycleBtn = document.getElementById('page2Cycle');
+      const classicEl = document.getElementById('page2Classic');
+      const modernEl = document.getElementById('page2Modern');
+      const pressPageEl = classicEl ? classicEl.querySelector('.press-page') : null;
+      if (!select || !cycleBtn || !classicEl || !modernEl || !pressPageEl) return;
+
+      const panels = [classicEl, modernEl];
+      const targetFor = { classic: classicEl, 'classic-gold': classicEl, modern: modernEl };
+
+      function applyVariant(key) {
+        const target = targetFor[key];
+        if (!target) return;
+        panels.forEach(el => { el.style.display = (el === target) ? '' : 'none'; });
+        pressPageEl.classList.toggle('press-page-gold-bg', key === 'classic-gold');
+        target.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+        select.value = key;
+      }
+
+      select.addEventListener('change', () => applyVariant(select.value));
+
+      cycleBtn.addEventListener('click', () => {
+        const keys = Array.from(select.options).map(o => o.value);
         const next = keys[(keys.indexOf(select.value) + 1) % keys.length];
         applyVariant(next);
       });
