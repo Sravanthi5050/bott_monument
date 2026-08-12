@@ -331,6 +331,122 @@
       animation: scrollPulse 2s ease-in-out 3s infinite;
     }
 
+    /* ── HERO HEADLINE SWITCHER ── */
+    .hero-variant-switcher {
+      position: absolute;
+      right: 2rem;
+      bottom: 1rem;
+      z-index: 5;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.45rem 0.5rem 0.45rem 0.85rem;
+      border-radius: 999px;
+      background: rgba(14, 12, 8, 0.72);
+      border: 1px solid rgba(201, 160, 80, 0.28);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 18px 40px -14px rgba(0, 0, 0, 0.55);
+      opacity: 0;
+      animation: fadeIn 1s ease 2.2s forwards;
+    }
+
+    .hvs-icon {
+      color: var(--gold);
+      font-size: 0.7rem;
+      line-height: 1;
+    }
+
+    .hvs-label {
+      font-family: var(--font-utility);
+      font-size: 0.55rem;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .hvs-divider {
+      width: 1px;
+      height: 16px;
+      background: rgba(201, 160, 80, 0.28);
+    }
+
+    .hvs-select-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .hvs-select {
+      appearance: none;
+      -webkit-appearance: none;
+      background: transparent;
+      border: none;
+      color: var(--bone);
+      font-family: var(--font-utility);
+      font-size: 0.68rem;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      padding: 0 1.1rem 0 0;
+      cursor: pointer;
+      outline: none;
+      max-width: 128px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    .hvs-select option {
+      background: #14100a;
+      color: var(--bone);
+    }
+
+    .hvs-chevron {
+      position: absolute;
+      right: 0;
+      color: var(--gold);
+      font-size: 0.6rem;
+      pointer-events: none;
+    }
+
+    .hvs-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      border: 1px solid rgba(201, 160, 80, 0.35);
+      background: transparent;
+      color: var(--gold);
+      cursor: pointer;
+      font-size: 0.75rem;
+      line-height: 1;
+      transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+      flex-shrink: 0;
+    }
+
+    .hvs-btn:hover {
+      background: var(--gold);
+      color: #14100a;
+      transform: rotate(180deg);
+    }
+
+    @media (max-width: 700px) {
+      .hero-variant-switcher {
+        right: 1.5rem;
+        bottom: 8rem;
+        padding: 0.5rem 0.55rem 0.5rem 0.9rem;
+        gap: 0.5rem;
+      }
+
+      .hvs-select {
+        max-width: 130px;
+        font-size: 0.65rem;
+      }
+    }
+
     @keyframes scrollPulse {
 
       0%,
@@ -346,11 +462,91 @@
     }
 
     .marquee-strip {
+      position: relative;
       background: var(--mahogany);
       border-top: 1px solid rgba(201, 160, 80, 0.15);
       border-bottom: 1px solid rgba(201, 160, 80, 0.15);
       padding: 1rem 0;
       overflow: hidden;
+    }
+
+    /* ── MARQUEE STRIP BACKGROUND SWITCHER ── */
+    .marquee-bg-switcher {
+      position: absolute;
+      top: 50%;
+      right: 2rem;
+      transform: translateY(-50%);
+      z-index: 6;
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.3rem 0.55rem 0.3rem 0.75rem;
+      border-radius: 999px;
+      background: rgba(10, 8, 5, 0.55);
+      border: 1px solid rgba(201, 160, 80, 0.3);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    .mbs-icon {
+      color: var(--gold);
+      font-size: 0.6rem;
+      line-height: 1;
+    }
+
+    .mbs-label {
+      font-family: var(--font-utility);
+      font-size: 0.5rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .mbs-select-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .mbs-select {
+      appearance: none;
+      -webkit-appearance: none;
+      background: transparent;
+      border: none;
+      color: var(--bone);
+      font-family: var(--font-utility);
+      font-size: 0.6rem;
+      letter-spacing: 0.02em;
+      padding: 0 1rem 0 0;
+      cursor: pointer;
+      outline: none;
+      max-width: 130px;
+    }
+
+    .mbs-select option {
+      background: #14100a;
+      color: var(--bone);
+    }
+
+    .mbs-chevron {
+      position: absolute;
+      right: 0;
+      color: var(--gold);
+      font-size: 0.5rem;
+      pointer-events: none;
+    }
+
+    @media (max-width: 700px) {
+      .marquee-bg-switcher {
+        right: 1rem;
+        padding: 0.25rem 0.45rem 0.25rem 0.6rem;
+      }
+
+      .mbs-select {
+        max-width: 92px;
+        font-size: 0.55rem;
+      }
     }
 
     .marquee-track {
@@ -2365,6 +2561,148 @@
     }
 
     .mag-vid-fullscreen:hover { color: var(--gold); }
+
+    /* ── CIRCULAR GALLERY (rotating memorial ring) ── */
+    #circular-gallery {
+      position: relative;
+      background: var(--void);
+      padding: max(6rem, 6vw) 0 max(7.5rem, 7.5vw);
+      overflow: hidden;
+    }
+
+    .cg-header {
+      text-align: center;
+      margin-bottom: max(3rem, 3.5vw);
+      padding: 0 2rem;
+    }
+
+    .cg-eyebrow {
+      font-family: var(--font-utility);
+      font-size: max(.52rem, .5vw);
+      letter-spacing: .3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: .8rem;
+    }
+
+    .cg-title {
+      font-family: var(--font-display);
+      font-size: max(2.4rem, 3.8vw);
+      font-weight: 300;
+      color: var(--bone);
+      line-height: 1.05;
+      margin-bottom: 1.1rem;
+    }
+
+    .cg-title em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .cg-rule {
+      width: 60px;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+      margin: 0 auto;
+      opacity: .7;
+    }
+
+    .cg-viewport {
+      position: relative;
+      width: 100%;
+      height: min(58vh, 520px);
+      min-height: 340px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      perspective: 1800px;
+    }
+
+    .cg-viewport::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 60%;
+      height: 60%;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(circle, var(--gold-glow), transparent 70%);
+      filter: blur(40px);
+      pointer-events: none;
+    }
+
+    .cg-ring {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      will-change: transform;
+    }
+
+    .cg-item {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: var(--cg-card-w, 260px);
+      height: var(--cg-card-h, 340px);
+      margin-left: calc(var(--cg-card-w, 260px) / -2);
+      margin-top: calc(var(--cg-card-h, 340px) / -2);
+      backface-visibility: hidden;
+    }
+
+    .cg-card {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(201, 160, 80, .22);
+      background: rgba(20, 16, 10, .6);
+      box-shadow: 0 30px 60px -20px rgba(0, 0, 0, .65);
+    }
+
+    .cg-card img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .cg-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 1.2rem 1.3rem 1.4rem;
+      background: linear-gradient(to top, rgba(0, 0, 0, .88) 15%, transparent);
+    }
+
+    .cg-caption h3 {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: max(.92rem, .95vw);
+      color: #F4EFE5;
+      margin-bottom: .3rem;
+      line-height: 1.25;
+    }
+
+    .cg-caption em {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: max(.72rem, .72vw);
+      color: var(--gold);
+    }
+
+    @media (max-width: 900px) {
+      #circular-gallery {
+        padding: 4.5rem 0 5.5rem;
+      }
+
+      .cg-viewport {
+        height: min(50vh, 420px);
+      }
+    }
   </style>
 </head>
 
@@ -2393,13 +2731,27 @@
     <div class="chisel-line"></div>
     <video id="heroVideo" autoplay muted loop playsinline
       style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.65;z-index:0;pointer-events:none;">
-      <source src="videos/hero.mp4" type="video/mp4">
+      <source src="videos/hero2.mp4" type="video/mp4">
     </video>
+    <div class="hero-variant-switcher" id="heroVariantSwitcher">
+      <span class="hvs-icon">✦</span>
+      <span class="hvs-label">Headline</span>
+      <span class="hvs-divider"></span>
+      <span class="hvs-select-wrap">
+        <select class="hvs-select" id="heroVariantSelect" aria-label="Choose hero headline">
+          <option value="forever" selected>Crafted to stand forever.</option>
+          <option value="legacy">Where stone becomes legacy.</option>
+        </select>
+        <span class="hvs-chevron">⌄</span>
+      </span>
+      <button type="button" class="hvs-btn" id="heroVariantCycle" aria-label="Cycle headline">⇄</button>
+    </div>
     <div class="hero-content">
-      <p class="hero-eyebrow">Est. in stone &nbsp;·&nbsp; Crafted for eternity</p>
-      <h1 class="hero-title">Where stone<br>becomes <em>legacy.</em></h1>
-      <p class="hero-sub">Not every monument can be seen. Some are felt across generations.</p>
-      <a href="#work" class="hero-cta">Discover our work</a>
+      <!-- <p class="hero-eyebrow">Est. in stone &nbsp;·&nbsp; Crafted for eternity</p> -->
+      <h1 class="hero-title">Crafted to<br>stand <em>forever.</em></h1>
+      <!-- Crafted to stand forever. -->
+      <!-- <p class="hero-sub">Not every monument can be seen. Some are felt across generations.</p>
+      <a href="#work" class="hero-cta">Discover our work</a> -->
     </div>
     <div class="hero-scroll-hint">
       <div class="scroll-line"></div>
@@ -2408,7 +2760,7 @@
   </section>
 
   <!-- MARQUEE -->
-  <div class="marquee-strip">
+  <div class="marquee-strip" id="marqueeStrip">
     <div class="marquee-track">
       <span>Bespoke Monuments</span><span class="dot">✦</span>
       <span>Memorial Craftsmanship</span><span class="dot">✦</span>
@@ -2422,6 +2774,17 @@
       <span>Stone Mastery</span><span class="dot">✦</span>
       <span>Legacy in Granite</span><span class="dot">✦</span>
       <span>Timeless Tributes</span><span class="dot">✦</span>
+    </div>
+    <div class="marquee-bg-switcher" id="marqueeBgSwitcher">
+      <span class="mbs-icon">✦</span>
+      <span class="mbs-label">Strip</span>
+      <span class="mbs-select-wrap">
+        <select class="mbs-select" id="marqueeBgSelect" aria-label="Choose strip background">
+          <option value="navy" selected>Navy → Charcoal</option>
+          <option value="mahogany">Classic Mahogany</option>
+        </select>
+        <span class="mbs-chevron">⌄</span>
+      </span>
     </div>
   </div>
 
@@ -2777,6 +3140,92 @@
   </div>
   <!-- ═══════════ END MAGAZINE SPREAD GALLERY ═══════════ -->
 
+  <!-- ═══════════ CIRCULAR GALLERY (rotating ring) ═══════════ -->
+  <section id="circular-gallery">
+    <div class="cg-header reveal">
+      <p class="cg-eyebrow">In The Round</p>
+      <h2 class="cg-title">Every Angle, <em>Every Detail.</em></h2>
+      <div class="cg-rule"></div>
+    </div>
+    <div class="cg-viewport" aria-label="Rotating memorial gallery">
+      <div class="cg-ring" id="cgRing">
+        <div class="cg-item">
+          <div class="cg-card">
+            <img src="images/headstone.jpg" alt="Carved granite headstone">
+            <div class="cg-caption">
+              <h3>Carved Granite Headstone</h3>
+              <em>Hand-finished detail</em>
+            </div>
+          </div>
+        </div>
+        <div class="cg-item">
+          <div class="cg-card">
+            <img src="images/MercyPhotography-BottM-87.JPG" alt="Heart-shaped polished memorial" style="object-position:center 85%;">
+            <div class="cg-caption">
+              <h3>Heart-Shaped Memorial</h3>
+              <em>Polished rose granite</em>
+            </div>
+          </div>
+        </div>
+        <div class="cg-item">
+          <div class="cg-card">
+            <img src="images/page3.jpg" alt="Granite cherub sculpture">
+            <div class="cg-caption">
+              <h3>Granite Cherub Sculpture</h3>
+              <em>Custom statuary</em>
+            </div>
+          </div>
+        </div>
+        <div class="cg-item">
+          <div class="cg-card">
+            <img src="images/page4_image5.jpg" alt="Hand-crafted granite statuary">
+            <div class="cg-caption">
+              <h3>Hand-Crafted Statuary</h3>
+              <em>Sculpted in stone</em>
+            </div>
+          </div>
+        </div>
+        <div class="cg-item">
+          <div class="cg-card">
+            <img src="images/page4_image1.jpg" alt="Personalized stone monument">
+            <div class="cg-caption">
+              <h3>Personalized Monument</h3>
+              <em>A life, in granite</em>
+            </div>
+          </div>
+        </div>
+        <div class="cg-item">
+          <div class="cg-card">
+            <img src="images/page4_image2.jpg" alt="Hand-finished granite detail">
+            <div class="cg-caption">
+              <h3>Hand-Finished Detail</h3>
+              <em>Precision engraving</em>
+            </div>
+          </div>
+        </div>
+        <div class="cg-item">
+          <div class="cg-card">
+            <img src="images/craft_02.jpg" alt="Granite monument craftsmanship">
+            <div class="cg-caption">
+              <h3>Studio Craftsmanship</h3>
+              <em>Built by hand</em>
+            </div>
+          </div>
+        </div>
+        <div class="cg-item">
+          <div class="cg-card">
+            <img src="images/craft_04.jpg" alt="Finished memorial installation">
+            <div class="cg-caption">
+              <h3>Finished Installation</h3>
+              <em>Set in place with care</em>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ═══════════ END CIRCULAR GALLERY ═══════════ -->
+
   <!-- FOUNDER DOCUMENTARY -->
   <section id="founder">
     <div class="founder-img-side reveal">
@@ -2885,6 +3334,59 @@
     <p class="footer-copy">© 2025 Bott Monument. All rights reserved.<br>Crafted with intention. Built for eternity.</p>
     <p class="footer-tagline">In stone we remember.<br><em>In memory we live.</em></p>
   </footer>
+
+  <!-- ═══════════ HERO HEADLINE SWITCHER ═══════════ -->
+  <script>
+    (function () {
+      const select = document.getElementById('heroVariantSelect');
+      const cycleBtn = document.getElementById('heroVariantCycle');
+      const title = document.querySelector('.hero-title');
+      if (!select || !cycleBtn || !title) return;
+
+      const variants = {
+        forever: 'Crafted to<br>stand <em>forever.</em>',
+        legacy: 'Where stone<br>becomes <em>legacy.</em>'
+      };
+
+      function applyVariant(key) {
+        if (!variants[key]) return;
+        title.innerHTML = variants[key];
+        select.value = key;
+      }
+
+      select.addEventListener('change', () => applyVariant(select.value));
+
+      cycleBtn.addEventListener('click', () => {
+        const keys = Object.keys(variants);
+        const next = keys[(keys.indexOf(select.value) + 1) % keys.length];
+        applyVariant(next);
+      });
+    })();
+  </script>
+
+  <!-- ═══════════ MARQUEE STRIP BACKGROUND SWITCHER ═══════════ -->
+  <script>
+    (function () {
+      const strip = document.getElementById('marqueeStrip');
+      const select = document.getElementById('marqueeBgSelect');
+      if (!strip || !select) return;
+
+      const backgrounds = {
+        navy: 'linear-gradient(160deg, #24303D, #111820)',
+        mahogany: 'var(--mahogany)'
+      };
+
+      function applyBg(key) {
+        if (!backgrounds[key]) return;
+        strip.style.background = backgrounds[key];
+        select.value = key;
+      }
+
+      select.addEventListener('change', () => applyBg(select.value));
+
+      applyBg(select.value);
+    })();
+  </script>
 
   <script>
     const cursor = document.getElementById('cursor');
@@ -3160,6 +3662,79 @@
     })();
   </script>
   <!-- ═══════════ END MAGAZINE SPREAD SCRIPT ═══════════ -->
+
+  <!-- ═══════════ CIRCULAR GALLERY SCRIPT ═══════════ -->
+  <script>
+    (function () {
+      const ring = document.getElementById('cgRing');
+      if (!ring) return;
+      const items = Array.from(ring.querySelectorAll('.cg-item'));
+      const n = items.length;
+      const anglePerItem = 360 / n;
+
+      // Faster than a typical slow auto-drift, still calm enough to read captions.
+      const AUTO_ROTATE_SPEED = 0.07;
+
+      function layoutSizes() {
+        const w = window.innerWidth;
+        let radius, cardW, cardH;
+        if (w <= 600) { radius = 200; cardW = 160; cardH = 210; }
+        else if (w <= 900) { radius = 300; cardW = 210; cardH = 270; }
+        else if (w <= 1300) { radius = 400; cardW = 240; cardH = 310; }
+        else { radius = 480; cardW = 260; cardH = 340; }
+
+        document.documentElement.style.setProperty('--cg-card-w', cardW + 'px');
+        document.documentElement.style.setProperty('--cg-card-h', cardH + 'px');
+        items.forEach((item, i) => {
+          item.style.transform = `rotateY(${i * anglePerItem}deg) translateZ(${radius}px)`;
+        });
+      }
+
+      layoutSizes();
+      window.addEventListener('resize', layoutSizes);
+
+      let rotation = 0;
+      let isScrolling = false;
+      let scrollTimeout = null;
+
+      function applyRotation() {
+        ring.style.transform = `rotateY(${rotation}deg)`;
+        items.forEach((item, i) => {
+          const itemAngle = i * anglePerItem;
+          const relative = ((itemAngle + rotation) % 360 + 360) % 360;
+          const normalized = relative > 180 ? 360 - relative : relative;
+          const opacity = Math.max(0.28, 1 - (normalized / 180));
+          item.style.opacity = opacity;
+        });
+      }
+
+      function handleScroll() {
+        isScrolling = true;
+        clearTimeout(scrollTimeout);
+
+        const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollProgress = scrollableHeight > 0 ? window.scrollY / scrollableHeight : 0;
+        rotation = scrollProgress * 360 * 2;
+        applyRotation();
+
+        scrollTimeout = setTimeout(() => { isScrolling = false; }, 150);
+      }
+
+      window.addEventListener('scroll', handleScroll, { passive: true });
+
+      function autoRotate() {
+        if (!isScrolling) {
+          rotation += AUTO_ROTATE_SPEED;
+          applyRotation();
+        }
+        requestAnimationFrame(autoRotate);
+      }
+
+      applyRotation();
+      requestAnimationFrame(autoRotate);
+    })();
+  </script>
+  <!-- ═══════════ END CIRCULAR GALLERY SCRIPT ═══════════ -->
 
   <!-- ═══════════ COMMISSION FORM PILLS ═══════════ -->
   <script>
