@@ -2979,18 +2979,17 @@
 }
 
 
-/* hover = button inverts to deep slate blue */
+/* hover = button inverts to black with white text */
 .cm-submit:hover {
   transform: translateY(-2px);
 
-  background: #2C3A46;
+  background: #000000;
 
-  color: #C6A968;
-  border-color: #C6A968;
+  color: #FFFFFF;
+  border-color: #000000;
 
   box-shadow:
-    0 14px 32px rgba(15, 20, 24, .3),
-    0 0 24px rgba(198, 169, 104, .16);
+    0 14px 32px rgba(0, 0, 0, .35);
 }
 
 
@@ -4218,8 +4217,8 @@
       <span class="wbs-divider"></span>
       <span class="wbs-select-wrap">
         <select class="wbs-select" id="workBgSelect" aria-label="Choose craft section background">
-          <option value="navy">Navy → Charcoal</option>
-          <option value="charcoal" selected>Charcoal</option>
+          <option value="navy" selected>Navy → Charcoal</option>
+          <option value="charcoal">Charcoal</option>
         </select>
         <span class="wbs-chevron">⌄</span>
       </span>
@@ -4828,7 +4827,7 @@
    <!-- page 6 -->
   <section id="testimonials">
     <div class="test-header reveal">
-      <p class="test-eyebrow">In Their Words</p>
+      <!-- <p class="test-eyebrow">In Their Words</p> -->
       <h2 class="test-title">Trusted With <em>What Matters Most</em></h2>
       <div class="test-rule"></div>
     </div>
