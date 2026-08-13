@@ -2568,9 +2568,167 @@
 .founder-stats.counted .founder-stat:nth-child(3) .founder-stat-rule { transition-delay: .6s; }
 .founder-stats.counted .founder-stat:nth-child(4) .founder-stat-rule { transition-delay: .75s; }
 
-    /* ── CONTACT ── */
+    /* ── TESTIMONIALS (light / ivory — Direction A) ── */
+    #testimonials {
+      position: relative;
+      background: #E5DBCB;
+      padding: max(6rem, 6vw) max(4rem, 5vw);
+      overflow: hidden;
+    }
+
+    #testimonials::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 70%;
+      height: 60%;
+      transform: translateX(-50%);
+      background: radial-gradient(circle, rgba(181, 137, 46, 0.1), transparent 70%);
+      filter: blur(60px);
+      pointer-events: none;
+    }
+
+    .test-header {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto max(3rem, 3.5vw);
+    }
+
+    .test-eyebrow {
+      font-family: var(--font-utility);
+      font-size: max(.52rem, .5vw);
+      letter-spacing: .3em;
+      text-transform: uppercase;
+      color: #B5892E;
+      margin-bottom: .8rem;
+    }
+
+    .test-title {
+      font-family: var(--font-display);
+      font-size: max(2.2rem, 3.4vw);
+      font-weight: 300;
+      color: #2B2620;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+
+    .test-title em {
+      font-style: italic;
+      color: #B5892E;
+    }
+
+    .test-rule {
+      width: 60px;
+      height: 1px;
+      background: linear-gradient(to right, transparent, #B5892E, transparent);
+      margin: 0 auto;
+      opacity: .7;
+    }
+
+    .test-columns {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      justify-content: center;
+      gap: max(1.5rem, 2vw);
+      max-height: 640px;
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(to bottom, transparent, #000 6%, #000 94%, transparent);
+      mask-image: linear-gradient(to bottom, transparent, #000 6%, #000 94%, transparent);
+    }
+
+    .test-col {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      width: min(320px, 26vw);
+      flex-shrink: 0;
+      animation: testScroll linear infinite;
+    }
+
+    .test-col--a { animation-duration: 22s; }
+    .test-col--b { animation-duration: 26s; }
+    .test-col--c { animation-duration: 30s; }
+
+    @keyframes testScroll {
+      from { transform: translateY(0); }
+      to   { transform: translateY(-50%); }
+    }
+
+    .test-card {
+      position: relative;
+      padding: max(1.7rem, 1.6vw);
+      border-radius: 18px;
+      background: #FBF8F2;
+      border: 1px solid #D8CDBB;
+      box-shadow: 0 20px 45px -22px rgba(43, 38, 32, .18);
+    }
+
+    .test-quote {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: max(1.05rem, 1.1vw);
+      line-height: 1.5;
+      color: #2B2620;
+    }
+
+    .test-person {
+      display: flex;
+      align-items: center;
+      gap: .8rem;
+      margin-top: 1.2rem;
+    }
+
+    .test-avatar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      background: #5E7B92;
+      color: #FFFFFF;
+      font-size: 1rem;
+    }
+
+    .test-name {
+      font-family: var(--font-utility);
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0;
+      color: #2B2620;
+    }
+
+    .test-role {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: .8rem;
+      color: #7A7266;
+      margin-top: .1rem;
+    }
+
+    @media (max-width: 900px) {
+      .test-col--b,
+      .test-col--c {
+        display: none;
+      }
+
+      .test-col--a {
+        width: min(340px, 80vw);
+      }
+
+      .test-columns {
+        max-height: 520px;
+      }
+    }
+
+    /* ── CONTACT (Direction C — deep slate blue) ── */
     #contact {
-      background: #DAD4C7;
+      background: #2C3A46;
       padding: max(6rem, 6vw) max(4rem, 4.23vw);
       position: relative;
     }
@@ -2582,13 +2740,15 @@
       left: 4rem;
       right: 4rem;
       height: 1px;
-      background: linear-gradient(to right, transparent, rgba(27, 28, 24, 0.25), transparent);
+      background: linear-gradient(to right, transparent, rgba(198, 169, 104, 0.35), transparent);
     }
 
     #contact .section-eyebrow {
-      color: #1B1C18;
-      font-size: max(0.68rem, 0.65vw);
-      opacity: .7;
+      color: #C6A968;
+      font-size: max(0.95rem, 1vw);
+      letter-spacing: .3em;
+      text-transform: uppercase;
+      opacity: 1;
     }
 
     .commission-wrap {
@@ -2602,21 +2762,21 @@
       font-weight: 600;
       font-size: max(2.2rem, 3.2vw);
       line-height: 1.15;
-      color: #1B1C18;
+      color: #EAE6DE;
       margin: .8rem 0 1.2rem;
     }
 
     .commission-title em {
       font-style: italic;
       font-weight: 600;
-      color: #1B1C18;
+      color: #C6A968;
     }
 
     .commission-sub {
       font-family: var(--font-utility);
       font-size: max(.95rem, .9vw);
       line-height: 1.7;
-      color: rgba(27, 28, 24, .65);
+      color: rgba(234, 230, 222, .7);
       max-width: 480px;
       margin: 0 auto 2.2rem;
     }
@@ -2629,7 +2789,7 @@
       margin-bottom: 2.8rem;
       font-family: var(--font-utility);
       font-size: max(.8rem, .75vw);
-      color: rgba(27, 28, 24, .75);
+      color: rgba(234, 230, 222, .75);
     }
 
     .counter-dots {
@@ -2641,11 +2801,11 @@
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      background: rgba(27, 28, 24, .15);
+      background: rgba(234, 230, 222, .18);
     }
 
     .counter-dots .dot.filled {
-      background: #1B1C18;
+      background: #C6A968;
     }
 
     .commission-form {
@@ -2657,7 +2817,7 @@
     .cm-label {
       font-family: var(--font-utility);
       font-size: max(.75rem, .7vw);
-      color: rgba(27, 28, 24, .7);
+      color: rgba(234, 230, 222, .75);
       margin-bottom: .8rem;
     }
 
@@ -2673,9 +2833,9 @@
       min-width: 140px;
       padding: .9rem 1rem;
       border-radius: 10px;
-      border: 1px solid rgba(27, 28, 24, .18);
-      background: rgba(255, 255, 255, .5);
-      color: #1B1C18;
+      border: 1px solid #4C5D6B;
+      background: #3A4A57;
+      color: #EAE6DE;
       font-family: var(--font-utility);
       font-size: max(.85rem, .8vw);
       text-align: center;
@@ -2684,13 +2844,13 @@
     }
 
     .cm-pill:hover {
-      border-color: rgba(27, 28, 24, .35);
+      border-color: rgba(198, 169, 104, .6);
     }
 
     .cm-pill.active {
-      background: #1B1C18;
-      border-color: #1B1C18;
-      color: #fff;
+      background: #C6A968;
+      border-color: #C6A968;
+      color: #2C3A46;
       font-weight: 600;
     }
 
@@ -2700,9 +2860,9 @@
       padding: 1rem 1.1rem;
       margin-bottom: 1.2rem;
       border-radius: 10px;
-      border: 1px solid rgba(27, 28, 24, .18);
-      background: rgba(255, 255, 255, .5);
-      color: #1B1C18;
+      border: 1px solid #4C5D6B;
+      background: #3A4A57;
+      color: #EAE6DE;
       font-family: var(--font-utility);
       font-size: max(.95rem, .9vw);
       outline: none;
@@ -2710,20 +2870,15 @@
     }
 
     .cm-input::placeholder {
-      color: rgba(27, 28, 24, .4);
+      color: rgba(234, 230, 222, .45);
     }
 
-    /* .cm-input:focus {
-      border-color: rgba(27, 28, 24, .4);
-      background: rgba(255, 255, 255, .8);
-    } */
-
     .cm-input:focus {
-  border-color: rgba(193, 161, 90, .85);
-  background: rgba(255, 255, 255, .76);
+  border-color: rgba(198, 169, 104, .85);
+  background: #435667;
 
   box-shadow:
-    0 0 0 3px rgba(193, 161, 90, .08);
+    0 0 0 3px rgba(198, 169, 104, .12);
 
   outline: none;
 }
@@ -2760,16 +2915,11 @@
   padding: 1.15rem 2rem;
 
   border-radius: 10px;
-  border: 1px solid rgba(193, 161, 90, 0.78);
+  border: 1px solid #C6A968;
 
-  background: linear-gradient(
-    110deg,
-    #17191A 0%,
-    #22221E 50%,
-    #17191A 100%
-  );
+  background: #C6A968;
 
-  color: #D6B66A;
+  color: #2C3A46;
 
   font-family: var(--font-utility);
   font-weight: 500;
@@ -2805,9 +2955,9 @@
   background: linear-gradient(
     110deg,
     transparent,
-    rgba(255, 232, 174, .04),
-    rgba(255, 232, 174, .22),
-    rgba(255, 232, 174, .04),
+    rgba(255, 255, 255, .06),
+    rgba(255, 255, 255, .3),
+    rgba(255, 255, 255, .06),
     transparent
   );
 
@@ -2829,23 +2979,18 @@
 }
 
 
-/* hover = button turns gold */
+/* hover = button inverts to deep slate blue */
 .cm-submit:hover {
   transform: translateY(-2px);
 
-  background: linear-gradient(
-    110deg,
-    #B88935 0%,
-    #D2AE61 50%,
-    #BE9142 100%
-  );
+  background: #2C3A46;
 
-  color: #17191A;
-  border-color: #C1A15A;
+  color: #C6A968;
+  border-color: #C6A968;
 
   box-shadow:
-    0 14px 32px rgba(70, 50, 22, .20),
-    0 0 24px rgba(193, 161, 90, .16);
+    0 14px 32px rgba(15, 20, 24, .3),
+    0 0 24px rgba(198, 169, 104, .16);
 }
 
 
@@ -2855,7 +3000,7 @@
 
     .cm-note {
       text-align: center;
-      color: rgba(27, 28, 24, .55);
+      color: rgba(234, 230, 222, .6);
       font-family: var(--font-utility);
       font-size: max(.75rem, .7vw);
       margin-top: 1.2rem;
@@ -2865,7 +3010,7 @@
       width: 100%;
       max-width: 900px;
       height: 1px;
-      background: rgba(27, 28, 24, .15);
+      background: rgba(234, 230, 222, .15);
       margin: 3rem auto;
     }
 
@@ -2883,14 +3028,14 @@
       font-size: max(.55rem, .5vw);
       letter-spacing: .25em;
       text-transform: uppercase;
-      color: rgba(27, 28, 24, .5);
+      color: rgba(234, 230, 222, .55);
       margin-bottom: .5rem;
     }
 
     .cm-fi-value {
       font-family: var(--font-display);
       font-size: max(1rem, .95vw);
-      color: #1B1C18;
+      color: #EAE6DE;
     }
 
     footer {
@@ -3756,6 +3901,7 @@
       width: 100%;
       height: min(58vh, 520px);
       min-height: 340px;
+      margin-top: max(2rem, 3vw);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -4677,6 +4823,207 @@
           <p class="founder-stat-label">Legacies honored</p>
         </div>
       </div> -->
+    </div>
+  </section>
+   <!-- page 6 -->
+  <section id="testimonials">
+    <div class="test-header reveal">
+      <p class="test-eyebrow">In Their Words</p>
+      <h2 class="test-title">Trusted With <em>What Matters Most</em></h2>
+      <div class="test-rule"></div>
+    </div>
+    <div class="test-columns">
+      <div class="test-col test-col--a">
+        <div class="test-card">
+          <p class="test-quote">"Placeholder testimonial #1 — replace with a real family's words about their experience."</p>
+          <div class="test-person">
+            <span class="test-avatar">✦</span>
+            <div>
+              <p class="test-name">Family Name</p>
+              <p class="test-role">City, State</p>
+            </div>
+          </div>
+        </div>
+        <div class="test-card">
+          <p class="test-quote">"Placeholder testimonial #2 — swap in an actual client quote here."</p>
+          <div class="test-person">
+            <span class="test-avatar">✦</span>
+            <div>
+              <p class="test-name">Family Name</p>
+              <p class="test-role">City, State</p>
+            </div>
+          </div>
+        </div>
+        <div class="test-card">
+          <p class="test-quote">"Placeholder testimonial #3 — add a genuine review from someone you've served."</p>
+          <div class="test-person">
+            <span class="test-avatar">✦</span>
+            <div>
+              <p class="test-name">Family Name</p>
+              <p class="test-role">City, State</p>
+            </div>
+          </div>
+        </div>
+        <!-- duplicate of the 3 cards above, for a seamless loop -->
+        <div class="test-card">
+          <p class="test-quote">"Placeholder testimonial #1 — replace with a real family's words about their experience."</p>
+          <div class="test-person">
+            <span class="test-avatar">✦</span>
+            <div>
+              <p class="test-name">Family Name</p>
+              <p class="test-role">City, State</p>
+            </div>
+          </div>
+        </div>
+        <div class="test-card">
+          <p class="test-quote">"Placeholder testimonial #2 — swap in an actual client quote here."</p>
+          <div class="test-person">
+            <span class="test-avatar">✦</span>
+            <div>
+              <p class="test-name">Family Name</p>
+              <p class="test-role">City, State</p>
+            </div>
+          </div>
+        </div>
+        <div class="test-card">
+          <p class="test-quote">"Placeholder testimonial #3 — add a genuine review from someone you've served."</p>
+          <div class="test-person">
+            <span class="test-avatar">✦</span>
+            <div>
+              <p class="test-name">Family Name</p>
+              <p class="test-role">City, State</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="test-col test-col--b">
+        <div class="test-card">
+          <p class="test-quote">"Placeholder testimonial #4 — replace with a real family's words about their experience."</p>
+          <div class="test-person">
+            <span class="test-avatar">✦</span>
+            <div>
+              <p class="test-name">Family Name</p>
+              <p class="test-role">City, State</p>
+            </div>
+          </div>
+        </div>
+        <div class="test-card">
+          <p class="test-quote">"Placeholder testimonial #5 — swap in an actual client quote here."</p>
+          <div class="test-person">
+            <span class="test-avatar">✦</span>
+            <div>
+              <p class="test-name">Family Name</p>
+              <p class="test-role">City, State</p>
+            </div>
+          </div>
+        </div>
+        <div class="test-card">
+          <p class="test-quote">"Placeholder testimonial #6 — add a genuine review from someone you've served."</p>
+          <div class="test-person">
+            <span class="test-avatar">✦</span>
+            <div>
+              <p class="test-name">Family Name</p>
+              <p class="test-role">City, State</p>
+            </div>
+          </div>
+        </div>
+        <!-- duplicate of the 3 cards above, for a seamless loop -->
+        <div class="test-card">
+          <p class="test-quote">"Placeholder testimonial #4 — replace with a real family's words about their experience."</p>
+          <div class="test-person">
+            <span class="test-avatar">✦</span>
+            <div>
+              <p class="test-name">Family Name</p>
+              <p class="test-role">City, State</p>
+            </div>
+          </div>
+        </div>
+        <div class="test-card">
+          <p class="test-quote">"Placeholder testimonial #5 — swap in an actual client quote here."</p>
+          <div class="test-person">
+            <span class="test-avatar">✦</span>
+            <div>
+              <p class="test-name">Family Name</p>
+              <p class="test-role">City, State</p>
+            </div>
+          </div>
+        </div>
+        <div class="test-card">
+          <p class="test-quote">"Placeholder testimonial #6 — add a genuine review from someone you've served."</p>
+          <div class="test-person">
+            <span class="test-avatar">✦</span>
+            <div>
+              <p class="test-name">Family Name</p>
+              <p class="test-role">City, State</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="test-col test-col--c">
+        <div class="test-card">
+          <p class="test-quote">"Placeholder testimonial #7 — replace with a real family's words about their experience."</p>
+          <div class="test-person">
+            <span class="test-avatar">✦</span>
+            <div>
+              <p class="test-name">Family Name</p>
+              <p class="test-role">City, State</p>
+            </div>
+          </div>
+        </div>
+        <div class="test-card">
+          <p class="test-quote">"Placeholder testimonial #8 — swap in an actual client quote here."</p>
+          <div class="test-person">
+            <span class="test-avatar">✦</span>
+            <div>
+              <p class="test-name">Family Name</p>
+              <p class="test-role">City, State</p>
+            </div>
+          </div>
+        </div>
+        <div class="test-card">
+          <p class="test-quote">"Placeholder testimonial #9 — add a genuine review from someone you've served."</p>
+          <div class="test-person">
+            <span class="test-avatar">✦</span>
+            <div>
+              <p class="test-name">Family Name</p>
+              <p class="test-role">City, State</p>
+            </div>
+          </div>
+        </div>
+        <!-- duplicate of the 3 cards above, for a seamless loop -->
+        <div class="test-card">
+          <p class="test-quote">"Placeholder testimonial #7 — replace with a real family's words about their experience."</p>
+          <div class="test-person">
+            <span class="test-avatar">✦</span>
+            <div>
+              <p class="test-name">Family Name</p>
+              <p class="test-role">City, State</p>
+            </div>
+          </div>
+        </div>
+        <div class="test-card">
+          <p class="test-quote">"Placeholder testimonial #8 — swap in an actual client quote here."</p>
+          <div class="test-person">
+            <span class="test-avatar">✦</span>
+            <div>
+              <p class="test-name">Family Name</p>
+              <p class="test-role">City, State</p>
+            </div>
+          </div>
+        </div>
+        <div class="test-card">
+          <p class="test-quote">"Placeholder testimonial #9 — add a genuine review from someone you've served."</p>
+          <div class="test-person">
+            <span class="test-avatar">✦</span>
+            <div>
+              <p class="test-name">Family Name</p>
+              <p class="test-role">City, State</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
