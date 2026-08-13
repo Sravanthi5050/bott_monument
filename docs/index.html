@@ -2003,8 +2003,257 @@
 
     /* ── PRESS CLIPPINGS SECTION ── */
     #press-clippings {
-      background: #ffffff;
+      position: relative;
+      background: #F7F3ED;
       padding: max(6rem, 6vw) max(4rem, 5vw) max(7rem, 7vw);
+    }
+
+    /* ── PRESS DESIGN SWITCHER (Triptych / Grid) ── */
+    .press-switcher {
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.45rem 0.5rem 0.45rem 0.85rem;
+      border-radius: 999px;
+      background: rgba(14, 12, 8, 0.85);
+      border: 1px solid rgba(201, 160, 80, 0.28);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 18px 40px -14px rgba(0, 0, 0, 0.4);
+    }
+
+    .prs-icon {
+      color: var(--gold);
+      font-size: 0.7rem;
+      line-height: 1;
+    }
+
+    .prs-label {
+      font-family: var(--font-utility);
+      font-size: 0.55rem;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .prs-divider {
+      width: 1px;
+      height: 16px;
+      background: rgba(201, 160, 80, 0.28);
+    }
+
+    .prs-select-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .prs-select {
+      appearance: none;
+      -webkit-appearance: none;
+      background: transparent;
+      border: none;
+      color: var(--bone);
+      font-family: var(--font-utility);
+      font-size: 0.68rem;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      padding: 0 1.1rem 0 0;
+      cursor: pointer;
+      outline: none;
+      max-width: 160px;
+    }
+
+    .prs-select option {
+      background: #14100a;
+      color: var(--bone);
+    }
+
+    .prs-chevron {
+      position: absolute;
+      right: 0;
+      color: var(--gold);
+      font-size: 0.6rem;
+      pointer-events: none;
+    }
+
+    .prs-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      border: 1px solid rgba(201, 160, 80, 0.35);
+      background: transparent;
+      color: var(--gold);
+      cursor: pointer;
+      font-size: 0.75rem;
+      line-height: 1;
+      transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+      flex-shrink: 0;
+    }
+
+    .prs-btn:hover {
+      background: var(--gold);
+      color: #14100a;
+      transform: rotate(180deg);
+    }
+
+    @media (max-width: 700px) {
+      .press-switcher {
+        position: static;
+        margin: 0 auto 2rem;
+        width: fit-content;
+      }
+    }
+
+    /* ── PRESS: CENTERED TRIPTYCH ── */
+    .ptw-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(2rem,4.2vw,4.5rem);
+      padding: 0 0 1rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .ptw-side {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(100px, 150px));
+      gap: 1.5rem 1.3rem;
+      flex-shrink: 0;
+    }
+
+    .ptw-cover {
+      border: 2px solid #1C1812;
+      padding: 0;
+      cursor: pointer;
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      aspect-ratio: 3 / 4;
+      box-shadow: 0 16px 32px -10px rgba(0, 0, 0, .3);
+      transform: rotate(var(--rot, 0deg));
+      transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+    }
+
+    .ptw-cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      object-position: top;
+    }
+
+    .ptw-cover:hover {
+      transform: rotate(0deg) translateY(-4px) scale(1.05);
+      box-shadow: 0 22px 40px -12px rgba(0, 0, 0, .38);
+    }
+
+    .ptw-cover.ptw-active {
+      border-color: var(--gold);
+      transform: rotate(0deg) scale(1.06);
+      box-shadow: 0 22px 44px -10px rgba(201, 160, 80, .48);
+    }
+
+    .ptw-center-frame {
+      flex-shrink: 0;
+      /* width: clamp(170px, 13vw, 210px); */
+      width : clamp(230px,20vw,300px);
+      aspect-ratio: 3 / 4;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 7px solid #fff;
+      outline: 2px solid #1C1812;
+      outline-offset: 2px;
+      box-shadow: 0 34px 70px -14px rgba(0, 0, 0, .38);
+      transition: opacity .2s ease;
+    }
+
+    .ptw-center-frame.ptw-fading {
+      opacity: 0;
+    }
+
+    .ptw-center-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      object-position: top;
+    }
+
+    .ptw-caption {
+      flex-shrink: 0;
+      max-width: 200px;
+      text-align: left;
+      transition: opacity .2s ease;
+    }
+
+    .ptw-caption.ptw-fading {
+      opacity: 0;
+    }
+
+    .ptw-kicker {
+      font-family: var(--font-utility);
+      font-size: max(.5rem, .46vw);
+      letter-spacing: .26em;
+      text-transform: uppercase;
+      color: #B8872C;
+      margin-bottom: .8rem;
+    }
+
+    .ptw-headline {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: max(1.3rem, 1.6vw);
+      line-height: 1.16;
+      color: #1C1812;
+      margin-bottom: .7rem;
+    }
+
+    .ptw-meta {
+      font-family: var(--font-utility);
+      font-size: .68rem;
+      letter-spacing: .02em;
+      color: #6B5530;
+      margin-bottom: .25rem;
+    }
+
+    .ptw-sub {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: .9rem;
+      color: #8A7D68;
+    }
+
+    @media (max-width: 1200px) {
+      .ptw-side {
+        grid-template-columns: repeat(2, minmax(95px, 140px));
+        gap: 1.1rem 1rem;
+      }
+    }
+
+    @media (max-width: 1000px) {
+      .ptw-side {
+        display: none;
+      }
+
+      .ptw-wrap {
+        flex-direction: column;
+        gap: 1.6rem;
+      }
+
+      .ptw-caption {
+        text-align: center;
+        max-width: 320px;
+      }
     }
 
     .press-clippings-inner {
@@ -2015,7 +2264,7 @@
 
     .press-clippings-header {
       text-align: center;
-      margin-bottom: max(4rem, 4vw);
+      margin-bottom: max(2rem, 2vw);
     }
 
     .press-clippings-eyebrow {
@@ -3685,93 +3934,168 @@
 
   <!-- ═══════════ PRESS CLIPPINGS ═══════════ -->
   <section id="press-clippings">
+    <div class="press-switcher" id="pressSwitcher">
+      <span class="prs-icon">✦</span>
+      <span class="prs-label">Design</span>
+      <span class="prs-divider"></span>
+      <span class="prs-select-wrap">
+        <select class="prs-select" id="pressSelect" aria-label="Choose press section design">
+          <option value="triptych" selected>Centered Triptych</option>
+          <option value="grid">Grid</option>
+        </select>
+        <span class="prs-chevron">⌄</span>
+      </span>
+      <button type="button" class="prs-btn" id="pressCycle" aria-label="Cycle design">⇄</button>
+    </div>
     <div class="press-clippings-inner">
       <div class="press-clippings-header reveal">
         <p class="press-clippings-eyebrow">In The Press</p>
         <h2 class="press-clippings-title">As <em>Featured</em> In</h2>
         <div class="press-clippings-rule"></div>
       </div>
-      <div class="press-cards-viewport">
 
-        <!-- Page 1 of 2 -->
-        <div class="press-cards reveal" id="pressPage1">
-          <article class="press-card">
-            <div class="press-card-frame"><img src="images/newspaper.jpg" alt="MB News magazine cover featuring Bott Monument"></div>
-            <div class="press-card-caption">
-              <h3 class="press-card-title">MB News — Cover Feature</h3>
-              <p class="press-card-meta">Monument Builders of North America<span>September 2024</span></p>
-            </div>
-          </article>
-          <article class="press-card">
-            <div class="press-card-frame"><img src="images/newspaper.jpg" alt="From the Cover article written by Drew Bott"></div>
-            <div class="press-card-caption">
-              <h3 class="press-card-title">From the Cover: Brinda</h3>
-              <p class="press-card-meta">By Drew Bott, AICA, CM<span>4 min read</span></p>
-            </div>
-          </article>
-          <article class="press-card">
-            <div class="press-card-frame"><img src="images/newspaper.jpg" alt="Local Craftsman Honored For Excellence In Granite article"></div>
-            <div class="press-card-caption">
-              <h3 class="press-card-title">Local Craftsman Honored For Excellence In Granite</h3>
-              <p class="press-card-meta">Trade Press<span>3 min read</span></p>
-            </div>
-          </article>
-          <article class="press-card">
-            <div class="press-card-frame"><img src="images/newspaper.jpg" alt="Bott Monument Co. Serves Families Across Generations article"></div>
-            <div class="press-card-caption">
-              <h3 class="press-card-title">Serving Families Across Generations</h3>
-              <p class="press-card-meta">Community Spotlight<span>2 min read</span></p>
-            </div>
-          </article>
-          <article class="press-card">
-            <div class="press-card-frame"><img src="images/newspaper.jpg" alt="The Daily Craftsman feature on a studio earning honors"></div>
-            <div class="press-card-caption">
-              <h3 class="press-card-title">Renowned Studio Earns Top Honors In Memorial Design</h3>
-              <p class="press-card-meta">The Daily Craftsman<span>5 min read</span></p>
-            </div>
-          </article>
-          <article class="press-card">
-            <div class="press-card-frame"><img src="images/newspaper.jpg" alt="North Star Press feature on granite artistry"></div>
-            <div class="press-card-caption">
-              <h3 class="press-card-title">Why This Workshop Is Setting The Standard In Granite Artistry</h3>
-              <p class="press-card-meta">North Star Press<span>5 min read</span></p>
-            </div>
-          </article>
-          <article class="press-card">
-            <div class="press-card-frame"><img src="images/newspaper.jpg" alt="Rocky Mountain Life feature on Drew Bott"></div>
-            <div class="press-card-caption">
-              <h3 class="press-card-title">Award-Winning Sculptor Brings Tradition to Modern Grief</h3>
-              <p class="press-card-meta">Rocky Mountain Life<span>6 min read</span></p>
-            </div>
-          </article>
-          <article class="press-card">
-            <div class="press-card-frame"><img src="images/newspaper.jpg" alt="Wyoming Business Journal feature on Bott Monument family legacy"></div>
-            <div class="press-card-caption">
-              <h3 class="press-card-title">Behind the Stone: A Family's Legacy in Memorial Art</h3>
-              <p class="press-card-meta">Wyoming Business Journal<span>5 min read</span></p>
-            </div>
-          </article>
-          <article class="press-card">
-            <div class="press-card-frame"><img src="images/newspaper.jpg" alt="Denver Post feature on granite craftsmanship"></div>
-            <div class="press-card-caption">
-              <h3 class="press-card-title">Crafting Memories in Granite: One Family's Mission</h3>
-              <p class="press-card-meta">Denver Post Feature<span>4 min read</span></p>
-            </div>
-          </article>
-          <article class="press-card">
-            <div class="press-card-frame"><img src="images/newspaper.jpg" alt="Mountain States Journal on Bott Monument story"></div>
-            <div class="press-card-caption">
-              <h3 class="press-card-title">The Art of Remembrance: Bott Monument's Story</h3>
-              <p class="press-card-meta">Mountain States Journal<span>3 min read</span></p>
-            </div>
-          </article>
-        </div><!-- end pressPage1 -->
+      <!-- Option 1 (default): Centered Triptych -->
+      <div class="press-variant" id="pressTriptych">
+        <div class="ptw-wrap">
+          <div class="ptw-side ptw-left">
+            <button type="button" class="ptw-cover" style="--rot:-4deg" data-img="images/newspaper.jpg" data-title="From the Cover: Brinda" data-pub="By Drew Bott, AICA, CM" data-meta="4 min read">
+              <img src="images/newspaper.jpg" alt="From the Cover: Brinda">
+            </button>
+            <button type="button" class="ptw-cover" style="--rot:3deg" data-img="images/newspaper.jpg" data-title="Local Craftsman Honored For Excellence In Granite" data-pub="Trade Press" data-meta="3 min read">
+              <img src="images/newspaper.jpg" alt="Local Craftsman Honored For Excellence In Granite">
+            </button>
+            <button type="button" class="ptw-cover" style="--rot:-2deg" data-img="images/newspaper.jpg" data-title="Serving Families Across Generations" data-pub="Community Spotlight" data-meta="2 min read">
+              <img src="images/newspaper.jpg" alt="Serving Families Across Generations">
+            </button>
+            <button type="button" class="ptw-cover" style="--rot:5deg" data-img="images/newspaper.jpg" data-title="Renowned Studio Earns Top Honors In Memorial Design" data-pub="The Daily Craftsman" data-meta="5 min read">
+              <img src="images/newspaper.jpg" alt="Renowned Studio Earns Top Honors In Memorial Design">
+            </button>
+            <button type="button" class="ptw-cover" style="--rot:-3deg" data-img="images/newspaper.jpg" data-title="Why This Workshop Is Setting The Standard In Granite Artistry" data-pub="North Star Press" data-meta="5 min read">
+              <img src="images/newspaper.jpg" alt="Why This Workshop Is Setting The Standard In Granite Artistry">
+            </button>
+            <button type="button" class="ptw-cover" style="--rot:4deg" data-img="images/newspaper.jpg" data-title="Award-Winning Sculptor Brings Tradition to Modern Grief" data-pub="Rocky Mountain Life" data-meta="6 min read">
+              <img src="images/newspaper.jpg" alt="Award-Winning Sculptor Brings Tradition to Modern Grief">
+            </button>
+          </div>
 
-      </div><!-- end viewport -->
+          <div class="ptw-center-frame" id="ptwCenterFrame">
+            <img id="ptwCenterImg" src="images/newspaper.jpg" alt="MB News — Cover Feature">
+          </div>
 
-      <div class="press-loadmore-wrap">
-        <p class="press-loadmore-count" id="pressLoadMoreCount">Showing 10 of 10</p>
-      </div>
+          <div class="ptw-caption" id="ptwCaption">
+            <p class="ptw-kicker">In The Press</p>
+            <h3 class="ptw-headline" id="ptwHeadline">MB News — Cover Feature</h3>
+            <p class="ptw-meta" id="ptwMeta">Monument Builders of North America</p>
+            <p class="ptw-sub" id="ptwSub">September 2024</p>
+          </div>
+
+          <div class="ptw-side ptw-right">
+            <button type="button" class="ptw-cover" style="--rot:-3deg" data-img="images/newspaper.jpg" data-title="Behind the Stone: A Family's Legacy in Memorial Art" data-pub="Wyoming Business Journal" data-meta="5 min read">
+              <img src="images/newspaper.jpg" alt="Behind the Stone: A Family's Legacy in Memorial Art">
+            </button>
+            <button type="button" class="ptw-cover" style="--rot:4deg" data-img="images/newspaper.jpg" data-title="Crafting Memories in Granite: One Family's Mission" data-pub="Denver Post Feature" data-meta="4 min read">
+              <img src="images/newspaper.jpg" alt="Crafting Memories in Granite: One Family's Mission">
+            </button>
+            <button type="button" class="ptw-cover" style="--rot:-5deg" data-img="images/newspaper.jpg" data-title="The Art of Remembrance: Bott Monument's Story" data-pub="Mountain States Journal" data-meta="3 min read">
+              <img src="images/newspaper.jpg" alt="The Art of Remembrance: Bott Monument's Story">
+            </button>
+            <button type="button" class="ptw-cover" style="--rot:2deg" data-img="images/newspaper.jpg" data-title="MB News — Cover Feature" data-pub="Monument Builders of North America" data-meta="September 2024">
+              <img src="images/newspaper.jpg" alt="MB News — Cover Feature">
+            </button>
+            <button type="button" class="ptw-cover" style="--rot:-4deg" data-img="images/newspaper.jpg" data-title="From the Cover: Brinda" data-pub="By Drew Bott, AICA, CM" data-meta="4 min read">
+              <img src="images/newspaper.jpg" alt="From the Cover: Brinda">
+            </button>
+            <button type="button" class="ptw-cover" style="--rot:3deg" data-img="images/newspaper.jpg" data-title="Local Craftsman Honored For Excellence In Granite" data-pub="Trade Press" data-meta="3 min read">
+              <img src="images/newspaper.jpg" alt="Local Craftsman Honored For Excellence In Granite">
+            </button>
+          </div>
+        </div>
+      </div><!-- end pressTriptych -->
+
+      <!-- Option 2: Grid -->
+      <div class="press-variant" id="pressGrid" style="display:none;">
+        <div class="press-cards-viewport">
+
+          <!-- Page 1 of 2 -->
+          <div class="press-cards reveal" id="pressPage1">
+            <article class="press-card">
+              <div class="press-card-frame"><img src="images/newspaper.jpg" alt="MB News magazine cover featuring Bott Monument"></div>
+              <div class="press-card-caption">
+                <h3 class="press-card-title">MB News — Cover Feature</h3>
+                <p class="press-card-meta">Monument Builders of North America<span>September 2024</span></p>
+              </div>
+            </article>
+            <article class="press-card">
+              <div class="press-card-frame"><img src="images/newspaper.jpg" alt="From the Cover article written by Drew Bott"></div>
+              <div class="press-card-caption">
+                <h3 class="press-card-title">From the Cover: Brinda</h3>
+                <p class="press-card-meta">By Drew Bott, AICA, CM<span>4 min read</span></p>
+              </div>
+            </article>
+            <article class="press-card">
+              <div class="press-card-frame"><img src="images/newspaper.jpg" alt="Local Craftsman Honored For Excellence In Granite article"></div>
+              <div class="press-card-caption">
+                <h3 class="press-card-title">Local Craftsman Honored For Excellence In Granite</h3>
+                <p class="press-card-meta">Trade Press<span>3 min read</span></p>
+              </div>
+            </article>
+            <article class="press-card">
+              <div class="press-card-frame"><img src="images/newspaper.jpg" alt="Bott Monument Co. Serves Families Across Generations article"></div>
+              <div class="press-card-caption">
+                <h3 class="press-card-title">Serving Families Across Generations</h3>
+                <p class="press-card-meta">Community Spotlight<span>2 min read</span></p>
+              </div>
+            </article>
+            <article class="press-card">
+              <div class="press-card-frame"><img src="images/newspaper.jpg" alt="The Daily Craftsman feature on a studio earning honors"></div>
+              <div class="press-card-caption">
+                <h3 class="press-card-title">Renowned Studio Earns Top Honors In Memorial Design</h3>
+                <p class="press-card-meta">The Daily Craftsman<span>5 min read</span></p>
+              </div>
+            </article>
+            <article class="press-card">
+              <div class="press-card-frame"><img src="images/newspaper.jpg" alt="North Star Press feature on granite artistry"></div>
+              <div class="press-card-caption">
+                <h3 class="press-card-title">Why This Workshop Is Setting The Standard In Granite Artistry</h3>
+                <p class="press-card-meta">North Star Press<span>5 min read</span></p>
+              </div>
+            </article>
+            <article class="press-card">
+              <div class="press-card-frame"><img src="images/newspaper.jpg" alt="Rocky Mountain Life feature on Drew Bott"></div>
+              <div class="press-card-caption">
+                <h3 class="press-card-title">Award-Winning Sculptor Brings Tradition to Modern Grief</h3>
+                <p class="press-card-meta">Rocky Mountain Life<span>6 min read</span></p>
+              </div>
+            </article>
+            <article class="press-card">
+              <div class="press-card-frame"><img src="images/newspaper.jpg" alt="Wyoming Business Journal feature on Bott Monument family legacy"></div>
+              <div class="press-card-caption">
+                <h3 class="press-card-title">Behind the Stone: A Family's Legacy in Memorial Art</h3>
+                <p class="press-card-meta">Wyoming Business Journal<span>5 min read</span></p>
+              </div>
+            </article>
+            <article class="press-card">
+              <div class="press-card-frame"><img src="images/newspaper.jpg" alt="Denver Post feature on granite craftsmanship"></div>
+              <div class="press-card-caption">
+                <h3 class="press-card-title">Crafting Memories in Granite: One Family's Mission</h3>
+                <p class="press-card-meta">Denver Post Feature<span>4 min read</span></p>
+              </div>
+            </article>
+            <article class="press-card">
+              <div class="press-card-frame"><img src="images/newspaper.jpg" alt="Mountain States Journal on Bott Monument story"></div>
+              <div class="press-card-caption">
+                <h3 class="press-card-title">The Art of Remembrance: Bott Monument's Story</h3>
+                <p class="press-card-meta">Mountain States Journal<span>3 min read</span></p>
+              </div>
+            </article>
+          </div><!-- end pressPage1 -->
+
+        </div><!-- end viewport -->
+
+        <div class="press-loadmore-wrap">
+          <p class="press-loadmore-count" id="pressLoadMoreCount">Showing 10 of 10</p>
+        </div>
+      </div><!-- end pressGrid -->
 
     </div>
   </section>
@@ -4126,6 +4450,69 @@
         const keys = Array.from(select.options).map(o => o.value);
         const next = keys[(keys.indexOf(select.value) + 1) % keys.length];
         applyVariant(next);
+      });
+    })();
+  </script>
+
+  <!-- ═══════════ PRESS DESIGN SWITCHER (Triptych / Grid) ═══════════ -->
+  <script>
+    (function () {
+      const select = document.getElementById('pressSelect');
+      const cycleBtn = document.getElementById('pressCycle');
+      const triptychEl = document.getElementById('pressTriptych');
+      const gridEl = document.getElementById('pressGrid');
+      if (!select || !cycleBtn || !triptychEl || !gridEl) return;
+
+      const targetFor = { triptych: triptychEl, grid: gridEl };
+
+      function applyVariant(key) {
+        const target = targetFor[key];
+        if (!target) return;
+        Object.values(targetFor).forEach(el => { el.style.display = (el === target) ? '' : 'none'; });
+        select.value = key;
+      }
+
+      select.addEventListener('change', () => applyVariant(select.value));
+
+      cycleBtn.addEventListener('click', () => {
+        const keys = Array.from(select.options).map(o => o.value);
+        const next = keys[(keys.indexOf(select.value) + 1) % keys.length];
+        applyVariant(next);
+      });
+    })();
+  </script>
+
+  <!-- ═══════════ PRESS TRIPTYCH: CLICK TO CROSS-FADE INTO CENTER ═══════════ -->
+  <script>
+    (function () {
+      const covers = document.querySelectorAll('.ptw-cover');
+      const frame = document.getElementById('ptwCenterFrame');
+      const centerImg = document.getElementById('ptwCenterImg');
+      const caption = document.getElementById('ptwCaption');
+      const headline = document.getElementById('ptwHeadline');
+      const pub = document.getElementById('ptwMeta');
+      const meta = document.getElementById('ptwSub');
+      if (!covers.length || !frame || !centerImg || !caption || !headline || !pub || !meta) return;
+
+      covers.forEach(btn => {
+        btn.addEventListener('click', () => {
+          covers.forEach(b => b.classList.remove('ptw-active'));
+          btn.classList.add('ptw-active');
+
+          frame.classList.add('ptw-fading');
+          caption.classList.add('ptw-fading');
+
+          setTimeout(() => {
+            centerImg.src = btn.dataset.img;
+            centerImg.alt = btn.dataset.title;
+            headline.textContent = btn.dataset.title;
+            pub.textContent = btn.dataset.pub;
+            meta.textContent = btn.dataset.meta;
+
+            frame.classList.remove('ptw-fading');
+            caption.classList.remove('ptw-fading');
+          }, 200);
+        });
       });
     })();
   </script>
