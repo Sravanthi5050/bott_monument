@@ -2243,6 +2243,7 @@
       grid-template-columns: repeat(2, minmax(100px, 150px));
       gap: 1.5rem 1.3rem;
       flex-shrink: 0;
+      transform: translateY(-40px);
     }
 
     .ptw-cover {
@@ -3198,6 +3199,20 @@
       font-weight: 600;
     }
 
+   
+    .cg-access-trigger {
+      top: 25%;
+    }
+
+    .cg-access-trigger:hover {
+      background: #000000;
+      border-color: var(--gold);
+    }
+
+    .cg-access-trigger:hover .mag-access-trigger-text {
+      color: #FFFFFF;
+    }
+
     .mag-caption {
       margin-top: 0.6rem;
       font-family: var(--font-display);
@@ -3401,7 +3416,8 @@
     }
 
     @media (max-width: 900px) {
-      .mag-header-shell {
+      .mag-header-shell,
+      .cg-header-shell {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -3575,6 +3591,13 @@
       overflow: hidden;
     }
 
+    .cg-header-shell {
+      position: relative;
+      width: min(94vw, 1320px);
+      margin: 0 auto;
+      min-height: max(7rem, 6vw);
+    }
+
     .cg-header {
       text-align: center;
       margin-bottom: max(3rem, 3.5vw);
@@ -3652,7 +3675,6 @@
       height: var(--cg-card-h, 340px);
       margin-left: calc(var(--cg-card-w, 260px) / -2);
       margin-top: calc(var(--cg-card-h, 340px) / -2);
-      backface-visibility: hidden;
     }
 
     .cg-card {
@@ -4326,11 +4348,16 @@
 
   <!-- ═══════════ CIRCULAR GALLERY (rotating ring) ═══════════ -->
   <section id="circular-gallery">
-    <div class="cg-header reveal">
-      <!-- <p class="cg-eyebrow">In The Round</p> -->
-      <h2 class="cg-title">A Gallery of Lasting<em>Tributes</em></h2>
-      <!-- A Gallery of Lasting Tributes -->
-      <!-- <div class="cg-rule"></div> -->
+    <div class="cg-header-shell">
+      <div class="cg-header reveal">
+        <!-- <p class="cg-eyebrow">In The Round</p> -->
+        <h2 class="cg-title">A Gallery of Lasting<em>Tributes</em></h2>
+        <!-- A Gallery of Lasting Tributes -->
+        <!-- <div class="cg-rule"></div> -->
+      </div>
+      <button class="mag-access-trigger cg-access-trigger" id="cgAccessTrigger" type="button" aria-haspopup="dialog" aria-controls="magAccessModal">
+        <span class="mag-access-trigger-text">Our Private Gallery</span>
+      </button>
     </div>
     <div class="cg-viewport" aria-label="Rotating memorial gallery">
       <div class="cg-ring" id="cgRing">
@@ -4352,12 +4379,76 @@
             </div>
           </div>
         </div>
-        <div class="cg-item">
+        <!-- <div class="cg-item">
           <div class="cg-card">
             <img src="images/page3.jpg" alt="Granite cherub sculpture">
             <div class="cg-caption">
               <h3>Granite Cherub Sculpture</h3>
               <em>Custom statuary</em>
+            </div>
+          </div>
+        </div> -->
+       
+        <div class="cg-item">
+          <div class="cg-card">
+            <img src="images/page6_image7.jpg" alt="Finished memorial installation">
+            <div class="cg-caption">
+              <h3>Set in place with care</h3>
+              <!-- <em></em> -->
+            </div>
+          </div>
+        </div>
+        <div class="cg-item">
+          <div class="cg-card">
+            <img src="images/page6_image1.jpg" alt="Personalized stone monument">
+            <div class="cg-caption">
+              <h3>Personalized Monument</h3>
+              <em>Set in place with care</em>
+            </div>
+          </div>
+        </div>
+        <div class="cg-item">
+          <div class="cg-card">
+            <img src="images/page6_image2.jpg" alt="Personalized stone monument">
+            <div class="cg-caption">
+              <h3>Personalized Monument</h3>
+              <em>Set in place with care</em>
+            </div>
+          </div>
+        </div>
+        <div class="cg-item">
+          <div class="cg-card">
+            <img src="images/page6_image3.jpg" alt="Personalized stone monument">
+            <div class="cg-caption">
+              <h3>Personalized Monument</h3>
+              <em>Set in place with care</em>
+            </div>
+          </div>
+        </div>
+        <div class="cg-item">
+          <div class="cg-card">
+            <img src="images/page6_image4.jpg" alt="Finished memorial installation">
+            <div class="cg-caption">
+              <h3>Personalized Monument</h3>
+              <em>Set in place with care</em>
+            </div>
+          </div>
+        </div>
+        <div class="cg-item">
+          <div class="cg-card">
+            <img src="images/page6_image5.jpg" alt="Finished memorial installation">
+            <div class="cg-caption">
+              <h3>Personalized Monument</h3>
+              <em>Set in place with care</em>
+            </div>
+          </div>
+        </div>
+        <div class="cg-item">
+          <div class="cg-card">
+            <img src="images/page6_image6.jpg" alt="Finished memorial installation">
+            <div class="cg-caption">
+              <h3>Personalized Monument</h3>
+              <em>Set in place with care</em>
             </div>
           </div>
         </div>
@@ -4397,15 +4488,6 @@
             </div>
           </div>
         </div>
-        <div class="cg-item">
-          <div class="cg-card">
-            <img src="images/craft_04.jpg" alt="Finished memorial installation">
-            <div class="cg-caption">
-              <h3>Finished Installation</h3>
-              <em>Set in place with care</em>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </section>
@@ -4417,7 +4499,7 @@
       <img src="images/about-main-1.jpg" alt="Drew Bott, Master Craftsman">
     </div>
     <div class="founder-content reveal reveal-delay-1">
-      <p class="founder-eyebrow">Our Story</p>
+      <!-- <p class="founder-eyebrow">Our Story</p> -->
       <h2 class="founder-name">Bott<br>Monument</h2>
       <p class="founder-role">Built on Stone. Rooted in Service.</p>
       <div class="founder-rule"></div>
@@ -4854,8 +4936,8 @@
       const lbImg    = document.getElementById('magLbImg');
       const lbCap    = document.getElementById('magLbCap');
       const lbClose  = document.getElementById('magLbClose');
-      const accessModal   = document.getElementById('magAccessModal');
-      const accessTrigger = document.getElementById('magAccessTrigger');
+      const accessModal    = document.getElementById('magAccessModal');
+      const accessTriggers = document.querySelectorAll('.mag-access-trigger');
       const accessClose   = document.getElementById('magAccessClose');
       const accessLater   = document.getElementById('magAccessLater');
       const accessRequest = document.getElementById('magAccessRequest');
@@ -4881,7 +4963,7 @@
 
       lbClose.addEventListener('click', closeLightbox);
       lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
-      if (accessModal && accessTrigger && accessClose && accessLater) {
+      if (accessModal && accessTriggers.length && accessClose && accessLater) {
         function openAccessModal() {
           accessModal.classList.add('open');
           document.body.style.overflow = 'hidden';
@@ -4892,7 +4974,7 @@
           document.body.style.overflow = '';
         }
 
-        accessTrigger.addEventListener('click', openAccessModal);
+        accessTriggers.forEach(trigger => trigger.addEventListener('click', openAccessModal));
         accessClose.addEventListener('click', closeAccessModal);
         accessLater.addEventListener('click', closeAccessModal);
         accessModal.addEventListener('click', e => {
@@ -4992,15 +5074,16 @@
       const anglePerItem = 360 / n;
 
       // Faster than a typical slow auto-drift, still calm enough to read captions.
-      const AUTO_ROTATE_SPEED = 0.07;
+      const AUTO_ROTATE_SPEED = 0.045;
 
       function layoutSizes() {
         const w = window.innerWidth;
         let radius, cardW, cardH;
-        if (w <= 600) { radius = 200; cardW = 160; cardH = 210; }
-        else if (w <= 900) { radius = 300; cardW = 210; cardH = 270; }
-        else if (w <= 1300) { radius = 400; cardW = 240; cardH = 310; }
-        else { radius = 480; cardW = 260; cardH = 340; }
+        if (w <= 600) { radius = 240; cardW = 160; cardH = 210; }
+        else if (w <= 900) { radius = 340; cardW = 210; cardH = 270; }
+        else if (w <= 1300) { radius = 460; cardW = 240; cardH = 310; }
+        else if (w <= 1700) { radius = 560; cardW = 260; cardH = 340; }
+        else { radius = 640; cardW = 280; cardH = 360; }
 
         document.documentElement.style.setProperty('--cg-card-w', cardW + 'px');
         document.documentElement.style.setProperty('--cg-card-h', cardH + 'px');
