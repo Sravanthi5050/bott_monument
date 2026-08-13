@@ -672,7 +672,7 @@
   margin: 0 auto;
   border-radius: 50%;
 
-  background: #F3EBDD;
+  background: #1C1812;
   padding: 7px;
 
   box-shadow:
@@ -1736,6 +1736,120 @@
       overflow: hidden;
     }
 
+    /* ── CRAFT SECTION (PAGE 3) BACKGROUND SWITCHER ── */
+    .work-bg-switcher {
+      position: absolute;
+      right: 2rem;
+      bottom: 1rem;
+      z-index: 6;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.45rem 0.5rem 0.45rem 0.85rem;
+      border-radius: 999px;
+      background: rgba(14, 12, 8, 0.72);
+      border: 1px solid rgba(201, 160, 80, 0.28);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 18px 40px -14px rgba(0, 0, 0, 0.55);
+    }
+
+    .wbs-icon {
+      color: var(--gold);
+      font-size: 0.7rem;
+      line-height: 1;
+    }
+
+    .wbs-label {
+      font-family: var(--font-utility);
+      font-size: 0.55rem;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .wbs-divider {
+      width: 1px;
+      height: 16px;
+      background: rgba(201, 160, 80, 0.28);
+    }
+
+    .wbs-select-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .wbs-select {
+      appearance: none;
+      -webkit-appearance: none;
+      background: transparent;
+      border: none;
+      color: var(--bone);
+      font-family: var(--font-utility);
+      font-size: 0.68rem;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      padding: 0 1.1rem 0 0;
+      cursor: pointer;
+      outline: none;
+      max-width: 140px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    .wbs-select option {
+      background: #14100a;
+      color: var(--bone);
+    }
+
+    .wbs-chevron {
+      position: absolute;
+      right: 0;
+      color: var(--gold);
+      font-size: 0.6rem;
+      pointer-events: none;
+    }
+
+    .wbs-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      border: 1px solid rgba(201, 160, 80, 0.35);
+      background: transparent;
+      color: var(--gold);
+      cursor: pointer;
+      font-size: 0.75rem;
+      line-height: 1;
+      transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+      flex-shrink: 0;
+    }
+
+    .wbs-btn:hover {
+      background: var(--gold);
+      color: #14100a;
+      transform: rotate(180deg);
+    }
+
+    @media (max-width: 700px) {
+      .work-bg-switcher {
+        right: 1.25rem;
+        bottom: 0.75rem;
+        padding: 0.5rem 0.55rem 0.5rem 0.9rem;
+        gap: 0.5rem;
+      }
+
+      .wbs-select {
+        max-width: 110px;
+        font-size: 0.65rem;
+      }
+    }
+
     .creations-section .section-title {
       color: var(--bone);
     }
@@ -1760,7 +1874,7 @@
     .creations-left {
       position: relative;
       max-width: max(480px, 34vw);
-      transform: translate(35px, -40px);
+      transform: translate(0, -40px);
     }
 
     .legacy-rotating-wrap {
@@ -1861,7 +1975,7 @@
       min-width: 0;    /* ← the width cap */  /* ← which edge stays put */
       max-width: max(600px, 44vw);
       margin-left: auto;
-      margin-right: 35px;
+      margin-right: 0;
     }
 
     .wpp-header {
@@ -2011,7 +2125,7 @@
     /* ── PRESS DESIGN SWITCHER (Triptych / Grid) ── */
     .press-switcher {
       position: absolute;
-      top: 2rem;
+      bottom: 1rem;
       right: 2rem;
       z-index: 20;
       display: flex;
@@ -3814,6 +3928,19 @@
 
   <!-- WORK / CREATIONS -->
   <section id="work" class="creations-section">
+    <div class="work-bg-switcher" id="workBgSwitcher">
+      <span class="wbs-icon">✦</span>
+      <span class="wbs-label">Craft</span>
+      <span class="wbs-divider"></span>
+      <span class="wbs-select-wrap">
+        <select class="wbs-select" id="workBgSelect" aria-label="Choose craft section background">
+          <option value="navy">Navy → Charcoal</option>
+          <option value="charcoal" selected>Charcoal</option>
+        </select>
+        <span class="wbs-chevron">⌄</span>
+      </span>
+      <button type="button" class="wbs-btn" id="workBgCycle" aria-label="Cycle background">⇄</button>
+    </div>
     <div class="creations-header">
       <div></div>
       <!-- <a href="#contact" class="commission-link reveal"><span>Create a Lasting Legacy</span></a> -->
@@ -4536,6 +4663,45 @@
       }
 
       select.addEventListener('change', () => applyBg(select.value));
+
+      applyBg(select.value);
+    })();
+  </script>
+
+  <!-- ═══════════ CRAFT SECTION (PAGE 3) BACKGROUND SWITCHER ═══════════ -->
+  <script>
+    (function () {
+      const workBg = document.getElementById('work');
+      const select = document.getElementById('workBgSelect');
+      const cycleBtn = document.getElementById('workBgCycle');
+      if (!workBg || !select || !cycleBtn) return;
+
+      const backgrounds = {
+        navy: { css: 'linear-gradient(160deg,#24303D,#111820)', anim: true },
+        charcoal: { css: '#181A1B', anim: false }
+      };
+
+      function applyBg(key) {
+        const opt = backgrounds[key];
+        if (!opt) return;
+        workBg.style.background = opt.css;
+        if (opt.anim) {
+          workBg.style.backgroundSize = '220% 220%';
+          workBg.style.animation = 'bottFlow 16s ease infinite';
+        } else {
+          workBg.style.backgroundSize = '';
+          workBg.style.animation = '';
+        }
+        select.value = key;
+      }
+
+      select.addEventListener('change', () => applyBg(select.value));
+
+      cycleBtn.addEventListener('click', () => {
+        const keys = Array.from(select.options).map(o => o.value);
+        const next = keys[(keys.indexOf(select.value) + 1) % keys.length];
+        applyBg(next);
+      });
 
       applyBg(select.value);
     })();
