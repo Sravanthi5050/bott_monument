@@ -2110,6 +2110,10 @@
       margin-right: 0;
     }
 
+    body[data-site-mode="primary"] #work .work-press-panel {
+      background: #3A4A57;
+    }
+
     .wpp-header {
       display: flex;
       align-items: flex-start;
@@ -4278,7 +4282,6 @@
       <span class="wbs-select-wrap">
         <select class="wbs-select" id="workBgSelect" aria-label="Choose craft section background">
           <option value="navy" selected>Navy → Charcoal</option>
-          <option value="charcoal">Charcoal</option>
         </select>
         <span class="wbs-chevron">⌄</span>
       </span>
@@ -5298,7 +5301,7 @@
 
       const backgrounds = {
         navy: { css: 'linear-gradient(160deg,#24303D,#111820)', anim: true },
-        charcoal: { css: '#181A1B', anim: false }
+        contact: { css: '#2C3A46', anim: false }
       };
 
       function applyBg(key) {
@@ -5323,7 +5326,12 @@
         applyBg(next);
       });
 
-      applyBg(select.value);
+      function syncWorkToSiteMode() {
+        applyBg(document.body.dataset.siteMode === 'primary' ? 'contact' : 'navy');
+      }
+
+      document.addEventListener('site-mode-change', syncWorkToSiteMode);
+      syncWorkToSiteMode();
     })();
   </script>
 
