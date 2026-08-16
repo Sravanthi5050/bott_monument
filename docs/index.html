@@ -4052,6 +4052,16 @@
       align-items: center;
       justify-content: center;
       perspective: 1800px;
+      cursor: grab;
+      touch-action: pan-y;
+    }
+
+    .cg-viewport.is-dragging {
+      cursor: grabbing;
+    }
+
+    .cg-ring.is-dragging * {
+      cursor: grabbing;
     }
 
     .cg-viewport::before {
@@ -4094,6 +4104,7 @@
       border: 1px solid rgba(201, 160, 80, .22);
       background: rgba(20, 16, 10, .6);
       box-shadow: 0 30px 60px -20px rgba(0, 0, 0, .65);
+      user-select: none;
     }
 
     .cg-card img {
@@ -4102,6 +4113,9 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      -webkit-user-drag: none;
+      user-select: none;
+      pointer-events: none;
     }
 
     .cg-caption {
@@ -4425,7 +4439,7 @@
       <span class="prs-select-wrap">
         <select class="prs-select" id="pressSelect" aria-label="Choose press section design">
           <option value="triptych" selected>Centered Triptych</option>
-          <option value="grid">Grid</option>
+          <!-- <option value="grid">Grid</option> -->
         </select>
         <span class="prs-chevron">⌄</span>
       </span>
@@ -5645,6 +5659,7 @@
     (function () {
       const ring = document.getElementById('cgRing');
       if (!ring) return;
+      const viewport = ring.closest('.cg-viewport');
       const items = Array.from(ring.querySelectorAll('.cg-item'));
       const n = items.length;
       const anglePerItem = 360 / n;
@@ -5687,6 +5702,7 @@
       }
 
       function handleScroll() {
+        if (isDragging) return;
         isScrolling = true;
         clearTimeout(scrollTimeout);
 
@@ -5701,11 +5717,55 @@
       window.addEventListener('scroll', handleScroll, { passive: true });
 
       function autoRotate() {
-        if (!isScrolling) {
+        if (!isScrolling && !isDragging) {
           rotation += AUTO_ROTATE_SPEED;
           applyRotation();
         }
         requestAnimationFrame(autoRotate);
+      }
+
+      // Drag-to-rotate: press and hold a card, then move left/right to spin
+      // the ring in that same direction, like turning a wheel by hand.
+      const DRAG_SENSITIVITY = 0.25; // degrees rotated per pixel dragged
+      let isDragging = false;
+      let dragPointerId = null;
+      let dragStartX = 0;
+      let dragStartRotation = 0;
+
+      function onDragStart(e) {
+        if (e.pointerType === 'mouse' && e.button !== 0) return;
+        isDragging = true;
+        dragPointerId = e.pointerId;
+        dragStartX = e.clientX;
+        dragStartRotation = rotation;
+        if (viewport) viewport.classList.add('is-dragging');
+        ring.classList.add('is-dragging');
+        if (ring.setPointerCapture) {
+          try { ring.setPointerCapture(e.pointerId); } catch (err) { /* noop */ }
+        }
+      }
+
+      function onDragMove(e) {
+        if (!isDragging || e.pointerId !== dragPointerId) return;
+        const deltaX = e.clientX - dragStartX;
+        rotation = dragStartRotation + deltaX * DRAG_SENSITIVITY;
+        applyRotation();
+        e.preventDefault();
+      }
+
+      function onDragEnd(e) {
+        if (!isDragging || (e && e.pointerId !== undefined && e.pointerId !== dragPointerId)) return;
+        isDragging = false;
+        dragPointerId = null;
+        if (viewport) viewport.classList.remove('is-dragging');
+        ring.classList.remove('is-dragging');
+      }
+
+      if (viewport) {
+        viewport.addEventListener('pointerdown', onDragStart);
+        viewport.addEventListener('pointermove', onDragMove);
+        window.addEventListener('pointerup', onDragEnd);
+        window.addEventListener('pointercancel', onDragEnd);
       }
 
       applyRotation();
