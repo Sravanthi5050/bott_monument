@@ -127,6 +127,10 @@
       background: var(--primary-header-gradient);
     }
 
+    body[data-header-theme="secondary"] nav.scrolled {
+      background: rgba(10, 10, 10, 0.97);
+    }
+
     .nav-logo {
       font-family: var(--font-display);
       font-weight: 300;
@@ -2123,7 +2127,7 @@
 
     .wpp-eyebrow {
       font-family: var(--font-utility);
-      font-size: .4rem;
+      font-size: .52rem;
       letter-spacing: .28em;
       text-transform: uppercase;
       color: var(--gold);
@@ -4324,7 +4328,7 @@
         <!-- Article 1 -->
         <a class="wpp-article" href="https://share.google/EgAmiu799NKeaP3H7" target="_blank" rel="noopener">
           <div class="wpp-thumb">
-            <img src="images/article_4.jpeg" alt="Cowboy State Daily article">
+            <img src="images/page3_image1.avif" alt="Cowboy State Daily article">
           </div>
           <div class="wpp-text">
             <p class="wpp-pub">Cowboy State Daily</p>
@@ -4338,7 +4342,7 @@
         <!-- Article 2 -->
         <a class="wpp-article" href="https://share.google/IhxfBsJTo2burMZ5R" target="_blank" rel="noopener">
           <div class="wpp-thumb">
-            <img src="images/article_2.jpeg" alt="Shoutout Colorado article">
+            <img src="images/page3_image2.jpg" alt="Shoutout Colorado article">
           </div>
           <div class="wpp-text">
             <p class="wpp-pub">Shoutout Colorado</p>
@@ -5353,7 +5357,26 @@
     });
 
     const nav = document.getElementById('navbar');
-    window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 80); });
+    const workSection = document.getElementById('work');
+
+    function syncHeaderState() {
+      nav.classList.toggle('scrolled', window.scrollY > 80);
+      if (!workSection) return;
+
+      const targetLine = window.innerHeight * 0.35;
+      const rect = workSection.getBoundingClientRect();
+      const isWorkActive = rect.top <= targetLine && rect.bottom >= targetLine;
+
+      if (isWorkActive) {
+        document.body.dataset.headerTheme = 'secondary';
+      } else {
+        delete document.body.dataset.headerTheme;
+      }
+    }
+
+    window.addEventListener('scroll', syncHeaderState, { passive: true });
+    window.addEventListener('resize', syncHeaderState);
+    syncHeaderState();
 
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver(entries => {
@@ -5361,8 +5384,8 @@
     }, { threshold: 0.12 });
     reveals.forEach(el => observer.observe(el));
 
-    const workSection = document.getElementById('work');
     window.addEventListener('scroll', () => {
+      if (!workSection) return;
       const rect = workSection.getBoundingClientRect();
       const start = window.innerHeight * 1.25, end = window.innerHeight * 0.05;
       let progress = (start - rect.top) / (start - end);
