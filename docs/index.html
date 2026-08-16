@@ -22,6 +22,7 @@
       --void: #0A0A0A;
       --deep: #111008;
       --mahogany: #1E1208;
+      --primary-header-gradient: linear-gradient(160deg, #24303D, #111820);
       --gold: #C9A050;
       --gold-dim: #8A6B2E;
       --gold-glow: rgba(201, 160, 80, 0.12);
@@ -122,6 +123,10 @@
       background: rgba(10, 10, 10, 0.97);
     }
 
+    body[data-site-mode="primary"] nav.scrolled {
+      background: var(--primary-header-gradient);
+    }
+
     .nav-logo {
       font-family: var(--font-display);
       font-weight: 300;
@@ -167,6 +172,111 @@
 
     .nav-links a:hover::after {
       transform: scaleX(1);
+    }
+
+    .site-mode-switcher {
+      position: fixed;
+      left: 1.5rem;
+      bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px));
+      z-index: 115;
+    }
+
+    .site-mode-trigger {
+      display: inline-flex;
+      align-items: center;
+      gap: 1.8rem;
+      min-width: 250px;
+      padding: 0.9rem 1.15rem;
+      border: 1px solid rgba(201, 160, 80, 0.68);
+      border-radius: 999px;
+      background: rgba(69, 66, 27, 0.92);
+      box-shadow: 0 18px 42px -20px rgba(0, 0, 0, 0.65);
+      color: var(--gold);
+      cursor: pointer;
+      transition: transform 0.28s ease, box-shadow 0.28s ease, background 0.28s ease;
+    }
+
+    .site-mode-trigger:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 22px 46px -20px rgba(0, 0, 0, 0.72);
+      background: rgba(75, 71, 28, 0.96);
+    }
+
+    .site-mode-label,
+    .site-mode-value {
+      font-family: var(--font-utility);
+      font-size: 0.56rem;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .site-mode-label {
+      color: rgba(201, 160, 80, 0.88);
+    }
+
+    .site-mode-value {
+      color: var(--gold);
+    }
+
+    .site-mode-chevron {
+      margin-left: auto;
+      font-size: 0.85rem;
+      line-height: 1;
+      color: var(--gold);
+      transition: transform 0.25s ease;
+    }
+
+    .site-mode-switcher.is-open .site-mode-chevron {
+      transform: rotate(180deg);
+    }
+
+    .site-mode-menu {
+      position: absolute;
+      left: 50%;
+      bottom: calc(100% + 0.5rem);
+      transform: translateX(-8%);
+      min-width: 118px;
+      padding: 0.4rem;
+      border-radius: 18px;
+      border: 1px solid rgba(30, 24, 16, 0.1);
+      background: rgba(240, 237, 232, 0.96);
+      box-shadow: 0 24px 44px -22px rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .site-mode-option {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 0.7rem;
+      border: none;
+      border-radius: 12px;
+      background: transparent;
+      color: #1D180F;
+      font-family: var(--font-utility);
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .site-mode-option::before {
+      content: '';
+      width: 0.8rem;
+      flex-shrink: 0;
+    }
+
+    .site-mode-option.is-active::before {
+      content: '✓';
+    }
+
+    .site-mode-option:hover,
+    .site-mode-option.is-active {
+      background: rgba(201, 160, 80, 0.12);
     }
 
     #hero {
@@ -409,6 +519,28 @@
     }
 
     @media (max-width: 700px) {
+      .site-mode-switcher {
+        left: 1rem;
+        bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
+      }
+
+      .site-mode-trigger {
+        min-width: min(240px, calc(100vw - 2rem));
+        gap: 1rem;
+        padding: 0.85rem 1rem;
+      }
+
+      .site-mode-label,
+      .site-mode-value {
+        font-size: 0.52rem;
+        letter-spacing: 0.24em;
+      }
+
+      .site-mode-menu {
+        left: 0;
+        transform: none;
+      }
+
       .hero-variant-switcher {
         right: 1.5rem;
         bottom: 8rem;
@@ -3998,6 +4130,20 @@
 
   <div class="cursor" id="cursor"></div>
   <div class="cursor-ring" id="cursorRing"></div>
+  <div class="site-mode-switcher" id="siteModeSwitcher">
+    <button class="site-mode-trigger" id="siteModeTrigger" type="button" aria-haspopup="listbox"
+      aria-expanded="false" aria-controls="siteModeMenu">
+      <span class="site-mode-label">Options</span>
+      <span class="site-mode-value" id="siteModeValue">Primary</span>
+      <span class="site-mode-chevron">⌄</span>
+    </button>
+    <div class="site-mode-menu" id="siteModeMenu" role="listbox" aria-label="Choose site option" hidden>
+      <button class="site-mode-option is-active" type="button" data-site-mode="primary" role="option"
+        aria-selected="true">Primary</button>
+      <button class="site-mode-option" type="button" data-site-mode="secondary" role="option"
+        aria-selected="false">Secondary</button>
+    </div>
+  </div>
 
   <!-- NAV -->
   <nav id="navbar">
@@ -5224,7 +5370,13 @@
 
       select.addEventListener('change', () => applyBg(select.value));
 
-      applyBg(select.value);
+      function syncStripToSiteMode() {
+        const siteMode = document.body.dataset.siteMode === 'secondary' ? 'mahogany' : 'navy';
+        applyBg(siteMode);
+      }
+
+      document.addEventListener('site-mode-change', syncStripToSiteMode);
+      syncStripToSiteMode();
     })();
   </script>
 
@@ -5692,6 +5844,72 @@
       }, { threshold: 0.35 });
 
       statsObserver.observe(statsWrap);
+    })();
+  </script>
+
+  <script>
+    (function () {
+      const switcher = document.getElementById('siteModeSwitcher');
+      const trigger = document.getElementById('siteModeTrigger');
+      const menu = document.getElementById('siteModeMenu');
+      const value = document.getElementById('siteModeValue');
+      if (!switcher || !trigger || !menu || !value) return;
+
+      const options = Array.from(menu.querySelectorAll('.site-mode-option'));
+      const labels = {
+        primary: 'Primary',
+        secondary: 'Secondary'
+      };
+
+      function setMode(mode) {
+        const nextMode = labels[mode] ? mode : 'primary';
+        document.body.dataset.siteMode = nextMode;
+        value.textContent = labels[nextMode];
+
+        options.forEach((option) => {
+          const isActive = option.dataset.siteMode === nextMode;
+          option.classList.toggle('is-active', isActive);
+          option.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        });
+
+        document.dispatchEvent(new CustomEvent('site-mode-change', {
+          detail: { mode: nextMode }
+        }));
+      }
+
+      function openMenu() {
+        switcher.classList.add('is-open');
+        trigger.setAttribute('aria-expanded', 'true');
+        menu.hidden = false;
+      }
+
+      function closeMenu() {
+        switcher.classList.remove('is-open');
+        trigger.setAttribute('aria-expanded', 'false');
+        menu.hidden = true;
+      }
+
+      trigger.addEventListener('click', () => {
+        if (menu.hidden) openMenu();
+        else closeMenu();
+      });
+
+      options.forEach((option) => {
+        option.addEventListener('click', () => {
+          setMode(option.dataset.siteMode);
+          closeMenu();
+        });
+      });
+
+      document.addEventListener('click', (event) => {
+        if (!switcher.contains(event.target)) closeMenu();
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') closeMenu();
+      });
+
+      setMode('primary');
     })();
   </script>
 
