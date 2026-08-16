@@ -2429,11 +2429,18 @@
       outline: 2px solid #1C1812;
       outline-offset: 2px;
       box-shadow: 0 34px 70px -14px rgba(0, 0, 0, .38);
-      transition: opacity .2s ease;
+      transition: transform .35s ease, box-shadow .35s ease, opacity .2s ease;
+      transform: translateY(0) scale(1);
+      cursor: pointer;
     }
 
     .ptw-center-frame.ptw-fading {
       opacity: 0;
+    }
+
+    .ptw-center-frame:hover {
+      transform: translateY(-4px) scale(1.05);
+      box-shadow: 0 22px 40px -12px rgba(0, 0, 0, .38);
     }
 
     .ptw-center-frame img {
