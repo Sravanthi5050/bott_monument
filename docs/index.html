@@ -2284,12 +2284,28 @@
     }
 
     .founder-img-side img {
+      position: absolute;
+      inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
       object-position: top center;
       display: block;
       filter: grayscale(18%) contrast(1.06);
+    }
+
+    .founder-img--primary {
+      display: block;
+      visibility: visible;
+      opacity: 1;
+      z-index: 1;
+    }
+
+    .founder-img--secondary {
+      display: none;
+      visibility: hidden;
+      opacity: 0;
+      z-index: 0;
     }
 
     .founder-img-side::after {
@@ -2306,6 +2322,124 @@
       flex-direction: column;
       justify-content: center;
       padding: max(7rem, 7vw) max(5rem, 5vw) max(7rem, 7vw) max(3.5rem, 3.7vw);
+    }
+
+    .founder-panel--primary {
+      display: flex;
+      flex-direction: column;
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .founder-panel--secondary {
+      display: none;
+      visibility: hidden;
+      opacity: 0;
+    }
+
+    body[data-site-mode="primary"] .founder-img--primary {
+      display: none !important;
+      visibility: hidden !important;
+      opacity: 0 !important;
+      z-index: 0;
+    }
+
+    body[data-site-mode="primary"] .founder-img--secondary {
+      display: block !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+      z-index: 1;
+      object-position: left center;
+      filter: none;
+    }
+
+    body[data-site-mode="primary"] #founder {
+      grid-template-columns: 65% 35%;
+      background: #E9DFD2;
+    }
+
+    body[data-site-mode="primary"] .founder-img-side {
+      min-height: 100vh;
+    }
+
+    body[data-site-mode="primary"] .founder-panel--primary {
+      display: none !important;
+      visibility: hidden !important;
+      opacity: 0 !important;
+    }
+
+    body[data-site-mode="primary"] .founder-panel--secondary {
+      width: min(100%, 19rem);
+      min-height: 100%;
+      display: flex !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #2B241D;
+    }
+
+    body[data-site-mode="primary"] .founder-content {
+      position: relative;
+      z-index: 1;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(2.4rem, 3vw, 3.4rem) clamp(1.1rem, 1.5vw, 1.6rem);
+      background: #1F2B39;
+      box-shadow: inset 1px 0 0 rgba(178, 135, 59, .14);
+    }
+
+    body[data-site-mode="primary"] .founder-img-side::after {
+      background:
+        linear-gradient(to right, rgba(233, 223, 210, 0) 97.5%, rgba(233, 223, 210, .1) 100%);
+    }
+
+    body[data-site-mode="primary"] .founder-panel--secondary {
+      color: #F2E8D9;
+    }
+
+    body[data-site-mode="primary"] .founder-secondary-kicker {
+      color: #C49A3A;
+    }
+
+    body[data-site-mode="primary"] .founder-secondary-title,
+    body[data-site-mode="primary"] .founder-secondary-visit-title {
+      color: #F4EBDD;
+    }
+
+    body[data-site-mode="primary"] .founder-secondary-divider {
+      background: rgba(196, 154, 58, .55);
+    }
+
+    body[data-site-mode="primary"] .founder-secondary-stat-value {
+      color: #D0A13A;
+    }
+
+    body[data-site-mode="primary"] .founder-secondary-stat-label {
+      color: rgba(242, 232, 217, .78);
+    }
+
+    body[data-site-mode="primary"] .founder-secondary-visit-icon {
+      color: #D0A13A;
+      border-color: rgba(196, 154, 58, .4);
+    }
+
+    body[data-site-mode="primary"] .founder-secondary-visit-copy,
+    body[data-site-mode="primary"] .founder-secondary-visit-hours {
+      color: rgba(242, 232, 217, .8);
+    }
+
+    body[data-site-mode="primary"] .founder-secondary-cta {
+      background: #C49A3A;
+      border-color: #C49A3A;
+      color: #18222D;
+    }
+
+    body[data-site-mode="primary"] .founder-secondary-cta:hover {
+      background: #D5AB4A;
+      border-color: #D5AB4A;
     }
 
     .founder-eyebrow {
@@ -2439,9 +2573,265 @@
   width: 3rem;
 }
 
-.founder-stats.counted .founder-stat:nth-child(2) .founder-stat-rule { transition-delay: .45s; }
-.founder-stats.counted .founder-stat:nth-child(3) .founder-stat-rule { transition-delay: .6s; }
-.founder-stats.counted .founder-stat:nth-child(4) .founder-stat-rule { transition-delay: .75s; }
+    .founder-stats.counted .founder-stat:nth-child(2) .founder-stat-rule { transition-delay: .45s; }
+    .founder-stats.counted .founder-stat:nth-child(3) .founder-stat-rule { transition-delay: .6s; }
+    .founder-stats.counted .founder-stat:nth-child(4) .founder-stat-rule { transition-delay: .75s; }
+
+    body[data-site-mode="secondary"] #founder {
+      grid-template-columns: 1fr 1fr;
+      background: #C4B09A;
+    }
+
+    body[data-site-mode="secondary"] .founder-img--primary {
+      position: static !important;
+      display: block !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      filter: grayscale(18%) contrast(1.06);
+      z-index: 1;
+    }
+
+    body[data-site-mode="secondary"] .founder-img--secondary {
+      display: none;
+      visibility: hidden;
+      opacity: 0;
+      z-index: 0;
+    }
+
+    body[data-site-mode="secondary"] .founder-img-side::after {
+      background:
+        linear-gradient(to right, rgba(196, 176, 154, .05) 40%, #C4B09A 100%),
+        linear-gradient(to bottom, #C4B09A 0%, transparent 10%, transparent 90%, #C4B09A 100%);
+    }
+
+    body[data-site-mode="secondary"] .founder-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: stretch;
+      padding: max(7rem, 7vw) max(5rem, 5vw) max(7rem, 7vw) max(3.5rem, 3.7vw);
+    }
+
+    body[data-site-mode="secondary"] .founder-panel--primary {
+      display: flex;
+      flex-direction: column;
+      visibility: visible;
+      opacity: 1;
+    }
+
+    body[data-site-mode="secondary"] .founder-panel--secondary {
+      display: none;
+      visibility: hidden;
+      opacity: 0;
+    }
+
+    .founder-secondary-kicker {
+      font-family: var(--font-utility);
+      font-size: .72rem;
+      font-weight: 500;
+      letter-spacing: .42em;
+      text-transform: uppercase;
+      color: #2B2014;
+      margin-bottom: 1.2rem;
+    }
+
+    .founder-secondary-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 2.8vw, 3rem);
+      font-weight: 600;
+      line-height: 1.04;
+      color: #4B3A2C;
+      margin-bottom: 1.65rem;
+    }
+
+    .founder-secondary-divider {
+      width: 100%;
+      height: 1px;
+      background: rgba(178, 135, 59, .48);
+      margin: 0 0 1.55rem;
+    }
+
+    .founder-secondary-stats {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: .85rem;
+      margin-bottom: 1.55rem;
+    }
+
+    .founder-secondary-stat {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .2rem;
+    }
+
+    .founder-secondary-stat-value {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 2.4vw, 2.6rem);
+      font-weight: 600;
+      line-height: 1;
+      color: #B2873B;
+    }
+
+    .founder-secondary-stat-label {
+      font-family: var(--font-display);
+      font-size: .54rem;
+      font-weight: 600;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: #7C6650;
+    }
+
+    .founder-secondary-visit-icon {
+      width: 1.35rem;
+      height: 1.35rem;
+      margin: 0 auto 1rem;
+      display: grid;
+      place-items: center;
+      color: #B2873B;
+      border-radius: 999px;
+      border: 1px solid rgba(178, 135, 59, .3);
+      font-size: .85rem;
+    }
+
+    .founder-secondary-visit-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 2.1vw, 2.2rem);
+      font-weight: 600;
+      line-height: 1.1;
+      color: #4B3A2C;
+      margin-bottom: 1rem;
+    }
+
+    .founder-secondary-visit-copy,
+    .founder-secondary-visit-hours {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      line-height: 1.55;
+      color: #6E5846;
+    }
+
+    .founder-secondary-visit-copy {
+      margin-bottom: .9rem;
+    }
+
+    .founder-secondary-visit-hours {
+      margin-bottom: 1.8rem;
+    }
+
+    .founder-secondary-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 40px;
+      padding: .95rem 1.6rem;
+      background: #B2872E;
+      color: #FFF8EC;
+      border: 1px solid #B2872E;
+      text-decoration: none;
+      font-family: var(--font-utility);
+      font-size: .8rem;
+      font-weight: 600;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      transition: background .25s ease, transform .25s ease, border-color .25s ease;
+    }
+
+    .founder-secondary-cta:hover {
+      background: #8E6A22;
+      border-color: #8E6A22;
+      transform: translateY(-1px);
+    }
+
+    @media (max-width: 980px) {
+      #founder {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      .founder-img-side {
+        min-height: min(68vh, 760px);
+      }
+
+      .founder-content {
+        padding: 3.5rem 2rem 4rem;
+      }
+
+      .founder-bio {
+        max-width: none;
+      }
+
+      body[data-site-mode="secondary"] #founder {
+        grid-template-columns: 1fr;
+        background: #C4B09A;
+      }
+
+      body[data-site-mode="secondary"] .founder-content {
+        padding: 3.5rem 2rem 4rem;
+      }
+
+      body[data-site-mode="secondary"] .founder-panel--primary {
+        width: 100%;
+      }
+
+      body[data-site-mode="primary"] #founder {
+        grid-template-columns: 1fr;
+        background: #E9DFD2;
+      }
+
+      body[data-site-mode="primary"] .founder-content {
+        padding: 3.5rem 2rem 4rem;
+      }
+
+      body[data-site-mode="primary"] .founder-panel--secondary {
+        width: 100%;
+      }
+
+      body[data-site-mode="primary"] .founder-secondary-stats {
+        gap: .75rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .founder-name {
+        font-size: clamp(3.3rem, 14vw, 4.8rem);
+      }
+
+      .founder-quote {
+        font-size: clamp(1.45rem, 7.2vw, 2rem);
+        padding-left: 1rem;
+      }
+
+      .founder-stats {
+        gap: 1.5rem 1.25rem;
+      }
+
+      body[data-site-mode="primary"] .founder-secondary-kicker {
+        font-size: .68rem;
+        letter-spacing: .28em;
+      }
+
+      body[data-site-mode="primary"] .founder-secondary-title {
+        font-size: clamp(1.85rem, 8vw, 2.4rem);
+      }
+
+      body[data-site-mode="primary"] .founder-secondary-stats {
+        gap: .45rem;
+      }
+
+      body[data-site-mode="primary"] .founder-secondary-stat-value {
+        font-size: 1.8rem;
+      }
+
+      body[data-site-mode="primary"] .founder-secondary-visit-title {
+        font-size: 1.65rem;
+      }
+    }
 
     /* ── TESTIMONIALS (light / ivory — Direction A) ── */
     #testimonials {
@@ -4556,63 +4946,73 @@
   <!-- FOUNDER DOCUMENTARY -->
   <section id="founder">
     <div class="founder-img-side reveal">
-      <img src="images/about-main-1.jpg" alt="Drew Bott, Master Craftsman">
+      <img class="founder-img founder-img--primary" src="images/about-main-1.jpg?v=primary-20260819" alt="Drew Bott, Master Craftsman">
+      <img class="founder-img founder-img--secondary" src="images/IMG_0180.jpg?v=secondary-20260819" alt="Bott Monument showroom interior">
     </div>
     <div class="founder-content reveal reveal-delay-1">
-      <!-- <p class="founder-eyebrow">Our Story</p> -->
-      <h2 class="founder-name">Bott<br>Monument</h2>
-      <p class="founder-role">Built on Stone. Rooted in Service.</p>
-      <div class="founder-rule"></div>
-      <blockquote class="founder-quote">"Every family deserves a monument as unique as the person it remembers."</blockquote>
-      <p class="founder-bio">Bott Monument has served families across the Rocky Mountain region for over three decades, crafting custom memorials in granite, marble, and bronze that stand for generations. Founded in Wyoming and proudly family-owned, we are not a factory — we are a studio guided by craftsmanship, driven by care, and committed to the kind of personal service that only a family business can offer.</p>
-      <div class="founder-stats">
-        <div class="founder-stat">
-          <p class="founder-stat-num"><span data-target="35">0</span><sup>+</sup></p>
-          <div class="founder-stat-rule"></div>
-          <p class="founder-stat-label">Years of craft</p>
-        </div>
-        <div class="founder-stat">
-          <p class="founder-stat-num"><span data-target="1000">0</span><sup>+</sup></p>
-          <div class="founder-stat-rule"></div>
-          <p class="founder-stat-label">Memorials created</p>
-        </div>
-        <div class="founder-stat">
-          <p class="founder-stat-num"><span data-target="6">0</span></p>
-          <div class="founder-stat-rule"></div>
-          <p class="founder-stat-label">States served</p>
-        </div>
-        <div class="founder-stat">
-          <p class="founder-stat-num is-infinity" aria-label="Infinity">
-            <svg class="founder-stat-infinity" viewBox="0 0 120 72" role="img" aria-hidden="true">
-              <path
-                class="founder-stat-infinity-path"
-                d="M24.3 30C11.4 30 5 43.3 5 50s6.4 20 19.3 20c19.3 0 32.1-40 51.4-40C88.6 30 95 43.3 95 50s-6.4 20-19.3 20C56.4 70 43.6 30 24.3 30z"
-                transform="translate(60 36) scale(0.96) translate(-50 -50)"
-              ></path>
-            </svg>
-          </p>
-          <div class="founder-stat-rule"></div>
-          <p class="founder-stat-label">Legacies honored</p>
+      <div class="founder-panel founder-panel--primary">
+        <!-- <p class="founder-eyebrow">Our Story</p> -->
+        <h2 class="founder-name">Bott<br>Monument</h2>
+        <p class="founder-role">Built on Stone. Rooted in Service.</p>
+        <div class="founder-rule"></div>
+        <blockquote class="founder-quote">"Every family deserves a monument as unique as the person it remembers."</blockquote>
+        <p class="founder-bio">Bott Monument has served families across the Rocky Mountain region for over three decades, crafting custom memorials in granite, marble, and bronze that stand for generations. Founded in Wyoming and proudly family-owned, we are not a factory — we are a studio guided by craftsmanship, driven by care, and committed to the kind of personal service that only a family business can offer.</p>
+        <div class="founder-stats">
+          <div class="founder-stat">
+            <p class="founder-stat-num"><span data-target="35">0</span><sup>+</sup></p>
+            <div class="founder-stat-rule"></div>
+            <p class="founder-stat-label">Years of craft</p>
+          </div>
+          <div class="founder-stat">
+            <p class="founder-stat-num"><span data-target="1000">0</span><sup>+</sup></p>
+            <div class="founder-stat-rule"></div>
+            <p class="founder-stat-label">Memorials created</p>
+          </div>
+          <div class="founder-stat">
+            <p class="founder-stat-num"><span data-target="6">0</span></p>
+            <div class="founder-stat-rule"></div>
+            <p class="founder-stat-label">States served</p>
+          </div>
+          <div class="founder-stat">
+            <p class="founder-stat-num is-infinity" aria-label="Infinity">
+              <svg class="founder-stat-infinity" viewBox="0 0 120 72" role="img" aria-hidden="true">
+                <path
+                  class="founder-stat-infinity-path"
+                  d="M24.3 30C11.4 30 5 43.3 5 50s6.4 20 19.3 20c19.3 0 32.1-40 51.4-40C88.6 30 95 43.3 95 50s-6.4 20-19.3 20C56.4 70 43.6 30 24.3 30z"
+                  transform="translate(60 36) scale(0.96) translate(-50 -50)"
+                ></path>
+              </svg>
+            </p>
+            <div class="founder-stat-rule"></div>
+            <p class="founder-stat-label">Legacies honored</p>
+          </div>
         </div>
       </div>
-      <!-- <div class="founder-stats">
-        <div class="founder-stat">
-          <p class="founder-stat-num">35<sup>+</sup></p>
-          <p class="founder-stat-label">Years of craft</p>
+      <div class="founder-panel founder-panel--secondary">
+        <p class="founder-secondary-kicker">A Legacy of Craft</p>
+        <h2 class="founder-secondary-title">Trusted for generations</h2>
+        <div class="founder-secondary-divider" aria-hidden="true"></div>
+        <div class="founder-secondary-stats">
+          <div class="founder-secondary-stat">
+            <p class="founder-secondary-stat-value" data-target="35" data-suffix="+" data-final="35+">35+</p>
+            <p class="founder-secondary-stat-label">Years</p>
+          </div>
+          <div class="founder-secondary-stat">
+            <p class="founder-secondary-stat-value" data-target="6" data-final="6">6</p>
+            <p class="founder-secondary-stat-label">States</p>
+          </div>
+          <div class="founder-secondary-stat">
+            <p class="founder-secondary-stat-value" data-target="1000" data-suffix="+" data-final="1k+">1k+</p>
+            <p class="founder-secondary-stat-label">Memorials</p>
+          </div>
         </div>
-        <div class="founder-stat">
-          <p class="founder-stat-num">1,000<sup>+</sup></p>
-          <p class="founder-stat-label">Memorials created</p>
-        </div>
-        <div class="founder-stat">
-          <p class="founder-stat-num">6</p>
-          <p class="founder-stat-label">States served</p>
-        </div>
-        <div class="founder-stat">
-          <p class="founder-stat-num">&#8734;</p>
-          <p class="founder-stat-label">Legacies honored</p>
-        </div>
-      </div> -->
+        <div class="founder-secondary-divider" aria-hidden="true"></div>
+        <div class="founder-secondary-visit-icon" aria-hidden="true">⌖</div>
+        <h3 class="founder-secondary-visit-title">Visit our showroom</h3>
+        <p class="founder-secondary-visit-copy">Wyoming Studio<br>By appointment only</p>
+        <p class="founder-secondary-visit-hours">Mon-Fri · 9am-5pm<br>Sat · by appointment</p>
+        <a class="founder-secondary-cta" href="#contact">Schedule a Visit</a>
+      </div>
     </div>
   </section>
    <!-- page 6 -->
@@ -5556,6 +5956,135 @@
       }, { threshold: 0.35 });
 
       statsObserver.observe(statsWrap);
+    })();
+  </script>
+
+  <script>
+    (function () {
+      const founderSection = document.getElementById('founder');
+      const secondaryStats = Array.from(document.querySelectorAll('.founder-secondary-stat-value[data-target]'));
+      if (!founderSection || !secondaryStats.length) return;
+
+      let animationRunId = 0;
+      let cycleTimer = null;
+      let isFounderVisible = false;
+
+      function clearCycleTimer() {
+        if (!cycleTimer) return;
+        window.clearTimeout(cycleTimer);
+        cycleTimer = null;
+      }
+
+      function isPrimaryModeActive() {
+        return document.body.dataset.siteMode === 'primary';
+      }
+
+      function shouldAnimate() {
+        return isFounderVisible && isPrimaryModeActive();
+      }
+
+      function formatValue(el, value, isComplete) {
+        if (isComplete) return el.dataset.final || value.toLocaleString();
+
+        const suffix = el.dataset.suffix || '';
+        return `${Math.round(value).toLocaleString()}${suffix}`;
+      }
+
+      function resetSecondaryStats() {
+        animationRunId += 1;
+        clearCycleTimer();
+
+        secondaryStats.forEach((el) => {
+          const suffix = el.dataset.suffix || '';
+          el.textContent = `0${suffix}`;
+        });
+      }
+
+      function animateSecondaryStat(el, runId, delay) {
+        const target = parseInt(el.dataset.target, 10);
+        const duration = 1500;
+        let start = null;
+
+        function step(ts) {
+          if (runId !== animationRunId) return;
+          if (!shouldAnimate()) return;
+          if (!start) start = ts;
+
+          const elapsed = ts - start;
+          if (elapsed < delay) {
+            requestAnimationFrame(step);
+            return;
+          }
+
+          const progress = Math.min(1, (elapsed - delay) / duration);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          const current = target * eased;
+          el.textContent = formatValue(el, current, progress >= 1);
+
+          if (progress < 1) {
+            requestAnimationFrame(step);
+          }
+        }
+
+        requestAnimationFrame(step);
+      }
+
+      function startSecondaryCycle() {
+        if (!shouldAnimate()) return;
+
+        animationRunId += 1;
+        clearCycleTimer();
+
+        const runId = animationRunId;
+        secondaryStats.forEach((el, index) => {
+          animateSecondaryStat(el, runId, index * 140);
+        });
+
+        cycleTimer = window.setTimeout(() => {
+          if (runId !== animationRunId || !shouldAnimate()) return;
+          resetSecondaryStats();
+          startSecondaryCycle();
+        }, 3600);
+      }
+
+      function syncSecondaryStats() {
+        if (shouldAnimate()) {
+          resetSecondaryStats();
+          startSecondaryCycle();
+          return;
+        }
+
+        resetSecondaryStats();
+        secondaryStats.forEach((el) => {
+          el.textContent = el.dataset.final || el.textContent;
+        });
+      }
+
+      const founderObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          isFounderVisible = entry.isIntersecting;
+          syncSecondaryStats();
+        });
+      }, { threshold: 0.4 });
+
+      founderObserver.observe(founderSection);
+
+      document.addEventListener('site-mode-change', syncSecondaryStats);
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+          resetSecondaryStats();
+          secondaryStats.forEach((el) => {
+            el.textContent = el.dataset.final || el.textContent;
+          });
+          return;
+        }
+
+        syncSecondaryStats();
+      });
+
+      secondaryStats.forEach((el) => {
+        el.textContent = el.dataset.final || el.textContent;
+      });
     })();
   </script>
 
