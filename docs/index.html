@@ -2294,13 +2294,6 @@
       filter: grayscale(18%) contrast(1.06);
     }
 
-    .founder-img--primary {
-      display: block;
-      visibility: visible;
-      opacity: 1;
-      z-index: 1;
-    }
-
     .founder-img--secondary {
       display: none;
       visibility: hidden;
@@ -2324,24 +2317,10 @@
       padding: max(7rem, 7vw) max(5rem, 5vw) max(7rem, 7vw) max(3.5rem, 3.7vw);
     }
 
-    .founder-panel--primary {
-      display: flex;
-      flex-direction: column;
-      visibility: visible;
-      opacity: 1;
-    }
-
     .founder-panel--secondary {
       display: none;
       visibility: hidden;
       opacity: 0;
-    }
-
-    body[data-site-mode="primary"] .founder-img--primary {
-      display: none !important;
-      visibility: hidden !important;
-      opacity: 0 !important;
-      z-index: 0;
     }
 
     body[data-site-mode="primary"] .founder-img--secondary {
@@ -2360,12 +2339,6 @@
 
     body[data-site-mode="primary"] .founder-img-side {
       min-height: 100vh;
-    }
-
-    body[data-site-mode="primary"] .founder-panel--primary {
-      display: none !important;
-      visibility: hidden !important;
-      opacity: 0 !important;
     }
 
     body[data-site-mode="primary"] .founder-panel--secondary {
@@ -2442,191 +2415,26 @@
       border-color: #D5AB4A;
     }
 
-    .founder-eyebrow {
-      font-family: var(--font-utility);
-      font-size: max(.5rem, .48vw);
-      letter-spacing: .32em;
-      text-transform: uppercase;
-      color: #6B4F2A;
-      margin-bottom: 1.4rem;
-    }
-
-    .founder-name {
-      font-family: var(--font-display);
-      font-size: max(3.5rem, 6.5vw);
-      font-weight: 300;
-      color: #1C1812;
-      line-height: .92;
-      margin-bottom: .9rem;
-      letter-spacing: -.01em;
-    }
-
-    .founder-role {
-      font-family: var(--font-display);
-      font-size: max(.9rem, 1.22vw);
-      font-style: italic;
-      font-weight: 300;
-      color: #4A3C2E;
-      margin-bottom: 1.6rem;
-    }
-
-    .founder-rule {
-      width: 3rem;
-      height: 1px;
-      background: #8A6B2E;
-      opacity: .6;
-      margin-bottom: 2rem;
-    }
-
-    .founder-quote {
-      font-family: var(--font-display);
-      font-size: max(1.15rem, 2vw);
-      font-style: italic;
-      font-weight: 300;
-      color: #1C1812;
-      line-height: 1.38;
-      margin-bottom: 1.8rem;
-      border-left: 2px solid #8A6B2E;
-      padding-left: 1.4rem;
-    }
-
-    .founder-bio {
-      font-family: var(--font-utility);
-      font-size: max(.72rem, .68vw);
-      font-weight: 1000;
-      line-height: 1.85;
-      color: #1C1812;
-      letter-spacing: .03em;
-      max-width: max(400px, 26vw);
-      margin-bottom: 2.8rem;
-    }
-
-    .founder-stats {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem 3rem;
-      border-top: 1px solid rgba(44, 36, 28, .2);
-      padding-top: 2rem;
-    }
-
-    .founder-stat-num {
-      font-family: var(--font-display);
-      font-size: max(2.2rem, 3.8vw);
-      font-weight: 300;
-      color: #6B4F2A;
-      line-height: 1;
-    }
-
-    .founder-stat-num.is-infinity {
-      display: flex;
-      align-items: center;
-      min-height: max(2.2rem, 3.8vw);
-    }
-
-    .founder-stat-infinity {
-      width: max(3.6rem, 5vw);
-      height: auto;
-      overflow: visible;
-      color: #6B4F2A;
-    }
-
-    .founder-stat-infinity-path {
-      fill: none;
-      stroke: currentColor;
-      stroke-width: 10;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      stroke-dasharray: 205.271142578125 51.317785644531256;
-      animation: founderInfinityFlow 2s linear infinite;
-    }
-
-    @keyframes founderInfinityFlow {
-      to {
-        stroke-dashoffset: 256.58892822265625;
-      }
-    }
-
-    .founder-stat-num sup {
-      font-size: 55%;
-      vertical-align: super;
-    }
-
-    .founder-stat-label {
-      font-family: var(--font-utility);
-      font-size: max(.46rem, .44vw);
-      letter-spacing: .2em;
-      text-transform: uppercase;
-      color: rgba(44, 36, 28, .55);
-      margin-top: .45rem;
-    }
-
-    .founder-stat-rule {
-  width: 0;
-  height: 1px;
-  background: #8A6B2E;
-  opacity: .6;
-  margin-top: .7rem;
-  transition: width .9s ease .3s;
-}
-
-.founder-stats.counted .founder-stat-rule {
-  width: 3rem;
-}
-
-    .founder-stats.counted .founder-stat:nth-child(2) .founder-stat-rule { transition-delay: .45s; }
-    .founder-stats.counted .founder-stat:nth-child(3) .founder-stat-rule { transition-delay: .6s; }
-    .founder-stats.counted .founder-stat:nth-child(4) .founder-stat-rule { transition-delay: .75s; }
-
+    /* ── SECONDARY: single pre-composed showroom image, shown as-is ── */
     body[data-site-mode="secondary"] #founder {
-      grid-template-columns: 1fr 1fr;
-      background: #C4B09A;
+      display: block;
+      min-height: 0;
+      background: #17110A;
     }
 
-    body[data-site-mode="secondary"] .founder-img--primary {
-      position: static !important;
-      display: block !important;
-      visibility: visible !important;
-      opacity: 1 !important;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: top center;
-      filter: grayscale(18%) contrast(1.06);
-      z-index: 1;
-    }
-
-    body[data-site-mode="secondary"] .founder-img--secondary {
-      display: none;
-      visibility: hidden;
-      opacity: 0;
-      z-index: 0;
-    }
-
-    body[data-site-mode="secondary"] .founder-img-side::after {
-      background:
-        linear-gradient(to right, rgba(196, 176, 154, .05) 40%, #C4B09A 100%),
-        linear-gradient(to bottom, #C4B09A 0%, transparent 10%, transparent 90%, #C4B09A 100%);
-    }
-
+    body[data-site-mode="secondary"] .founder-img-side,
     body[data-site-mode="secondary"] .founder-content {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: stretch;
-      padding: max(7rem, 7vw) max(5rem, 5vw) max(7rem, 7vw) max(3.5rem, 3.7vw);
+      display: none !important;
     }
 
-    body[data-site-mode="secondary"] .founder-panel--primary {
-      display: flex;
-      flex-direction: column;
-      visibility: visible;
-      opacity: 1;
-    }
-
-    body[data-site-mode="secondary"] .founder-panel--secondary {
+    .founder-secondary-image {
       display: none;
-      visibility: hidden;
-      opacity: 0;
+      width: 100%;
+      height: auto;
+    }
+
+    body[data-site-mode="secondary"] .founder-secondary-image {
+      display: block;
     }
 
     .founder-secondary-kicker {
@@ -2762,23 +2570,6 @@
         padding: 3.5rem 2rem 4rem;
       }
 
-      .founder-bio {
-        max-width: none;
-      }
-
-      body[data-site-mode="secondary"] #founder {
-        grid-template-columns: 1fr;
-        background: #C4B09A;
-      }
-
-      body[data-site-mode="secondary"] .founder-content {
-        padding: 3.5rem 2rem 4rem;
-      }
-
-      body[data-site-mode="secondary"] .founder-panel--primary {
-        width: 100%;
-      }
-
       body[data-site-mode="primary"] #founder {
         grid-template-columns: 1fr;
         background: #E9DFD2;
@@ -2798,19 +2589,6 @@
     }
 
     @media (max-width: 640px) {
-      .founder-name {
-        font-size: clamp(3.3rem, 14vw, 4.8rem);
-      }
-
-      .founder-quote {
-        font-size: clamp(1.45rem, 7.2vw, 2rem);
-        padding-left: 1rem;
-      }
-
-      .founder-stats {
-        gap: 1.5rem 1.25rem;
-      }
-
       body[data-site-mode="primary"] .founder-secondary-kicker {
         font-size: .68rem;
         letter-spacing: .28em;
@@ -2928,16 +2706,6 @@
       flex-direction: column;
       gap: 1.5rem;
       min-height: 100%;
-      animation: testScroll linear infinite;
-    }
-
-    .test-col--a .test-col-track { animation-duration: 22s; }
-    .test-col--b .test-col-track { animation-duration: 26s; }
-    .test-col--c .test-col-track { animation-duration: 30s; }
-
-    @keyframes testScroll {
-      from { transform: translateY(0); }
-      to   { transform: translateY(-50%); }
     }
 
     .test-card {
@@ -2957,10 +2725,6 @@
       border-color: #B5892E;
       box-shadow: 0 30px 60px -20px rgba(43, 38, 32, .32);
       z-index: 3;
-    }
-
-    .test-col:has(.test-card:hover) .test-col-track {
-      animation-play-state: paused;
     }
 
     .test-quote {
@@ -4991,48 +4755,9 @@
   <!-- FOUNDER DOCUMENTARY -->
   <section id="founder">
     <div class="founder-img-side reveal">
-      <img class="founder-img founder-img--primary" src="images/about-main-1.jpg?v=primary-20260819" alt="Drew Bott, Master Craftsman">
       <img class="founder-img founder-img--secondary" src="images/IMG_0180.jpg?v=secondary-20260819" alt="Bott Monument showroom interior">
     </div>
     <div class="founder-content reveal reveal-delay-1">
-      <div class="founder-panel founder-panel--primary">
-        <!-- <p class="founder-eyebrow">Our Story</p> -->
-        <h2 class="founder-name">Bott<br>Monument</h2>
-        <p class="founder-role">Built on Stone. Rooted in Service.</p>
-        <div class="founder-rule"></div>
-        <blockquote class="founder-quote">"Every family deserves a monument as unique as the person it remembers."</blockquote>
-        <p class="founder-bio">Bott Monument has served families across the Rocky Mountain region for over three decades, crafting custom memorials in granite, marble, and bronze that stand for generations. Founded in Wyoming and proudly family-owned, we are not a factory — we are a studio guided by craftsmanship, driven by care, and committed to the kind of personal service that only a family business can offer.</p>
-        <div class="founder-stats">
-          <div class="founder-stat">
-            <p class="founder-stat-num"><span data-target="35">0</span><sup>+</sup></p>
-            <div class="founder-stat-rule"></div>
-            <p class="founder-stat-label">Years of craft</p>
-          </div>
-          <div class="founder-stat">
-            <p class="founder-stat-num"><span data-target="1000">0</span><sup>+</sup></p>
-            <div class="founder-stat-rule"></div>
-            <p class="founder-stat-label">Memorials created</p>
-          </div>
-          <div class="founder-stat">
-            <p class="founder-stat-num"><span data-target="6">0</span></p>
-            <div class="founder-stat-rule"></div>
-            <p class="founder-stat-label">States served</p>
-          </div>
-          <div class="founder-stat">
-            <p class="founder-stat-num is-infinity" aria-label="Infinity">
-              <svg class="founder-stat-infinity" viewBox="0 0 120 72" role="img" aria-hidden="true">
-                <path
-                  class="founder-stat-infinity-path"
-                  d="M24.3 30C11.4 30 5 43.3 5 50s6.4 20 19.3 20c19.3 0 32.1-40 51.4-40C88.6 30 95 43.3 95 50s-6.4 20-19.3 20C56.4 70 43.6 30 24.3 30z"
-                  transform="translate(60 36) scale(0.96) translate(-50 -50)"
-                ></path>
-              </svg>
-            </p>
-            <div class="founder-stat-rule"></div>
-            <p class="founder-stat-label">Legacies honored</p>
-          </div>
-        </div>
-      </div>
       <div class="founder-panel founder-panel--secondary">
         <p class="founder-secondary-kicker">A Legacy of Craft</p>
         <h2 class="founder-secondary-title">Trusted for generations</h2>
@@ -5059,6 +4784,7 @@
         <a class="founder-secondary-cta" href="#contact">Schedule a Visit</a>
       </div>
     </div>
+    <img class="founder-secondary-image" src="images/image4.PNG" alt="Trusted for generations — Bott Monument showroom">
   </section>
    <!-- page 6 -->
   <section id="testimonials">
@@ -5956,77 +5682,29 @@
 
   <script>
     (function () {
-      const statsWrap = document.querySelector('.founder-stats');
-      if (!statsWrap) return;
-      const statNumbers = Array.from(statsWrap.querySelectorAll('[data-target]'));
-      let animationRunId = 0;
-      let isActive = false;
-
-      function resetStats() {
-        animationRunId += 1;
-        statsWrap.classList.remove('counted');
-        statNumbers.forEach((el) => {
-          el.textContent = '0';
-        });
-      }
-
-      function countUp(el, runId) {
-        const target = parseInt(el.dataset.target, 10);
-        const duration = 1800;
-        let start = null;
-        function step(ts) {
-          if (runId !== animationRunId) return;
-          if (!start) start = ts;
-          const p = Math.min(1, (ts - start) / duration);
-          const eased = 1 - Math.pow(1 - p, 3);
-          el.textContent = Math.round(target * eased).toLocaleString();
-          if (p < 1) requestAnimationFrame(step);
-        }
-        requestAnimationFrame(step);
-      }
-
-      function startStats() {
-        animationRunId += 1;
-        const runId = animationRunId;
-        statsWrap.classList.add('counted');
-        statNumbers.forEach((el) => countUp(el, runId));
-      }
-
-      resetStats();
-
-      const statsObserver = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            if (isActive) return;
-            isActive = true;
-            resetStats();
-            startStats();
-            return;
-          }
-
-          if (!isActive) return;
-          isActive = false;
-          resetStats();
-        });
-      }, { threshold: 0.35 });
-
-      statsObserver.observe(statsWrap);
-    })();
-  </script>
-
-  <script>
-    (function () {
       const testimonials = document.getElementById('testimonials');
-      const columnsWrap = testimonials ? testimonials.querySelector('.test-columns') : null;
-      const columns = columnsWrap ? Array.from(columnsWrap.querySelectorAll('.test-col')) : [];
-      if (!testimonials || !columnsWrap || !columns.length) return;
+      const columns = testimonials ? Array.from(testimonials.querySelectorAll('.test-col')) : [];
+      if (!testimonials || !columns.length) return;
 
       const desktopQuery = window.matchMedia('(min-width: 901px)');
-      let manualPauseTimer = null;
       const scrollMultipliers = [1, 0.92, 1.08];
-      const tracks = columns.map((column) => {
+      const autoSpeeds = [18, 15, 12];
+      let animationFrameId = null;
+      let lastFrameTs = 0;
+      const states = columns.map((column, index) => {
         const existingTrack = column.querySelector('.test-col-track');
-        if (existingTrack) return existingTrack;
+        if (existingTrack) {
+          return {
+            column,
+            track: existingTrack,
+            current: 0,
+            target: 0,
+            loopHeight: 0,
+            hoverPaused: false,
+            manualPauseUntil: 0,
+            speed: autoSpeeds[index % autoSpeeds.length]
+          };
+        }
 
         const track = document.createElement('div');
         track.className = 'test-col-track';
@@ -6034,79 +5712,155 @@
           track.appendChild(column.firstChild);
         }
         column.appendChild(track);
-        return track;
+        return {
+          column,
+          track,
+          current: 0,
+          target: 0,
+          loopHeight: 0,
+          hoverPaused: false,
+          manualPauseUntil: 0,
+          speed: autoSpeeds[index % autoSpeeds.length]
+        };
       });
 
-      function getColumnMaxScroll(column, track) {
-        const uniqueContentHeight = track.scrollHeight / 2;
-        return Math.max(0, uniqueContentHeight - column.clientHeight);
+      function mod(value, max) {
+        if (!max) return 0;
+        return ((value % max) + max) % max;
       }
 
-      function clampColumnScrollTops() {
-        columns.forEach((column, index) => {
-          const maxScroll = getColumnMaxScroll(column, tracks[index]);
-          column.scrollTop = Math.min(maxScroll, Math.max(0, column.scrollTop));
+      function shortestLoopDelta(current, target, loopHeight) {
+        if (!loopHeight) return 0;
+        let delta = target - current;
+        if (delta > loopHeight / 2) delta -= loopHeight;
+        if (delta < -loopHeight / 2) delta += loopHeight;
+        return delta;
+      }
+
+      function applyStateScroll(state) {
+        if (!state.loopHeight) {
+          state.column.scrollTop = 0;
+          return;
+        }
+
+        state.column.scrollTop = state.current;
+      }
+
+      function getInitialOffset(state, index) {
+        return state.loopHeight * (0.14 + (index * 0.13));
+      }
+
+      function measureStates(resetPositions) {
+        states.forEach((state, index) => {
+          state.loopHeight = Math.max(0, state.track.scrollHeight / 2);
+          if (!state.loopHeight) {
+            state.current = 0;
+            state.target = 0;
+            applyStateScroll(state);
+            return;
+          }
+
+          if (resetPositions) {
+            const start = mod(getInitialOffset(state, index), state.loopHeight);
+            state.current = start;
+            state.target = start;
+            applyStateScroll(state);
+            return;
+          }
+
+          state.current = mod(state.current, state.loopHeight);
+          state.target = mod(state.target, state.loopHeight);
+          applyStateScroll(state);
         });
       }
 
-      function setAnimationPlayState(state) {
-        tracks.forEach((track) => {
-          track.style.animationPlayState = state;
+      function stepLoop(ts) {
+        if (!desktopQuery.matches) {
+          animationFrameId = window.requestAnimationFrame(stepLoop);
+          lastFrameTs = ts;
+          return;
+        }
+
+        if (!lastFrameTs) lastFrameTs = ts;
+        const deltaSeconds = Math.min(0.05, Math.max(0, (ts - lastFrameTs) / 1000));
+        lastFrameTs = ts;
+
+        states.forEach((state) => {
+          if (!state.loopHeight) return;
+
+          if (!state.hoverPaused && ts >= state.manualPauseUntil) {
+            state.target = mod(state.target + (state.speed * deltaSeconds), state.loopHeight);
+          }
+
+          const delta = shortestLoopDelta(state.current, state.target, state.loopHeight);
+          const easedStep = Math.abs(delta) < 0.24 ? delta : delta * 0.16;
+          state.current = mod(state.current + easedStep, state.loopHeight);
+          applyStateScroll(state);
+        });
+
+        animationFrameId = window.requestAnimationFrame(stepLoop);
+      }
+
+      function startLoop() {
+        if (animationFrameId) return;
+        animationFrameId = window.requestAnimationFrame(stepLoop);
+      }
+
+      function stopLoop() {
+        if (!animationFrameId) return;
+        window.cancelAnimationFrame(animationFrameId);
+        animationFrameId = null;
+        lastFrameTs = 0;
+      }
+
+      function resetForMobile() {
+        stopLoop();
+        states.forEach((state) => {
+          state.current = 0;
+          state.target = 0;
+          state.column.scrollTop = 0;
+          state.hoverPaused = false;
+          state.manualPauseUntil = 0;
         });
       }
 
-      function pauseAnimatedColumnsTemporarily() {
-        setAnimationPlayState('paused');
-        if (manualPauseTimer) window.clearTimeout(manualPauseTimer);
-        manualPauseTimer = window.setTimeout(() => {
-          setAnimationPlayState('');
-          manualPauseTimer = null;
-        }, 1400);
-      }
-
-      function handleWheel(event) {
+      function handleWheel(state, multiplier, event) {
         if (!desktopQuery.matches) return;
-        if (!testimonials.contains(event.target)) return;
-
         const delta = event.deltaY;
-        const isScrollingDown = delta > 0;
-        const canConsumeScroll = columns.some((column, index) => {
-          const maxScroll = getColumnMaxScroll(column, tracks[index]);
-          if (isScrollingDown) return column.scrollTop < maxScroll - 1;
-          return column.scrollTop > 1;
-        });
-
-        if (!canConsumeScroll) return;
+        if (!delta || !state.loopHeight) return;
 
         event.preventDefault();
-        pauseAnimatedColumnsTemporarily();
-
-        columns.forEach((column, index) => {
-          const maxScroll = getColumnMaxScroll(column, tracks[index]);
-          const nextScrollTop = column.scrollTop + (delta * scrollMultipliers[index % scrollMultipliers.length]);
-          column.scrollTop = Math.min(maxScroll, Math.max(0, nextScrollTop));
-        });
+        state.hoverPaused = true;
+        state.manualPauseUntil = performance.now() + 1100;
+        state.target = mod(state.target + (delta * 0.62 * multiplier), state.loopHeight);
       }
 
-      columnsWrap.addEventListener('wheel', handleWheel, { passive: false });
+      states.forEach((state, index) => {
+        state.column.addEventListener('wheel', (event) => {
+          handleWheel(state, scrollMultipliers[index % scrollMultipliers.length], event);
+        }, { passive: false });
+
+        state.column.addEventListener('mouseenter', () => {
+          state.hoverPaused = true;
+        });
+
+        state.column.addEventListener('mouseleave', () => {
+          state.hoverPaused = false;
+        });
+      });
+
       window.addEventListener('resize', () => {
-        clampColumnScrollTops();
+        measureStates(!desktopQuery.matches);
       }, { passive: true });
 
       function handleViewportChange(event) {
         if (event.matches) {
-          clampColumnScrollTops();
+          measureStates(true);
+          startLoop();
           return;
         }
 
-        columns.forEach((column) => {
-          column.scrollTop = 0;
-        });
-        setAnimationPlayState('');
-        if (manualPauseTimer) {
-          window.clearTimeout(manualPauseTimer);
-          manualPauseTimer = null;
-        }
+        resetForMobile();
       }
 
       if (desktopQuery.addEventListener) {
@@ -6115,7 +5869,8 @@
         desktopQuery.addListener(handleViewportChange);
       }
 
-      clampColumnScrollTops();
+      measureStates(desktopQuery.matches);
+      startLoop();
     })();
   </script>
 
