@@ -4246,6 +4246,7 @@
       height: var(--cg-card-h, 340px);
       margin-left: calc(var(--cg-card-w, 260px) / -2);
       margin-top: calc(var(--cg-card-h, 340px) / -2);
+      transition: z-index .2s ease;
     }
 
     .cg-card {
@@ -4258,6 +4259,9 @@
       background: rgba(20, 16, 10, .6);
       box-shadow: 0 30px 60px -20px rgba(0, 0, 0, .65);
       user-select: none;
+      transform: translateZ(0) scale(1);
+      transform-origin: center center;
+      transition: transform .35s cubic-bezier(.22,1,.36,1), box-shadow .35s ease, border-color .35s ease;
     }
 
     .cg-card img {
@@ -4269,6 +4273,16 @@
       -webkit-user-drag: none;
       user-select: none;
       pointer-events: none;
+    }
+
+    .cg-item:hover {
+      z-index: 18;
+    }
+
+    .cg-item:hover .cg-card {
+      transform: translateZ(78px) scale(1.1);
+      border-color: rgba(201, 160, 80, .5);
+      box-shadow: 0 52px 96px -20px rgba(0, 0, 0, .82);
     }
 
     .cg-caption {
@@ -5798,6 +5812,7 @@
       let rotation = 0;
       let isScrolling = false;
       let scrollTimeout = null;
+      let isHoverPaused = false;
 
       function applyRotation() {
         ring.style.transform = `rotateY(${rotation}deg)`;
@@ -5826,7 +5841,7 @@
       window.addEventListener('scroll', handleScroll, { passive: true });
 
       function autoRotate() {
-        if (!isScrolling && !isDragging) {
+        if (!isScrolling && !isDragging && !isHoverPaused) {
           rotation += AUTO_ROTATE_SPEED;
           applyRotation();
         }
@@ -5876,6 +5891,15 @@
         window.addEventListener('pointerup', onDragEnd);
         window.addEventListener('pointercancel', onDragEnd);
       }
+
+      items.forEach((item) => {
+        item.addEventListener('mouseenter', () => {
+          isHoverPaused = true;
+        });
+        item.addEventListener('mouseleave', () => {
+          isHoverPaused = false;
+        });
+      });
 
       applyRotation();
       requestAnimationFrame(autoRotate);
