@@ -2894,29 +2894,46 @@
     }
 
     .test-columns {
+      --test-columns-height: 640px;
       position: relative;
       z-index: 2;
       display: flex;
       justify-content: center;
       gap: max(1.5rem, 2vw);
-      max-height: 640px;
+      max-height: var(--test-columns-height);
       overflow: hidden;
       -webkit-mask-image: linear-gradient(to bottom, transparent, #000 6%, #000 94%, transparent);
       mask-image: linear-gradient(to bottom, transparent, #000 6%, #000 94%, transparent);
     }
 
     .test-col {
+      position: relative;
+      width: min(320px, 26vw);
+      height: var(--test-columns-height);
+      padding: .95rem .95rem 1.1rem;
+      box-sizing: border-box;
+      flex-shrink: 0;
+      overflow-y: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .test-col::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+    }
+
+    .test-col-track {
       display: flex;
       flex-direction: column;
       gap: 1.5rem;
-      width: min(320px, 26vw);
-      flex-shrink: 0;
+      min-height: 100%;
       animation: testScroll linear infinite;
     }
 
-    .test-col--a { animation-duration: 22s; }
-    .test-col--b { animation-duration: 26s; }
-    .test-col--c { animation-duration: 30s; }
+    .test-col--a .test-col-track { animation-duration: 22s; }
+    .test-col--b .test-col-track { animation-duration: 26s; }
+    .test-col--c .test-col-track { animation-duration: 30s; }
 
     @keyframes testScroll {
       from { transform: translateY(0); }
@@ -2930,6 +2947,7 @@
       background: #FBF8F2;
       border: 1px solid #D8CDBB;
       box-shadow: 0 20px 45px -22px rgba(43, 38, 32, .18);
+      transform-origin: center center;
       transition: transform .4s cubic-bezier(.22,1,.36,1), box-shadow .4s ease, border-color .4s ease;
       will-change: transform;
     }
@@ -2941,7 +2959,7 @@
       z-index: 3;
     }
 
-    .test-col:has(.test-card:hover) {
+    .test-col:has(.test-card:hover) .test-col-track {
       animation-play-state: paused;
     }
 
@@ -3000,7 +3018,7 @@
       }
 
       .test-columns {
-        max-height: 520px;
+        --test-columns-height: 520px;
       }
     }
 
@@ -5969,6 +5987,111 @@
       }, { threshold: 0.35 });
 
       statsObserver.observe(statsWrap);
+    })();
+  </script>
+
+  <script>
+    (function () {
+      const testimonials = document.getElementById('testimonials');
+      const columnsWrap = testimonials ? testimonials.querySelector('.test-columns') : null;
+      const columns = columnsWrap ? Array.from(columnsWrap.querySelectorAll('.test-col')) : [];
+      if (!testimonials || !columnsWrap || !columns.length) return;
+
+      const desktopQuery = window.matchMedia('(min-width: 901px)');
+      let manualPauseTimer = null;
+      const scrollMultipliers = [1, 0.92, 1.08];
+      const tracks = columns.map((column) => {
+        const existingTrack = column.querySelector('.test-col-track');
+        if (existingTrack) return existingTrack;
+
+        const track = document.createElement('div');
+        track.className = 'test-col-track';
+        while (column.firstChild) {
+          track.appendChild(column.firstChild);
+        }
+        column.appendChild(track);
+        return track;
+      });
+
+      function getColumnMaxScroll(column, track) {
+        const uniqueContentHeight = track.scrollHeight / 2;
+        return Math.max(0, uniqueContentHeight - column.clientHeight);
+      }
+
+      function clampColumnScrollTops() {
+        columns.forEach((column, index) => {
+          const maxScroll = getColumnMaxScroll(column, tracks[index]);
+          column.scrollTop = Math.min(maxScroll, Math.max(0, column.scrollTop));
+        });
+      }
+
+      function setAnimationPlayState(state) {
+        tracks.forEach((track) => {
+          track.style.animationPlayState = state;
+        });
+      }
+
+      function pauseAnimatedColumnsTemporarily() {
+        setAnimationPlayState('paused');
+        if (manualPauseTimer) window.clearTimeout(manualPauseTimer);
+        manualPauseTimer = window.setTimeout(() => {
+          setAnimationPlayState('');
+          manualPauseTimer = null;
+        }, 1400);
+      }
+
+      function handleWheel(event) {
+        if (!desktopQuery.matches) return;
+        if (!testimonials.contains(event.target)) return;
+
+        const delta = event.deltaY;
+        const isScrollingDown = delta > 0;
+        const canConsumeScroll = columns.some((column, index) => {
+          const maxScroll = getColumnMaxScroll(column, tracks[index]);
+          if (isScrollingDown) return column.scrollTop < maxScroll - 1;
+          return column.scrollTop > 1;
+        });
+
+        if (!canConsumeScroll) return;
+
+        event.preventDefault();
+        pauseAnimatedColumnsTemporarily();
+
+        columns.forEach((column, index) => {
+          const maxScroll = getColumnMaxScroll(column, tracks[index]);
+          const nextScrollTop = column.scrollTop + (delta * scrollMultipliers[index % scrollMultipliers.length]);
+          column.scrollTop = Math.min(maxScroll, Math.max(0, nextScrollTop));
+        });
+      }
+
+      columnsWrap.addEventListener('wheel', handleWheel, { passive: false });
+      window.addEventListener('resize', () => {
+        clampColumnScrollTops();
+      }, { passive: true });
+
+      function handleViewportChange(event) {
+        if (event.matches) {
+          clampColumnScrollTops();
+          return;
+        }
+
+        columns.forEach((column) => {
+          column.scrollTop = 0;
+        });
+        setAnimationPlayState('');
+        if (manualPauseTimer) {
+          window.clearTimeout(manualPauseTimer);
+          manualPauseTimer = null;
+        }
+      }
+
+      if (desktopQuery.addEventListener) {
+        desktopQuery.addEventListener('change', handleViewportChange);
+      } else if (desktopQuery.addListener) {
+        desktopQuery.addListener(handleViewportChange);
+      }
+
+      clampColumnScrollTops();
     })();
   </script>
 
