@@ -2689,9 +2689,13 @@
       padding: .95rem .95rem 1.1rem;
       box-sizing: border-box;
       flex-shrink: 0;
-      overflow-y: auto;
+      overflow: hidden;
       scrollbar-width: none;
       -ms-overflow-style: none;
+    }
+
+    .test-col.is-scroll-armed {
+      overflow-y: auto;
     }
 
     .test-col::-webkit-scrollbar {
@@ -5698,6 +5702,11 @@
             current: 0,
             target: 0,
             loopHeight: 0,
+            isManualActive: false,
+            isDragging: false,
+            dragPointerId: null,
+            dragStartY: 0,
+            dragStartTarget: 0,
             hoverPaused: false,
             manualPauseUntil: 0,
             speed: autoSpeeds[index % autoSpeeds.length]
@@ -5716,11 +5725,33 @@
           current: 0,
           target: 0,
           loopHeight: 0,
+          isManualActive: false,
+          isDragging: false,
+          dragPointerId: null,
+          dragStartY: 0,
+          dragStartTarget: 0,
           hoverPaused: false,
           manualPauseUntil: 0,
           speed: autoSpeeds[index % autoSpeeds.length]
         };
       });
+      const DRAG_SCROLL_SENSITIVITY = 1.08;
+
+      function deactivateManualScroll() {
+        states.forEach((state) => {
+          state.isManualActive = false;
+          state.isDragging = false;
+          state.dragPointerId = null;
+          state.column.classList.remove('is-scroll-armed');
+        });
+      }
+
+      function activateManualScroll(nextState) {
+        states.forEach((state) => {
+          state.isManualActive = state === nextState;
+          state.column.classList.toggle('is-scroll-armed', state === nextState);
+        });
+      }
 
       function mod(value, max) {
         if (!max) return 0;
@@ -5817,6 +5848,10 @@
           state.current = 0;
           state.target = 0;
           state.column.scrollTop = 0;
+          state.isManualActive = false;
+          state.isDragging = false;
+          state.dragPointerId = null;
+          state.column.classList.remove('is-scroll-armed');
           state.hoverPaused = false;
           state.manualPauseUntil = 0;
         });
@@ -5824,6 +5859,7 @@
 
       function handleWheel(state, multiplier, event) {
         if (!desktopQuery.matches) return;
+        if (!state.isManualActive) return;
         const delta = event.deltaY;
         if (!delta || !state.loopHeight) return;
 
@@ -5833,7 +5869,49 @@
         state.target = mod(state.target + (delta * 0.62 * multiplier), state.loopHeight);
       }
 
+      function beginColumnDrag(state, event) {
+        activateManualScroll(state);
+        state.isDragging = true;
+        state.dragPointerId = event.pointerId;
+        state.dragStartY = event.clientY;
+        state.dragStartTarget = state.target;
+        state.hoverPaused = true;
+        state.manualPauseUntil = performance.now() + 1100;
+        if (state.column.setPointerCapture) {
+          try { state.column.setPointerCapture(event.pointerId); } catch (err) { /* noop */ }
+        }
+      }
+
+      function updateColumnDrag(state, event) {
+        if (!state.isDragging || event.pointerId !== state.dragPointerId) return;
+        const deltaY = event.clientY - state.dragStartY;
+        state.hoverPaused = true;
+        state.manualPauseUntil = performance.now() + 1100;
+        state.target = mod(state.dragStartTarget - (deltaY * DRAG_SCROLL_SENSITIVITY), state.loopHeight);
+        event.preventDefault();
+      }
+
+      function endColumnDrag(event) {
+        states.forEach((state) => {
+          if (!state.isDragging) return;
+          if (event && event.pointerId !== undefined && state.dragPointerId !== event.pointerId) return;
+          state.isDragging = false;
+          state.dragPointerId = null;
+        });
+        deactivateManualScroll();
+      }
+
       states.forEach((state, index) => {
+        state.column.addEventListener('pointerdown', (event) => {
+          if (event.pointerType === 'mouse' && event.button !== 0) return;
+          if (!event.target.closest('.test-card')) return;
+          beginColumnDrag(state, event);
+        });
+
+        state.column.addEventListener('pointermove', (event) => {
+          updateColumnDrag(state, event);
+        });
+
         state.column.addEventListener('wheel', (event) => {
           handleWheel(state, scrollMultipliers[index % scrollMultipliers.length], event);
         }, { passive: false });
@@ -5845,6 +5923,14 @@
         state.column.addEventListener('mouseleave', () => {
           state.hoverPaused = false;
         });
+      });
+
+      window.addEventListener('pointerup', (event) => {
+        endColumnDrag(event);
+      });
+
+      window.addEventListener('pointercancel', (event) => {
+        endColumnDrag(event);
       });
 
       window.addEventListener('resize', () => {
@@ -5868,6 +5954,7 @@
       }
 
       measureStates(desktopQuery.matches);
+      deactivateManualScroll();
       startLoop();
     })();
   </script>
