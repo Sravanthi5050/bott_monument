@@ -2682,6 +2682,39 @@
       overflow: hidden;
     }
 
+    .test-columns::before,
+    .test-columns::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 4rem;
+      pointer-events: none;
+      z-index: 5;
+    }
+
+    .test-columns::before {
+      top: -.45rem;
+      background: linear-gradient(
+        to bottom,
+        rgba(229, 219, 203, .97) 0%,
+        rgba(229, 219, 203, .78) 34%,
+        rgba(229, 219, 203, .34) 72%,
+        rgba(229, 219, 203, 0) 100%
+      );
+    }
+
+    .test-columns::after {
+      bottom: -.25rem;
+      background: linear-gradient(
+        to top,
+        rgba(229, 219, 203, .92) 0%,
+        rgba(229, 219, 203, .68) 34%,
+        rgba(229, 219, 203, .26) 72%,
+        rgba(229, 219, 203, 0) 100%
+      );
+    }
+
     .test-col {
       position: relative;
       width: min(320px, 26vw);
