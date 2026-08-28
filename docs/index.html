@@ -2076,13 +2076,18 @@
       max-width: 1400px;
       margin: 0 auto;
     }
-
+  
     .ptw-side {
       display: grid;
-      grid-template-columns: repeat(2, minmax(100px, 150px));
-      gap: 1.5rem 1.3rem;
+      grid-template-columns: minmax(130px, 165px); 
+      justify-items: center;
+      gap: 1.5rem;
       flex-shrink: 0;
-      transform: translateY(-40px);
+      transform: translateY(-24px);
+    }
+
+    .ptw-left {
+      margin-right: clamp(1rem, 1.8vw, 2rem);
     }
 
     .ptw-cover {
@@ -2196,8 +2201,8 @@
 
     @media (max-width: 1200px) {
       .ptw-side {
-        grid-template-columns: repeat(2, minmax(95px, 140px));
-        gap: 1.1rem 1rem;
+        grid-template-columns: minmax(95px, 140px);
+        gap: 1.1rem;
       }
     }
 
@@ -4385,28 +4390,19 @@
       <div class="press-variant" id="pressTriptych">
         <div class="ptw-wrap">
           <div class="ptw-side ptw-left">
-            <button type="button" class="ptw-cover" style="--rot:-4deg" data-img="images/newspaper.jpg" data-title="From the Cover: Brinda" data-pub="By Drew Bott, AICA, CM" data-meta="4 min read">
-              <img src="images/newspaper.jpg" alt="From the Cover: Brinda">
+            <button type="button" class="ptw-cover" style="--rot:-4deg" data-img="images/IMG_2732.jpg" data-title="From the Cover: Brinda" data-pub="By Drew Bott, AICA, CM" data-meta="4 min read">
+              <img src="images/IMG_2732.jpg" alt="From the Cover: Brinda">
             </button>
-            <button type="button" class="ptw-cover" style="--rot:3deg" data-img="images/newspaper.jpg" data-title="Local Craftsman Honored For Excellence In Granite" data-pub="Trade Press" data-meta="3 min read">
-              <img src="images/newspaper.jpg" alt="Local Craftsman Honored For Excellence In Granite">
+            <button type="button" class="ptw-cover" style="--rot:-3deg" data-img="images/IMG_2738.jpg" data-title="Local Craftsman Honored For Excellence In Granite" data-pub="Trade Press" data-meta="3 min read">
+              <img src="images/IMG_2738.jpg" alt="Local Craftsman Honored For Excellence In Granite">
             </button>
-            <button type="button" class="ptw-cover" style="--rot:-2deg" data-img="images/newspaper.jpg" data-title="Serving Families Across Generations" data-pub="Community Spotlight" data-meta="2 min read">
-              <img src="images/newspaper.jpg" alt="Serving Families Across Generations">
-            </button>
-            <button type="button" class="ptw-cover" style="--rot:5deg" data-img="images/newspaper.jpg" data-title="Renowned Studio Earns Top Honors In Memorial Design" data-pub="The Daily Craftsman" data-meta="5 min read">
-              <img src="images/newspaper.jpg" alt="Renowned Studio Earns Top Honors In Memorial Design">
-            </button>
-            <button type="button" class="ptw-cover" style="--rot:-3deg" data-img="images/newspaper.jpg" data-title="Why This Workshop Is Setting The Standard In Granite Artistry" data-pub="North Star Press" data-meta="5 min read">
-              <img src="images/newspaper.jpg" alt="Why This Workshop Is Setting The Standard In Granite Artistry">
-            </button>
-            <button type="button" class="ptw-cover" style="--rot:4deg" data-img="images/newspaper.jpg" data-title="Award-Winning Sculptor Brings Tradition to Modern Grief" data-pub="Rocky Mountain Life" data-meta="6 min read">
-              <img src="images/newspaper.jpg" alt="Award-Winning Sculptor Brings Tradition to Modern Grief">
+            <button type="button" class="ptw-cover" style="--rot:-2deg" data-img="images/IMG_2745.jpg" data-title="Serving Families Across Generations" data-pub="Community Spotlight" data-meta="2 min read">
+              <img src="images/IMG_2745.jpg" alt="Serving Families Across Generations">
             </button>
           </div>
 
           <div class="ptw-center-frame" id="ptwCenterFrame">
-            <img id="ptwCenterImg" src="images/newspaper.jpg" alt="MB News — Cover Feature">
+            <img id="ptwCenterImg" src="images/IMG_2754.jpg" alt="MB News — Cover Feature">
           </div>
 
           <div class="ptw-caption" id="ptwCaption">
@@ -4417,23 +4413,14 @@
           </div>
 
           <div class="ptw-side ptw-right">
-            <button type="button" class="ptw-cover" style="--rot:-3deg" data-img="images/newspaper.jpg" data-title="Behind the Stone: A Family's Legacy in Memorial Art" data-pub="Wyoming Business Journal" data-meta="5 min read">
-              <img src="images/newspaper.jpg" alt="Behind the Stone: A Family's Legacy in Memorial Art">
+            <button type="button" class="ptw-cover" style="--rot:-3deg" data-img="images/IMG_2755.jpg" data-title="Behind the Stone: A Family's Legacy in Memorial Art" data-pub="Wyoming Business Journal" data-meta="5 min read">
+              <img src="images/IMG_2755.jpg" alt="Behind the Stone: A Family's Legacy in Memorial Art">
             </button>
-            <button type="button" class="ptw-cover" style="--rot:4deg" data-img="images/newspaper.jpg" data-title="Crafting Memories in Granite: One Family's Mission" data-pub="Denver Post Feature" data-meta="4 min read">
-              <img src="images/newspaper.jpg" alt="Crafting Memories in Granite: One Family's Mission">
+            <button type="button" class="ptw-cover" style="--rot:-4deg" data-img="images/IMG_2758.jpg" data-title="Crafting Memories in Granite: One Family's Mission" data-pub="Denver Post Feature" data-meta="4 min read">
+              <img src="images/IMG_2758.jpg" alt="Crafting Memories in Granite: One Family's Mission">
             </button>
-            <button type="button" class="ptw-cover" style="--rot:-5deg" data-img="images/newspaper.jpg" data-title="The Art of Remembrance: Bott Monument's Story" data-pub="Mountain States Journal" data-meta="3 min read">
-              <img src="images/newspaper.jpg" alt="The Art of Remembrance: Bott Monument's Story">
-            </button>
-            <button type="button" class="ptw-cover" style="--rot:2deg" data-img="images/newspaper.jpg" data-title="MB News — Cover Feature" data-pub="Monument Builders of North America" data-meta="September 2024">
-              <img src="images/newspaper.jpg" alt="MB News — Cover Feature">
-            </button>
-            <button type="button" class="ptw-cover" style="--rot:-4deg" data-img="images/newspaper.jpg" data-title="From the Cover: Brinda" data-pub="By Drew Bott, AICA, CM" data-meta="4 min read">
-              <img src="images/newspaper.jpg" alt="From the Cover: Brinda">
-            </button>
-            <button type="button" class="ptw-cover" style="--rot:3deg" data-img="images/newspaper.jpg" data-title="Local Craftsman Honored For Excellence In Granite" data-pub="Trade Press" data-meta="3 min read">
-              <img src="images/newspaper.jpg" alt="Local Craftsman Honored For Excellence In Granite">
+            <button type="button" class="ptw-cover" style="--rot:-5deg" data-img="images/IMG_2765.jpg" data-title="The Art of Remembrance: Bott Monument's Story" data-pub="Mountain States Journal" data-meta="3 min read">
+              <img src="images/IMG_2765.jpg" alt="The Art of Remembrance: Bott Monument's Story">
             </button>
           </div>
         </div>
